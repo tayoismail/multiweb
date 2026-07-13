@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Percentage Calculator — Calculate Percentages, Discounts & Tips | MultiWeb</title>
+  <meta name="description" content="Calculate percentages, discounts, tips, and proportions instantly. Free online percentage calculator with multiple modes.">
+  <link rel="canonical" href="https://multiweb.app/percentage-calculator.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Percentage Calculator — Calculate Percentages, Discounts & Tips">
+  <meta property="og:description" content="Calculate percentages, discounts, tips, and proportions instantly. Free and instant.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://multiweb.app/percentage-calculator.html">
+  <meta property="og:image" content="https://multiweb.app/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="MultiWeb">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Percentage Calculator — Calculate Percentages, Discounts & Tips">
+  <meta name="twitter:description" content="Calculate percentages, discounts, tips, and proportions instantly.">
+  <meta name="twitter:image" content="https://multiweb.app/og-default.png">
+  <meta name="theme-color" content="#2563eb">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Percentage Calculator — MultiWeb",
+    "url": "https://multiweb.app/percentage-calculator.html",
+    "description": "Calculate percentages, discounts, tips, and proportions instantly.",
+    "applicationCategory": "CalculatorApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "en-US",
+    "author": { "@type": "Organization", "name": "MultiWeb", "url": "https://multiweb.app/" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+  }
+  </script>
+
+  <link rel="stylesheet" href="common-styles.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+  <style>
+    /* Percentage calculator specific styles */
+    :root {
+      --bg-hero: linear-gradient(135deg, #ef4444 0%, #f59e0b 100%);
+    }
+    .mode-pills{display:flex;gap:4px;background:var(--bg-tag);border-radius:var(--radius-sm);padding:3px;margin-bottom:24px;flex-wrap:wrap}
+    .mode-pills button{padding:8px 16px;font-family:var(--font);font-size:.8125rem;font-weight:600;border:none;border-radius:6px;cursor:pointer;background:transparent;color:var(--text-secondary);transition:background var(--transition),color var(--transition),box-shadow var(--transition);white-space:nowrap}
+    .mode-pills button.active{background:var(--bg-surface);color:var(--text-primary);box-shadow:var(--shadow-sm)}
+    .inputs-row{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:20px}
+    @media(min-width:500px){.inputs-row{grid-template-columns:1fr 1fr}}
+    .input-group{display:flex;flex-direction:column;gap:4px}
+    .input-group label{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted)}
+    .calc-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 28px;font-family:var(--font);font-weight:600;font-size:1.0625rem;line-height:1;background:var(--color-primary);color:var(--text-on-primary);border:2px solid var(--color-primary);border-radius:var(--radius-sm);cursor:pointer;transition:background var(--transition),box-shadow var(--transition),transform var(--transition-fast)}
+    .calc-btn:hover{background:var(--color-primary-dark);border-color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(37,99,235,.35)}
+    .calc-btn:active{transform:scale(.97)}
+    .result-formula{font-size:.75rem;color:var(--text-muted);margin-top:4px;font-family:var(--font)}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://multiweb.app/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Percentage Calculator",
+        "item": "https://multiweb.app/tools/percentage-calculator"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#tool" class="skip-link">Skip to tool</a>
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="index.html" class="navbar-brand" aria-label="MultiWeb home"><span class="logo-icon" aria-hidden="true">M</span> MultiWeb</a>
+      <div class="navbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span class="icon-sun" aria-hidden="true">☀️</span><span class="icon-moon" aria-hidden="true">🌙</span></button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> Tools</a>
+        <a href="about.html" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> About</a>
+        <a href="contact.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> Contact</a>
+        <a href="privacy.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header" aria-label="Tool header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Percentage Calculator</span>
+      </nav>
+      <h1>Percentage Calculator</h1>
+      <p>Calculate percentages, discounts, tips, and proportions instantly — with multiple calculation modes.</p>
+    </div>
+  </section>
+
+  <main id="tool">
+    <section class="section" style="padding-top:0;padding-bottom:32px;" aria-label="Percentage calculator tool">
+      <div class="container">
+        <div class="tool-workspace fade-in">
+          <div class="tool-card">
+
+            <!-- Noscript fallback -->
+            <noscript>
+              <div style="padding:24px;background:var(--color-danger-bg);border-radius:var(--radius-md);text-align:center;margin-bottom:24px;">
+                <p style="font-weight:600;color:var(--color-danger-dark);margin-bottom:8px;">⚠️ JavaScript Required</p>
+                <p style="color:var(--text-secondary);font-size:0.9375rem;">This percentage calculator requires JavaScript to work. Please enable JavaScript in your browser settings and refresh the page.</p>
+              </div>
+            </noscript>
+
+            <div class="mode-pills" id="modePills" role="group" aria-label="Calculator mode">
+              <button class="active" data-mode="what-is">% of Number</button>
+              <button data-mode="is-what">% is What</button>
+              <button data-mode="change">% Change</button>
+              <button data-mode="tip">Tip Calculator</button>
+            </div>
+
+            <!-- Mode: What is X% of Y -->
+            <div id="mode-what-is">
+              <div class="inputs-row">
+                <div class="input-group"><label for="whatPercent">Percentage (%)</label><input type="number" id="whatPercent" class="form-input" placeholder="e.g. 15" step="any"></div>
+                <div class="input-group"><label for="whatOf">of number</label><input type="number" id="whatOf" class="form-input" placeholder="e.g. 200" step="any"></div>
+              </div>
+            </div>
+
+            <!-- Mode: X% is what of Y -->
+            <div id="mode-is-what" style="display:none;">
+              <div class="inputs-row">
+                <div class="input-group"><label for="isWhatPercent">Percentage (%)</label><input type="number" id="isWhatPercent" class="form-input" placeholder="e.g. 25" step="any"></div>
+                <div class="input-group"><label for="isWhatOf">of what number?</label><input type="number" id="isWhatOf" class="form-input" placeholder="e.g. 80" step="any"></div>
+              </div>
+            </div>
+
+            <!-- Mode: % Change -->
+            <div id="mode-change" style="display:none;">
+              <div class="inputs-row">
+                <div class="input-group"><label for="changeFrom">From value</label><input type="number" id="changeFrom" class="form-input" placeholder="e.g. 50" step="any"></div>
+                <div class="input-group"><label for="changeTo">To value</label><input type="number" id="changeTo" class="form-input" placeholder="e.g. 75" step="any"></div>
+              </div>
+            </div>
+
+            <!-- Mode: Tip Calculator -->
+            <div id="mode-tip" style="display:none;">
+              <div class="inputs-row">
+                <div class="input-group"><label for="tipBill">Bill Amount ($)</label><input type="number" id="tipBill" class="form-input" placeholder="e.g. 50" step="any"></div>
+                <div class="input-group"><label for="tipPercent">Tip (%)</label><input type="number" id="tipPercent" class="form-input" placeholder="e.g. 18" step="any"></div>
+              </div>
+              <div class="input-group" style="margin-top:12px;"><label for="tipSplit">Split Between</label><input type="number" id="tipSplit" class="form-input" placeholder="1" min="1" step="1" value="1"></div>
+            </div>
+
+            <div class="error-msg" id="errorMsg" role="alert" aria-live="assertive"></div>
+            <button class="calc-btn" id="calcBtn"><span aria-hidden="true">📊</span> Calculate</button>
+            <div class="result-area" id="resultArea" aria-live="polite" role="status"><div class="result-value" id="resultValue">—</div><div class="result-label" id="resultLabel"></div><div class="result-formula" id="resultFormula"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-label="About percentage calculator">
+      <div class="container">
+        <div class="content-section">
+          <h2 style="margin-bottom:16px;">Percentage Calculator — Calculate Percentages Instantly</h2>
+          <div class="intro-text">
+            <p>A <strong>percentage calculator</strong> is one of the most practical math tools for everyday life. Whether you're calculating a <strong>discount</strong> at the store, figuring out a <strong>tip</strong> at a restaurant, determining what <strong>percent</strong> one number is of another, or computing a <strong>percentage increase or decrease</strong>, this tool makes it fast and effortless.</p>
+            <br>
+            <p>Our free percentage calculator supports <strong>four calculation modes</strong>: finding a percentage of a number, determining what number a percentage represents, calculating percentage change between two values, and computing tips with optional bill splitting.</p>
+          </div>
+          <h2 style="margin-bottom:16px;">How to Use the Percentage Calculator</h2>
+          <ol class="steps-list">
+            <li><div><strong>Choose a calculation mode</strong><span>Select from <strong>% of Number</strong>, <strong>% is What</strong>, <strong>% Change</strong>, or <strong>Tip Calculator</strong> using the mode pills above the input fields.</span></div></li>
+            <li><div><strong>Enter your values</strong><span>Type the numbers into the input fields. The placeholder text shows an example of what to enter.</span></div></li>
+            <li><div><strong>Click Calculate</strong><span>Press the <strong>Calculate</strong> button or hit <strong>Enter</strong> to see your result instantly with the formula used.</span></div></li>
+          </ol>
+          <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item open">
+              <button class="faq-question" aria-expanded="true">How do I calculate a tip?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Switch to <strong>Tip Calculator</strong> mode, enter your bill amount and the tip percentage (e.g. 18% or 20%). You can also split the bill between multiple people. The tool will show the tip amount, total, and per-person cost.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">What is the formula for percentage change?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Percentage change = ((New Value - Old Value) / Old Value) × 100. If the result is positive, it's an increase. If negative, it's a decrease.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">How do I find what percent A is of B?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Use the <strong>% is What</strong> mode. Enter the percentage in the first field and the "of what number" in the second field. The formula is: Result = (Percentage / 100) × Number.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Related tools">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:32px;"><h2 style="font-size:1.75rem;">Related Tools</h2><p style="color:var(--text-secondary);">Try these other free tools from our collection.</p></div>
+        <div class="related-grid">
+          <a href="unit-converter.html" class="related-card"><span class="related-icon" aria-hidden="true">📐</span><h4>Unit Converter</h4><p>Convert between hundreds of units — length, weight, temperature, and more.</p></a>
+          <a href="bmi-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">⚖️</span><h4>BMI Calculator</h4><p>Calculate your Body Mass Index instantly based on height and weight.</p></a>
+          <a href="word-counter.html" class="related-card"><span class="related-icon" aria-hidden="true">📝</span><h4>Word Counter</h4><p>Count words, characters, sentences, and paragraphs in your text.</p></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><h3>MultiWeb</h3><p>Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><nav aria-label="Quick links">            <a href="bmi-calculator.html">BMI Calculator</a>
+            <a href="unit-converter.html">Unit Converter</a>
+            <a href="word-counter.html">Word Counter</a>
+            <a href="qr-generator.html">QR Generator</a></nav></div>
+        <div class="footer-col"><h4>Company</h4><nav aria-label="Company links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></nav></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 MultiWeb. All rights reserved.</span><span>Free online tools for everyone.</span></div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script>
+    (function(){
+      'use strict';
+
+      var currentMode='what-is';
+      var modePills=document.getElementById('modePills').querySelectorAll('button');
+      var modes=['what-is','is-what','change','tip'];
+      var calcBtn=document.getElementById('calcBtn'),errorMsg=document.getElementById('errorMsg'),resultArea=document.getElementById('resultArea'),resultValue=document.getElementById('resultValue'),resultLabel=document.getElementById('resultLabel'),resultFormula=document.getElementById('resultFormula');
+      function showError(msg){errorMsg.textContent=msg;errorMsg.classList.add('visible')}function hideError(){errorMsg.textContent='';errorMsg.classList.remove('visible')}
+
+      modePills.forEach(function(pill){
+        pill.addEventListener('click',function(){
+          modePills.forEach(function(p){p.classList.remove('active')});pill.classList.add('active');
+          currentMode=pill.getAttribute('data-mode');
+          modes.forEach(function(m){document.getElementById('mode-'+m).style.display=m===currentMode?'':'none'});
+          resultArea.classList.remove('visible');hideError();
+        });
+      });
+
+      function calculate(){
+        hideError();resultArea.classList.remove('visible');
+        var a,b,result,label,formula;
+        if(currentMode==='what-is'){
+          a=parseFloat(document.getElementById('whatPercent').value);b=parseFloat(document.getElementById('whatOf').value);
+          if(isNaN(a)||isNaN(b)){showError('Please enter valid numbers.');return}
+          result=(a/100)*b;label=a+'% of '+b+' = '+result;formula='('+a+' / 100) × '+b+' = '+result;
+        }else if(currentMode==='is-what'){
+          a=parseFloat(document.getElementById('isWhatPercent').value);b=parseFloat(document.getElementById('isWhatOf').value);
+          if(isNaN(a)||isNaN(b)){showError('Please enter valid numbers.');return}
+          if(b===0){showError('The "of what number" value cannot be zero.');return}
+          result=(a/b)*100;label=a+' is '+result.toFixed(2)+'% of '+b;formula='('+a+' / '+b+') × 100 = '+result.toFixed(2)+'%';
+        }else if(currentMode==='change'){
+          a=parseFloat(document.getElementById('changeFrom').value);b=parseFloat(document.getElementById('changeTo').value);
+          if(isNaN(a)||isNaN(b)){showError('Please enter valid numbers.');return}
+          if(a===0){showError('The "from" value cannot be zero.');return}
+          result=((b-a)/a)*100;var sign=result>=0?'+':'';label='Change: '+sign+result.toFixed(2)+'%';formula='(('+b+' - '+a+') / '+a+') × 100 = '+sign+result.toFixed(2)+'%';
+        }else if(currentMode==='tip'){
+          a=parseFloat(document.getElementById('tipBill').value);b=parseFloat(document.getElementById('tipPercent').value);var split=parseInt(document.getElementById('tipSplit').value,10)||1;
+          if(isNaN(a)||isNaN(b)){showError('Please enter valid bill amount and tip percentage.');return}
+          var tip=a*(b/100);var total=a+tip;var perPerson=total/split;
+          result='$'+total.toFixed(2);label='Tip: $'+tip.toFixed(2)+' | Total: $'+total.toFixed(2)+(split>1?' | Per person: $'+perPerson.toFixed(2):'');formula='Tip = $'+a.toFixed(2)+' × '+b+'% = $'+tip.toFixed(2);
+        }
+        resultValue.textContent=result;resultLabel.textContent=label;resultFormula.textContent=formula;resultArea.classList.add('visible');
+      }
+      calcBtn.addEventListener('click',calculate);
+      document.querySelectorAll('.form-input').forEach(function(el){el.addEventListener('keydown',function(e){if(e.key==='Enter')calculate()})});
+    })();
+  </script>
+</body>
+</html>
