@@ -110,7 +110,8 @@
   // ===== Register Service Worker =====
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
-      navigator.serviceWorker.register('/sw.js').catch(function (err) {
+      // Use relative path to support both root domains and subdirectories (GitHub Pages)
+      navigator.serviceWorker.register('sw.js').catch(function (err) {
         console.warn('Service worker registration failed:', err);
       });
     });

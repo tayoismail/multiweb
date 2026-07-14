@@ -4,23 +4,23 @@
  */
 var CACHE_NAME = 'multiweb-v1';
 var urlsToCache = [
-  '/',
-  '/index.html',
-  '/common-styles.css',
-  '/common.js',
-  '/logo.svg',
-  '/bmi-calculator.html',
-  '/unit-converter.html',
-  '/qr-generator.html',
-  '/word-counter.html',
-  '/percentage-calculator.html',
-  '/password-generator.html',
-  '/image-converter.html',
-  '/word-unscrambler.html',
-  '/about.html',
-  '/contact.html',
-  '/privacy.html',
-  '/404.html'
+  './',
+  './index.html',
+  './common-styles.css',
+  './common.js',
+  './logo.svg',
+  './bmi-calculator.html',
+  './unit-converter.html',
+  './qr-generator.html',
+  './word-counter.html',
+  './percentage-calculator.html',
+  './password-generator.html',
+  './image-converter.html',
+  './word-unscrambler.html',
+  './about.html',
+  './contact.html',
+  './privacy.html',
+  './404.html'
 ];
 
 // Install: cache all critical assets
@@ -77,7 +77,7 @@ self.addEventListener('fetch', function (event) {
         }).catch(function () {
           // If offline and not cached, return a basic offline message for navigation requests
           if (event.request.mode === 'navigate') {
-            return caches.match('/404.html');
+            return caches.match('./404.html');
           }
         });
       })
