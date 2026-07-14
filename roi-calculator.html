@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROI Calculator — Calculate Return on Investment | MultiWeb</title>
+  <meta name="description" content="Calculate the return on investment (ROI) for any project, purchase, or investment. Free online ROI calculator with instant results.">
+  <link rel="canonical" href="https://multiweb.app/roi-calculator.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="ROI Calculator — Calculate Return on Investment">
+  <meta property="og:description" content="Calculate the return on investment for any project, purchase, or investment.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://multiweb.app/roi-calculator.html">
+  <meta property="og:image" content="https://multiweb.app/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="MultiWeb">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ROI Calculator — Calculate Return on Investment">
+  <meta name="twitter:description" content="Calculate ROI for any project or investment.">
+  <meta name="twitter:image" content="https://multiweb.app/og-default.png">
+  <meta name="theme-color" content="#2563eb">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "ROI Calculator — MultiWeb",
+    "url": "https://multiweb.app/roi-calculator.html",
+    "description": "Calculate the return on investment for any project, purchase, or investment.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "en-US",
+    "author": { "@type": "Organization", "name": "MultiWeb", "url": "https://multiweb.app/" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+  }
+  </script>
+
+  <link rel="stylesheet" href="common-styles.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+  <style>
+    .inputs-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:4px}
+    @media(min-width:500px){.inputs-grid{grid-template-columns:1fr 1fr}}
+    .input-group{display:flex;flex-direction:column;gap:4px}
+    .input-group label{font-size:.8125rem;font-weight:600;color:var(--text-primary)}
+    .input-group .hint{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .form-input{width:100%;padding:12px 14px;font-family:var(--font);font-size:1.0625rem;color:var(--text-primary);background:var(--bg-surface);border:1.5px solid var(--border-light);border-radius:var(--radius-sm);outline:none;transition:border-color var(--transition),box-shadow var(--transition)}
+    .form-input:focus{border-color:var(--color-primary);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+    .calc-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 28px;margin-top:20px;font-family:var(--font);font-weight:600;font-size:1.0625rem;line-height:1;background:var(--color-primary);color:var(--text-on-primary);border:2px solid var(--color-primary);border-radius:var(--radius-sm);cursor:pointer;transition:background var(--transition),box-shadow var(--transition),transform var(--transition-fast)}
+    .calc-btn:hover{background:var(--color-primary-dark);border-color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(37,99,235,.35)}
+    .calc-btn:active{transform:scale(.97)}
+    .result-area{display:none;margin-top:24px;border:1px solid var(--border-light);border-radius:var(--radius-md);overflow:hidden}
+    .result-area.visible{display:block}
+    .result-header{background:var(--bg-tag);padding:20px 24px;text-align:center}
+    .result-label{font-size:.875rem;color:var(--text-secondary);margin-bottom:4px}
+    .result-value{font-size:2.5rem;font-weight:800;line-height:1}
+    .result-value.positive{color:var(--color-success)}
+    .result-value.negative{color:var(--color-danger)}
+    .result-details{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border-light)}
+    .result-item{padding:16px 24px;border-bottom:1px solid var(--border-light)}
+    .result-item:nth-child(odd){border-right:1px solid var(--border-light)}
+    .result-item-label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);margin-bottom:2px}
+    .result-item-value{font-size:1rem;font-weight:600}
+    .roi-bar{height:24px;border-radius:12px;background:var(--border-light);margin:16px 24px 8px;overflow:hidden;position:relative}
+    .roi-bar .positive-bar{background:var(--color-success);height:100%;border-radius:12px;transition:width var(--transition)}
+    .roi-bar .negative-bar{background:var(--color-danger);height:100%;border-radius:12px;transition:width var(--transition)}
+    .roi-legend{display:flex;justify-content:space-between;padding:0 24px 20px;font-size:.8125rem;color:var(--text-muted)}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://multiweb.app/" },
+      { "@type": "ListItem", "position": 2, "name": "ROI Calculator", "item": "https://multiweb.app/roi-calculator.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#tool" class="skip-link">Skip to tool</a>
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="index.html" class="navbar-brand" aria-label="MultiWeb home"><span class="logo-icon" aria-hidden="true">M</span> MultiWeb</a>
+      <div class="navbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span class="icon-sun" aria-hidden="true">☀️</span><span class="icon-moon" aria-hidden="true">🌙</span></button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> Tools</a>
+        <a href="about.html" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> About</a>
+        <a href="contact.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> Contact</a>
+        <a href="privacy.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header" aria-label="Tool header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">ROI Calculator</span>
+      </nav>
+      <h1>ROI Calculator</h1>
+      <p>Calculate the return on investment for any project, purchase, or financial decision.</p>
+    </div>
+  </section>
+
+  <main id="tool">
+    <section class="section" style="padding-top:0;padding-bottom:32px;" aria-label="ROI calculator tool">
+      <div class="container">
+        <div class="tool-workspace fade-in">
+          <div class="tool-card">
+            <noscript>
+              <div style="padding:24px;background:var(--color-danger-bg);border-radius:var(--radius-md);text-align:center;margin-bottom:24px;">
+                <p style="font-weight:600;color:var(--color-danger-dark);margin-bottom:8px;">⚠️ JavaScript Required</p>
+                <p style="color:var(--text-secondary);font-size:0.9375rem;">This calculator requires JavaScript to work.</p>
+              </div>
+            </noscript>
+
+            <div class="inputs-grid">
+              <div class="input-group">
+                <label for="initialInvestment">Initial Investment ($)</label>
+                <input type="number" id="initialInvestment" class="form-input" placeholder="e.g. 10000" min="0" step="any">
+                <div class="hint">How much you invested or spent</div>
+              </div>
+              <div class="input-group">
+                <label for="finalValue">Final Value / Return ($)</label>
+                <input type="number" id="finalValue" class="form-input" placeholder="e.g. 15000" min="0" step="any">
+                <div class="hint">How much you received back</div>
+              </div>
+              <div class="input-group">
+                <label for="additionalCosts">Additional Costs ($)</label>
+                <input type="number" id="additionalCosts" class="form-input" placeholder="e.g. 500 (optional)" min="0" step="any" value="0">
+                <div class="hint">Fees, taxes, maintenance, etc.</div>
+              </div>
+              <div class="input-group">
+                <label for="timePeriod">Time Period (years)</label>
+                <input type="number" id="timePeriod" class="form-input" placeholder="e.g. 3" min="0" step="any" value="1">
+                <div class="hint">Optional: for annualized ROI calculation</div>
+              </div>
+            </div>
+
+            <div class="error-msg" id="errorMsg" role="alert" aria-live="assertive"></div>
+            <button class="calc-btn" id="calcBtn"><span aria-hidden="true">📈</span> Calculate ROI</button>
+
+            <div class="result-area" id="resultArea" aria-live="polite" role="status">
+              <div class="result-header">
+                <div class="result-label">Return on Investment</div>
+                <div class="result-value" id="roiValue">—</div>
+              </div>
+              <div class="result-details">
+                <div class="result-item">
+                  <div class="result-item-label">Net Profit/Loss</div>
+                  <div class="result-item-value" id="netProfit">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Total Investment</div>
+                  <div class="result-item-value" id="totalInvestment">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Annualized ROI</div>
+                  <div class="result-item-value" id="annualizedROI">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Multiple Returned</div>
+                  <div class="result-item-value" id="multipleReturned">—</div>
+                </div>
+              </div>
+              <div class="roi-bar" id="roiBar"><div class="positive-bar" id="roiBarFill" style="width:50%"></div></div>
+              <div class="roi-legend"><span>Loss</span><span id="roiLegend">50% ROI</span><span>Profit</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-label="About ROI calculator">
+      <div class="container">
+        <div class="content-section">
+          <h2 style="margin-bottom:16px;">ROI Calculator — Calculate Return on Investment</h2>
+          <div class="intro-text">
+            <p><strong>Return on Investment (ROI)</strong> is the most widely used metric for evaluating the efficiency of an investment. Our ROI Calculator helps you quickly determine whether a financial decision was profitable — and by how much. Whether you're analyzing stock returns, evaluating a business project, comparing marketing campaigns, or assessing real estate purchases, this tool gives you instant insights.</p>
+            <br>
+            <p>Simply enter your initial investment, final value, and any additional costs to see your ROI percentage, net profit or loss, and (optionally) your annualized return over multiple years. The visual bar shows you at a glance whether your investment was a winner or loser.</p>
+          </div>
+
+          <div class="formula-box">
+            <h3>The ROI Formula</h3>
+            <div class="formula">ROI = (Net Profit / Cost of Investment) × 100</div>
+            <div class="formula">ROI = [(Final Value - Initial Investment - Additional Costs) / (Initial Investment + Additional Costs)] × 100</div>
+            <div class="formula-example"><strong>Example:</strong> Invested $10,000, received $15,000, paid $500 in fees: ROI = ($15,000 - $10,000 - $500) / ($10,000 + $500) × 100 = <strong>42.9%</strong></div>
+          </div>
+
+          <h2 style="margin-bottom:16px;">How to Use the ROI Calculator</h2>
+          <ol class="steps-list">
+            <li><div><strong>Enter initial investment</strong><span>Type the total amount you invested or spent upfront.</span></div></li>
+            <li><div><strong>Enter final value</strong><span>Input the total amount you received back (sale price, returns, etc.).</span></div></li>
+            <li><div><strong>Add additional costs</strong><span>Include any fees, taxes, commissions, or ongoing costs associated with the investment.</span></div></li>
+            <li><div><strong>Set time period (optional)</strong><span>Enter the number of years to calculate annualized ROI for multi-year investments.</span></div></li>
+            <li><div><strong>Click Calculate</strong><span>See your ROI percentage, net profit, annualized return, and multiple returned.</span></div></li>
+          </ol>
+
+          <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item open">
+              <button class="faq-question" aria-expanded="true">What is a good ROI?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>A "good" ROI depends on the investment type and risk level. The stock market historically returns <strong>7-10% annually</strong>. Real estate typically yields 8-12%. High-risk ventures may target 20%+. Always compare your ROI to the opportunity cost — could you earn more elsewhere with similar risk?</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">How is ROI different from annualized return?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p><strong>Simple ROI</strong> shows total return over the entire period. <strong>Annualized ROI</strong> (CAGR) shows the average annual return rate, which is better for comparing investments of different durations. A 50% ROI over 5 years (8.4% annualized) is less impressive than 50% over 1 year (50% annualized).</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">What are the limitations of ROI?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>ROI doesn't account for <strong>time value of money</strong> (use NPV instead), <strong>risk</strong>, or <strong>opportunity cost</strong>. It also doesn't consider the timing of cash flows. For a more complete picture, combine ROI with other metrics like IRR (Internal Rate of Return) and payback period.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Related tools">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:32px;"><h2 style="font-size:1.75rem;">Related Tools</h2><p style="color:var(--text-secondary);">Try these other free finance calculators.</p></div>
+        <div class="related-grid">
+          <a href="investment-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">📊</span><h4>Investment Growth Calculator</h4><p>See how your investments grow with compound interest.</p></a>
+          <a href="profit-margin-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">💰</span><h4>Profit Margin Calculator</h4><p>Calculate profit margin and gross profit.</p></a>
+          <a href="break-even-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">⚖️</span><h4>Break-Even Calculator</h4><p>Find out how many units you need to sell.</p></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><h3>MultiWeb</h3><p>Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><nav aria-label="Quick links"><a href="bmi-calculator.html">BMI Calculator</a><a href="unit-converter.html">Unit Converter</a><a href="word-counter.html">Word Counter</a><a href="qr-generator.html">QR Generator</a></nav></div>
+        <div class="footer-col"><h4>Company</h4><nav aria-label="Company links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></nav></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 MultiWeb. All rights reserved.</span><span>Free online tools for everyone.</span></div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script>
+    (function(){
+      'use strict';
+      var calcBtn=document.getElementById('calcBtn'),errorMsg=document.getElementById('errorMsg'),resultArea=document.getElementById('resultArea');
+      
+      function showError(msg){errorMsg.textContent=msg;errorMsg.classList.add('visible')}
+      function hideError(){errorMsg.textContent='';errorMsg.classList.remove('visible')}
+      
+      function calculate(){
+        hideError();resultArea.classList.remove('visible');
+        var initial=parseFloat(document.getElementById('initialInvestment').value);
+        var finalVal=parseFloat(document.getElementById('finalValue').value);
+        var additionalCosts=parseFloat(document.getElementById('additionalCosts').value)||0;
+        var timePeriod=parseFloat(document.getElementById('timePeriod').value)||1;
+        
+        if(isNaN(initial)||initial<=0){showError('Please enter a valid initial investment.');return}
+        if(isNaN(finalVal)||finalVal<0){showError('Please enter a valid final value.');return}
+        if(timePeriod<=0){showError('Time period must be greater than 0.');return}
+        
+        var totalInvestment=initial+additionalCosts;
+        var netProfit=finalVal-totalInvestment;
+        var roi=(netProfit/totalInvestment)*100;
+        var annualizedROI=(Math.pow(finalVal/totalInvestment,1/timePeriod)-1)*100;
+        var multiple=finalVal/totalInvestment;
+        
+        var roiValue=document.getElementById('roiValue');
+        roiValue.textContent=roi.toFixed(1)+'%';
+        roiValue.className='result-value '+(roi>=0?'positive':'negative');
+        
+        document.getElementById('netProfit').textContent=(netProfit>=0?'+':'')+netProfit.toLocaleString('en-US',{style:'currency',currency:'USD',minimumFractionDigits:2,maximumFractionDigits:2});
+        document.getElementById('netProfit').style.color=netProfit>=0?'var(--color-success)':'var(--color-danger)';
+        document.getElementById('totalInvestment').textContent='$'+totalInvestment.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+        document.getElementById('annualizedROI').textContent=annualizedROI.toFixed(1)+'%/year';
+        document.getElementById('multipleReturned').textContent=multiple.toFixed(2)+'x';
+        
+        var roiBarFill=document.getElementById('roiBarFill');
+        var barWidth=Math.min(Math.abs(roi),100);
+        roiBarFill.style.width=barWidth+'%';
+        roiBarFill.className=roi>=0?'positive-bar':'negative-bar';
+        document.getElementById('roiLegend').textContent=Math.abs(roi).toFixed(1)+'% '+(roi>=0?'profit':'loss');
+        
+        resultArea.classList.add('visible');
+      }
+      
+      calcBtn.addEventListener('click',calculate);
+      document.querySelectorAll('.form-input').forEach(function(el){el.addEventListener('keydown',function(e){if(e.key==='Enter')calculate()})});
+    })();
+  </script>
+</body>
+</html>

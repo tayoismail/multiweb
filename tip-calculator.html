@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tip Calculator — Calculate Tips and Split Bills Easily | MultiWeb</title>
+  <meta name="description" content="Calculate tips instantly and split bills between friends. Free online tip calculator with custom tip percentages.">
+  <link rel="canonical" href="https://multiweb.app/tip-calculator.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Tip Calculator — Calculate Tips and Split Bills Easily">
+  <meta property="og:description" content="Calculate tips instantly and split bills between friends.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://multiweb.app/tip-calculator.html">
+  <meta property="og:image" content="https://multiweb.app/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="MultiWeb">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tip Calculator — Calculate Tips and Split Bills Easily">
+  <meta name="twitter:description" content="Calculate tips instantly and split bills between friends.">
+  <meta name="twitter:image" content="https://multiweb.app/og-default.png">
+  <meta name="theme-color" content="#2563eb">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Tip Calculator — MultiWeb",
+    "url": "https://multiweb.app/tip-calculator.html",
+    "description": "Calculate tips instantly and split bills between friends.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "en-US",
+    "author": { "@type": "Organization", "name": "MultiWeb", "url": "https://multiweb.app/" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+  }
+  </script>
+
+  <link rel="stylesheet" href="common-styles.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+  <style>
+    .tip-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+    .tip-pills button{padding:10px 20px;font-family:var(--font);font-size:.9375rem;font-weight:600;border:2px solid var(--border-light);border-radius:var(--radius-sm);cursor:pointer;background:var(--bg-surface);color:var(--text-secondary);transition:all var(--transition)}
+    .tip-pills button.active{background:var(--color-primary);color:#fff;border-color:var(--color-primary)}
+    .inputs-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:4px}
+    @media(min-width:500px){.inputs-grid{grid-template-columns:1fr 1fr}}
+    .input-group{display:flex;flex-direction:column;gap:4px}
+    .input-group label{font-size:.8125rem;font-weight:600;color:var(--text-primary)}
+    .form-input{width:100%;padding:12px 14px;font-family:var(--font);font-size:1.0625rem;color:var(--text-primary);background:var(--bg-surface);border:1.5px solid var(--border-light);border-radius:var(--radius-sm);outline:none;transition:border-color var(--transition),box-shadow var(--transition)}
+    .form-input:focus{border-color:var(--color-primary);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+    .result-area{display:none;margin-top:24px;border:1px solid var(--border-light);border-radius:var(--radius-md);overflow:hidden}
+    .result-area.visible{display:block}
+    .result-header{background:var(--bg-tag);padding:20px 24px;text-align:center}
+    .result-label{font-size:.875rem;color:var(--text-secondary);margin-bottom:4px}
+    .result-value{font-size:2.5rem;font-weight:800;color:var(--color-primary);line-height:1}
+    .result-details{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border-light)}
+    .result-item{padding:16px 24px;border-bottom:1px solid var(--border-light)}
+    .result-item:nth-child(odd){border-right:1px solid var(--border-light)}
+    .result-item-label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);margin-bottom:2px}
+    .result-item-value{font-size:1rem;font-weight:600}
+    .split-note{text-align:center;padding:12px 24px;background:var(--color-success-bg);color:var(--color-success-dark);font-size:.875rem;font-weight:600;border-top:1px solid var(--border-light)}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://multiweb.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Tip Calculator", "item": "https://multiweb.app/tip-calculator.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#tool" class="skip-link">Skip to tool</a>
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="index.html" class="navbar-brand" aria-label="MultiWeb home"><span class="logo-icon" aria-hidden="true">M</span> MultiWeb</a>
+      <div class="navbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span class="icon-sun" aria-hidden="true">☀️</span><span class="icon-moon" aria-hidden="true">🌙</span></button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> Tools</a>
+        <a href="about.html" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> About</a>
+        <a href="contact.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> Contact</a>
+        <a href="privacy.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header" aria-label="Tool header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Tip Calculator</span>
+      </nav>
+      <h1>Tip Calculator</h1>
+      <p>Calculate tips instantly and split bills between friends. Never struggle with math at restaurants again.</p>
+    </div>
+  </section>
+
+  <main id="tool">
+    <section class="section" style="padding-top:0;padding-bottom:32px;" aria-label="Tip calculator tool">
+      <div class="container">
+        <div class="tool-workspace fade-in">
+          <div class="tool-card">
+            <noscript>
+              <div style="padding:24px;background:var(--color-danger-bg);border-radius:var(--radius-md);text-align:center;margin-bottom:24px;">
+                <p style="font-weight:600;color:var(--color-danger-dark);margin-bottom:8px;">⚠️ JavaScript Required</p>
+                <p style="color:var(--text-secondary);font-size:0.9375rem;">This calculator requires JavaScript to work.</p>
+              </div>
+            </noscript>
+
+            <div class="input-group" style="margin-bottom:16px;">
+              <label for="billAmount">Bill Amount ($)</label>
+              <input type="number" id="billAmount" class="form-input" placeholder="e.g. 85.50" min="0" step="any">
+            </div>
+
+            <div class="input-group" style="margin-bottom:16px;">
+              <label>Tip Percentage</label>
+              <div class="tip-pills" id="tipPills">
+                <button data-tip="10">10%</button>
+                <button data-tip="15">15%</button>
+                <button data-tip="18" class="active">18%</button>
+                <button data-tip="20">20%</button>
+                <button data-tip="25">25%</button>
+                <button data-tip="custom">Custom</button>
+              </div>
+              <input type="number" id="customTip" class="form-input" placeholder="Enter custom %" min="0" max="100" step="any" style="display:none;">
+            </div>
+
+            <div class="inputs-grid">
+              <div class="input-group">
+                <label for="splitCount">Split Between</label>
+                <input type="number" id="splitCount" class="form-input" placeholder="1" min="1" max="100" step="1" value="1">
+              </div>
+              <div class="input-group">
+                <label for="roundUp">Round Up Total?</label>
+                <select id="roundUp" class="form-input">
+                  <option value="no">No</option>
+                  <option value="nearest">Nearest dollar</option>
+                  <option value="up">Round up</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="result-area" id="resultArea" aria-live="polite" role="status">
+              <div class="result-header">
+                <div class="result-label">Total Bill</div>
+                <div class="result-value" id="totalBill">—</div>
+              </div>
+              <div class="result-details">
+                <div class="result-item">
+                  <div class="result-item-label">Tip Amount</div>
+                  <div class="result-item-value" id="tipAmount">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Tip Percentage</div>
+                  <div class="result-item-value" id="tipPercentage">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Per Person (Bill)</div>
+                  <div class="result-item-value" id="perPersonBill">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Per Person (Tip)</div>
+                  <div class="result-item-value" id="perPersonTip">—</div>
+                </div>
+              </div>
+              <div class="split-note" id="splitNote" style="display:none;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-label="About tip calculator">
+      <div class="container">
+        <div class="content-section">
+          <h2 style="margin-bottom:16px;">Tip Calculator — Calculate Tips and Split Bills Easily</h2>
+          <div class="intro-text">
+            <p>Our <strong>Tip Calculator</strong> makes calculating tips and splitting bills effortless. Whether you're dining solo, with a partner, or with a large group, this tool instantly computes the tip amount, total bill, and per-person cost. No more awkward mental math or fumbling with your phone at the table.</p>
+            <br>
+            <p>Choose from common tip percentages (10%, 15%, 18%, 20%, 25%) or enter a custom percentage. Split the bill between up to 100 people, and optionally round up the total to the nearest dollar for cleaner splitting. The tool updates in real-time as you type, so you always see the current numbers.</p>
+          </div>
+
+          <h2 style="margin-bottom:16px;">How to Use the Tip Calculator</h2>
+          <ol class="steps-list">
+            <li><div><strong>Enter the bill amount</strong><span>Type the total bill amount before tip (e.g., $85.50).</span></div></li>
+            <li><div><strong>Select tip percentage</strong><span>Choose from the preset buttons or click "Custom" to enter your own percentage.</span></div></li>
+            <li><div><strong>Split the bill</strong><span>Enter how many people are splitting the bill. The per-person amount updates automatically.</span></div></li>
+            <li><div><strong>Optional: Round up</strong><span>Choose to round the total to the nearest dollar or round up for easier splitting.</span></div></li>
+          </ol>
+
+          <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item open">
+              <button class="faq-question" aria-expanded="true">How much should I tip?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Standard tipping in the US: <strong>15-20%</strong> at restaurants, <strong>15%</strong> for takeout, <strong>$1-2 per drink</strong> at bars, <strong>15-20%</strong> for haircuts, and <strong>$2-5</strong> for delivery. In countries where tipping isn't customary (Japan, Australia), it's generally not expected.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">Should I tip before or after tax?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Traditionally, tips are calculated on the <strong>pre-tax amount</strong>. However, many people tip on the post-tax total for convenience. Both approaches are acceptable — the difference is usually small.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">How do I split the bill fairly at a group dinner?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Use this calculator to split evenly, or for fairness, each person can calculate their own portion based on what they ordered. Apps like Venmo or Zelle make it easy to collect individual amounts. Consider designating one person to pay and having everyone else reimburse them.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Related tools">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:32px;"><h2 style="font-size:1.75rem;">Related Tools</h2><p style="color:var(--text-secondary);">Try these other free finance calculators.</p></div>
+        <div class="related-grid">
+          <a href="percentage-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">%</span><h4>Percentage Calculator</h4><p>Calculate percentages, discounts, and proportions.</p></a>
+          <a href="discount-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">🏷️</span><h4>Discount Calculator</h4><p>Find the final price after applying discounts.</p></a>
+          <a href="sales-tax-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">🧾</span><h4>Sales Tax Calculator</h4><p>Calculate sales tax for any purchase.</p></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><h3>MultiWeb</h3><p>Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><nav aria-label="Quick links"><a href="bmi-calculator.html">BMI Calculator</a><a href="unit-converter.html">Unit Converter</a><a href="word-counter.html">Word Counter</a><a href="qr-generator.html">QR Generator</a></nav></div>
+        <div class="footer-col"><h4>Company</h4><nav aria-label="Company links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></nav></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 MultiWeb. All rights reserved.</span><span>Free online tools for everyone.</span></div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script>
+    (function(){
+      'use strict';
+      var billAmount=document.getElementById('billAmount'),tipPills=document.getElementById('tipPills').querySelectorAll('button'),customTip=document.getElementById('customTip'),splitCount=document.getElementById('splitCount'),roundUp=document.getElementById('roundUp'),resultArea=document.getElementById('resultArea');
+      var selectedTip=18;
+      
+      tipPills.forEach(function(pill){
+        pill.addEventListener('click',function(){
+          tipPills.forEach(function(p){p.classList.remove('active')});pill.classList.add('active');
+          var tip=pill.getAttribute('data-tip');
+          if(tip==='custom'){customTip.style.display='block';customTip.focus();selectedTip=parseFloat(customTip.value)||0;}
+          else{customTip.style.display='none';selectedTip=parseFloat(tip);}
+          calculate();
+        });
+      });
+      
+      customTip.addEventListener('input',function(){selectedTip=parseFloat(customTip.value)||0;calculate()});
+      billAmount.addEventListener('input',calculate);
+      splitCount.addEventListener('input',calculate);
+      roundUp.addEventListener('change',calculate);
+      
+      function calculate(){
+        var bill=parseFloat(billAmount.value)||0;
+        var tip=selectedTip/100;
+        var split=parseInt(splitCount.value,10)||1;
+        var tipAmount=bill*tip;
+        var total=bill+tipAmount;
+        
+        if(roundUp.value==='nearest'){total=Math.round(total);}
+        else if(roundUp.value==='up'){total=Math.ceil(total);}
+        
+        var perPersonBill=total/split;
+        var perPersonTip=tipAmount/split;
+        
+        document.getElementById('totalBill').textContent='$'+total.toFixed(2);
+        document.getElementById('tipAmount').textContent='$'+tipAmount.toFixed(2);
+        document.getElementById('tipPercentage').textContent=selectedTip.toFixed(1)+'%';
+        document.getElementById('perPersonBill').textContent='$'+perPersonBill.toFixed(2);
+        document.getElementById('perPersonTip').textContent='$'+perPersonTip.toFixed(2);
+        
+        var splitNote=document.getElementById('splitNote');
+        if(split>1){splitNote.style.display='block';splitNote.textContent='Each person pays $'+perPersonBill.toFixed(2)+' (including $'+perPersonTip.toFixed(2)+' tip)';}
+        else{splitNote.style.display='none';}
+        
+        resultArea.classList.add('visible');
+      }
+      
+      billAmount.addEventListener('keydown',function(e){if(e.key==='Enter')calculate()});
+      calculate();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retirement Savings Calculator — Plan Your Retirement Corpus Today | MultiWeb</title>
+  <meta name="description" content="Estimate how much you need to save for retirement. Calculate your retirement corpus based on current age, expenses, and expected returns.">
+  <link rel="canonical" href="https://multiweb.app/retirement-calculator.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Retirement Savings Calculator — Plan Your Retirement Corpus Today">
+  <meta property="og:description" content="Estimate how much you need to save for retirement. Plan your financial future with confidence.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://multiweb.app/retirement-calculator.html">
+  <meta property="og:image" content="https://multiweb.app/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="MultiWeb">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Retirement Savings Calculator — Plan Your Retirement Corpus Today">
+  <meta name="twitter:description" content="Estimate how much you need to save for retirement.">
+  <meta name="twitter:image" content="https://multiweb.app/og-default.png">
+  <meta name="theme-color" content="#2563eb">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Retirement Savings Calculator — MultiWeb",
+    "url": "https://multiweb.app/retirement-calculator.html",
+    "description": "Estimate how much you need to save for retirement. Plan your financial future with confidence.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "en-US",
+    "author": { "@type": "Organization", "name": "MultiWeb", "url": "https://multiweb.app/" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+  }
+  </script>
+
+  <link rel="stylesheet" href="common-styles.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+  <style>
+    .inputs-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:4px}
+    @media(min-width:500px){.inputs-grid{grid-template-columns:1fr 1fr}}
+    .input-group{display:flex;flex-direction:column;gap:4px}
+    .input-group label{font-size:.8125rem;font-weight:600;color:var(--text-primary)}
+    .form-input{width:100%;padding:12px 14px;font-family:var(--font);font-size:1.0625rem;color:var(--text-primary);background:var(--bg-surface);border:1.5px solid var(--border-light);border-radius:var(--radius-sm);outline:none;transition:border-color var(--transition),box-shadow var(--transition)}
+    .form-input:focus{border-color:var(--color-primary);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+    .form-input::placeholder{color:var(--text-muted);font-size:.875rem}
+    .calc-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 28px;margin-top:20px;font-family:var(--font);font-weight:600;font-size:1.0625rem;line-height:1;background:var(--color-primary);color:var(--text-on-primary);border:2px solid var(--color-primary);border-radius:var(--radius-sm);cursor:pointer;transition:background var(--transition),box-shadow var(--transition),transform var(--transition-fast)}
+    .calc-btn:hover{background:var(--color-primary-dark);border-color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(37,99,235,.35)}
+    .calc-btn:active{transform:scale(.97)}
+    .result-area{display:none;margin-top:24px;border:1px solid var(--border-light);border-radius:var(--radius-md);overflow:hidden}
+    .result-area.visible{display:block}
+    .result-header{background:var(--bg-tag);padding:20px 24px;text-align:center}
+    .result-label{font-size:.875rem;color:var(--text-secondary);margin-bottom:4px}
+    .result-value{font-size:2.5rem;font-weight:800;color:var(--color-primary);line-height:1}
+    .result-details{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border-light)}
+    .result-item{padding:16px 24px;border-bottom:1px solid var(--border-light)}
+    .result-item:nth-child(odd){border-right:1px solid var(--border-light)}
+    .result-item-label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);margin-bottom:2px}
+    .result-item-value{font-size:1rem;font-weight:600}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://multiweb.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Retirement Calculator", "item": "https://multiweb.app/retirement-calculator.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#tool" class="skip-link">Skip to tool</a>
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="index.html" class="navbar-brand" aria-label="MultiWeb home"><span class="logo-icon" aria-hidden="true">M</span> MultiWeb</a>
+      <div class="navbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span class="icon-sun" aria-hidden="true">☀️</span><span class="icon-moon" aria-hidden="true">🌙</span></button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> Tools</a>
+        <a href="about.html" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> About</a>
+        <a href="contact.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> Contact</a>
+        <a href="privacy.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header" aria-label="Tool header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Retirement Calculator</span>
+      </nav>
+      <h1>Retirement Savings Calculator</h1>
+      <p>Estimate how much you need to save for retirement based on your current age, expenses, and expected returns.</p>
+    </div>
+  </section>
+
+  <main id="tool">
+    <section class="section" style="padding-top:0;padding-bottom:32px;" aria-label="Retirement calculator tool">
+      <div class="container">
+        <div class="tool-workspace fade-in">
+          <div class="tool-card">
+            <noscript>
+              <div style="padding:24px;background:var(--color-danger-bg);border-radius:var(--radius-md);text-align:center;margin-bottom:24px;">
+                <p style="font-weight:600;color:var(--color-danger-dark);margin-bottom:8px;">⚠️ JavaScript Required</p>
+                <p style="color:var(--text-secondary);font-size:0.9375rem;">This calculator requires JavaScript to work.</p>
+              </div>
+            </noscript>
+
+            <div class="inputs-grid">
+              <div class="input-group">
+                <label for="currentAge">Current Age</label>
+                <input type="number" id="currentAge" class="form-input" placeholder="e.g. 30" min="18" max="80" step="1">
+              </div>
+              <div class="input-group">
+                <label for="retireAge">Retirement Age</label>
+                <input type="number" id="retireAge" class="form-input" placeholder="e.g. 65" min="30" max="90" step="1">
+              </div>
+              <div class="input-group">
+                <label for="monthlyExpenses">Monthly Expenses ($)</label>
+                <input type="number" id="monthlyExpenses" class="form-input" placeholder="e.g. 4000" min="1" step="any">
+              </div>
+              <div class="input-group">
+                <label for="inflationRate">Inflation Rate (%)</label>
+                <input type="number" id="inflationRate" class="form-input" placeholder="e.g. 3" min="0" max="20" step="any" value="3">
+              </div>
+              <div class="input-group">
+                <label for="expectedReturn">Expected Return on Investments (%)</label>
+                <input type="number" id="expectedReturn" class="form-input" placeholder="e.g. 8" min="0" max="30" step="any" value="8">
+              </div>
+              <div class="input-group">
+                <label for="currentSavings">Current Retirement Savings ($)</label>
+                <input type="number" id="currentSavings" class="form-input" placeholder="e.g. 50000" min="0" step="any" value="0">
+              </div>
+            </div>
+
+            <div class="error-msg" id="errorMsg" role="alert" aria-live="assertive"></div>
+            <button class="calc-btn" id="calcBtn"><span aria-hidden="true">🏖️</span> Calculate Retirement Needs</button>
+
+            <div class="result-area" id="resultArea" aria-live="polite" role="status">
+              <div class="result-header">
+                <div class="result-label">Required Retirement Corpus</div>
+                <div class="result-value" id="requiredCorpus">—</div>
+              </div>
+              <div class="result-details">
+                <div class="result-item">
+                  <div class="result-item-label">Years Until Retirement</div>
+                  <div class="result-item-value" id="yearsToRetire">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Monthly Savings Needed</div>
+                  <div class="result-item-value" id="monthlyNeeded" style="color:var(--color-primary)">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Monthly Expenses at Retirement</div>
+                  <div class="result-item-value" id="futureExpenses">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Current Savings Growth</div>
+                  <div class="result-item-value" id="currentGrowth" style="color:var(--color-success)">—</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-label="About retirement calculator">
+      <div class="container">
+        <div class="content-section">
+          <h2 style="margin-bottom:16px;">Retirement Savings Calculator — Plan Your Financial Future</h2>
+          <div class="intro-text">
+            <p><strong>Retirement planning</strong> is one of the most critical financial decisions you'll make, yet many people underestimate how much they'll need. Our Retirement Savings Calculator bridges the gap between where you are now and where you need to be. By factoring in your current age, desired retirement age, monthly expenses, inflation rate, and expected investment returns, this tool reveals the exact corpus required for a comfortable retirement.</p>
+            <br>
+            <p>Whether you're in your 20s just starting your career or in your 40s playing catch-up, understanding your retirement number is the first step toward financial security. This calculator also shows you exactly how much you need to save each month to reach your goal, making it easy to incorporate into your budget.</p>
+          </div>
+
+          <h2 style="margin-bottom:16px;">How to Use the Retirement Calculator</h2>
+          <ol class="steps-list">
+            <li><div><strong>Enter your current age and target retirement age</strong><span>This determines your investment horizon — the number of years you have to build your retirement fund.</span></div></li>
+            <li><div><strong>Input your monthly expenses</strong><span>Enter what you expect to spend each month in retirement. A common rule is 70-80% of your current pre-retirement income.</span></div></li>
+            <li><div><strong>Set inflation and return rates</strong><span>The default inflation rate is 3% and expected return is 8%. Adjust these based on your investment strategy and economic outlook.</span></div></li>
+            <li><div><strong>Enter current savings</strong><span>If you already have retirement savings (401k, IRA, pension), enter the total here. This reduces the amount you need to save monthly.</span></div></li>
+            <li><div><strong>Click Calculate</strong><span>See your required retirement corpus and the monthly savings needed to reach your goal.</span></div></li>
+          </ol>
+
+          <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item open">
+              <button class="faq-question" aria-expanded="true">How much money do I need to retire?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>A common guideline is the <strong>25x rule</strong>: save 25 times your annual retirement expenses. For example, if you need $60,000/year, aim for a $1.5 million corpus. The 4% withdrawal rule suggests you can safely withdraw 4% of your portfolio annually without depleting it.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">What is a realistic inflation rate for retirement planning?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Historically, inflation has averaged about 3% annually in the US. However, healthcare costs often inflate faster (5-7%). Using 3-4% for general expenses and 5-6% for healthcare is a prudent approach for retirement planning.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">When should I start saving for retirement?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p><strong>As early as possible.</strong> Thanks to compound interest, someone who starts saving at 25 can accumulate significantly more wealth than someone who starts at 35 — even if the later starter saves more per month. Time in the market is your greatest asset.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Related tools">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:32px;"><h2 style="font-size:1.75rem;">Related Tools</h2><p style="color:var(--text-secondary);">Try these other free finance calculators.</p></div>
+        <div class="related-grid">
+          <a href="sip-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">📈</span><h4>SIP Returns Calculator</h4><p>Calculate returns on your monthly mutual fund investments.</p></a>
+          <a href="investment-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">📊</span><h4>Investment Growth Calculator</h4><p>See how your investments grow with compound interest.</p></a>
+          <a href="savings-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">🎯</span><h4>Savings Goal Calculator</h4><p>Find out how much to save monthly to reach your goal.</p></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><h3>MultiWeb</h3><p>Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><nav aria-label="Quick links"><a href="bmi-calculator.html">BMI Calculator</a><a href="unit-converter.html">Unit Converter</a><a href="word-counter.html">Word Counter</a><a href="qr-generator.html">QR Generator</a></nav></div>
+        <div class="footer-col"><h4>Company</h4><nav aria-label="Company links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></nav></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 MultiWeb. All rights reserved.</span><span>Free online tools for everyone.</span></div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script>
+    (function(){
+      'use strict';
+      var calcBtn=document.getElementById('calcBtn'),errorMsg=document.getElementById('errorMsg'),resultArea=document.getElementById('resultArea');
+      
+      function showError(msg){errorMsg.textContent=msg;errorMsg.classList.add('visible')}
+      function hideError(){errorMsg.textContent='';errorMsg.classList.remove('visible')}
+      
+      function calculate(){
+        hideError();resultArea.classList.remove('visible');
+        var currentAge=parseInt(document.getElementById('currentAge').value,10);
+        var retireAge=parseInt(document.getElementById('retireAge').value,10);
+        var monthlyExp=parseFloat(document.getElementById('monthlyExpenses').value);
+        var inflation=parseFloat(document.getElementById('inflationRate').value)/100;
+        var returnRate=parseFloat(document.getElementById('expectedReturn').value)/100;
+        var currentSavings=parseFloat(document.getElementById('currentSavings').value)||0;
+        
+        if(isNaN(currentAge)||currentAge<18){showError('Please enter a valid current age.');return}
+        if(isNaN(retireAge)||retireAge<=currentAge){showError('Retirement age must be greater than current age.');return}
+        if(isNaN(monthlyExp)||monthlyExp<=0){showError('Please enter valid monthly expenses.');return}
+        if(isNaN(inflation)||inflation<0){showError('Please enter a valid inflation rate.');return}
+        if(isNaN(returnRate)||returnRate<0){showError('Please enter a valid return rate.');return}
+        
+        var yearsToRetire=retireAge-currentAge;
+        var retirementYears=25;
+        var futureMonthlyExp=monthlyExp*Math.pow(1+inflation,yearsToRetire);
+        var futureAnnualExp=futureMonthlyExp*12;
+        var requiredCorpus=futureAnnualExp*((1-Math.pow(1+inflation,-retirementYears))/inflation);
+        
+        var futureValueOfCurrent=currentSavings*Math.pow(1+returnRate,yearsToRetire);
+        var shortfall=requiredCorpus-futureValueOfCurrent;
+        if(shortfall<0)shortfall=0;
+        
+        var monthlyRate=returnRate/12;
+        var months=yearsToRetire*12;
+        var monthlyNeeded=0;
+        if(monthlyRate>0&&months>0){
+          monthlyNeeded=shortfall*((monthlyRate)/((1+monthlyRate)*months-1));
+        }else if(months>0){
+          monthlyNeeded=shortfall/months;
+        }
+        
+        document.getElementById('requiredCorpus').textContent='$'+requiredCorpus.toLocaleString('en-US',{maximumFractionDigits:0});
+        document.getElementById('yearsToRetire').textContent=yearsToRetire+' years';
+        document.getElementById('monthlyNeeded').textContent='$'+monthlyNeeded.toLocaleString('en-US',{maximumFractionDigits:0})+'/month';
+        document.getElementById('futureExpenses').textContent='$'+futureMonthlyExp.toLocaleString('en-US',{maximumFractionDigits:0})+'/month';
+        document.getElementById('currentGrowth').textContent='$'+futureValueOfCurrent.toLocaleString('en-US',{maximumFractionDigits:0});
+        
+        resultArea.classList.add('visible');
+      }
+      
+      calcBtn.addEventListener('click',calculate);
+      document.querySelectorAll('.form-input').forEach(function(el){el.addEventListener('keydown',function(e){if(e.key==='Enter')calculate()})});
+    })();
+  </script>
+</body>
+</html>

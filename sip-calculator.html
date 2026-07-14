@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIP Returns Calculator — Calculate Mutual Fund SIP Returns Online | MultiWeb</title>
+  <meta name="description" content="Calculate returns on your Systematic Investment Plan (SIP). Find out how much your monthly mutual fund investments will grow over time.">
+  <link rel="canonical" href="https://multiweb.app/sip-calculator.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="SIP Returns Calculator — Calculate Mutual Fund SIP Returns Online">
+  <meta property="og:description" content="Calculate returns on your Systematic Investment Plan (SIP). Project how much your monthly investments will grow.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://multiweb.app/sip-calculator.html">
+  <meta property="og:image" content="https://multiweb.app/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="MultiWeb">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SIP Returns Calculator — Calculate Mutual Fund SIP Returns Online">
+  <meta name="twitter:description" content="Calculate returns on your SIP investments instantly.">
+  <meta name="twitter:image" content="https://multiweb.app/og-default.png">
+  <meta name="theme-color" content="#2563eb">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "SIP Returns Calculator — MultiWeb",
+    "url": "https://multiweb.app/sip-calculator.html",
+    "description": "Calculate returns on your Systematic Investment Plan (SIP). Project how much your monthly investments will grow.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "en-US",
+    "author": { "@type": "Organization", "name": "MultiWeb", "url": "https://multiweb.app/" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+  }
+  </script>
+
+  <link rel="stylesheet" href="common-styles.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+  <style>
+    .inputs-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:4px}
+    @media(min-width:500px){.inputs-grid{grid-template-columns:1fr 1fr}}
+    .input-group{display:flex;flex-direction:column;gap:4px}
+    .input-group label{font-size:.8125rem;font-weight:600;color:var(--text-primary)}
+    .form-input{width:100%;padding:12px 14px;font-family:var(--font);font-size:1.0625rem;color:var(--text-primary);background:var(--bg-surface);border:1.5px solid var(--border-light);border-radius:var(--radius-sm);outline:none;transition:border-color var(--transition),box-shadow var(--transition)}
+    .form-input:focus{border-color:var(--color-primary);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+    .form-input::placeholder{color:var(--text-muted);font-size:.875rem}
+    .calc-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 28px;margin-top:20px;font-family:var(--font);font-weight:600;font-size:1.0625rem;line-height:1;background:var(--color-primary);color:var(--text-on-primary);border:2px solid var(--color-primary);border-radius:var(--radius-sm);cursor:pointer;transition:background var(--transition),box-shadow var(--transition),transform var(--transition-fast)}
+    .calc-btn:hover{background:var(--color-primary-dark);border-color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(37,99,235,.35)}
+    .calc-btn:active{transform:scale(.97)}
+    .result-area{display:none;margin-top:24px;border:1px solid var(--border-light);border-radius:var(--radius-md);overflow:hidden}
+    .result-area.visible{display:block}
+    .result-header{background:var(--bg-tag);padding:20px 24px;text-align:center}
+    .result-label{font-size:.875rem;color:var(--text-secondary);margin-bottom:4px}
+    .result-value{font-size:2.5rem;font-weight:800;color:var(--color-primary);line-height:1}
+    .result-details{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border-light)}
+    .result-item{padding:16px 24px;border-bottom:1px solid var(--border-light)}
+    .result-item:nth-child(odd){border-right:1px solid var(--border-light)}
+    .result-item-label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);margin-bottom:2px}
+    .result-item-value{font-size:1rem;font-weight:600}
+    .formula-box{background:var(--bg-surface);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:24px;margin-bottom:32px}
+    .formula-box h3{margin-bottom:12px}
+    .formula{font-family:'Courier New',monospace;font-size:1.125rem;font-weight:700;color:var(--color-primary);margin-bottom:8px}
+    .formula-example{font-size:.875rem;color:var(--text-secondary)}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://multiweb.app/" },
+      { "@type": "ListItem", "position": 2, "name": "SIP Returns Calculator", "item": "https://multiweb.app/sip-calculator.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#tool" class="skip-link">Skip to tool</a>
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="index.html" class="navbar-brand" aria-label="MultiWeb home"><span class="logo-icon" aria-hidden="true">M</span> MultiWeb</a>
+      <div class="navbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span class="icon-sun" aria-hidden="true">☀️</span><span class="icon-moon" aria-hidden="true">🌙</span></button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> Tools</a>
+        <a href="about.html" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> About</a>
+        <a href="contact.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> Contact</a>
+        <a href="privacy.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header" aria-label="Tool header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">SIP Returns Calculator</span>
+      </nav>
+      <h1>SIP Returns Calculator</h1>
+      <p>Calculate returns on your Systematic Investment Plan (SIP). Project how much your monthly mutual fund investments will grow over time.</p>
+    </div>
+  </section>
+
+  <main id="tool">
+    <section class="section" style="padding-top:0;padding-bottom:32px;" aria-label="SIP calculator tool">
+      <div class="container">
+        <div class="tool-workspace fade-in">
+          <div class="tool-card">
+            <noscript>
+              <div style="padding:24px;background:var(--color-danger-bg);border-radius:var(--radius-md);text-align:center;margin-bottom:24px;">
+                <p style="font-weight:600;color:var(--color-danger-dark);margin-bottom:8px;">⚠️ JavaScript Required</p>
+                <p style="color:var(--text-secondary);font-size:0.9375rem;">This calculator requires JavaScript to work.</p>
+              </div>
+            </noscript>
+
+            <div class="inputs-grid">
+              <div class="input-group">
+                <label for="monthlyAmount">Monthly SIP Amount ($)</label>
+                <input type="number" id="monthlyAmount" class="form-input" placeholder="e.g. 500" min="1" step="any">
+              </div>
+              <div class="input-group">
+                <label for="annualReturn">Expected Annual Return (%)</label>
+                <input type="number" id="annualReturn" class="form-input" placeholder="e.g. 12" min="0" max="50" step="any">
+              </div>
+              <div class="input-group">
+                <label for="duration">Investment Duration (years)</label>
+                <input type="number" id="duration" class="form-input" placeholder="e.g. 10" min="1" max="50" step="1">
+              </div>
+              <div class="input-group">
+                <label for="increasePercent">Annual SIP Increase (%)</label>
+                <input type="number" id="increasePercent" class="form-input" placeholder="e.g. 10 (optional)" min="0" max="50" step="any" value="0">
+              </div>
+            </div>
+
+            <div class="error-msg" id="errorMsg" role="alert" aria-live="assertive"></div>
+            <button class="calc-btn" id="calcBtn"><span aria-hidden="true">📈</span> Calculate Returns</button>
+
+            <div class="result-area" id="resultArea" aria-live="polite" role="status">
+              <div class="result-header">
+                <div class="result-label">Estimated Future Value</div>
+                <div class="result-value" id="futureValue">—</div>
+              </div>
+              <div class="result-details">
+                <div class="result-item">
+                  <div class="result-item-label">Total Invested</div>
+                  <div class="result-item-value" id="totalInvested">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Estimated Returns</div>
+                  <div class="result-item-value" id="estimatedReturns" style="color:var(--color-success)">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Monthly Investment</div>
+                  <div class="result-item-value" id="monthlyInv">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Investment Period</div>
+                  <div class="result-item-value" id="invPeriod">—</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-label="About SIP calculator">
+      <div class="container">
+        <div class="content-section">
+          <h2 style="margin-bottom:16px;">SIP Returns Calculator — Calculate Mutual Fund SIP Returns Online</h2>
+          <div class="intro-text">
+            <p>A <strong>Systematic Investment Plan (SIP)</strong> allows you to invest a fixed amount regularly in mutual funds, building wealth through the power of compounding. Whether you're a first-time investor or a seasoned market participant, our SIP Returns Calculator helps you project the future value of your investments with precision. Simply enter your monthly investment amount, expected annual return rate, and investment duration to see your potential wealth accumulation.</p>
+            <br>
+            <p>This tool is ideal for financial planners, young professionals starting their investment journey, and anyone looking to visualize how disciplined, small contributions can grow into substantial corpus over time. You can also factor in an annual increase in your SIP amount to simulate how stepping up your investments each year accelerates wealth creation.</p>
+          </div>
+
+          <div class="formula-box">
+            <h3>The SIP Formula</h3>
+            <div class="formula">FV = P × [((1 + r)^n - 1) / r] × (1 + r)</div>
+            <div class="formula-example"><strong>Where:</strong> P = monthly investment, r = monthly rate of return (annual rate ÷ 12), n = total number of months.</div>
+            <br>
+            <div class="formula-example"><strong>Example:</strong> Investing $500/month at 12% annual return for 10 years: FV = 500 × [((1.01)^120 - 1) / 0.01] × 1.01 = <strong>$116,169</strong></div>
+          </div>
+
+          <h2 style="margin-bottom:16px;">How to Use the SIP Returns Calculator</h2>
+          <ol class="steps-list">
+            <li><div><strong>Enter your monthly SIP amount</strong><span>Type the fixed amount you plan to invest each month (e.g., $500).</span></div></li>
+            <li><div><strong>Input expected annual return</strong><span>Enter the expected annual return rate based on historical performance or your financial advisor's recommendation (e.g., 12%).</span></div></li>
+            <li><div><strong>Specify investment duration</strong><span>Enter how many years you plan to continue the SIP (e.g., 10, 15, or 20 years).</span></div></li>
+            <li><div><strong>Optional: Annual SIP increase</strong><span>If you plan to increase your SIP amount each year, enter the percentage increase (e.g., 10%).</span></div></li>
+            <li><div><strong>Click Calculate</strong><span>Press the button to see your projected future value, total invested amount, and estimated returns.</span></div></li>
+          </ol>
+
+          <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item open">
+              <button class="faq-question" aria-expanded="true">What is a good expected return rate for SIP?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Historically, equity mutual funds have delivered 10-15% annualized returns over long periods. However, past performance doesn't guarantee future results. A conservative estimate of 8-12% is recommended for planning purposes. Debt funds typically return 6-8%.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">Can I change my SIP amount later?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Yes, most mutual fund houses allow you to increase, decrease, or pause your SIP amount. Some even offer step-up SIPs that automatically increase your investment annually, which this calculator can simulate.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">Is SIP better than lump sum investment?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>SIPs average out market volatility through rupee cost averaging, making them ideal for risk-averse investors. Lump sum investments may yield higher returns in bull markets but carry more timing risk. For most retail investors, SIP is the recommended approach.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Related tools">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:32px;"><h2 style="font-size:1.75rem;">Related Tools</h2><p style="color:var(--text-secondary);">Try these other free finance calculators.</p></div>
+        <div class="related-grid">
+          <a href="retirement-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">🏖️</span><h4>Retirement Calculator</h4><p>Plan your retirement corpus based on current savings and expenses.</p></a>
+          <a href="investment-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">📊</span><h4>Investment Growth Calculator</h4><p>See how your investments grow with compound interest over time.</p></a>
+          <a href="budget-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">📋</span><h4>Budget Calculator</h4><p>Plan and track your monthly income and expenses.</p></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><h3>MultiWeb</h3><p>Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><nav aria-label="Quick links"><a href="bmi-calculator.html">BMI Calculator</a><a href="unit-converter.html">Unit Converter</a><a href="word-counter.html">Word Counter</a><a href="qr-generator.html">QR Generator</a></nav></div>
+        <div class="footer-col"><h4>Company</h4><nav aria-label="Company links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></nav></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 MultiWeb. All rights reserved.</span><span>Free online tools for everyone.</span></div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script>
+    (function(){
+      'use strict';
+      var calcBtn=document.getElementById('calcBtn'),errorMsg=document.getElementById('errorMsg'),resultArea=document.getElementById('resultArea');
+      
+      function showError(msg){errorMsg.textContent=msg;errorMsg.classList.add('visible')}
+      function hideError(){errorMsg.textContent='';errorMsg.classList.remove('visible')}
+      
+      function calculate(){
+        hideError();resultArea.classList.remove('visible');
+        var P=parseFloat(document.getElementById('monthlyAmount').value);
+        var annualRate=parseFloat(document.getElementById('annualReturn').value);
+        var years=parseInt(document.getElementById('duration').value,10);
+        var increasePct=parseFloat(document.getElementById('increasePercent').value)||0;
+        
+        if(isNaN(P)||P<=0){showError('Please enter a valid monthly amount.');return}
+        if(isNaN(annualRate)||annualRate<0){showError('Please enter a valid return rate.');return}
+        if(isNaN(years)||years<=0){showError('Please enter a valid duration.');return}
+        
+        var r=annualRate/100/12;
+        var n=years*12;
+        var totalInvested=0;
+        var futureValue=0;
+        
+        for(var i=0;i<n;i++){
+          var yearIndex=Math.floor(i/12);
+          var monthlyP=P*Math.pow(1+increasePct/100,yearIndex);
+          totalInvested+=monthlyP;
+          var monthsRemaining=n-i;
+          futureValue+=monthlyP*Math.pow(1+r,monthsRemaining);
+        }
+        
+        futureValue=Math.round(futureValue*100)/100;
+        totalInvested=Math.round(totalInvested*100)/100;
+        var returns=futureValue-totalInvested;
+        
+        document.getElementById('futureValue').textContent='$'+futureValue.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+        document.getElementById('totalInvested').textContent='$'+totalInvested.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+        document.getElementById('estimatedReturns').textContent='$'+returns.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+        document.getElementById('monthlyInv').textContent='$'+P.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+        document.getElementById('invPeriod').textContent=years+' years ('+n+' months)';
+        
+        resultArea.classList.add('visible');
+      }
+      
+      calcBtn.addEventListener('click',calculate);
+      document.querySelectorAll('.form-input').forEach(function(el){el.addEventListener('keydown',function(e){if(e.key==='Enter')calculate()})});
+    })();
+  </script>
+</body>
+</html>

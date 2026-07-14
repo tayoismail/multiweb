@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credit Card Payoff Calculator — How Long to Pay Off Credit Card Debt | MultiWeb</title>
+  <meta name="description" content="Calculate how long it will take to pay off your credit card debt and how much interest you'll pay. Free online credit card payoff calculator.">
+  <link rel="canonical" href="https://multiweb.app/credit-card-calculator.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Credit Card Payoff Calculator — How Long to Pay Off Credit Card Debt">
+  <meta property="og:description" content="Calculate how long it will take to pay off your credit card debt.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://multiweb.app/credit-card-calculator.html">
+  <meta property="og:image" content="https://multiweb.app/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="MultiWeb">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Credit Card Payoff Calculator — How Long to Pay Off Credit Card Debt">
+  <meta name="twitter:description" content="Calculate how long it will take to pay off your credit card debt.">
+  <meta name="twitter:image" content="https://multiweb.app/og-default.png">
+  <meta name="theme-color" content="#2563eb">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Credit Card Payoff Calculator — MultiWeb",
+    "url": "https://multiweb.app/credit-card-calculator.html",
+    "description": "Calculate how long it will take to pay off your credit card debt and how much interest you'll pay.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "en-US",
+    "author": { "@type": "Organization", "name": "MultiWeb", "url": "https://multiweb.app/" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+  }
+  </script>
+
+  <link rel="stylesheet" href="common-styles.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+  <style>
+    .mode-pills{display:flex;gap:4px;background:var(--bg-tag);border-radius:var(--radius-sm);padding:3px;margin-bottom:24px;flex-wrap:wrap}
+    .mode-pills button{padding:8px 16px;font-family:var(--font);font-size:.8125rem;font-weight:600;border:none;border-radius:6px;cursor:pointer;background:transparent;color:var(--text-secondary);transition:background var(--transition),color var(--transition),box-shadow var(--transition);white-space:nowrap}
+    .mode-pills button.active{background:var(--bg-surface);color:var(--text-primary);box-shadow:var(--shadow-sm)}
+    .inputs-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:4px}
+    @media(min-width:500px){.inputs-grid{grid-template-columns:1fr 1fr}}
+    .input-group{display:flex;flex-direction:column;gap:4px}
+    .input-group label{font-size:.8125rem;font-weight:600;color:var(--text-primary)}
+    .form-input{width:100%;padding:12px 14px;font-family:var(--font);font-size:1.0625rem;color:var(--text-primary);background:var(--bg-surface);border:1.5px solid var(--border-light);border-radius:var(--radius-sm);outline:none;transition:border-color var(--transition),box-shadow var(--transition)}
+    .form-input:focus{border-color:var(--color-primary);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+    .form-input::placeholder{color:var(--text-muted);font-size:.875rem}
+    .calc-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 28px;margin-top:20px;font-family:var(--font);font-weight:600;font-size:1.0625rem;line-height:1;background:var(--color-primary);color:var(--text-on-primary);border:2px solid var(--color-primary);border-radius:var(--radius-sm);cursor:pointer;transition:background var(--transition),box-shadow var(--transition),transform var(--transition-fast)}
+    .calc-btn:hover{background:var(--color-primary-dark);border-color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(37,99,235,.35)}
+    .calc-btn:active{transform:scale(.97)}
+    .result-area{display:none;margin-top:24px;border:1px solid var(--border-light);border-radius:var(--radius-md);overflow:hidden}
+    .result-area.visible{display:block}
+    .result-header{background:var(--bg-tag);padding:20px 24px;text-align:center}
+    .result-label{font-size:.875rem;color:var(--text-secondary);margin-bottom:4px}
+    .result-value{font-size:2.5rem;font-weight:800;color:var(--color-primary);line-height:1}
+    .result-details{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border-light)}
+    .result-item{padding:16px 24px;border-bottom:1px solid var(--border-light)}
+    .result-item:nth-child(odd){border-right:1px solid var(--border-light)}
+    .result-item-label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);margin-bottom:2px}
+    .result-item-value{font-size:1rem;font-weight:600}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://multiweb.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Credit Card Payoff Calculator", "item": "https://multiweb.app/credit-card-calculator.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#tool" class="skip-link">Skip to tool</a>
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="index.html" class="navbar-brand" aria-label="MultiWeb home"><span class="logo-icon" aria-hidden="true">M</span> MultiWeb</a>
+      <div class="navbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span class="icon-sun" aria-hidden="true">☀️</span><span class="icon-moon" aria-hidden="true">🌙</span></button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> Tools</a>
+        <a href="about.html" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> About</a>
+        <a href="contact.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> Contact</a>
+        <a href="privacy.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header" aria-label="Tool header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Credit Card Payoff Calculator</span>
+      </nav>
+      <h1>Credit Card Payoff Calculator</h1>
+      <p>Find out how long it will take to pay off your credit card debt and how much interest you'll pay.</p>
+    </div>
+  </section>
+
+  <main id="tool">
+    <section class="section" style="padding-top:0;padding-bottom:32px;" aria-label="Credit card payoff calculator tool">
+      <div class="container">
+        <div class="tool-workspace fade-in">
+          <div class="tool-card">
+            <noscript>
+              <div style="padding:24px;background:var(--color-danger-bg);border-radius:var(--radius-md);text-align:center;margin-bottom:24px;">
+                <p style="font-weight:600;color:var(--color-danger-dark);margin-bottom:8px;">⚠️ JavaScript Required</p>
+                <p style="color:var(--text-secondary);font-size:0.9375rem;">This calculator requires JavaScript to work.</p>
+              </div>
+            </noscript>
+
+            <div class="mode-pills" id="modePills" role="group" aria-label="Calculator mode">
+              <button class="active" data-mode="time">Payoff Time</button>
+              <button data-mode="payment">Monthly Payment</button>
+            </div>
+
+            <div id="mode-time">
+              <div class="inputs-grid">
+                <div class="input-group">
+                  <label for="balance">Credit Card Balance ($)</label>
+                  <input type="number" id="balance" class="form-input" placeholder="e.g. 5000" min="1" step="any">
+                </div>
+                <div class="input-group">
+                  <label for="apr">Annual Interest Rate (APR %)</label>
+                  <input type="number" id="apr" class="form-input" placeholder="e.g. 22" min="0" max="50" step="any" value="22">
+                </div>
+                <div class="input-group">
+                  <label for="monthlyPayment">Monthly Payment ($)</label>
+                  <input type="number" id="monthlyPayment" class="form-input" placeholder="e.g. 200" min="1" step="any">
+                </div>
+              </div>
+            </div>
+
+            <div id="mode-payment" style="display:none;">
+              <div class="inputs-grid">
+                <div class="input-group">
+                  <label for="balance2">Credit Card Balance ($)</label>
+                  <input type="number" id="balance2" class="form-input" placeholder="e.g. 5000" min="1" step="any">
+                </div>
+                <div class="input-group">
+                  <label for="apr2">Annual Interest Rate (APR %)</label>
+                  <input type="number" id="apr2" class="form-input" placeholder="e.g. 22" min="0" max="50" step="any" value="22">
+                </div>
+                <div class="input-group">
+                  <label for="targetMonths">Pay Off In (months)</label>
+                  <input type="number" id="targetMonths" class="form-input" placeholder="e.g. 24" min="1" max="360" step="1">
+                </div>
+              </div>
+            </div>
+
+            <div class="error-msg" id="errorMsg" role="alert" aria-live="assertive"></div>
+            <button class="calc-btn" id="calcBtn"><span aria-hidden="true">💳</span> Calculate</button>
+
+            <div class="result-area" id="resultArea" aria-live="polite" role="status">
+              <div class="result-header">
+                <div class="result-label" id="resultMainLabel">Time to Pay Off</div>
+                <div class="result-value" id="resultMainValue">—</div>
+              </div>
+              <div class="result-details">
+                <div class="result-item">
+                  <div class="result-item-label">Total Interest Paid</div>
+                  <div class="result-item-value" id="totalInterest" style="color:var(--color-warning)">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Total Amount Paid</div>
+                  <div class="result-item-value" id="totalPaid">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Monthly Payment</div>
+                  <div class="result-item-value" id="resultMonthlyPayment">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Interest as % of Balance</div>
+                  <div class="result-item-value" id="interestPercent">—</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-label="About credit card payoff calculator">
+      <div class="container">
+        <div class="content-section">
+          <h2 style="margin-bottom:16px;">Credit Card Payoff Calculator — How Long to Pay Off Credit Card Debt</h2>
+          <div class="intro-text">
+            <p><strong>Credit card debt</strong> is one of the most expensive forms of borrowing, with interest rates often exceeding 20% APR. Our Credit Card Payoff Calculator helps you understand exactly how long it will take to become debt-free and how much interest you'll pay in the process. Whether you're using the debt avalanche method, debt snowball method, or simply making fixed monthly payments, this tool shows you the true cost of carrying a balance.</p>
+            <br>
+            <p>Switch between two modes: <strong>Payoff Time</strong> (enter your monthly payment to see when you'll be debt-free) or <strong>Monthly Payment</strong> (enter your target payoff date to see how much you need to pay each month). Understanding these numbers is the first step toward taking control of your credit card debt.</p>
+          </div>
+
+          <h2 style="margin-bottom:16px;">How to Use the Credit Card Payoff Calculator</h2>
+          <ol class="steps-list">
+            <li><div><strong>Choose calculation mode</strong><span>Select <strong>Payoff Time</strong> to find out when you'll be debt-free, or <strong>Monthly Payment</strong> to find out how much to pay each month.</span></div></li>
+            <li><div><strong>Enter your credit card balance</strong><span>Type the total amount you currently owe on your credit card.</span></div></li>
+            <li><div><strong>Input your APR</strong><span>Enter the annual percentage rate charged by your credit card company (check your statement).</span></div></li>
+            <li><div><strong>Enter payment information</strong><span>In Payoff Time mode, enter your monthly payment. In Monthly Payment mode, enter how many months you want to be debt-free in.</span></div></li>
+            <li><div><strong>Click Calculate</strong><span>See your payoff timeline, total interest paid, and the true cost of your debt.</span></div></li>
+          </ol>
+
+          <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item open">
+              <button class="faq-question" aria-expanded="true">How can I pay off credit card debt faster?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Pay more than the minimum each month, focus on the highest-interest card first (avalanche method), consider a balance transfer to a 0% APR card, cut unnecessary expenses, and apply any windfalls (tax refunds, bonuses) to your debt. Even an extra $50/month can save hundreds in interest.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">What is the minimum payment trap?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Minimum payments are typically 1-3% of your balance plus interest. Paying only the minimum can take 20+ years to pay off a balance and cost you thousands in interest. For example, a $5,000 balance at 22% APR with minimum payments would take over 30 years to pay off.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">Should I consolidate credit card debt?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Consolidation can help if you can secure a lower interest rate than what you're currently paying. Options include balance transfer cards (0% intro APR), personal loans, or home equity loans. However, consolidation only works if you also change the spending habits that created the debt.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Related tools">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:32px;"><h2 style="font-size:1.75rem;">Related Tools</h2><p style="color:var(--text-secondary);">Try these other free finance calculators.</p></div>
+        <div class="related-grid">
+          <a href="loan-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">💰</span><h4>Loan Calculator</h4><p>Calculate payments for any type of loan — personal, auto, or student.</p></a>
+          <a href="budget-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">📋</span><h4>Budget Calculator</h4><p>Plan and track your monthly income and expenses.</p></a>
+          <a href="roi-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">📊</span><h4>ROI Calculator</h4><p>Calculate the return on investment for any project or purchase.</p></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><h3>MultiWeb</h3><p>Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><nav aria-label="Quick links"><a href="bmi-calculator.html">BMI Calculator</a><a href="unit-converter.html">Unit Converter</a><a href="word-counter.html">Word Counter</a><a href="qr-generator.html">QR Generator</a></nav></div>
+        <div class="footer-col"><h4>Company</h4><nav aria-label="Company links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></nav></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 MultiWeb. All rights reserved.</span><span>Free online tools for everyone.</span></div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script>
+    (function(){
+      'use strict';
+      var currentMode='time';
+      var modePills=document.getElementById('modePills').querySelectorAll('button');
+      var calcBtn=document.getElementById('calcBtn'),errorMsg=document.getElementById('errorMsg'),resultArea=document.getElementById('resultArea');
+      
+      function showError(msg){errorMsg.textContent=msg;errorMsg.classList.add('visible')}
+      function hideError(){errorMsg.textContent='';errorMsg.classList.remove('visible')}
+      
+      modePills.forEach(function(pill){
+        pill.addEventListener('click',function(){
+          modePills.forEach(function(p){p.classList.remove('active')});pill.classList.add('active');
+          currentMode=pill.getAttribute('data-mode');
+          document.getElementById('mode-time').style.display=currentMode==='time'?'':'none';
+          document.getElementById('mode-payment').style.display=currentMode==='payment'?'':'none';
+          resultArea.classList.remove('visible');hideError();
+        });
+      });
+      
+      function calculate(){
+        hideError();resultArea.classList.remove('visible');
+        
+        if(currentMode==='time'){
+          var bal=parseFloat(document.getElementById('balance').value);
+          var apr=parseFloat(document.getElementById('apr').value);
+          var mp=parseFloat(document.getElementById('monthlyPayment').value);
+          
+          if(isNaN(bal)||bal<=0){showError('Please enter a valid balance.');return}
+          if(isNaN(apr)||apr<0){showError('Please enter a valid APR.');return}
+          if(isNaN(mp)||mp<=0){showError('Please enter a valid monthly payment.');return}
+          
+          var monthlyRate=apr/100/12;
+          var minPayment=bal*0.02||25;
+          if(mp<minPayment&&monthlyRate>0){showError('Minimum payment is $'+minPayment.toFixed(2)+'. Paying less than the interest will never pay off the balance.');return}
+          
+          var months=0;var totalInterest=0;var remaining=bal;
+          while(remaining>0&&months<600){
+            var interest=remaining*monthlyRate;
+            totalInterest+=interest;
+            var principal=mp-interest;
+            if(principal<=0){showError('Payment too low to cover interest. Increase your payment.');return}
+            remaining-=principal;
+            if(remaining<0)remaining=0;
+            months++;
+          }
+          
+          var totalPaid=bal+totalInterest;
+          var years=Math.floor(months/12);var remMonths=months%12;
+          var timeStr=years>0?years+' year'+(years>1?'s':'')+(remMonths>0?' '+remMonths+' month'+(remMonths>1?'s':''):''):months+' month'+(months>1?'s':'');
+          
+          document.getElementById('resultMainLabel').textContent='Time to Pay Off';
+          document.getElementById('resultMainValue').textContent=timeStr;
+          document.getElementById('totalInterest').textContent='$'+totalInterest.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+          document.getElementById('totalPaid').textContent='$'+totalPaid.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+          document.getElementById('resultMonthlyPayment').textContent='$'+mp.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+          document.getElementById('interestPercent').textContent=(totalInterest/bal*100).toFixed(1)+'%';
+        }else{
+          var bal2=parseFloat(document.getElementById('balance2').value);
+          var apr2=parseFloat(document.getElementById('apr2').value);
+          var target=parseInt(document.getElementById('targetMonths').value,10);
+          
+          if(isNaN(bal2)||bal2<=0){showError('Please enter a valid balance.');return}
+          if(isNaN(apr2)||apr2<0){showError('Please enter a valid APR.');return}
+          if(isNaN(target)||target<=0){showError('Please enter valid number of months.');return}
+          
+          var monthlyRate2=apr2/100/12;
+          var mp2;
+          if(monthlyRate2===0){
+            mp2=bal2/target;
+          }else{
+            mp2=bal2*(monthlyRate2*Math.pow(1+monthlyRate2,target))/(Math.pow(1+monthlyRate2,target)-1);
+          }
+          
+          var totalPaid2=mp2*target;
+          var totalInterest2=totalPaid2-bal2;
+          
+          document.getElementById('resultMainLabel').textContent='Monthly Payment Needed';
+          document.getElementById('resultMainValue').textContent='$'+mp2.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+          document.getElementById('totalInterest').textContent='$'+totalInterest2.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+          document.getElementById('totalPaid').textContent='$'+totalPaid2.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+          document.getElementById('resultMonthlyPayment').textContent='$'+mp2.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+          document.getElementById('interestPercent').textContent=(totalInterest2/bal2*100).toFixed(1)+'%';
+        }
+        
+        resultArea.classList.add('visible');
+      }
+      
+      calcBtn.addEventListener('click',calculate);
+      document.querySelectorAll('.form-input').forEach(function(el){el.addEventListener('keydown',function(e){if(e.key==='Enter')calculate()})});
+    })();
+  </script>
+</body>
+</html>

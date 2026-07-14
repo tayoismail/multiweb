@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inflation Calculator — Calculate Purchasing Power Over Time | MultiWeb</title>
+  <meta name="description" content="See how inflation affects the purchasing power of your money over time. Free online inflation calculator.">
+  <link rel="canonical" href="https://multiweb.app/inflation-calculator.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Inflation Calculator — Calculate Purchasing Power Over Time">
+  <meta property="og:description" content="See how inflation affects the purchasing power of your money over time.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://multiweb.app/inflation-calculator.html">
+  <meta property="og:image" content="https://multiweb.app/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="MultiWeb">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Inflation Calculator — Calculate Purchasing Power Over Time">
+  <meta name="twitter:description" content="See how inflation affects the purchasing power of your money.">
+  <meta name="twitter:image" content="https://multiweb.app/og-default.png">
+  <meta name="theme-color" content="#2563eb">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Inflation Calculator — MultiWeb",
+    "url": "https://multiweb.app/inflation-calculator.html",
+    "description": "See how inflation affects the purchasing power of your money over time.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "en-US",
+    "author": { "@type": "Organization", "name": "MultiWeb", "url": "https://multiweb.app/" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+  }
+  </script>
+
+  <link rel="stylesheet" href="common-styles.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+  <style>
+    .inputs-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:4px}
+    @media(min-width:500px){.inputs-grid{grid-template-columns:1fr 1fr}}
+    .input-group{display:flex;flex-direction:column;gap:4px}
+    .input-group label{font-size:.8125rem;font-weight:600;color:var(--text-primary)}
+    .input-group .hint{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .form-input{width:100%;padding:12px 14px;font-family:var(--font);font-size:1.0625rem;color:var(--text-primary);background:var(--bg-surface);border:1.5px solid var(--border-light);border-radius:var(--radius-sm);outline:none;transition:border-color var(--transition),box-shadow var(--transition)}
+    .form-input:focus{border-color:var(--color-primary);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+    .calc-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 28px;margin-top:20px;font-family:var(--font);font-weight:600;font-size:1.0625rem;line-height:1;background:var(--color-primary);color:var(--text-on-primary);border:2px solid var(--color-primary);border-radius:var(--radius-sm);cursor:pointer;transition:background var(--transition),box-shadow var(--transition),transform var(--transition-fast)}
+    .calc-btn:hover{background:var(--color-primary-dark);border-color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(37,99,235,.35)}
+    .calc-btn:active{transform:scale(.97)}
+    .result-area{display:none;margin-top:24px;border:1px solid var(--border-light);border-radius:var(--radius-md);overflow:hidden}
+    .result-area.visible{display:block}
+    .result-header{background:var(--bg-tag);padding:20px 24px;text-align:center}
+    .result-label{font-size:.875rem;color:var(--text-secondary);margin-bottom:4px}
+    .result-value{font-size:2.5rem;font-weight:800;line-height:1}
+    .result-value.loss{color:var(--color-danger)}
+    .result-value.gain{color:var(--color-success)}
+    .result-details{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border-light)}
+    .result-item{padding:16px 24px;border-bottom:1px solid var(--border-light)}
+    .result-item:nth-child(odd){border-right:1px solid var(--border-light)}
+    .result-item-label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);margin-bottom:2px}
+    .result-item-value{font-size:1rem;font-weight:600}
+    .comparison-table{width:100%;border-collapse:collapse;font-size:.875rem;margin-top:16px}
+    .comparison-table th,.comparison-table td{padding:10px 16px;text-align:left;border-bottom:1px solid var(--border-light)}
+    .comparison-table th{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted)}
+    .comparison-table tr:last-child td{border-bottom:none}
+    .table-wrap{max-height:250px;overflow-y:auto;border:1px solid var(--border-light);border-radius:var(--radius-sm)}
+    .rate-presets{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+    .rate-presets button{padding:8px 14px;font-family:var(--font);font-size:.8125rem;font-weight:600;border:2px solid var(--border-light);border-radius:var(--radius-sm);cursor:pointer;background:var(--bg-surface);color:var(--text-secondary);transition:all var(--transition)}
+    .rate-presets button:hover{border-color:var(--color-primary);color:var(--color-primary)}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://multiweb.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Inflation Calculator", "item": "https://multiweb.app/inflation-calculator.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#tool" class="skip-link">Skip to tool</a>
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="index.html" class="navbar-brand" aria-label="MultiWeb home"><span class="logo-icon" aria-hidden="true">M</span> MultiWeb</a>
+      <div class="navbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span class="icon-sun" aria-hidden="true">☀️</span><span class="icon-moon" aria-hidden="true">🌙</span></button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> Tools</a>
+        <a href="about.html" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> About</a>
+        <a href="contact.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> Contact</a>
+        <a href="privacy.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header" aria-label="Tool header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Inflation Calculator</span>
+      </nav>
+      <h1>Inflation Calculator</h1>
+      <p>See how inflation erodes the purchasing power of your money over time.</p>
+    </div>
+  </section>
+
+  <main id="tool">
+    <section class="section" style="padding-top:0;padding-bottom:32px;" aria-label="Inflation calculator tool">
+      <div class="container">
+        <div class="tool-workspace fade-in">
+          <div class="tool-card">
+            <noscript>
+              <div style="padding:24px;background:var(--color-danger-bg);border-radius:var(--radius-md);text-align:center;margin-bottom:24px;">
+                <p style="font-weight:600;color:var(--color-danger-dark);margin-bottom:8px;">⚠️ JavaScript Required</p>
+                <p style="color:var(--text-secondary);font-size:0.9375rem;">This calculator requires JavaScript to work.</p>
+              </div>
+            </noscript>
+
+            <div class="rate-presets">
+              <button onclick="document.getElementById('inflationRate').value=2;calculate()">Fed Target (2%)</button>
+              <button onclick="document.getElementById('inflationRate').value=3;calculate()">Historical Avg (3%)</button>
+              <button onclick="document.getElementById('inflationRate').value=5;calculate()">High Inflation (5%)</button>
+              <button onclick="document.getElementById('inflationRate').value=8;calculate()">Very High (8%)</button>
+            </div>
+
+            <div class="inputs-grid">
+              <div class="input-group">
+                <label for="presentAmount">Present Amount ($)</label>
+                <input type="number" id="presentAmount" class="form-input" placeholder="e.g. 10000" min="1" step="any">
+              </div>
+              <div class="input-group">
+                <label for="inflationRate">Inflation Rate (% per year)</label>
+                <input type="number" id="inflationRate" class="form-input" placeholder="e.g. 3" min="0" max="50" step="any" value="3">
+                <div class="hint">US historical average: ~3%</div>
+              </div>
+              <div class="input-group">
+                <label for="years">Time Period (years)</label>
+                <input type="number" id="years" class="form-input" placeholder="e.g. 10" min="1" max="100" step="1" value="10">
+              </div>
+              <div class="input-group">
+                <label for="annualIncrease">Annual Income Increase (%)</label>
+                <input type="number" id="annualIncrease" class="form-input" placeholder="e.g. 3 (optional)" min="0" max="30" step="any" value="0">
+                <div class="hint">Optional: to see if your income keeps up</div>
+              </div>
+            </div>
+
+            <div class="error-msg" id="errorMsg" role="alert" aria-live="assertive"></div>
+            <button class="calc-btn" id="calcBtn"><span aria-hidden="true">📉</span> Calculate Inflation Impact</button>
+
+            <div class="result-area" id="resultArea" aria-live="polite" role="status">
+              <div class="result-header">
+                <div class="result-label">Future Purchasing Power</div>
+                <div class="result-value" id="futureValue">—</div>
+              </div>
+              <div class="result-details">
+                <div class="result-item">
+                  <div class="result-item-label">Purchasing Power Loss</div>
+                  <div class="result-item-value" id="powerLoss" style="color:var(--color-danger)">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Equivalent Future Amount</div>
+                  <div class="result-item-value" id="futureEquivalent">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Cumulative Inflation</div>
+                  <div class="result-item-value" id="cumulativeInflation">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Monthly Purchasing Power</div>
+                  <div class="result-item-value" id="monthlyLoss">—</div>
+                </div>
+              </div>
+              <div style="padding:16px 24px;">
+                <h4 style="margin-bottom:12px;font-size:.875rem;">Year-by-Year Impact</h4>
+                <div class="table-wrap">
+                  <table class="comparison-table" id="yearlyTable">
+                    <thead><tr><th>Year</th><th>Purchasing Power</th><th>Loss</th><th>Cumulative Loss</th></tr></thead>
+                    <tbody id="yearlyBody"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-label="About inflation calculator">
+      <div class="container">
+        <div class="content-section">
+          <h2 style="margin-bottom:16px;">Inflation Calculator — Calculate Purchasing Power Over Time</h2>
+          <div class="intro-text">
+            <p><strong>Inflation</strong> is the silent tax on your savings — it erodes the purchasing power of money over time. Our Inflation Calculator shows you exactly how much value your money loses to inflation over any time period. Whether you're planning for retirement, evaluating salary offers, or just curious about the true value of your savings, this tool provides crucial insights.</p>
+            <br>
+            <p>Enter any amount and see what it will be "worth" in the future in today's dollars. The calculator also shows you how much money you'd need in the future to maintain the same purchasing power, and includes a year-by-year breakdown so you can see the cumulative impact of inflation.</p>
+          </div>
+
+          <div class="formula-box">
+            <h3>The Inflation Formula</h3>
+            <div class="formula">Future Value = Present Value / (1 + Inflation Rate)^Years</div>
+            <div class="formula-example"><strong>Example:</strong> $10,000 at 3% inflation for 10 years: $10,000 / (1.03)^10 = <strong>$7,441</strong> in today's purchasing power</div>
+          </div>
+
+          <h2 style="margin-bottom:16px;">How to Use the Inflation Calculator</h2>
+          <ol class="steps-list">
+            <li><div><strong>Enter the present amount</strong><span>Type any amount of money you want to evaluate (e.g., $10,000).</span></div></li>
+            <li><div><strong>Set the inflation rate</strong><span>Use the preset buttons for common rates or enter your own. US historical average is ~3%.</span></div></li>
+            <li><div><strong>Choose the time period</strong><span>Enter how many years into the future you want to project.</span></div></li>
+            <li><div><strong>Optional: Annual income increase</strong><span>Enter expected salary growth to see if your income keeps pace with inflation.</span></div></li>
+            <li><div><strong>Click Calculate</strong><span>See the future purchasing power, loss amount, and a year-by-year breakdown.</span></div></li>
+          </ol>
+
+          <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item open">
+              <button class="faq-question" aria-expanded="true">What is inflation and why does it matter?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p><strong>Inflation</strong> is the rate at which prices increase over time, reducing the purchasing power of money. At 3% inflation, $100 today buys what $74 buys in 10 years. It matters because it affects your savings, investments, salary, and cost of living. Understanding inflation helps you make better financial decisions.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">How can I protect my money from inflation?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Strategies to beat inflation: <strong>1) Invest in stocks</strong> (historically return 7-10% annually), <strong>2) Real estate</strong> (property values and rents tend to rise with inflation), <strong>3) Treasury Inflation-Protected Securities (TIPS)</strong>, <strong>4) Commodities</strong>, <strong>5) High-yield savings accounts</strong> (when rates exceed inflation). Cash under your mattress loses value every year.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">What is the historical average inflation rate?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>The US has averaged about <strong>3% annual inflation</strong> over the long term. However, it varies significantly: it was near 0% in 2020, spiked to 9%+ in 2022, and has since cooled. The Federal Reserve targets 2% as ideal. Your personal inflation rate may differ based on your spending patterns.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Related tools">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:32px;"><h2 style="font-size:1.75rem;">Related Tools</h2><p style="color:var(--text-secondary);">Try these other free finance calculators.</p></div>
+        <div class="related-grid">
+          <a href="retirement-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">🏖️</span><h4>Retirement Calculator</h4><p>Plan your retirement considering inflation.</p></a>
+          <a href="investment-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">📊</span><h4>Investment Growth Calculator</h4><p>See if your investments beat inflation.</p></a>
+          <a href="savings-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">🎯</span><h4>Savings Goal Calculator</h4><p>Plan savings that outpace inflation.</p></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><h3>MultiWeb</h3><p>Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><nav aria-label="Quick links"><a href="bmi-calculator.html">BMI Calculator</a><a href="unit-converter.html">Unit Converter</a><a href="word-counter.html">Word Counter</a><a href="qr-generator.html">QR Generator</a></nav></div>
+        <div class="footer-col"><h4>Company</h4><nav aria-label="Company links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></nav></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 MultiWeb. All rights reserved.</span><span>Free online tools for everyone.</span></div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script>
+    (function(){
+      'use strict';
+      var calcBtn=document.getElementById('calcBtn'),errorMsg=document.getElementById('errorMsg'),resultArea=document.getElementById('resultArea');
+      
+      function showError(msg){errorMsg.textContent=msg;errorMsg.classList.add('visible')}
+      function hideError(){errorMsg.textContent='';errorMsg.classList.remove('visible')}
+      
+      function calculate(){
+        hideError();resultArea.classList.remove('visible');
+        var amount=parseFloat(document.getElementById('presentAmount').value);
+        var rate=parseFloat(document.getElementById('inflationRate').value);
+        var years=parseInt(document.getElementById('years').value,10);
+        var incomeIncrease=parseFloat(document.getElementById('annualIncrease').value)||0;
+        
+        if(isNaN(amount)||amount<=0){showError('Please enter a valid amount.');return}
+        if(isNaN(rate)||rate<0){showError('Please enter a valid inflation rate.');return}
+        if(isNaN(years)||years<=0){showError('Please enter a valid time period.');return}
+        
+        var futureValue=amount/Math.pow(1+rate/100,years);
+        var loss=amount-futureValue;
+        var lossPct=(loss/amount*100);
+        var futureEquivalent=amount*Math.pow(1+rate/100,years);
+        var cumulativeInflation=(Math.pow(1+rate/100,years)-1)*100;
+        
+        var fvEl=document.getElementById('futureValue');
+        fvEl.textContent='$'+futureValue.toFixed(2);
+        fvEl.className='result-value '+(futureValue<amount?'loss':'gain');
+        
+        document.getElementById('powerLoss').textContent='$'+loss.toFixed(2)+' ('+lossPct.toFixed(1)+'%)';
+        document.getElementById('futureEquivalent').textContent='$'+futureEquivalent.toFixed(2);
+        document.getElementById('cumulativeInflation').textContent=cumulativeInflation.toFixed(1)+'%';
+        
+        var monthlyLoss=loss/(years*12);
+        document.getElementById('monthlyLoss').textContent='$'+monthlyLoss.toFixed(2)+'/month';
+        
+        var tbody=document.getElementById('yearlyBody');
+        tbody.innerHTML='';
+        for(var y=1;y<=Math.min(years,30);y++){
+          var pv=amount/Math.pow(1+rate/100,y);
+          var yearLoss=amount-pv;
+          var cumLoss=(1-pv/amount)*100;
+          var row=document.createElement('tr');
+          row.innerHTML='<td>Year '+y+'</td><td>$'+pv.toFixed(2)+'</td><td style="color:var(--color-danger)">$'+yearLoss.toFixed(2)+'</td><td style="color:var(--color-danger)">'+cumLoss.toFixed(1)+'%</td>';
+          tbody.appendChild(row);
+        }
+        
+        resultArea.classList.add('visible');
+      }
+      
+      calcBtn.addEventListener('click',calculate);
+      document.querySelectorAll('.form-input').forEach(function(el){el.addEventListener('keydown',function(e){if(e.key==='Enter')calculate()})});
+      calculate();
+    })();
+  </script>
+</body>
+</html>

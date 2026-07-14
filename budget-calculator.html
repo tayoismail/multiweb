@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Calculator — Plan Your Monthly Income and Expenses | MultiWeb</title>
+  <meta name="description" content="Plan and track your monthly budget. Free online budget calculator with income and expense categories.">
+  <link rel="canonical" href="https://multiweb.app/budget-calculator.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Budget Calculator — Plan Your Monthly Income and Expenses">
+  <meta property="og:description" content="Plan and track your monthly budget with our free calculator.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://multiweb.app/budget-calculator.html">
+  <meta property="og:image" content="https://multiweb.app/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="MultiWeb">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Budget Calculator — Plan Your Monthly Income and Expenses">
+  <meta name="twitter:description" content="Plan and track your monthly budget.">
+  <meta name="twitter:image" content="https://multiweb.app/og-default.png">
+  <meta name="theme-color" content="#2563eb">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Budget Calculator — MultiWeb",
+    "url": "https://multiweb.app/budget-calculator.html",
+    "description": "Plan and track your monthly budget with our free calculator.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "en-US",
+    "author": { "@type": "Organization", "name": "MultiWeb", "url": "https://multiweb.app/" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+  }
+  </script>
+
+  <link rel="stylesheet" href="common-styles.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+  <style>
+    .section-title{font-size:1rem;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .input-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px}
+    @media(max-width:500px){.input-row{grid-template-columns:1fr}}
+    .input-group{display:flex;flex-direction:column;gap:4px}
+    .input-group label{font-size:.8125rem;font-weight:600;color:var(--text-primary)}
+    .form-input{width:100%;padding:10px 12px;font-family:var(--font);font-size:1rem;color:var(--text-primary);background:var(--bg-surface);border:1.5px solid var(--border-light);border-radius:var(--radius-sm);outline:none;transition:border-color var(--transition),box-shadow var(--transition)}
+    .form-input:focus{border-color:var(--color-primary);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+    .calc-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 28px;margin-top:20px;font-family:var(--font);font-weight:600;font-size:1.0625rem;line-height:1;background:var(--color-primary);color:var(--text-on-primary);border:2px solid var(--color-primary);border-radius:var(--radius-sm);cursor:pointer;transition:background var(--transition),box-shadow var(--transition),transform var(--transition-fast)}
+    .calc-btn:hover{background:var(--color-primary-dark);border-color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(37,99,235,.35)}
+    .calc-btn:active{transform:scale(.97)}
+    .result-area{display:none;margin-top:24px;border:1px solid var(--border-light);border-radius:var(--radius-md);overflow:hidden}
+    .result-area.visible{display:block}
+    .result-header{background:var(--bg-tag);padding:20px 24px;text-align:center}
+    .result-label{font-size:.875rem;color:var(--text-secondary);margin-bottom:4px}
+    .result-value{font-size:2.5rem;font-weight:800;line-height:1}
+    .result-value.positive{color:var(--color-success)}
+    .result-value.negative{color:var(--color-danger)}
+    .result-details{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border-light)}
+    .result-item{padding:16px 24px;border-bottom:1px solid var(--border-light)}
+    .result-item:nth-child(odd){border-right:1px solid var(--border-light)}
+    .result-item-label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);margin-bottom:2px}
+    .result-item-value{font-size:1rem;font-weight:600}
+    .budget-bar{display:flex;height:24px;border-radius:12px;overflow:hidden;margin:16px 24px 8px;background:var(--border-light)}
+    .budget-bar div{height:100%;transition:width var(--transition)}
+    .budget-legend{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;padding:0 24px 20px;font-size:.75rem}
+    .legend-item{display:flex;align-items:center;gap:4px}
+    .legend-dot{width:10px;height:10px;border-radius:3px}
+    .50-30-20{font-size:.8125rem;color:var(--text-muted);text-align:center;margin-top:8px}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://multiweb.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Budget Calculator", "item": "https://multiweb.app/budget-calculator.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#tool" class="skip-link">Skip to tool</a>
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="index.html" class="navbar-brand" aria-label="MultiWeb home"><span class="logo-icon" aria-hidden="true">M</span> MultiWeb</a>
+      <div class="navbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span class="icon-sun" aria-hidden="true">☀️</span><span class="icon-moon" aria-hidden="true">🌙</span></button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> Tools</a>
+        <a href="about.html" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> About</a>
+        <a href="contact.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> Contact</a>
+        <a href="privacy.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header" aria-label="Tool header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Budget Calculator</span>
+      </nav>
+      <h1>Budget Calculator</h1>
+      <p>Plan your monthly budget by tracking income against expenses. See where your money goes.</p>
+    </div>
+  </section>
+
+  <main id="tool">
+    <section class="section" style="padding-top:0;padding-bottom:32px;" aria-label="Budget calculator tool">
+      <div class="container">
+        <div class="tool-workspace fade-in">
+          <div class="tool-card">
+            <noscript>
+              <div style="padding:24px;background:var(--color-danger-bg);border-radius:var(--radius-md);text-align:center;margin-bottom:24px;">
+                <p style="font-weight:600;color:var(--color-danger-dark);margin-bottom:8px;">⚠️ JavaScript Required</p>
+                <p style="color:var(--text-secondary);font-size:0.9375rem;">This calculator requires JavaScript to work.</p>
+              </div>
+            </noscript>
+
+            <div class="section-title">💵 Monthly Income</div>
+            <div class="input-row">
+              <div class="input-group"><label for="salary">Salary / Wages</label><input type="number" id="salary" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+              <div class="input-group"><label for="sideIncome">Side Income</label><input type="number" id="sideIncome" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+            </div>
+            <div class="input-row">
+              <div class="input-group"><label for="otherIncome">Other Income</label><input type="number" id="otherIncome" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+              <div class="input-group" style="display:flex;align-items:end;"><div style="font-size:.875rem;font-weight:600;color:var(--text-muted);">Total: <span id="totalIncomeDisplay">$0</span></div></div>
+            </div>
+
+            <div class="section-title" style="margin-top:20px;">🏠 Fixed Expenses</div>
+            <div class="input-row">
+              <div class="input-group"><label for="rent">Rent / Mortgage</label><input type="number" id="rent" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+              <div class="input-group"><label for="utilities">Utilities</label><input type="number" id="utilities" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+            </div>
+            <div class="input-row">
+              <div class="input-group"><label for="insurance">Insurance</label><input type="number" id="insurance" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+              <div class="input-group"><label for="carPayment">Car Payment</label><input type="number" id="carPayment" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+            </div>
+            <div class="input-row">
+              <div class="input-group"><label for="phone">Phone / Internet</label><input type="number" id="phone" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+              <div class="input-group"><label for="subscriptions">Subscriptions</label><input type="number" id="subscriptions" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+            </div>
+
+            <div class="section-title" style="margin-top:20px;">🛒 Variable Expenses</div>
+            <div class="input-row">
+              <div class="input-group"><label for="groceries">Groceries</label><input type="number" id="groceries" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+              <div class="input-group"><label for="dining">Dining Out</label><input type="number" id="dining" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+            </div>
+            <div class="input-row">
+              <div class="input-group"><label for="transport">Transportation</label><input type="number" id="transport" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+              <div class="input-group"><label for="shopping">Shopping</label><input type="number" id="shopping" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+            </div>
+            <div class="input-row">
+              <div class="input-group"><label for="entertainment">Entertainment</label><input type="number" id="entertainment" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+              <div class="input-group"><label for="healthcare">Healthcare</label><input type="number" id="healthcare" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+            </div>
+            <div class="input-row">
+              <div class="input-group"><label for="personal">Personal Care</label><input type="number" id="personal" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+              <div class="input-group"><label for="misc">Miscellaneous</label><input type="number" id="misc" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+            </div>
+
+            <div class="section-title" style="margin-top:20px;">💰 Savings & Debt</div>
+            <div class="input-row">
+              <div class="input-group"><label for="savings">Savings</label><input type="number" id="savings" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+              <div class="input-group"><label for="debtPayment">Debt Payments</label><input type="number" id="debtPayment" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+            </div>
+
+            <button class="calc-btn" id="calcBtn"><span aria-hidden="true">📋</span> Calculate Budget</button>
+
+            <div class="result-area" id="resultArea" aria-live="polite" role="status">
+              <div class="result-header">
+                <div class="result-label" id="resultLabel">Remaining Balance</div>
+                <div class="result-value" id="remainingBalance">—</div>
+              </div>
+              <div class="result-details">
+                <div class="result-item">
+                  <div class="result-item-label">Total Income</div>
+                  <div class="result-item-value" id="resultIncome" style="color:var(--color-success)">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Total Expenses</div>
+                  <div class="result-item-value" id="resultExpenses" style="color:var(--color-danger)">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Savings Rate</div>
+                  <div class="result-item-value" id="savingsRate">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">50/30/20 Rule</div>
+                  <div class="result-item-value" id="ruleCheck">—</div>
+                </div>
+              </div>
+              <div class="budget-bar" id="budgetBar"></div>
+              <div class="budget-legend" id="budgetLegend"></div>
+              <div class="50-30-20" id="ruleAdvice"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-label="About budget calculator">
+      <div class="container">
+        <div class="content-section">
+          <h2 style="margin-bottom:16px;">Budget Calculator — Plan Your Monthly Income and Expenses</h2>
+          <div class="intro-text">
+            <p>Our <strong>Budget Calculator</strong> helps you create a clear picture of where your money goes each month. By entering your income and categorizing your expenses, you can instantly see whether you're living within your means, how much you're saving, and where you might be overspending. Budgeting is the foundation of financial health — it's the first step toward building wealth, paying off debt, and achieving your financial goals.</p>
+            <br>
+            <p>The calculator also checks your budget against the popular <strong>50/30/20 rule</strong>: 50% for needs (housing, utilities, groceries), 30% for wants (entertainment, dining, shopping), and 20% for savings and debt repayment. This simple framework is a great starting point for anyone looking to take control of their finances.</p>
+          </div>
+
+          <h2 style="margin-bottom:16px;">How to Use the Budget Calculator</h2>
+          <ol class="steps-list">
+            <li><div><strong>Enter your income</strong><span>Include salary, side income, and any other regular income sources.</span></div></li>
+            <li><div><strong>Enter fixed expenses</strong><span>Rent/mortgage, utilities, insurance, car payments, phone, and subscriptions.</span></div></li>
+            <li><div><strong>Enter variable expenses</strong><span>Groceries, dining, transportation, shopping, entertainment, healthcare, personal care, and misc.</span></div></li>
+            <li><div><strong>Enter savings and debt payments</strong><span>How much you save and how much you pay toward debt each month.</span></div></li>
+            <li><div><strong>Click Calculate</strong><span>See your remaining balance, savings rate, and how your budget compares to the 50/30/20 rule.</span></div></li>
+          </ol>
+
+          <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item open">
+              <button class="faq-question" aria-expanded="true">What is the 50/30/20 budget rule?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>The 50/30/20 rule divides after-tax income into three categories: <strong>50% for needs</strong> (housing, food, utilities, insurance), <strong>30% for wants</strong> (entertainment, dining out, hobbies), and <strong>20% for savings and debt repayment</strong>. It's a simple framework for balanced budgeting.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">How much should I save each month?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Financial experts recommend saving <strong>20% of your income</strong> (the "20" in 50/30/20). At minimum, aim for 10% and increase over time. Build an emergency fund of 3-6 months of expenses first, then focus on retirement and other goals.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">What if my expenses exceed my income?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>First, look for expenses to cut — dining out, subscriptions, and shopping are easiest to reduce. Consider increasing income through side hustles or negotiating a raise. If debt is the issue, prioritize high-interest debt and consider consolidation. Small changes add up quickly.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Related tools">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:32px;"><h2 style="font-size:1.75rem;">Related Tools</h2><p style="color:var(--text-secondary);">Try these other free finance calculators.</p></div>
+        <div class="related-grid">
+          <a href="savings-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">🎯</span><h4>Savings Goal Calculator</h4><p>Find out how much to save monthly to reach your goal.</p></a>
+          <a href="net-worth-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">🏦</span><h4>Net Worth Calculator</h4><p>Calculate your total net worth.</p></a>
+          <a href="credit-card-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">💳</span><h4>Credit Card Payoff Calculator</h4><p>Find out how long to pay off credit card debt.</p></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><h3>MultiWeb</h3><p>Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><nav aria-label="Quick links"><a href="bmi-calculator.html">BMI Calculator</a><a href="unit-converter.html">Unit Converter</a><a href="word-counter.html">Word Counter</a><a href="qr-generator.html">QR Generator</a></nav></div>
+        <div class="footer-col"><h4>Company</h4><nav aria-label="Company links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></nav></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 MultiWeb. All rights reserved.</span><span>Free online tools for everyone.</span></div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script>
+    (function(){
+      'use strict';
+      var calcBtn=document.getElementById('calcBtn'),resultArea=document.getElementById('resultArea');
+      var incomeIds=['salary','sideIncome','otherIncome'];
+      var fixedIds=['rent','utilities','insurance','carPayment','phone','subscriptions'];
+      var variableIds=['groceries','dining','transport','shopping','entertainment','healthcare','personal','misc'];
+      var savingsIds=['savings','debtPayment'];
+      
+      function sumFields(ids){var total=0;ids.forEach(function(id){total+=parseFloat(document.getElementById(id).value)||0});return total}
+      
+      function updateIncomeDisplay(){
+        var total=sumFields(incomeIds);
+        document.getElementById('totalIncomeDisplay').textContent='$'+total.toLocaleString('en-US',{maximumFractionDigits:0});
+      }
+      
+      document.querySelectorAll('.form-input').forEach(function(el){el.addEventListener('input',updateIncomeDisplay)});
+      
+      function calculate(){
+        var totalIncome=sumFields(incomeIds);
+        var fixedExpenses=sumFields(fixedIds);
+        var variableExpenses=sumFields(variableIds);
+        var savingsDebt=sumFields(savingsIds);
+        var totalExpenses=fixedExpenses+variableExpenses+savingsDebt;
+        var remaining=totalIncome-totalExpenses;
+        var savingsRate=totalIncome>0?((savingsDebt/totalIncome)*100):0;
+        
+        var remEl=document.getElementById('remainingBalance');
+        remEl.textContent=(remaining>=0?'+':'')+remaining.toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});
+        remEl.className='result-value '+(remaining>=0?'positive':'negative');
+        document.getElementById('resultLabel').textContent=remaining>=0?'Remaining Balance':'Budget Deficit';
+        
+        document.getElementById('resultIncome').textContent='$'+totalIncome.toLocaleString('en-US',{maximumFractionDigits:0});
+        document.getElementById('resultExpenses').textContent='$'+totalExpenses.toLocaleString('en-US',{maximumFractionDigits:0});
+        document.getElementById('savingsRate').textContent=savingsRate.toFixed(1)+'%';
+        
+        var needsPct=totalIncome>0?((fixedExpenses+variableExpenses)/totalIncome*100):0;
+        var wantsPct=totalIncome>0?(variableExpenses/totalIncome*100):0;
+        var savingsPct=totalIncome>0?(savingsDebt/totalIncome*100):0;
+        
+        document.getElementById('ruleCheck').textContent=savingsRate>=20?'✅ On Track':'⚠️ Below 20%';
+        
+        var bar=document.getElementById('budgetBar');
+        bar.innerHTML='';
+        var colors=['#10b981','#3b82f6','#f59e0b','#ef4444'];
+        var labels=['Savings & Debt','Fixed Expenses','Variable Expenses','Unallocated'];
+        var widths=[savingsPct,needsPct,wantsPct,Math.max(0,100-needsPct-wantsPct-savingsPct)];
+        var legend=document.getElementById('budgetLegend');
+        legend.innerHTML='';
+        
+        for(var i=0;i<widths.length;i++){
+          if(widths[i]>0){
+            var div=document.createElement('div');
+            div.style.width=widths[i]+'%';div.style.background=colors[i];
+            bar.appendChild(div);
+            var item=document.createElement('div');
+            item.className='legend-item';
+            item.innerHTML='<div class="legend-dot" style="background:'+colors[i]+'"></div><span>'+labels[i]+' ('+widths[i].toFixed(0)+'%)</span>';
+            legend.appendChild(item);
+          }
+        }
+        
+        var advice=document.getElementById('ruleAdvice');
+        if(savingsRate>=20){advice.textContent='✅ Great job! You\'re meeting or exceeding the 50/30/20 savings target.';}
+        else if(savingsRate>=10){advice.textContent='💡 You\'re saving '+savingsRate.toFixed(0)+'%. Try to increase to 20% by reducing wants or increasing income.';}
+        else{advice.textContent='⚠️ Your savings rate is below 10%. Consider cutting expenses or increasing income to build wealth.';}
+        
+        resultArea.classList.add('visible');
+      }
+      
+      calcBtn.addEventListener('click',calculate);
+      document.querySelectorAll('.form-input').forEach(function(el){el.addEventListener('keydown',function(e){if(e.key==='Enter')calculate()})});
+    })();
+  </script>
+</body>
+</html>

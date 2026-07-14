@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales Tax Calculator — Calculate Sales Tax on Any Purchase | MultiWeb</title>
+  <meta name="description" content="Calculate sales tax on any purchase instantly. Free online sales tax calculator with support for multiple tax rates.">
+  <link rel="canonical" href="https://multiweb.app/sales-tax-calculator.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Sales Tax Calculator — Calculate Sales Tax on Any Purchase">
+  <meta property="og:description" content="Calculate sales tax on any purchase instantly.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://multiweb.app/sales-tax-calculator.html">
+  <meta property="og:image" content="https://multiweb.app/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="MultiWeb">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sales Tax Calculator — Calculate Sales Tax on Any Purchase">
+  <meta name="twitter:description" content="Calculate sales tax on any purchase instantly.">
+  <meta name="twitter:image" content="https://multiweb.app/og-default.png">
+  <meta name="theme-color" content="#2563eb">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Sales Tax Calculator — MultiWeb",
+    "url": "https://multiweb.app/sales-tax-calculator.html",
+    "description": "Calculate sales tax on any purchase instantly.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "en-US",
+    "author": { "@type": "Organization", "name": "MultiWeb", "url": "https://multiweb.app/" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+  }
+  </script>
+
+  <link rel="stylesheet" href="common-styles.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+  <style>
+    .inputs-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:4px}
+    @media(min-width:500px){.inputs-grid{grid-template-columns:1fr 1fr}}
+    .input-group{display:flex;flex-direction:column;gap:4px}
+    .input-group label{font-size:.8125rem;font-weight:600;color:var(--text-primary)}
+    .form-input,.form-select{width:100%;padding:12px 14px;font-family:var(--font);font-size:1.0625rem;color:var(--text-primary);background:var(--bg-surface);border:1.5px solid var(--border-light);border-radius:var(--radius-sm);outline:none;transition:border-color var(--transition),box-shadow var(--transition)}
+    .form-input:focus,.form-select:focus{border-color:var(--color-primary);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+    .form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;cursor:pointer}
+    .result-area{display:none;margin-top:24px;border:1px solid var(--border-light);border-radius:var(--radius-md);overflow:hidden}
+    .result-area.visible{display:block}
+    .result-header{background:var(--bg-tag);padding:20px 24px;text-align:center}
+    .result-label{font-size:.875rem;color:var(--text-secondary);margin-bottom:4px}
+    .result-value{font-size:2.5rem;font-weight:800;color:var(--color-primary);line-height:1}
+    .result-details{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border-light)}
+    .result-item{padding:16px 24px;border-bottom:1px solid var(--border-light)}
+    .result-item:nth-child(odd){border-right:1px solid var(--border-light)}
+    .result-item-label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);margin-bottom:2px}
+    .result-item-value{font-size:1rem;font-weight:600}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://multiweb.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Sales Tax Calculator", "item": "https://multiweb.app/sales-tax-calculator.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#tool" class="skip-link">Skip to tool</a>
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="index.html" class="navbar-brand" aria-label="MultiWeb home"><span class="logo-icon" aria-hidden="true">M</span> MultiWeb</a>
+      <div class="navbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span class="icon-sun" aria-hidden="true">☀️</span><span class="icon-moon" aria-hidden="true">🌙</span></button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> Tools</a>
+        <a href="about.html" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> About</a>
+        <a href="contact.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> Contact</a>
+        <a href="privacy.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header" aria-label="Tool header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Sales Tax Calculator</span>
+      </nav>
+      <h1>Sales Tax Calculator</h1>
+      <p>Calculate the sales tax on any purchase instantly. Know exactly what you'll pay at checkout.</p>
+    </div>
+  </section>
+
+  <main id="tool">
+    <section class="section" style="padding-top:0;padding-bottom:32px;" aria-label="Sales tax calculator tool">
+      <div class="container">
+        <div class="tool-workspace fade-in">
+          <div class="tool-card">
+            <noscript>
+              <div style="padding:24px;background:var(--color-danger-bg);border-radius:var(--radius-md);text-align:center;margin-bottom:24px;">
+                <p style="font-weight:600;color:var(--color-danger-dark);margin-bottom:8px;">⚠️ JavaScript Required</p>
+                <p style="color:var(--text-secondary);font-size:0.9375rem;">This calculator requires JavaScript to work.</p>
+              </div>
+            </noscript>
+
+            <div class="inputs-grid">
+              <div class="input-group">
+                <label for="preTaxPrice">Price Before Tax ($)</label>
+                <input type="number" id="preTaxPrice" class="form-input" placeholder="e.g. 99.99" min="0" step="any">
+              </div>
+              <div class="input-group">
+                <label for="taxRate">Sales Tax Rate (%)</label>
+                <input type="number" id="taxRate" class="form-input" placeholder="e.g. 8.25" min="0" max="30" step="any" value="8.25">
+              </div>
+              <div class="input-group">
+                <label for="quantity">Quantity</label>
+                <input type="number" id="quantity" class="form-input" placeholder="1" min="1" step="1" value="1">
+              </div>
+              <div class="input-group">
+                <label for="state">Quick Tax Rates (US States)</label>
+                <select id="state" class="form-select">
+                  <option value="">Select a state...</option>
+                  <option value="0">Oregon (0%)</option>
+                  <option value="4.225">Missouri (4.225%)</option>
+                  <option value="5">Hawaii (5%)</option>
+                  <option value="5.5">Alaska (5.5%)</option>
+                  <option value="6">Alabama (6%)</option>
+                  <option value="6.25">Texas (6.25%)</option>
+                  <option value="6.35">Connecticut (6.35%)</option>
+                  <option value="7">California (7.25%)</option>
+                  <option value="7.25">California state rate (7.25%)</option>
+                  <option value="8.25">New York (8.25%)</option>
+                  <option value="8.375">New Jersey (8.375%)</option>
+                  <option value="8.875">New York City (8.875%)</option>
+                  <option value="9.5">Illinois (9.5%)</option>
+                  <option value="10.25">Chicago (10.25%)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="result-area" id="resultArea" aria-live="polite" role="status">
+              <div class="result-header">
+                <div class="result-label">Total Price (incl. Tax)</div>
+                <div class="result-value" id="totalPrice">—</div>
+              </div>
+              <div class="result-details">
+                <div class="result-item">
+                  <div class="result-item-label">Subtotal</div>
+                  <div class="result-item-value" id="subtotal">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Sales Tax</div>
+                  <div class="result-item-value" id="salesTax" style="color:var(--color-warning)">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Tax Rate</div>
+                  <div class="result-item-value" id="taxRateDisplay">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Per Item (incl. Tax)</div>
+                  <div class="result-item-value" id="perItem">—</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-label="About sales tax calculator">
+      <div class="container">
+        <div class="content-section">
+          <h2 style="margin-bottom:16px;">Sales Tax Calculator — Calculate Sales Tax on Any Purchase</h2>
+          <div class="intro-text">
+            <p>Our <strong>Sales Tax Calculator</strong> helps you determine the exact cost of any purchase including sales tax. Whether you're shopping online, budgeting for a big purchase, or just curious about how much tax you're paying, this tool gives you instant answers. Simply enter the pre-tax price and applicable tax rate to see the total cost breakdown.</p>
+            <br>
+            <p>For US shoppers, we've included quick-select options for common state and city tax rates. Sales tax rates vary significantly by location — from 0% in Oregon and Montana to over 10% in parts of Illinois and California. Understanding your local tax rate helps you budget more accurately.</p>
+          </div>
+
+          <h2 style="margin-bottom:16px;">How to Use the Sales Tax Calculator</h2>
+          <ol class="steps-list">
+            <li><div><strong>Enter the pre-tax price</strong><span>Type the price of the item before tax is applied.</span></div></li>
+            <li><div><strong>Enter the tax rate</strong><span>Input your local sales tax rate, or select a US state from the dropdown for common rates.</span></div></li>
+            <li><div><strong>Set quantity</strong><span>If buying multiple items, enter the quantity to see the total cost for all items.</span></div></li>
+            <li><div><strong>View results instantly</strong><span>The calculator updates in real-time as you type, showing subtotal, tax amount, and total price.</span></div></li>
+          </ol>
+
+          <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item open">
+              <button class="faq-question" aria-expanded="true">Which US states have no sales tax?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Five US states have no statewide sales tax: <strong>Oregon, Montana, New Hampshire, Delaware, and Alaska</strong>. However, some cities in Alaska may still charge local sales taxes. Many other states have no tax on specific items like groceries or clothing.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">Do online purchases always include sales tax?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Since the 2018 Supreme Court ruling (South Dakota v. Wayfair), most states require online retailers to collect sales tax if they have economic nexus (significant sales) in that state. However, tax rules vary by state and retailer.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">How do I find my local sales tax rate?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Check your state's Department of Revenue website, or look at a recent receipt which shows the tax rate. You can also search "[your city/state] sales tax rate" online. Remember, combined rates include state, county, and city taxes.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Related tools">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:32px;"><h2 style="font-size:1.75rem;">Related Tools</h2><p style="color:var(--text-secondary);">Try these other free finance calculators.</p></div>
+        <div class="related-grid">
+          <a href="discount-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">🏷️</span><h4>Discount Calculator</h4><p>Find the final price after applying discounts.</p></a>
+          <a href="tip-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">🍽️</span><h4>Tip Calculator</h4><p>Calculate tips and split bills at restaurants.</p></a>
+          <a href="percentage-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">%</span><h4>Percentage Calculator</h4><p>Calculate percentages, discounts, and proportions.</p></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><h3>MultiWeb</h3><p>Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><nav aria-label="Quick links"><a href="bmi-calculator.html">BMI Calculator</a><a href="unit-converter.html">Unit Converter</a><a href="word-counter.html">Word Counter</a><a href="qr-generator.html">QR Generator</a></nav></div>
+        <div class="footer-col"><h4>Company</h4><nav aria-label="Company links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></nav></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 MultiWeb. All rights reserved.</span><span>Free online tools for everyone.</span></div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script>
+    (function(){
+      'use strict';
+      var preTaxPrice=document.getElementById('preTaxPrice'),taxRate=document.getElementById('taxRate'),quantity=document.getElementById('quantity'),state=document.getElementById('state'),resultArea=document.getElementById('resultArea');
+      
+      state.addEventListener('change',function(){
+        if(state.value!=='')taxRate.value=state.value;
+        calculate();
+      });
+      
+      function calculate(){
+        var price=parseFloat(preTaxPrice.value)||0;
+        var rate=parseFloat(taxRate.value)||0;
+        var qty=parseInt(quantity.value,10)||1;
+        
+        var subtotal=price*qty;
+        var tax=subtotal*(rate/100);
+        var total=subtotal+tax;
+        
+        document.getElementById('totalPrice').textContent='$'+total.toFixed(2);
+        document.getElementById('subtotal').textContent='$'+subtotal.toFixed(2);
+        document.getElementById('salesTax').textContent='$'+tax.toFixed(2);
+        document.getElementById('taxRateDisplay').textContent=rate.toFixed(2)+'%';
+        document.getElementById('perItem').textContent='$'+(total/qty).toFixed(2);
+        
+        resultArea.classList.add('visible');
+      }
+      
+      preTaxPrice.addEventListener('input',calculate);
+      taxRate.addEventListener('input',calculate);
+      quantity.addEventListener('input',calculate);
+      calculate();
+    })();
+  </script>
+</body>
+</html>

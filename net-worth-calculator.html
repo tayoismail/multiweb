@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Net Worth Calculator — Calculate Your Total Net Worth | MultiWeb</title>
+  <meta name="description" content="Calculate your total net worth by adding up assets and subtracting liabilities. Free online net worth calculator.">
+  <link rel="canonical" href="https://multiweb.app/net-worth-calculator.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Net Worth Calculator — Calculate Your Total Net Worth">
+  <meta property="og:description" content="Calculate your total net worth by adding up assets and subtracting liabilities.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://multiweb.app/net-worth-calculator.html">
+  <meta property="og:image" content="https://multiweb.app/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="MultiWeb">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Net Worth Calculator — Calculate Your Total Net Worth">
+  <meta name="twitter:description" content="Calculate your total net worth instantly.">
+  <meta name="twitter:image" content="https://multiweb.app/og-default.png">
+  <meta name="theme-color" content="#2563eb">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Net Worth Calculator — MultiWeb",
+    "url": "https://multiweb.app/net-worth-calculator.html",
+    "description": "Calculate your total net worth by adding up assets and subtracting liabilities.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "en-US",
+    "author": { "@type": "Organization", "name": "MultiWeb", "url": "https://multiweb.app/" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+  }
+  </script>
+
+  <link rel="stylesheet" href="common-styles.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+  <style>
+    .section-title{font-size:1rem;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .input-group{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+    .input-group label{font-size:.8125rem;font-weight:600;color:var(--text-primary)}
+    .form-input{width:100%;padding:10px 12px;font-family:var(--font);font-size:1rem;color:var(--text-primary);background:var(--bg-surface);border:1.5px solid var(--border-light);border-radius:var(--radius-sm);outline:none;transition:border-color var(--transition),box-shadow var(--transition)}
+    .form-input:focus{border-color:var(--color-primary);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+    .input-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media(max-width:500px){.input-row{grid-template-columns:1fr}}
+    .calc-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 28px;margin-top:20px;font-family:var(--font);font-weight:600;font-size:1.0625rem;line-height:1;background:var(--color-primary);color:var(--text-on-primary);border:2px solid var(--color-primary);border-radius:var(--radius-sm);cursor:pointer;transition:background var(--transition),box-shadow var(--transition),transform var(--transition-fast)}
+    .calc-btn:hover{background:var(--color-primary-dark);border-color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(37,99,235,.35)}
+    .calc-btn:active{transform:scale(.97)}
+    .result-area{display:none;margin-top:24px;border:1px solid var(--border-light);border-radius:var(--radius-md);overflow:hidden}
+    .result-area.visible{display:block}
+    .result-header{background:var(--bg-tag);padding:20px 24px;text-align:center}
+    .result-label{font-size:.875rem;color:var(--text-secondary);margin-bottom:4px}
+    .result-value{font-size:2.5rem;font-weight:800;line-height:1}
+    .result-value.positive{color:var(--color-success)}
+    .result-value.negative{color:var(--color-danger)}
+    .result-details{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border-light)}
+    .result-item{padding:16px 24px;border-bottom:1px solid var(--border-light)}
+    .result-item:nth-child(odd){border-right:1px solid var(--border-light)}
+    .result-item-label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);margin-bottom:2px}
+    .result-item-value{font-size:1rem;font-weight:600}
+    .progress-bar{height:16px;border-radius:8px;background:var(--border-light);margin:16px 24px;overflow:hidden}
+    .progress-bar .fill{height:100%;border-radius:8px;transition:width var(--transition)}
+    .progress-label{display:flex;justify-content:space-between;padding:0 24px 16px;font-size:.75rem;color:var(--text-muted)}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://multiweb.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Net Worth Calculator", "item": "https://multiweb.app/net-worth-calculator.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#tool" class="skip-link">Skip to tool</a>
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="index.html" class="navbar-brand" aria-label="MultiWeb home"><span class="logo-icon" aria-hidden="true">M</span> MultiWeb</a>
+      <div class="navbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span class="icon-sun" aria-hidden="true">☀️</span><span class="icon-moon" aria-hidden="true">🌙</span></button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> Tools</a>
+        <a href="about.html" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> About</a>
+        <a href="contact.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> Contact</a>
+        <a href="privacy.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header" aria-label="Tool header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Net Worth Calculator</span>
+      </nav>
+      <h1>Net Worth Calculator</h1>
+      <p>Calculate your total net worth by adding up all assets and subtracting liabilities.</p>
+    </div>
+  </section>
+
+  <main id="tool">
+    <section class="section" style="padding-top:0;padding-bottom:32px;" aria-label="Net worth calculator tool">
+      <div class="container">
+        <div class="tool-workspace fade-in">
+          <div class="tool-card">
+            <noscript>
+              <div style="padding:24px;background:var(--color-danger-bg);border-radius:var(--radius-md);text-align:center;margin-bottom:24px;">
+                <p style="font-weight:600;color:var(--color-danger-dark);margin-bottom:8px;">⚠️ JavaScript Required</p>
+                <p style="color:var(--text-secondary);font-size:0.9375rem;">This calculator requires JavaScript to work.</p>
+              </div>
+            </noscript>
+
+            <div class="section-title">💰 Assets</div>
+            <div class="input-row">
+              <div class="input-group"><label for="cash">Cash & Savings</label><input type="number" id="cash" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+              <div class="input-group"><label for="investments">Investments</label><input type="number" id="investments" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+            </div>
+            <div class="input-row">
+              <div class="input-group"><label for="retirement">Retirement Accounts</label><input type="number" id="retirement" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+              <div class="input-group"><label for="property">Real Estate</label><input type="number" id="property" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+            </div>
+            <div class="input-row">
+              <div class="input-group"><label for="vehicles">Vehicles</label><input type="number" id="vehicles" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+              <div class="input-group"><label for="otherAssets">Other Assets</label><input type="number" id="otherAssets" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+            </div>
+
+            <div class="section-title" style="margin-top:20px;">📉 Liabilities</div>
+            <div class="input-row">
+              <div class="input-group"><label for="mortgage">Mortgage</label><input type="number" id="mortgage" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+              <div class="input-group"><label for="autoLoans">Auto Loans</label><input type="number" id="autoLoans" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+            </div>
+            <div class="input-row">
+              <div class="input-group"><label for="studentLoans">Student Loans</label><input type="number" id="studentLoans" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+              <div class="input-group"><label for="creditCards">Credit Card Debt</label><input type="number" id="creditCards" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+            </div>
+            <div class="input-row">
+              <div class="input-group"><label for="otherDebt">Other Debt</label><input type="number" id="otherDebt" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+              <div class="input-group"><label for="taxes">Taxes Owed</label><input type="number" id="taxes" class="form-input" placeholder="0" min="0" step="any" value="0"></div>
+            </div>
+
+            <button class="calc-btn" id="calcBtn"><span aria-hidden="true">🏦</span> Calculate Net Worth</button>
+
+            <div class="result-area" id="resultArea" aria-live="polite" role="status">
+              <div class="result-header">
+                <div class="result-label">Your Net Worth</div>
+                <div class="result-value" id="netWorth">—</div>
+              </div>
+              <div class="result-details">
+                <div class="result-item">
+                  <div class="result-item-label">Total Assets</div>
+                  <div class="result-item-value" id="totalAssets" style="color:var(--color-success)">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Total Liabilities</div>
+                  <div class="result-item-value" id="totalLiabilities" style="color:var(--color-danger)">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Debt-to-Asset Ratio</div>
+                  <div class="result-item-value" id="debtRatio">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Leverage</div>
+                  <div class="result-item-value" id="leverage">—</div>
+                </div>
+              </div>
+              <div class="progress-bar"><div class="fill" id="assetFill" style="width:60%;background:var(--color-success)"></div></div>
+              <div class="progress-label"><span>Liabilities</span><span id="assetPct">60% Assets</span><span>Assets</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-label="About net worth calculator">
+      <div class="container">
+        <div class="content-section">
+          <h2 style="margin-bottom:16px;">Net Worth Calculator — Calculate Your Total Net Worth</h2>
+          <div class="intro-text">
+            <p><strong>Net worth</strong> is the single most important number in personal finance — it's the value of everything you own minus everything you owe. Our Net Worth Calculator helps you get a clear snapshot of your financial health by adding up all your assets (cash, investments, property) and subtracting all your liabilities (loans, mortgages, credit card debt).</p>
+            <br>
+            <p>Tracking your net worth over time is one of the best ways to measure financial progress. Whether you're just starting out or approaching retirement, knowing your net worth helps you make better decisions about saving, investing, and spending.</p>
+          </div>
+
+          <h2 style="margin-bottom:16px;">How to Use the Net Worth Calculator</h2>
+          <ol class="steps-list">
+            <li><div><strong>Enter your assets</strong><span>Fill in the value of cash, investments, retirement accounts, real estate, vehicles, and any other assets you own.</span></div></li>
+            <li><div><strong>Enter your liabilities</strong><span>Input all debts: mortgage, auto loans, student loans, credit cards, other debt, and taxes owed.</span></div></li>
+            <li><div><strong>Click Calculate</strong><span>See your total net worth, debt-to-asset ratio, and a visual breakdown of your financial position.</span></div></li>
+          </ol>
+
+          <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item open">
+              <button class="faq-question" aria-expanded="true">What is a good net worth by age?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>A common guideline is: <strong>Age 30:</strong> 1x annual salary, <strong>Age 40:</strong> 3x, <strong>Age 50:</strong> 6x, <strong>Age 60:</strong> 8x, <strong>Age 65:</strong> 10x. These are averages — your net worth should reflect your personal goals, income, and lifestyle.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">Should I include my home in net worth?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Yes, include your home's current market value as an asset and your mortgage as a liability. The difference (equity) is what contributes to your net worth. Use a recent appraisal or comparable sales data for the most accurate estimate.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">How do I improve my net worth?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Three strategies: <strong>1) Increase assets</strong> (save more, invest wisely), <strong>2) Reduce liabilities</strong> (pay down debt, especially high-interest debt), <strong>3) Increase income</strong> (side hustles, career advancement). Consistent saving and debt reduction are the most reliable paths.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Related tools">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:32px;"><h2 style="font-size:1.75rem;">Related Tools</h2><p style="color:var(--text-secondary);">Try these other free finance calculators.</p></div>
+        <div class="related-grid">
+          <a href="budget-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">📋</span><h4>Budget Calculator</h4><p>Plan and track your monthly income and expenses.</p></a>
+          <a href="savings-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">🎯</span><h4>Savings Goal Calculator</h4><p>Find out how much to save monthly to reach your goal.</p></a>
+          <a href="retirement-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">🏖️</span><h4>Retirement Calculator</h4><p>Plan your retirement corpus today.</p></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><h3>MultiWeb</h3><p>Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><nav aria-label="Quick links"><a href="bmi-calculator.html">BMI Calculator</a><a href="unit-converter.html">Unit Converter</a><a href="word-counter.html">Word Counter</a><a href="qr-generator.html">QR Generator</a></nav></div>
+        <div class="footer-col"><h4>Company</h4><nav aria-label="Company links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></nav></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 MultiWeb. All rights reserved.</span><span>Free online tools for everyone.</span></div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script>
+    (function(){
+      'use strict';
+      var calcBtn=document.getElementById('calcBtn'),resultArea=document.getElementById('resultArea');
+      var assetIds=['cash','investments','retirement','property','vehicles','otherAssets'];
+      var liabilityIds=['mortgage','autoLoans','studentLoans','creditCards','otherDebt','taxes'];
+      
+      function calculate(){
+        var totalAssets=0;var totalLiabilities=0;
+        assetIds.forEach(function(id){totalAssets+=parseFloat(document.getElementById(id).value)||0});
+        liabilityIds.forEach(function(id){totalLiabilities+=parseFloat(document.getElementById(id).value)||0});
+        
+        var netWorth=totalAssets-totalLiabilities;
+        var debtRatio=totalAssets>0?(totalLiabilities/totalAssets*100):0;
+        var leverage=totalAssets>0?(totalLiabilities/totalAssets):0;
+        
+        var nwEl=document.getElementById('netWorth');
+        nwEl.textContent=(netWorth>=0?'+':'')+netWorth.toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});
+        nwEl.className='result-value '+(netWorth>=0?'positive':'negative');
+        
+        document.getElementById('totalAssets').textContent='$'+totalAssets.toLocaleString('en-US',{maximumFractionDigits:0});
+        document.getElementById('totalLiabilities').textContent='$'+totalLiabilities.toLocaleString('en-US',{maximumFractionDigits:0});
+        document.getElementById('debtRatio').textContent=debtRatio.toFixed(1)+'%';
+        document.getElementById('leverage').textContent=leverage.toFixed(2)+'x';
+        
+        var assetPct=totalAssets>0?(totalAssets/(totalAssets+totalLiabilities)*100):50;
+        document.getElementById('assetFill').style.width=assetPct+'%';
+        document.getElementById('assetPct').textContent=Math.round(assetPct)+'% Assets';
+        
+        resultArea.classList.add('visible');
+      }
+      
+      calcBtn.addEventListener('click',calculate);
+      document.querySelectorAll('.form-input').forEach(function(el){el.addEventListener('keydown',function(e){if(e.key==='Enter')calculate()})});
+    })();
+  </script>
+</body>
+</html>

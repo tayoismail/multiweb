@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discount Calculator — Calculate Sale Price and Savings | MultiWeb</title>
+  <meta name="description" content="Calculate the final price after discounts instantly. Free online discount calculator to find sale price and total savings.">
+  <link rel="canonical" href="https://multiweb.app/discount-calculator.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Discount Calculator — Calculate Sale Price and Savings">
+  <meta property="og:description" content="Calculate the final price after discounts instantly.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://multiweb.app/discount-calculator.html">
+  <meta property="og:image" content="https://multiweb.app/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="MultiWeb">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Discount Calculator — Calculate Sale Price and Savings">
+  <meta name="twitter:description" content="Calculate the final price after discounts instantly.">
+  <meta name="twitter:image" content="https://multiweb.app/og-default.png">
+  <meta name="theme-color" content="#2563eb">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Discount Calculator — MultiWeb",
+    "url": "https://multiweb.app/discount-calculator.html",
+    "description": "Calculate the final price after discounts instantly.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "en-US",
+    "author": { "@type": "Organization", "name": "MultiWeb", "url": "https://multiweb.app/" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+  }
+  </script>
+
+  <link rel="stylesheet" href="common-styles.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+  <style>
+    .inputs-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:4px}
+    @media(min-width:500px){.inputs-grid{grid-template-columns:1fr 1fr}}
+    .input-group{display:flex;flex-direction:column;gap:4px}
+    .input-group label{font-size:.8125rem;font-weight:600;color:var(--text-primary)}
+    .form-input{width:100%;padding:12px 14px;font-family:var(--font);font-size:1.0625rem;color:var(--text-primary);background:var(--bg-surface);border:1.5px solid var(--border-light);border-radius:var(--radius-sm);outline:none;transition:border-color var(--transition),box-shadow var(--transition)}
+    .form-input:focus{border-color:var(--color-primary);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+    .discount-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+    .discount-pills button{padding:10px 16px;font-family:var(--font);font-size:.875rem;font-weight:600;border:2px solid var(--border-light);border-radius:var(--radius-sm);cursor:pointer;background:var(--bg-surface);color:var(--text-secondary);transition:all var(--transition)}
+    .discount-pills button.active{background:var(--color-primary);color:#fff;border-color:var(--color-primary)}
+    .result-area{display:none;margin-top:24px;border:1px solid var(--border-light);border-radius:var(--radius-md);overflow:hidden}
+    .result-area.visible{display:block}
+    .result-header{background:var(--bg-tag);padding:20px 24px;text-align:center}
+    .result-label{font-size:.875rem;color:var(--text-secondary);margin-bottom:4px}
+    .result-value{font-size:2.5rem;font-weight:800;color:var(--color-primary);line-height:1}
+    .result-details{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border-light)}
+    .result-item{padding:16px 24px;border-bottom:1px solid var(--border-light)}
+    .result-item:nth-child(odd){border-right:1px solid var(--border-light)}
+    .result-item-label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);margin-bottom:2px}
+    .result-item-value{font-size:1rem;font-weight:600}
+    .savings-note{text-align:center;padding:12px 24px;background:var(--color-success-bg);color:var(--color-success-dark);font-size:.9375rem;font-weight:600;border-top:1px solid var(--border-light)}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://multiweb.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Discount Calculator", "item": "https://multiweb.app/discount-calculator.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#tool" class="skip-link">Skip to tool</a>
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="index.html" class="navbar-brand" aria-label="MultiWeb home"><span class="logo-icon" aria-hidden="true">M</span> MultiWeb</a>
+      <div class="navbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span class="icon-sun" aria-hidden="true">☀️</span><span class="icon-moon" aria-hidden="true">🌙</span></button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> Tools</a>
+        <a href="about.html" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> About</a>
+        <a href="contact.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> Contact</a>
+        <a href="privacy.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header" aria-label="Tool header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Discount Calculator</span>
+      </nav>
+      <h1>Discount Calculator</h1>
+      <p>Calculate the final price after discounts and see exactly how much you save on any purchase.</p>
+    </div>
+  </section>
+
+  <main id="tool">
+    <section class="section" style="padding-top:0;padding-bottom:32px;" aria-label="Discount calculator tool">
+      <div class="container">
+        <div class="tool-workspace fade-in">
+          <div class="tool-card">
+            <noscript>
+              <div style="padding:24px;background:var(--color-danger-bg);border-radius:var(--radius-md);text-align:center;margin-bottom:24px;">
+                <p style="font-weight:600;color:var(--color-danger-dark);margin-bottom:8px;">⚠️ JavaScript Required</p>
+                <p style="color:var(--text-secondary);font-size:0.9375rem;">This calculator requires JavaScript to work.</p>
+              </div>
+            </noscript>
+
+            <div class="input-group" style="margin-bottom:16px;">
+              <label for="originalPrice">Original Price ($)</label>
+              <input type="number" id="originalPrice" class="form-input" placeholder="e.g. 199.99" min="0" step="any">
+            </div>
+
+            <div class="input-group" style="margin-bottom:16px;">
+              <label>Discount Percentage</label>
+              <div class="discount-pills" id="discountPills">
+                <button data-discount="10">10%</button>
+                <button data-discount="15">15%</button>
+                <button data-discount="20" class="active">20%</button>
+                <button data-discount="25">25%</button>
+                <button data-discount="30">30%</button>
+                <button data-discount="50">50%</button>
+                <button data-discount="custom">Custom</button>
+              </div>
+              <input type="number" id="customDiscount" class="form-input" placeholder="Enter custom %" min="0" max="100" step="any" style="display:none;">
+            </div>
+
+            <div class="input-group">
+              <label for="quantity">Quantity</label>
+              <input type="number" id="quantity" class="form-input" placeholder="1" min="1" step="1" value="1">
+            </div>
+
+            <div class="result-area" id="resultArea" aria-live="polite" role="status">
+              <div class="result-header">
+                <div class="result-label">Sale Price</div>
+                <div class="result-value" id="salePrice">—</div>
+              </div>
+              <div class="result-details">
+                <div class="result-item">
+                  <div class="result-item-label">Original Price</div>
+                  <div class="result-item-value" id="origPriceDisplay">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">You Save</div>
+                  <div class="result-item-value" id="savings" style="color:var(--color-success)">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Discount Applied</div>
+                  <div class="result-item-value" id="discountApplied">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Total (All Items)</div>
+                  <div class="result-item-value" id="totalPrice">—</div>
+                </div>
+              </div>
+              <div class="savings-note" id="savingsNote" style="display:none;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-label="About discount calculator">
+      <div class="container">
+        <div class="content-section">
+          <h2 style="margin-bottom:16px;">Discount Calculator — Calculate Sale Price and Savings</h2>
+          <div class="intro-text">
+            <p>Our <strong>Discount Calculator</strong> makes it easy to figure out the final price after any discount. Whether you're shopping during Black Friday, using a coupon code, or taking advantage of a clearance sale, this tool instantly shows you the sale price and exactly how much money you're saving. No more mental math or guesswork at the register.</p>
+            <br>
+            <p>Simply enter the original price and discount percentage to see your savings instantly. Choose from common discount percentages or enter a custom value. The calculator also supports multiple quantities, so you can see the total cost when buying several discounted items.</p>
+          </div>
+
+          <div class="formula-box">
+            <h3>The Discount Formula</h3>
+            <div class="formula">Sale Price = Original Price × (1 - Discount% / 100)</div>
+            <div class="formula-example"><strong>Example:</strong> A $200 item with 25% off: Sale Price = $200 × (1 - 0.25) = $200 × 0.75 = <strong>$150</strong> (You save $50)</div>
+          </div>
+
+          <h2 style="margin-bottom:16px;">How to Use the Discount Calculator</h2>
+          <ol class="steps-list">
+            <li><div><strong>Enter the original price</strong><span>Type the full price of the item before any discounts are applied.</span></div></li>
+            <li><div><strong>Select or enter the discount percentage</strong><span>Choose from common percentages (10%, 20%, 30%, 50%) or click "Custom" for your own value.</span></div></li>
+            <li><div><strong>Set the quantity</strong><span>If buying multiple items, enter the quantity to see the total discounted price.</span></div></li>
+            <li><div><strong>View results instantly</strong><span>The sale price, savings, and total update in real-time as you type.</span></div></li>
+          </ol>
+
+          <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item open">
+              <button class="faq-question" aria-expanded="true">How do I calculate a discount manually?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Multiply the original price by the discount percentage (as a decimal). For a 25% discount on $80: $80 × 0.25 = $20 discount. Subtract from original: $80 - $20 = <strong>$60 sale price</strong>. Or multiply by (1 - discount): $80 × 0.75 = $60.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">Can I stack multiple discounts?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Yes, but discounts are applied sequentially, not additively. A 20% + 10% discount doesn't equal 30% off. First, 20% off reduces the price to 80%, then 10% off that reduces it to 72% of the original — a total effective discount of 28%, not 30%.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">How do I find the original price from the sale price?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Divide the sale price by (1 - discount as decimal). If something costs $60 after 25% off: Original = $60 / (1 - 0.25) = $60 / 0.75 = <strong>$80</strong>. This is useful for verifying that a "discount" is actually a good deal.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Related tools">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:32px;"><h2 style="font-size:1.75rem;">Related Tools</h2><p style="color:var(--text-secondary);">Try these other free finance calculators.</p></div>
+        <div class="related-grid">
+          <a href="percentage-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">%</span><h4>Percentage Calculator</h4><p>Calculate percentages, discounts, and proportions.</p></a>
+          <a href="sales-tax-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">🧾</span><h4>Sales Tax Calculator</h4><p>Calculate sales tax on any purchase.</p></a>
+          <a href="markup-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">💲</span><h4>Markup Calculator</h4><p>Calculate markup and selling price for products.</p></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><h3>MultiWeb</h3><p>Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><nav aria-label="Quick links"><a href="bmi-calculator.html">BMI Calculator</a><a href="unit-converter.html">Unit Converter</a><a href="word-counter.html">Word Counter</a><a href="qr-generator.html">QR Generator</a></nav></div>
+        <div class="footer-col"><h4>Company</h4><nav aria-label="Company links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></nav></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 MultiWeb. All rights reserved.</span><span>Free online tools for everyone.</span></div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script>
+    (function(){
+      'use strict';
+      var originalPrice=document.getElementById('originalPrice'),discountPills=document.getElementById('discountPills').querySelectorAll('button'),customDiscount=document.getElementById('customDiscount'),quantity=document.getElementById('quantity'),resultArea=document.getElementById('resultArea');
+      var selectedDiscount=20;
+      
+      discountPills.forEach(function(pill){
+        pill.addEventListener('click',function(){
+          discountPills.forEach(function(p){p.classList.remove('active')});pill.classList.add('active');
+          var disc=pill.getAttribute('data-discount');
+          if(disc==='custom'){customDiscount.style.display='block';customDiscount.focus();selectedDiscount=parseFloat(customDiscount.value)||0;}
+          else{customDiscount.style.display='none';selectedDiscount=parseFloat(disc);}
+          calculate();
+        });
+      });
+      
+      customDiscount.addEventListener('input',function(){selectedDiscount=parseFloat(customDiscount.value)||0;calculate()});
+      originalPrice.addEventListener('input',calculate);
+      quantity.addEventListener('input',calculate);
+      
+      function calculate(){
+        var price=parseFloat(originalPrice.value)||0;
+        var discount=selectedDiscount/100;
+        var qty=parseInt(quantity.value,10)||1;
+        
+        var salePrice=price*(1-discount);
+        var savings=price*salePrice;
+        var total=salePrice*qty;
+        var totalSavings=(price-salePrice)*qty;
+        
+        document.getElementById('salePrice').textContent='$'+salePrice.toFixed(2);
+        document.getElementById('origPriceDisplay').textContent='$'+price.toFixed(2);
+        document.getElementById('savings').textContent='$'+(price-salePrice).toFixed(2);
+        document.getElementById('discountApplied').textContent=selectedDiscount.toFixed(0)+'% off';
+        document.getElementById('totalPrice').textContent='$'+total.toFixed(2);
+        
+        var savingsNote=document.getElementById('savingsNote');
+        if(qty>1){savingsNote.style.display='block';savingsNote.textContent='You save $'+totalSavings.toFixed(2)+' on '+qty+' items!';}
+        else{savingsNote.style.display='none';}
+        
+        resultArea.classList.add('visible');
+      }
+      
+      originalPrice.addEventListener('keydown',function(e){if(e.key==='Enter')calculate()});
+      calculate();
+    })();
+  </script>
+</body>
+</html>

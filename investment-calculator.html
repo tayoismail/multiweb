@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investment Growth Calculator — See How Your Investments Grow | MultiWeb</title>
+  <meta name="description" content="Calculate how your investments grow over time with compound interest. See the power of long-term investing with our free calculator.">
+  <link rel="canonical" href="https://multiweb.app/investment-calculator.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Investment Growth Calculator — See How Your Investments Grow">
+  <meta property="og:description" content="Calculate how your investments grow over time with compound interest.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://multiweb.app/investment-calculator.html">
+  <meta property="og:image" content="https://multiweb.app/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="MultiWeb">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Investment Growth Calculator — See How Your Investments Grow">
+  <meta name="twitter:description" content="Calculate how your investments grow over time with compound interest.">
+  <meta name="twitter:image" content="https://multiweb.app/og-default.png">
+  <meta name="theme-color" content="#2563eb">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Investment Growth Calculator — MultiWeb",
+    "url": "https://multiweb.app/investment-calculator.html",
+    "description": "Calculate how your investments grow over time with compound interest.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "en-US",
+    "author": { "@type": "Organization", "name": "MultiWeb", "url": "https://multiweb.app/" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+  }
+  </script>
+
+  <link rel="stylesheet" href="common-styles.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+  <style>
+    .inputs-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:4px}
+    @media(min-width:500px){.inputs-grid{grid-template-columns:1fr 1fr}}
+    .input-group{display:flex;flex-direction:column;gap:4px}
+    .input-group label{font-size:.8125rem;font-weight:600;color:var(--text-primary)}
+    .form-input{width:100%;padding:12px 14px;font-family:var(--font);font-size:1.0625rem;color:var(--text-primary);background:var(--bg-surface);border:1.5px solid var(--border-light);border-radius:var(--radius-sm);outline:none;transition:border-color var(--transition),box-shadow var(--transition)}
+    .form-input:focus{border-color:var(--color-primary);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+    .form-input::placeholder{color:var(--text-muted);font-size:.875rem}
+    .calc-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 28px;margin-top:20px;font-family:var(--font);font-weight:600;font-size:1.0625rem;line-height:1;background:var(--color-primary);color:var(--text-on-primary);border:2px solid var(--color-primary);border-radius:var(--radius-sm);cursor:pointer;transition:background var(--transition),box-shadow var(--transition),transform var(--transition-fast)}
+    .calc-btn:hover{background:var(--color-primary-dark);border-color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(37,99,235,.35)}
+    .calc-btn:active{transform:scale(.97)}
+    .result-area{display:none;margin-top:24px;border:1px solid var(--border-light);border-radius:var(--radius-md);overflow:hidden}
+    .result-area.visible{display:block}
+    .result-header{background:var(--bg-tag);padding:20px 24px;text-align:center}
+    .result-label{font-size:.875rem;color:var(--text-secondary);margin-bottom:4px}
+    .result-value{font-size:2.5rem;font-weight:800;color:var(--color-primary);line-height:1}
+    .result-details{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border-light)}
+    .result-item{padding:16px 24px;border-bottom:1px solid var(--border-light)}
+    .result-item:nth-child(odd){border-right:1px solid var(--border-light)}
+    .result-item-label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);margin-bottom:2px}
+    .result-item-value{font-size:1rem;font-weight:600}
+    .yearly-table{width:100%;border-collapse:collapse;font-size:.875rem;margin-top:16px}
+    .yearly-table th,.yearly-table td{padding:10px 16px;text-align:left;border-bottom:1px solid var(--border-light)}
+    .yearly-table th{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted)}
+    .yearly-table tr:last-child td{border-bottom:none}
+    .table-wrap{max-height:300px;overflow-y:auto;border:1px solid var(--border-light);border-radius:var(--radius-sm)}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://multiweb.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Investment Growth Calculator", "item": "https://multiweb.app/investment-calculator.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#tool" class="skip-link">Skip to tool</a>
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="index.html" class="navbar-brand" aria-label="MultiWeb home"><span class="logo-icon" aria-hidden="true">M</span> MultiWeb</a>
+      <div class="navbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span class="icon-sun" aria-hidden="true">☀️</span><span class="icon-moon" aria-hidden="true">🌙</span></button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> Tools</a>
+        <a href="about.html" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> About</a>
+        <a href="contact.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> Contact</a>
+        <a href="privacy.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header" aria-label="Tool header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Investment Growth Calculator</span>
+      </nav>
+      <h1>Investment Growth Calculator</h1>
+      <p>See how your investments grow over time with the power of compound interest.</p>
+    </div>
+  </section>
+
+  <main id="tool">
+    <section class="section" style="padding-top:0;padding-bottom:32px;" aria-label="Investment growth calculator tool">
+      <div class="container">
+        <div class="tool-workspace fade-in">
+          <div class="tool-card">
+            <noscript>
+              <div style="padding:24px;background:var(--color-danger-bg);border-radius:var(--radius-md);text-align:center;margin-bottom:24px;">
+                <p style="font-weight:600;color:var(--color-danger-dark);margin-bottom:8px;">⚠️ JavaScript Required</p>
+                <p style="color:var(--text-secondary);font-size:0.9375rem;">This calculator requires JavaScript to work.</p>
+              </div>
+            </noscript>
+
+            <div class="inputs-grid">
+              <div class="input-group">
+                <label for="initialInvestment">Initial Investment ($)</label>
+                <input type="number" id="initialInvestment" class="form-input" placeholder="e.g. 10000" min="0" step="any">
+              </div>
+              <div class="input-group">
+                <label for="monthlyContribution">Monthly Contribution ($)</label>
+                <input type="number" id="monthlyContribution" class="form-input" placeholder="e.g. 500" min="0" step="any" value="0">
+              </div>
+              <div class="input-group">
+                <label for="annualReturn">Annual Return Rate (%)</label>
+                <input type="number" id="annualReturn" class="form-input" placeholder="e.g. 8" min="0" max="50" step="any" value="8">
+              </div>
+              <div class="input-group">
+                <label for="years">Investment Period (years)</label>
+                <input type="number" id="years" class="form-input" placeholder="e.g. 20" min="1" max="50" step="1">
+              </div>
+            </div>
+
+            <div class="error-msg" id="errorMsg" role="alert" aria-live="assertive"></div>
+            <button class="calc-btn" id="calcBtn"><span aria-hidden="true">📊</span> Calculate Growth</button>
+
+            <div class="result-area" id="resultArea" aria-live="polite" role="status">
+              <div class="result-header">
+                <div class="result-label">Future Value</div>
+                <div class="result-value" id="futureValue">—</div>
+              </div>
+              <div class="result-details">
+                <div class="result-item">
+                  <div class="result-item-label">Total Contributed</div>
+                  <div class="result-item-value" id="totalContributed">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Investment Growth</div>
+                  <div class="result-item-value" id="investmentGrowth" style="color:var(--color-success)">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Growth Multiple</div>
+                  <div class="result-item-value" id="growthMultiple">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Effective Annual Return</div>
+                  <div class="result-item-value" id="effectiveReturn">—</div>
+                </div>
+              </div>
+              <div style="padding:16px 24px;">
+                <h4 style="margin-bottom:12px;font-size:.875rem;">Year-by-Year Breakdown</h4>
+                <div class="table-wrap">
+                  <table class="yearly-table" id="yearlyTable">
+                    <thead><tr><th>Year</th><th>Balance</th><th>Contributed</th><th>Growth</th></tr></thead>
+                    <tbody id="yearlyBody"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-label="About investment growth calculator">
+      <div class="container">
+        <div class="content-section">
+          <h2 style="margin-bottom:16px;">Investment Growth Calculator — See How Your Money Grows</h2>
+          <div class="intro-text">
+            <p><strong>Compound interest</strong> is often called the eighth wonder of the world — and for good reason. Our Investment Growth Calculator demonstrates how your money can grow exponentially over time through the combined effects of regular contributions and compound returns. Whether you're investing in stocks, bonds, mutual funds, or a high-yield savings account, this tool shows you the projected growth of your portfolio.</p>
+            <br>
+            <p>Enter your initial investment, monthly contributions, expected annual return, and investment horizon to see a detailed year-by-year breakdown. The results include your future value, total contributions, investment growth, and a growth multiple showing how many times your money has multiplied.</p>
+          </div>
+
+          <div class="formula-box">
+            <h3>The Compound Interest Formula</h3>
+            <div class="formula">FV = P(1+r)^n + PMT × [((1+r)^n - 1) / r]</div>
+            <div class="formula-example"><strong>Where:</strong> P = initial investment, PMT = monthly contribution, r = monthly rate of return, n = total months.</div>
+          </div>
+
+          <h2 style="margin-bottom:16px;">How to Use the Investment Growth Calculator</h2>
+          <ol class="steps-list">
+            <li><div><strong>Enter your initial investment</strong><span>The lump sum you're starting with (e.g., $10,000 from savings or a bonus).</span></div></li>
+            <li><div><strong>Add monthly contributions</strong><span>How much you plan to add each month. Even small amounts compound significantly over time.</span></div></li>
+            <li><div><strong>Set your expected return rate</strong><span>Historical stock market average is ~8-10% annually. Adjust based on your investment mix.</span></div></li>
+            <li><div><strong>Choose your time horizon</strong><span>The longer you invest, the more compound interest works in your favor.</span></div></li>
+            <li><div><strong>Click Calculate</strong><span>See your projected future value and a detailed year-by-year growth table.</span></div></li>
+          </ol>
+
+          <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item open">
+              <button class="faq-question" aria-expanded="true">What is a realistic annual return rate?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>The S&P 500 has historically returned about <strong>10% annually</strong> before inflation (7% after inflation). A diversified portfolio of stocks and bonds might return 6-8%. For conservative investments like bonds or CDs, expect 3-5%. Use these benchmarks to set realistic expectations.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">How does compound interest work?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Compound interest means you earn interest on your interest. In Year 1, you earn interest on your principal. In Year 2, you earn interest on your principal plus Year 1's interest. This creates exponential growth — the longer you stay invested, the faster your money grows.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">Should I invest a lump sum or use dollar-cost averaging?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Statistically, lump-sum investing outperforms dollar-cost averaging about 2/3 of the time. However, DCA reduces the risk of investing everything at a market peak. If you have a large sum but are nervous about timing, DCA over 6-12 months is a reasonable approach.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Related tools">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:32px;"><h2 style="font-size:1.75rem;">Related Tools</h2><p style="color:var(--text-secondary);">Try these other free finance calculators.</p></div>
+        <div class="related-grid">
+          <a href="sip-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">📈</span><h4>SIP Returns Calculator</h4><p>Calculate returns on your monthly mutual fund investments.</p></a>
+          <a href="retirement-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">🏖️</span><h4>Retirement Calculator</h4><p>Plan your retirement corpus based on current savings.</p></a>
+          <a href="roi-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">🎯</span><h4>ROI Calculator</h4><p>Calculate the return on investment for any project.</p></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><h3>MultiWeb</h3><p>Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><nav aria-label="Quick links"><a href="bmi-calculator.html">BMI Calculator</a><a href="unit-converter.html">Unit Converter</a><a href="word-counter.html">Word Counter</a><a href="qr-generator.html">QR Generator</a></nav></div>
+        <div class="footer-col"><h4>Company</h4><nav aria-label="Company links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></nav></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 MultiWeb. All rights reserved.</span><span>Free online tools for everyone.</span></div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script>
+    (function(){
+      'use strict';
+      var calcBtn=document.getElementById('calcBtn'),errorMsg=document.getElementById('errorMsg'),resultArea=document.getElementById('resultArea');
+      
+      function showError(msg){errorMsg.textContent=msg;errorMsg.classList.add('visible')}
+      function hideError(){errorMsg.textContent='';errorMsg.classList.remove('visible')}
+      
+      function calculate(){
+        hideError();resultArea.classList.remove('visible');
+        var P=parseFloat(document.getElementById('initialInvestment').value)||0;
+        var PMT=parseFloat(document.getElementById('monthlyContribution').value)||0;
+        var annualRate=parseFloat(document.getElementById('annualReturn').value);
+        var years=parseInt(document.getElementById('years').value,10);
+        
+        if(isNaN(annualRate)||annualRate<0){showError('Please enter a valid return rate.');return}
+        if(isNaN(years)||years<=0){showError('Please enter a valid investment period.');return}
+        if(P<=0&&PMT<=0){showError('Please enter at least an initial investment or monthly contribution.');return}
+        
+        var r=annualRate/100/12;
+        var n=years*12;
+        var balance=P;
+        var totalContributed=P;
+        var yearlyData=[];
+        
+        for(var year=1;year<=years;year++){
+          for(var month=0;month<12;month++){
+            var interest=balance*r;
+            balance+=interest+PMT;
+            totalContributed+=PMT;
+          }
+          yearlyData.push({year:year,balance:Math.round(balance*100)/100,contributed:Math.round(totalContributed*100)/100,growth:Math.round((balance-totalContributed)*100)/100});
+        }
+        
+        var futureValue=Math.round(balance*100)/100;
+        var totalGrowth=futureValue-totalContributed;
+        var multiple=P>0?(futureValue/P).toFixed(2):'N/A';
+        
+        var effectiveRate=totalContributed>0?((futureValue/totalContributed-1)/years*100).toFixed(1):'0';
+        
+        document.getElementById('futureValue').textContent='$'+futureValue.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+        document.getElementById('totalContributed').textContent='$'+totalContributed.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+        document.getElementById('investmentGrowth').textContent='$'+totalGrowth.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+        document.getElementById('growthMultiple').textContent=multiple+'x';
+        document.getElementById('effectiveReturn').textContent=effectiveRate+'%/year';
+        
+        var tbody=document.getElementById('yearlyBody');
+        tbody.innerHTML='';
+        yearlyData.forEach(function(d){
+          var row=document.createElement('tr');
+          row.innerHTML='<td>Year '+d.year+'</td><td>$'+d.balance.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})+'</td><td>$'+d.contributed.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})+'</td><td style="color:var(--color-success)">$'+d.growth.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})+'</td>';
+          tbody.appendChild(row);
+        });
+        
+        resultArea.classList.add('visible');
+      }
+      
+      calcBtn.addEventListener('click',calculate);
+      document.querySelectorAll('.form-input').forEach(function(el){el.addEventListener('keydown',function(e){if(e.key==='Enter')calculate()})});
+    })();
+  </script>
+</body>
+</html>

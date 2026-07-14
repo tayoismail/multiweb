@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savings Goal Calculator — Find How Much to Save Monthly | MultiWeb</title>
+  <meta name="description" content="Calculate how much you need to save each month to reach your financial goal. Free online savings goal calculator.">
+  <link rel="canonical" href="https://multiweb.app/savings-calculator.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Savings Goal Calculator — Find How Much to Save Monthly">
+  <meta property="og:description" content="Calculate how much you need to save each month to reach your financial goal.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://multiweb.app/savings-calculator.html">
+  <meta property="og:image" content="https://multiweb.app/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="MultiWeb">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Savings Goal Calculator — Find How Much to Save Monthly">
+  <meta name="twitter:description" content="Calculate how much you need to save each month.">
+  <meta name="twitter:image" content="https://multiweb.app/og-default.png">
+  <meta name="theme-color" content="#2563eb">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Savings Goal Calculator — MultiWeb",
+    "url": "https://multiweb.app/savings-calculator.html",
+    "description": "Calculate how much you need to save each month to reach your financial goal.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "en-US",
+    "author": { "@type": "Organization", "name": "MultiWeb", "url": "https://multiweb.app/" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+  }
+  </script>
+
+  <link rel="stylesheet" href="common-styles.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+  <style>
+    .inputs-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:4px}
+    @media(min-width:500px){.inputs-grid{grid-template-columns:1fr 1fr}}
+    .input-group{display:flex;flex-direction:column;gap:4px}
+    .input-group label{font-size:.8125rem;font-weight:600;color:var(--text-primary)}
+    .input-group .hint{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .form-input{width:100%;padding:12px 14px;font-family:var(--font);font-size:1.0625rem;color:var(--text-primary);background:var(--bg-surface);border:1.5px solid var(--border-light);border-radius:var(--radius-sm);outline:none;transition:border-color var(--transition),box-shadow var(--transition)}
+    .form-input:focus{border-color:var(--color-primary);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+    .calc-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 28px;margin-top:20px;font-family:var(--font);font-weight:600;font-size:1.0625rem;line-height:1;background:var(--color-primary);color:var(--text-on-primary);border:2px solid var(--color-primary);border-radius:var(--radius-sm);cursor:pointer;transition:background var(--transition),box-shadow var(--transition),transform var(--transition-fast)}
+    .calc-btn:hover{background:var(--color-primary-dark);border-color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(37,99,235,.35)}
+    .calc-btn:active{transform:scale(.97)}
+    .result-area{display:none;margin-top:24px;border:1px solid var(--border-light);border-radius:var(--radius-md);overflow:hidden}
+    .result-area.visible{display:block}
+    .result-header{background:var(--bg-tag);padding:20px 24px;text-align:center}
+    .result-label{font-size:.875rem;color:var(--text-secondary);margin-bottom:4px}
+    .result-value{font-size:2.5rem;font-weight:800;color:var(--color-primary);line-height:1}
+    .result-details{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border-light)}
+    .result-item{padding:16px 24px;border-bottom:1px solid var(--border-light)}
+    .result-item:nth-child(odd){border-right:1px solid var(--border-light)}
+    .result-item-label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);margin-bottom:2px}
+    .result-item-value{font-size:1rem;font-weight:600}
+    .progress-bar{height:20px;border-radius:10px;background:var(--border-light);margin:16px 24px 8px;overflow:hidden}
+    .progress-bar .fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--color-primary),var(--color-success));transition:width var(--transition)}
+    .progress-label{text-align:center;padding:0 24px 16px;font-size:.8125rem;color:var(--text-muted)}
+    .goal-presets{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+    .goal-presets button{padding:8px 14px;font-family:var(--font);font-size:.8125rem;font-weight:600;border:2px solid var(--border-light);border-radius:var(--radius-sm);cursor:pointer;background:var(--bg-surface);color:var(--text-secondary);transition:all var(--transition)}
+    .goal-presets button:hover{border-color:var(--color-primary);color:var(--color-primary)}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://multiweb.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Savings Goal Calculator", "item": "https://multiweb.app/savings-calculator.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#tool" class="skip-link">Skip to tool</a>
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="index.html" class="navbar-brand" aria-label="MultiWeb home"><span class="logo-icon" aria-hidden="true">M</span> MultiWeb</a>
+      <div class="navbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span class="icon-sun" aria-hidden="true">☀️</span><span class="icon-moon" aria-hidden="true">🌙</span></button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> Tools</a>
+        <a href="about.html" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> About</a>
+        <a href="contact.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> Contact</a>
+        <a href="privacy.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header" aria-label="Tool header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Savings Goal Calculator</span>
+      </nav>
+      <h1>Savings Goal Calculator</h1>
+      <p>Find out exactly how much you need to save each month to reach your financial goal.</p>
+    </div>
+  </section>
+
+  <main id="tool">
+    <section class="section" style="padding-top:0;padding-bottom:32px;" aria-label="Savings goal calculator tool">
+      <div class="container">
+        <div class="tool-workspace fade-in">
+          <div class="tool-card">
+            <noscript>
+              <div style="padding:24px;background:var(--color-danger-bg);border-radius:var(--radius-md);text-align:center;margin-bottom:24px;">
+                <p style="font-weight:600;color:var(--color-danger-dark);margin-bottom:8px;">⚠️ JavaScript Required</p>
+                <p style="color:var(--text-secondary);font-size:0.9375rem;">This calculator requires JavaScript to work.</p>
+              </div>
+            </noscript>
+
+            <div class="goal-presets">
+              <button onclick="document.getElementById('goalAmount').value=5000;document.getElementById('goalName').value='Emergency Fund';calculate()">Emergency Fund ($5K)</button>
+              <button onclick="document.getElementById('goalAmount').value=20000;document.getElementById('goalName').value='Vacation';calculate()">Vacation ($20K)</button>
+              <button onclick="document.getElementById('goalAmount').value=40000;document.getElementById('goalName').value='Car Down Payment';calculate()">Car ($40K)</button>
+              <button onclick="document.getElementById('goalAmount').value=50000;document.getElementById('goalName').value='House Down Payment';calculate()">House ($50K)</button>
+            </div>
+
+            <div class="inputs-grid">
+              <div class="input-group">
+                <label for="goalName">Goal Name (optional)</label>
+                <input type="text" id="goalName" class="form-input" placeholder="e.g. Vacation Fund">
+              </div>
+              <div class="input-group">
+                <label for="goalAmount">Savings Goal ($)</label>
+                <input type="number" id="goalAmount" class="form-input" placeholder="e.g. 10000" min="1" step="any">
+              </div>
+              <div class="input-group">
+                <label for="currentSavings">Current Savings ($)</label>
+                <input type="number" id="currentSavings" class="form-input" placeholder="e.g. 2000" min="0" step="any" value="0">
+              </div>
+              <div class="input-group">
+                <label for="targetDate">Target Date</label>
+                <input type="date" id="targetDate" class="form-input">
+              </div>
+              <div class="input-group">
+                <label for="interestRate">Expected Interest Rate (%)</label>
+                <input type="number" id="interestRate" class="form-input" placeholder="e.g. 4" min="0" max="30" step="any" value="4">
+                <div class="hint">High-yield savings: 4-5%, CDs: 4-5%</div>
+              </div>
+              <div class="input-group">
+                <label for="monthlyAddition">Already Saving ($/month)</label>
+                <input type="number" id="monthlyAddition" class="form-input" placeholder="e.g. 200" min="0" step="any" value="0">
+                <div class="hint">How much you're currently saving</div>
+              </div>
+            </div>
+
+            <div class="error-msg" id="errorMsg" role="alert" aria-live="assertive"></div>
+            <button class="calc-btn" id="calcBtn"><span aria-hidden="true">🎯</span> Calculate Savings Plan</button>
+
+            <div class="result-area" id="resultArea" aria-live="polite" role="status">
+              <div class="result-header">
+                <div class="result-label">Monthly Savings Needed</div>
+                <div class="result-value" id="monthlyNeeded">—</div>
+              </div>
+              <div class="result-details">
+                <div class="result-item">
+                  <div class="result-item-label">Months to Goal</div>
+                  <div class="result-item-value" id="monthsToGoal">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Amount to Save</div>
+                  <div class="result-item-value" id="amountToSave">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Interest Earned</div>
+                  <div class="result-item-value" id="interestEarned" style="color:var(--color-success)">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Completion Date</div>
+                  <div class="result-item-value" id="completionDate">—</div>
+                </div>
+              </div>
+              <div class="progress-bar"><div class="fill" id="progressFill" style="width:20%"></div></div>
+              <div class="progress-label" id="progressLabel">20% of goal reached with current savings</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-label="About savings goal calculator">
+      <div class="container">
+        <div class="content-section">
+          <h2 style="margin-bottom:16px;">Savings Goal Calculator — Find How Much to Save Monthly</h2>
+          <div class="intro-text">
+            <p>Our <strong>Savings Goal Calculator</strong> helps you create a concrete plan to reach any financial goal. Whether you're saving for an emergency fund, vacation, car, house down payment, or any other target, this tool shows you exactly how much you need to save each month to hit your goal on time.</p>
+            <br>
+            <p>Enter your target amount, current savings, target date, and expected interest rate to get a personalized savings plan. The calculator also factors in any amount you're already saving each month, so you'll know if you're on track or need to increase your contributions.</p>
+          </div>
+
+          <h2 style="margin-bottom:16px;">How to Use the Savings Goal Calculator</h2>
+          <ol class="steps-list">
+            <li><div><strong>Set your goal</strong><span>Enter the target amount and optionally a name for your goal (e.g., "Emergency Fund").</span></div></li>
+            <li><div><strong>Enter current savings</strong><span>Input how much you've already saved toward this goal.</span></div></li>
+            <li><div><strong>Set your target date</strong><span>Choose when you want to reach your goal using the date picker.</span></div></li>
+            <li><div><strong>Enter interest rate and current savings</strong><span>Set the expected interest rate (high-yield savings accounts currently offer 4-5%) and how much you're already saving monthly.</span></div></li>
+            <li><div><strong>Click Calculate</strong><span>See your monthly savings target, months to goal, interest earned, and progress bar.</span></div></li>
+          </ol>
+
+          <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item open">
+              <button class="faq-question" aria-expanded="true">How much should I save for an emergency fund?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Financial experts recommend saving <strong>3-6 months of essential expenses</strong>. If you spend $3,000/month on essentials, aim for $9,000-$18,000. Start with a $1,000 mini emergency fund, then build to 3 months, and eventually 6 months.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">Where should I keep my savings?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>For short-term goals (1-3 years), use a <strong>high-yield savings account</strong> (4-5% APY). For medium-term (3-5 years), consider CDs or Treasury bills. For long-term goals (5+ years), invest in index funds for potentially higher returns. Keep emergency funds easily accessible.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">What if I can't save enough each month?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Try these strategies: <strong>1) Extend your timeline</strong> (save less per month over more months), <strong>2) Reduce your goal</strong> (save for a smaller target first), <strong>3) Increase income</strong> (side hustles, overtime), <strong>4) Cut expenses</strong> (reduce subscriptions, dining out). Even small amounts add up over time.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Related tools">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:32px;"><h2 style="font-size:1.75rem;">Related Tools</h2><p style="color:var(--text-secondary);">Try these other free finance calculators.</p></div>
+        <div class="related-grid">
+          <a href="sip-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">📈</span><h4>SIP Returns Calculator</h4><p>Calculate returns on your monthly investments.</p></a>
+          <a href="budget-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">📋</span><h4>Budget Calculator</h4><p>Plan and track your monthly budget.</p></a>
+          <a href="retirement-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">🏖️</span><h4>Retirement Calculator</h4><p>Plan your retirement corpus today.</p></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><h3>MultiWeb</h3><p>Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><nav aria-label="Quick links"><a href="bmi-calculator.html">BMI Calculator</a><a href="unit-converter.html">Unit Converter</a><a href="word-counter.html">Word Counter</a><a href="qr-generator.html">QR Generator</a></nav></div>
+        <div class="footer-col"><h4>Company</h4><nav aria-label="Company links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></nav></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 MultiWeb. All rights reserved.</span><span>Free online tools for everyone.</span></div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script>
+    (function(){
+      'use strict';
+      var calcBtn=document.getElementById('calcBtn'),errorMsg=document.getElementById('errorMsg'),resultArea=document.getElementById('resultArea');
+      
+      // Set default target date to 1 year from now
+      var defaultDate=new Date();
+      defaultDate.setFullYear(defaultDate.getFullYear()+1);
+      document.getElementById('targetDate').valueAsDate=defaultDate;
+      
+      function showError(msg){errorMsg.textContent=msg;errorMsg.classList.add('visible')}
+      function hideError(){errorMsg.textContent='';errorMsg.classList.remove('visible')}
+      
+      function calculate(){
+        hideError();resultArea.classList.remove('visible');
+        var goal=parseFloat(document.getElementById('goalAmount').value);
+        var current=parseFloat(document.getElementById('currentSavings').value)||0;
+        var targetDate=new Date(document.getElementById('targetDate').value);
+        var rate=parseFloat(document.getElementById('interestRate').value)||0;
+        var monthlyAdd=parseFloat(document.getElementById('monthlyAddition').value)||0;
+        
+        if(isNaN(goal)||goal<=0){showError('Please enter a valid savings goal.');return}
+        if(isNaN(targetDate.getTime())){showError('Please select a target date.');return}
+        
+        var today=new Date();
+        var months=Math.round((targetDate-today)/(1000*60*60*24*30.44));
+        if(months<=0){showError('Target date must be in the future.');return}
+        
+        var remaining=goal-current;
+        if(remaining<=0){
+          document.getElementById('monthlyNeeded').textContent='$0';
+          document.getElementById('monthsToGoal').textContent='Already achieved!';
+          document.getElementById('amountToSave').textContent='$0';
+          document.getElementById('interestEarned').textContent='$0';
+          document.getElementById('completionDate').textContent='Achieved';
+          document.getElementById('progressFill').style.width='100%';
+          document.getElementById('progressLabel').textContent='🎉 Goal already reached!';
+          resultArea.classList.add('visible');
+          return;
+        }
+        
+        var monthlyRate=rate/100/12;
+        var monthlyNeeded;
+        if(monthlyRate===0){
+          monthlyNeeded=remaining/months;
+        }else{
+          monthlyNeeded=remaining*((monthlyRate)/((1+monthlyRate)*months-1));
+        }
+        
+        var totalContributed=monthlyNeeded*months;
+        var interestEarned=goal-current-totalContributed+(monthlyAdd*months);
+        
+        if(monthlyAdd>=monthlyNeeded){
+          document.getElementById('monthlyNeeded').textContent='$0 extra';
+          document.getElementById('monthsToGoal').textContent=Math.ceil(remaining/(monthlyAdd*(1+monthlyRate)))+' months';
+        }else{
+          var extraNeeded=monthlyNeeded-monthlyAdd;
+          document.getElementById('monthlyNeeded').textContent='$'+extraNeeded.toFixed(2)+'/month';
+          document.getElementById('monthsToGoal').textContent=months+' months';
+        }
+        
+        document.getElementById('amountToSave').textContent='$'+remaining.toLocaleString('en-US',{maximumFractionDigits:0});
+        document.getElementById('interestEarned').textContent='$'+Math.abs(interestEarned).toFixed(0);
+        document.getElementById('completionDate').textContent=targetDate.toLocaleDateString('en-US',{month:'long',year:'numeric'});
+        
+        var progressPct=Math.min((current/goal*100),100);
+        document.getElementById('progressFill').style.width=progressPct+'%';
+        document.getElementById('progressLabel').textContent=progressPct.toFixed(0)+'% of goal reached with current savings';
+        
+        resultArea.classList.add('visible');
+      }
+      
+      calcBtn.addEventListener('click',calculate);
+      document.querySelectorAll('.form-input').forEach(function(el){el.addEventListener('keydown',function(e){if(e.key==='Enter')calculate()})});
+      calculate();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Break-Even Calculator — Find Your Break-Even Point | MultiWeb</title>
+  <meta name="description" content="Calculate your break-even point in units and revenue. Free online break-even analysis calculator for businesses.">
+  <link rel="canonical" href="https://multiweb.app/break-even-calculator.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Break-Even Calculator — Find Your Break-Even Point">
+  <meta property="og:description" content="Calculate your break-even point in units and revenue.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://multiweb.app/break-even-calculator.html">
+  <meta property="og:image" content="https://multiweb.app/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="MultiWeb">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Break-Even Calculator — Find Your Break-Even Point">
+  <meta name="twitter:description" content="Calculate your break-even point in units and revenue.">
+  <meta name="twitter:image" content="https://multiweb.app/og-default.png">
+  <meta name="theme-color" content="#2563eb">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Break-Even Calculator — MultiWeb",
+    "url": "https://multiweb.app/break-even-calculator.html",
+    "description": "Calculate your break-even point in units and revenue.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "en-US",
+    "author": { "@type": "Organization", "name": "MultiWeb", "url": "https://multiweb.app/" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+  }
+  </script>
+
+  <link rel="stylesheet" href="common-styles.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+  <style>
+    .inputs-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:4px}
+    @media(min-width:500px){.inputs-grid{grid-template-columns:1fr 1fr}}
+    .input-group{display:flex;flex-direction:column;gap:4px}
+    .input-group label{font-size:.8125rem;font-weight:600;color:var(--text-primary)}
+    .input-group .hint{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .form-input{width:100%;padding:12px 14px;font-family:var(--font);font-size:1.0625rem;color:var(--text-primary);background:var(--bg-surface);border:1.5px solid var(--border-light);border-radius:var(--radius-sm);outline:none;transition:border-color var(--transition),box-shadow var(--transition)}
+    .form-input:focus{border-color:var(--color-primary);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+    .calc-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 28px;margin-top:20px;font-family:var(--font);font-weight:600;font-size:1.0625rem;line-height:1;background:var(--color-primary);color:var(--text-on-primary);border:2px solid var(--color-primary);border-radius:var(--radius-sm);cursor:pointer;transition:background var(--transition),box-shadow var(--transition),transform var(--transition-fast)}
+    .calc-btn:hover{background:var(--color-primary-dark);border-color:var(--color-primary-dark);box-shadow:0 4px 14px rgba(37,99,235,.35)}
+    .calc-btn:active{transform:scale(.97)}
+    .result-area{display:none;margin-top:24px;border:1px solid var(--border-light);border-radius:var(--radius-md);overflow:hidden}
+    .result-area.visible{display:block}
+    .result-header{background:var(--bg-tag);padding:20px 24px;text-align:center}
+    .result-label{font-size:.875rem;color:var(--text-secondary);margin-bottom:4px}
+    .result-value{font-size:2.5rem;font-weight:800;color:var(--color-primary);line-height:1}
+    .result-details{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border-light)}
+    .result-item{padding:16px 24px;border-bottom:1px solid var(--border-light)}
+    .result-item:nth-child(odd){border-right:1px solid var(--border-light)}
+    .result-item-label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);margin-bottom:2px}
+    .result-item-value{font-size:1rem;font-weight:600}
+    .target-section{margin-top:16px;padding:16px;background:var(--bg-tag);border-radius:var(--radius-sm)}
+    .target-section h4{font-size:.875rem;margin-bottom:8px}
+    .target-row{display:flex;align-items:center;gap:12px}
+    .target-row label{font-size:.8125rem;font-weight:600;white-space:nowrap}
+    .target-row .form-input{flex:1}
+    .target-result{margin-top:12px;font-size:.9375rem;color:var(--color-success);font-weight:600}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://multiweb.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Break-Even Calculator", "item": "https://multiweb.app/break-even-calculator.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#tool" class="skip-link">Skip to tool</a>
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="index.html" class="navbar-brand" aria-label="MultiWeb home"><span class="logo-icon" aria-hidden="true">M</span> MultiWeb</a>
+      <div class="navbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span class="icon-sun" aria-hidden="true">☀️</span><span class="icon-moon" aria-hidden="true">🌙</span></button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> Tools</a>
+        <a href="about.html" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> About</a>
+        <a href="contact.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> Contact</a>
+        <a href="privacy.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header" aria-label="Tool header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Break-Even Calculator</span>
+      </nav>
+      <h1>Break-Even Calculator</h1>
+      <p>Find your break-even point — the number of units you need to sell to cover all costs.</p>
+    </div>
+  </section>
+
+  <main id="tool">
+    <section class="section" style="padding-top:0;padding-bottom:32px;" aria-label="Break-even calculator tool">
+      <div class="container">
+        <div class="tool-workspace fade-in">
+          <div class="tool-card">
+            <noscript>
+              <div style="padding:24px;background:var(--color-danger-bg);border-radius:var(--radius-md);text-align:center;margin-bottom:24px;">
+                <p style="font-weight:600;color:var(--color-danger-dark);margin-bottom:8px;">⚠️ JavaScript Required</p>
+                <p style="color:var(--text-secondary);font-size:0.9375rem;">This calculator requires JavaScript to work.</p>
+              </div>
+            </noscript>
+
+            <div class="inputs-grid">
+              <div class="input-group">
+                <label for="fixedCosts">Fixed Costs ($)</label>
+                <input type="number" id="fixedCosts" class="form-input" placeholder="e.g. 5000" min="0" step="any">
+                <div class="hint">Rent, salaries, insurance, etc.</div>
+              </div>
+              <div class="input-group">
+                <label for="pricePerUnit">Selling Price per Unit ($)</label>
+                <input type="number" id="pricePerUnit" class="form-input" placeholder="e.g. 25" min="0" step="any">
+              </div>
+              <div class="input-group">
+                <label for="variableCostPerUnit">Variable Cost per Unit ($)</label>
+                <input type="number" id="variableCostPerUnit" class="form-input" placeholder="e.g. 10" min="0" step="any">
+                <div class="hint">Materials, packaging, shipping, etc.</div>
+              </div>
+              <div class="input-group">
+                <label for="targetProfit">Target Profit ($)</label>
+                <input type="number" id="targetProfit" class="form-input" placeholder="0 (optional)" min="0" step="any" value="0">
+                <div class="hint">Optional: profit goal beyond break-even</div>
+              </div>
+            </div>
+
+            <div class="error-msg" id="errorMsg" role="alert" aria-live="assertive"></div>
+            <button class="calc-btn" id="calcBtn"><span aria-hidden="true">⚖️</span> Calculate Break-Even</button>
+
+            <div class="result-area" id="resultArea" aria-live="polite" role="status">
+              <div class="result-header">
+                <div class="result-label">Break-Even Point (Units)</div>
+                <div class="result-value" id="breakEvenUnits">—</div>
+              </div>
+              <div class="result-details">
+                <div class="result-item">
+                  <div class="result-item-label">Break-Even Revenue</div>
+                  <div class="result-item-value" id="breakEvenRevenue">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Contribution Margin</div>
+                  <div class="result-item-value" id="contributionMargin" style="color:var(--color-success)">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Contribution Margin %</div>
+                  <div class="result-item-value" id="contributionMarginPct">—</div>
+                </div>
+                <div class="result-item">
+                  <div class="result-item-label">Total Fixed Costs</div>
+                  <div class="result-item-value" id="resultFixedCosts">—</div>
+                </div>
+              </div>
+              <div class="target-section" id="targetSection" style="display:none;">
+                <h4>🎯 To Reach Target Profit</h4>
+                <div class="target-row">
+                  <label>Units needed:</label>
+                  <span id="targetUnits" style="font-weight:700;color:var(--color-primary)">—</span>
+                </div>
+                <div class="target-row">
+                  <label>Revenue needed:</label>
+                  <span id="targetRevenue" style="font-weight:700;color:var(--color-primary)">—</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-label="About break-even calculator">
+      <div class="container">
+        <div class="content-section">
+          <h2 style="margin-bottom:16px;">Break-Even Calculator — Find Your Break-Even Point</h2>
+          <div class="intro-text">
+            <p>The <strong>break-even point</strong> is the magical number where your total revenue equals your total costs — you're not making money, but you're not losing any either. Our Break-Even Calculator helps you determine exactly how many units you need to sell (and how much revenue you need to generate) to cover all your fixed and variable costs.</p>
+            <br>
+            <p>Whether you're launching a new product, evaluating a business idea, or setting sales targets, understanding your break-even point is essential for financial planning. The calculator also lets you set a target profit goal to see how many additional units you need to sell beyond break-even.</p>
+          </div>
+
+          <div class="formula-box">
+            <h3>The Break-Even Formulas</h3>
+            <div class="formula">Break-Even Units = Fixed Costs / (Price - Variable Cost per Unit)</div>
+            <div class="formula">Break-Even Revenue = Fixed Costs / Contribution Margin %</div>
+            <div class="formula-example"><strong>Example:</strong> Fixed costs $5,000, Price $25, Variable cost $10: Break-Even = $5,000 / ($25 - $10) = <strong>334 units</strong></div>
+          </div>
+
+          <h2 style="margin-bottom:16px;">How to Use the Break-Even Calculator</h2>
+          <ol class="steps-list">
+            <li><div><strong>Enter fixed costs</strong><span>Sum up all costs that don't change with production volume (rent, salaries, insurance, loan payments).</span></div></li>
+            <li><div><strong>Set selling price per unit</strong><span>Enter the price you'll charge for one unit of your product or service.</span></div></li>
+            <li><div><strong>Enter variable cost per unit</strong><span>Enter the cost that varies with each unit produced (materials, packaging, direct labor).</span></div></li>
+            <li><div><strong>Optional: Set target profit</strong><span>If you want to know how many units to sell for a specific profit, enter that amount.</span></div></li>
+            <li><div><strong>Click Calculate</strong><span>See your break-even point in units and revenue, plus your contribution margin.</span></div></li>
+          </ol>
+
+          <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item open">
+              <button class="faq-question" aria-expanded="true">What is contribution margin?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p><strong>Contribution margin</strong> is the amount remaining from each sale after covering variable costs. It "contributes" to covering fixed costs and then generating profit. Contribution Margin = Price - Variable Cost. A higher contribution margin means you break even faster.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">How do I reduce my break-even point?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Three ways: <strong>1) Reduce fixed costs</strong> (renegotiate rent, cut overhead), <strong>2) Increase selling price</strong> (if market allows), <strong>3) Reduce variable costs</strong> (find cheaper suppliers, improve efficiency). Each approach has different trade-offs.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">Can a business survive at break-even?<span class="faq-icon" aria-hidden="true">▼</span></button>
+              <div class="faq-answer"><p>Technically yes, but it's not sustainable long-term. At break-even, you cover costs but generate no profit for reinvestment, growth, or owner compensation. Most businesses need to operate above break-even to survive, grow, and reward investors.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Related tools">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:32px;"><h2 style="font-size:1.75rem;">Related Tools</h2><p style="color:var(--text-secondary);">Try these other free business calculators.</p></div>
+        <div class="related-grid">
+          <a href="profit-margin-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">📊</span><h4>Profit Margin Calculator</h4><p>Calculate profit margin and gross profit.</p></a>
+          <a href="markup-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">💲</span><h4>Markup Calculator</h4><p>Calculate markup and selling price.</p></a>
+          <a href="roi-calculator.html" class="related-card"><span class="related-icon" aria-hidden="true">📈</span><h4>ROI Calculator</h4><p>Calculate return on investment.</p></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><h3>MultiWeb</h3><p>Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><nav aria-label="Quick links"><a href="bmi-calculator.html">BMI Calculator</a><a href="unit-converter.html">Unit Converter</a><a href="word-counter.html">Word Counter</a><a href="qr-generator.html">QR Generator</a></nav></div>
+        <div class="footer-col"><h4>Company</h4><nav aria-label="Company links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></nav></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 MultiWeb. All rights reserved.</span><span>Free online tools for everyone.</span></div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script>
+    (function(){
+      'use strict';
+      var calcBtn=document.getElementById('calcBtn'),errorMsg=document.getElementById('errorMsg'),resultArea=document.getElementById('resultArea');
+      
+      function showError(msg){errorMsg.textContent=msg;errorMsg.classList.add('visible')}
+      function hideError(){errorMsg.textContent='';errorMsg.classList.remove('visible')}
+      
+      function calculate(){
+        hideError();resultArea.classList.remove('visible');
+        var fixedCosts=parseFloat(document.getElementById('fixedCosts').value);
+        var price=parseFloat(document.getElementById('pricePerUnit').value);
+        var variableCost=parseFloat(document.getElementById('variableCostPerUnit').value);
+        var targetProfit=parseFloat(document.getElementById('targetProfit').value)||0;
+        
+        if(isNaN(fixedCosts)||fixedCosts<0){showError('Please enter valid fixed costs.');return}
+        if(isNaN(price)||price<=0){showError('Please enter a valid selling price.');return}
+        if(isNaN(variableCost)||variableCost<0){showError('Please enter valid variable costs.');return}
+        if(variableCost>=price){showError('Variable cost must be less than selling price.');return}
+        
+        var contributionMargin=price-variableCost;
+        var contributionMarginPct=(contributionMargin/price)*100;
+        var breakEvenUnits=Math.ceil(fixedCosts/contributionMargin);
+        var breakEvenRevenue=breakEvenUnits*price;
+        
+        document.getElementById('breakEvenUnits').textContent=breakEvenUnits.toLocaleString()+' units';
+        document.getElementById('breakEvenRevenue').textContent='$'+breakEvenRevenue.toLocaleString('en-US',{maximumFractionDigits:2});
+        document.getElementById('contributionMargin').textContent='$'+contributionMargin.toFixed(2)+' per unit';
+        document.getElementById('contributionMarginPct').textContent=contributionMarginPct.toFixed(1)+'%';
+        document.getElementById('resultFixedCosts').textContent='$'+fixedCosts.toLocaleString('en-US',{maximumFractionDigits:2});
+        
+        var targetSection=document.getElementById('targetSection');
+        if(targetProfit>0){
+          var targetUnits=Math.ceil((fixedCosts+targetProfit)/contributionMargin);
+          var targetRevenue=targetUnits*price;
+          document.getElementById('targetUnits').textContent=targetUnits.toLocaleString()+' units';
+          document.getElementById('targetRevenue').textContent='$'+targetRevenue.toLocaleString('en-US',{maximumFractionDigits:2});
+          targetSection.style.display='block';
+        }else{
+          targetSection.style.display='none';
+        }
+        
+        resultArea.classList.add('visible');
+      }
+      
+      calcBtn.addEventListener('click',calculate);
+      document.querySelectorAll('.form-input').forEach(function(el){el.addEventListener('keydown',function(e){if(e.key==='Enter')calculate()})});
+    })();
+  </script>
+</body>
+</html>
