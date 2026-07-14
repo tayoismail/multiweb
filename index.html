@@ -171,6 +171,44 @@
     }
 
     /* ============================================================
+       CATEGORY SECTIONS
+       ============================================================ */
+    .category-section {
+      margin-bottom: var(--space-8);
+    }
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+    }
+    .category-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .category-icon.finance { background: var(--color-success-bg); color: var(--color-success); }
+    .category-icon.tools { background: var(--color-primary-bg); color: var(--color-primary); }
+
+    .category-text h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0;
+      line-height: 1.2;
+    }
+    .category-text p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin: 2px 0 0;
+      line-height: 1.4;
+    }
+
+    /* ============================================================
        TOOLS GRID (Cards)
        ============================================================ */
     .tools-grid {
@@ -183,6 +221,18 @@
     }
     @media (min-width: 900px) {
       .tools-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .tools-grid.finance-grid {
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 480px) {
+      .tools-grid.finance-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 900px) {
+      .tools-grid.finance-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (min-width: 1200px) {
+      .tools-grid.finance-grid { grid-template-columns: repeat(4, 1fr); }
     }
 
     .tool-card {
@@ -437,7 +487,7 @@
           <p>Our most popular tools — ready when you are.</p>
         </div>
 
-        <div class="tools-grid stagger" id="toolsGrid">
+        <div class="tools-grid stagger" id="featuredGrid">
           <!-- Tool 1 -->
           <a href="bmi-calculator.html" class="tool-card" data-tags="bmi calculator health weight">
             <div class="tool-icon blue" aria-hidden="true">⚖️</div>
@@ -502,10 +552,164 @@
             <span class="tool-arrow" aria-hidden="true">→</span>
           </a>
         </div>
-
-        <div class="no-results" id="noResults">No tools match your search. Try a different term!</div>
       </div>
     </section>
+
+    <!-- Finance & Money Tools -->
+    <section class="section" aria-labelledby="finance-heading">
+      <div class="container">
+        <div class="category-section">
+          <div class="category-header">
+            <div class="category-icon finance" aria-hidden="true">💰</div>
+            <div class="category-text">
+              <h3 id="finance-heading">Finance & Money</h3>
+              <p>Calculators for budgeting, investing, loans, and personal finance planning.</p>
+            </div>
+          </div>
+
+          <div class="tools-grid finance-grid stagger" id="financeGrid">
+            <!-- Tool 1 -->
+            <a href="mortgage-calculator.html" class="tool-card" data-tags="mortgage calculator home loan payment">
+              <div class="tool-icon blue" aria-hidden="true">🏠</div>
+              <h3>Mortgage Calculator</h3>
+              <p>Calculate monthly mortgage payments, total interest, and amortization.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 2 -->
+            <a href="tip-calculator.html" class="tool-card" data-tags="tip calculator bill split restaurant">
+              <div class="tool-icon green" aria-hidden="true">🍽️</div>
+              <h3>Tip Calculator</h3>
+              <p>Calculate tips and split bills at restaurants. Never struggle with math.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 3 -->
+            <a href="discount-calculator.html" class="tool-card" data-tags="discount calculator sale price savings">
+              <div class="tool-icon orange" aria-hidden="true">🏷️</div>
+              <h3>Discount Calculator</h3>
+              <p>Calculate sale price and savings after any discount percentage.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 4 -->
+            <a href="currency-converter.html" class="tool-card" data-tags="currency converter exchange rate usd eur gbp">
+              <div class="tool-icon purple" aria-hidden="true">💱</div>
+              <h3>Currency Converter</h3>
+              <p>Convert between 150+ world currencies instantly.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 5 -->
+            <a href="sales-tax-calculator.html" class="tool-card" data-tags="sales tax calculator purchase checkout">
+              <div class="tool-icon rose" aria-hidden="true">🧾</div>
+              <h3>Sales Tax Calculator</h3>
+              <p>Calculate sales tax on any purchase. Know the total cost before checkout.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 6 -->
+            <a href="roi-calculator.html" class="tool-card" data-tags="roi calculator return investment profit">
+              <div class="tool-icon teal" aria-hidden="true">📈</div>
+              <h3>ROI Calculator</h3>
+              <p>Calculate return on investment for any project or financial decision.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 7 -->
+            <a href="credit-card-calculator.html" class="tool-card" data-tags="credit card calculator payoff debt interest">
+              <div class="tool-icon orange" aria-hidden="true">💳</div>
+              <h3>Credit Card Payoff Calculator</h3>
+              <p>Find out how long to pay off credit card debt and total interest.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 8 -->
+            <a href="sip-calculator.html" class="tool-card" data-tags="sip calculator mutual fund investment returns">
+              <div class="tool-icon green" aria-hidden="true">💹</div>
+              <h3>SIP Returns Calculator</h3>
+              <p>Calculate returns on monthly mutual fund SIP investments.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 9 -->
+            <a href="investment-calculator.html" class="tool-card" data-tags="investment growth calculator compound interest">
+              <div class="tool-icon blue" aria-hidden="true">📊</div>
+              <h3>Investment Growth Calculator</h3>
+              <p>See how your investments grow over time with compound interest.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 10 -->
+            <a href="retirement-calculator.html" class="tool-card" data-tags="retirement calculator savings plan corpus">
+              <div class="tool-icon purple" aria-hidden="true">🏖️</div>
+              <h3>Retirement Calculator</h3>
+              <p>Plan your retirement corpus based on current age and expenses.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 11 -->
+            <a href="budget-calculator.html" class="tool-card" data-tags="budget calculator income expenses monthly plan">
+              <div class="tool-icon rose" aria-hidden="true">📋</div>
+              <h3>Budget Calculator</h3>
+              <p>Plan your monthly budget. Track income against expenses.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 12 -->
+            <a href="net-worth-calculator.html" class="tool-card" data-tags="net worth calculator assets liabilities wealth">
+              <div class="tool-icon teal" aria-hidden="true">🏦</div>
+              <h3>Net Worth Calculator</h3>
+              <p>Calculate your total net worth by subtracting liabilities from assets.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 13 -->
+            <a href="savings-calculator.html" class="tool-card" data-tags="savings goal calculator plan target monthly">
+              <div class="tool-icon blue" aria-hidden="true">🎯</div>
+              <h3>Savings Goal Calculator</h3>
+              <p>Find out how much to save monthly to reach your financial goal.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 14 -->
+            <a href="inflation-calculator.html" class="tool-card" data-tags="inflation calculator purchasing power erode">
+              <div class="tool-icon orange" aria-hidden="true">📉</div>
+              <h3>Inflation Calculator</h3>
+              <p>See how inflation affects the purchasing power of your money.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 15 -->
+            <a href="markup-calculator.html" class="tool-card" data-tags="markup calculator selling price business">
+              <div class="tool-icon green" aria-hidden="true">💲</div>
+              <h3>Markup Calculator</h3>
+              <p>Calculate markup percentage and set the right selling price.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 16 -->
+            <a href="profit-margin-calculator.html" class="tool-card" data-tags="profit margin calculator gross revenue cost">
+              <div class="tool-icon purple" aria-hidden="true">📊</div>
+              <h3>Profit Margin Calculator</h3>
+              <p>Calculate profit margin and gross profit for your business.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 17 -->
+            <a href="break-even-calculator.html" class="tool-card" data-tags="break even calculator units fixed variable costs">
+              <div class="tool-icon rose" aria-hidden="true">⚖️</div>
+              <h3>Break-Even Calculator</h3>
+              <p>Find how many units you need to sell to cover all costs.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- No Results Message (outside all sections) -->
+    <div class="no-results" id="noResults">No tools match your search. Try a different term!</div>
 
     <!-- Ad Placeholders (hidden until real ads are integrated) -->
     <!--
@@ -570,19 +774,35 @@
       const searchInput = document.getElementById('toolSearch');
       const toolCards = document.querySelectorAll('.tool-card');
       const noResults = document.getElementById('noResults');
+      const financeSection = document.querySelector('[aria-labelledby="finance-heading"]');
 
       function filterTools(query) {
         const trimmed = query.trim().toLowerCase();
         let visibleCount = 0;
+        let financeVisibleCount = 0;
 
         toolCards.forEach(function (card) {
           const title = card.querySelector('h3').textContent.toLowerCase();
           const description = card.querySelector('p').textContent.toLowerCase();
           const tags = (card.getAttribute('data-tags') || '').toLowerCase();
-          const match = title.includes(trimmed) || description.includes(trimmed) || tags.includes(trimmed);
+          const match = trimmed === '' || title.includes(trimmed) || description.includes(trimmed) || tags.includes(trimmed);
           card.style.display = match ? '' : 'none';
           if (match) visibleCount++;
+          // Check if this card is in the finance section
+          if (card.closest('[aria-labelledby="finance-heading"]') && match) {
+            financeVisibleCount++;
+          }
         });
+
+        // Hide finance section if no finance cards match (only when searching)
+        if (financeSection) {
+          if (trimmed === '') {
+            // When search is cleared, always show the finance section
+            financeSection.style.display = '';
+          } else {
+            financeSection.style.display = financeVisibleCount === 0 ? 'none' : '';
+          }
+        }
 
         noResults.style.display = visibleCount === 0 ? 'block' : 'none';
       }
