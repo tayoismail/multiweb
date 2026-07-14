@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://multiweb.app/sitemap.xml
+Sitemap: https://tayoismail.github.io/multiweb/sitemap.xml
