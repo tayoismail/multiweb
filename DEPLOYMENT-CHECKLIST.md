@@ -426,26 +426,18 @@ Update all `canonical` URLs and Open Graph URLs in HTML files to use `.html` ext
 
 ## 11. Google Analytics Setup
 
-### Option A: Google Analytics 4 (GA4) — Recommended
-- [ ] Go to [Google Analytics](https://analytics.google.com/)
-- [ ] Click **"Admin"** → **"Create Property"**
-- [ ] Set property name: "MultiWeb"
-- [ ] Set timezone and currency
-- [ ] Create a **Web data stream**
-- [ ] Enter your URL: `https://multiweb.app`
-- [ ] Enable **Enhanced measurement**
-- [ ] Copy your **Measurement ID** (format: `G-XXXXXXXXXX`)
-- [ ] Add to all HTML files before `</head>`:
-```html
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
-```
+### Option A: Google Analytics 4 (GA4) — ✅ IMPLEMENTED
+- [x] Go to [Google Analytics](https://analytics.google.com/)
+- [x] Click **"Admin"** → **"Create Property"**
+- [x] Set property name: "MultiWeb"
+- [x] Set timezone and currency
+- [x] Create a **Web data stream**
+- [x] Enter your URL: `https://multiweb.app`
+- [x] Enable **Enhanced measurement**
+- [x] Copy your **Measurement ID**: `G-YT1VDKT773`
+- [x] Added to `common.js` — dynamically loads GA4 only after user consent
+- [x] Cookie consent banner implemented in `common.js` + `common-styles.css`
+- [x] Privacy policy updated to disclose GA4 usage
 - [ ] Verify tracking: Real-time reports should show your visits
 
 ### Option B: Privacy-Friendly Alternatives
@@ -455,7 +447,7 @@ Consider privacy-first alternatives (since MultiWeb emphasizes privacy):
 - [ ] **Fathom** — Simple, privacy-focused
 - [ ] **Simple Analytics** — Privacy-first alternative
 
-> **Note:** Since MultiWeb's privacy policy states "no tracking, no cookies", adding Google Analytics would require updating your privacy policy and adding a cookie consent notice.
+> **Note:** Privacy policy has been updated to disclose GA4 usage. Cookie consent banner is implemented. GA4 only loads after user accepts cookies.
 
 ---
 
