@@ -1,0 +1,9 @@
+# ads.txt — MultiWeb
+# https://iabtechlab.com/ads-txt/
+#
+# Replace YOUR_ADSENSE_PUB_ID below with your actual AdSense publisher ID
+# (e.g., pub-1234567890123456).
+# You will get this ID after your AdSense account is approved.
+#
+# Once approved, uncomment and update the line below:
+# google.com, pub-1234567890123456, DIRECT, f08c47fec0942fa0
