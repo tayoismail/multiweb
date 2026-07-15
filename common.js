@@ -214,7 +214,24 @@
     footerBottom.appendChild(link);
   }
 
+  // ===== Donation Button (Flutterwave) =====
+  var FLUTTERWAVE_LINK = 'https://flutterwave.com/donate/ko16jzqgtovw';
+
+  function addDonationButton() {
+    var footerBottom = document.querySelector('.footer-bottom');
+    if (!footerBottom || document.querySelector('.donate-btn')) return;
+
+    var donateBtn = document.createElement('a');
+    donateBtn.href = FLUTTERWAVE_LINK;
+    donateBtn.target = '_blank';
+    donateBtn.rel = 'noopener noreferrer';
+    donateBtn.className = 'donate-btn';
+    donateBtn.innerHTML = '<span aria-hidden="true">❤️</span> Support Us';
+    footerBottom.appendChild(donateBtn);
+  }
+
   // Initialize consent on page load
   showCookieBanner(false);
   addFooterCookieLink();
+  addDonationButton();
 })();
