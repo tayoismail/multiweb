@@ -228,6 +228,17 @@
     donateBtn.className = 'donate-btn';
     donateBtn.innerHTML = '<span aria-hidden="true">❤️</span> Support Us';
     footerBottom.appendChild(donateBtn);
+
+    // Track donation button clicks with GA4 (only if consent granted)
+    donateBtn.addEventListener('click', function () {
+      if (typeof window.gtag === 'function' && getCookieConsent() === 'accepted') {
+        window.gtag('event', 'donation_button_click', {
+          event_category: 'engagement',
+          event_label: 'footer_support_us',
+          value: 1
+        });
+      }
+    });
   }
 
   // Initialize consent on page load
