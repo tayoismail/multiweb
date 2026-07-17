@@ -38,7 +38,6 @@
   <meta name="theme-color" content="#2563eb">
   <meta name="google-site-verification" content="O45Jl0ZcjiqC0yQNT9rw_HellCuboT6Kydf2r7uoouM" />
   <meta name="msvalidate.01" content="B345B805F8CA79A48F3971C6FBC934DF" />
-  <meta name="msvalidate.01" content="B345B805F8CA79A48F3971C6FBC934DF" />
 
   <!-- Google Fonts (only external dependency) -->
   <link rel="icon" href="logo.svg" type="image/svg+xml">
@@ -47,6 +46,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="common-styles.css">
+  <link rel="stylesheet" href="i18n.css">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -466,17 +466,17 @@
       </div>
 
       <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
-        <a href="#featured-heading" class="nav-link">
-          <span class="nav-icon" aria-hidden="true">🧮</span> Tools
+        <a href="#featured-heading" class="nav-link" data-i18n="nav_tools">
+          <span class="nav-icon" aria-hidden="true">🧮</span> <span data-i18n="nav_tools">Tools</span>
         </a>
-        <a href="about.html" class="nav-link">
-          <span class="nav-icon" aria-hidden="true">ℹ️</span> About
+        <a href="about.html" class="nav-link" data-i18n="nav_about">
+          <span class="nav-icon" aria-hidden="true">ℹ️</span> <span data-i18n="nav_about">About</span>
         </a>
-        <a href="contact.html" class="nav-link">
-          <span class="nav-icon" aria-hidden="true">✉️</span> Contact
+        <a href="contact.html" class="nav-link" data-i18n="nav_contact">
+          <span class="nav-icon" aria-hidden="true">✉️</span> <span data-i18n="nav_contact">Contact</span>
         </a>
-        <a href="privacy.html" class="nav-link">
-          <span class="nav-icon" aria-hidden="true">🔒</span> Privacy
+        <a href="privacy.html" class="nav-link" data-i18n="nav_privacy">
+          <span class="nav-icon" aria-hidden="true">🔒</span> <span data-i18n="nav_privacy">Privacy</span>
         </a>
       </nav>
     </div>
@@ -486,13 +486,13 @@
   <section class="hero" aria-label="Site hero">
     <div class="container">
       <div class="hero-badge">
-        <span aria-hidden="true">✨</span> 100% Free — No Sign-Up Required
+        <span aria-hidden="true">✨</span> <span data-i18n="hero_badge">100% Free — No Sign-Up Required</span>
       </div>
-      <h1>Your All-in-One <span>Toolkit</span></h1>
-      <p>Calculators, converters, text utilities, and generators — all free, fast, and right in your browser.</p>
+      <h1 data-i18n-html="hero_title">Your All-in-One <span>Toolkit</span></h1>
+      <p data-i18n="hero_desc">Calculators, converters, text utilities, and generators — all free, fast, and right in your browser.</p>
       <div class="hero-search" role="search">
         <span class="search-icon" aria-hidden="true">🔍</span>
-        <input type="search" id="toolSearch" placeholder="Search tools… e.g. BMI calculator, PDF converter" aria-label="Search tools">
+        <input type="search" id="toolSearch" data-i18n-placeholder="hero_search" placeholder="Search tools… e.g. BMI calculator, PDF converter" aria-label="Search tools">
       </div>
     </div>
   </section>
@@ -503,72 +503,72 @@
     <section class="section" aria-labelledby="featured-heading">
       <div class="container">
         <div class="section-header">
-          <h2 id="featured-heading">Featured Tools</h2>
-          <p>Our most popular tools — ready when you are.</p>
+          <h2 id="featured-heading" data-i18n="featured_title">Featured Tools</h2>
+          <p data-i18n="featured_desc">Our most popular tools — ready when you are.</p>
         </div>
 
         <div class="tools-grid stagger" id="featuredGrid">
           <!-- Tool 1 -->
           <a href="bmi-calculator.html" class="tool-card" data-tags="bmi calculator health weight">
             <div class="tool-icon blue" aria-hidden="true">⚖️</div>
-            <h3>BMI Calculator</h3>
-            <p>Calculate your Body Mass Index instantly based on height and weight.</p>
+            <h3 data-i18n="tool_bmi">BMI Calculator</h3>
+            <p data-i18n="tool_bmi_desc">Calculate your Body Mass Index instantly based on height and weight.</p>
             <span class="tool-arrow" aria-hidden="true">→</span>
           </a>
 
           <!-- Tool 2 -->
           <a href="unit-converter.html" class="tool-card" data-tags="unit converter length weight temperature">
             <div class="tool-icon green" aria-hidden="true">📏</div>
-            <h3>Unit Converter</h3>
-            <p>Convert length, weight, temperature, volume, and more in a tap.</p>
+            <h3 data-i18n="tool_unit">Unit Converter</h3>
+            <p data-i18n="tool_unit_desc">Convert length, weight, temperature, volume, and more in a tap.</p>
             <span class="tool-arrow" aria-hidden="true">→</span>
           </a>
 
           <!-- Tool 3 -->
           <a href="qr-generator.html" class="tool-card" data-tags="qr code generator scan">
             <div class="tool-icon purple" aria-hidden="true">📱</div>
-            <h3>QR Code Generator</h3>
-            <p>Generate custom QR codes for URLs, text, Wi-Fi, and contact info.</p>
+            <h3 data-i18n="tool_qr">QR Code Generator</h3>
+            <p data-i18n="tool_qr_desc">Generate custom QR codes for URLs, text, Wi-Fi, and contact info.</p>
             <span class="tool-arrow" aria-hidden="true">→</span>
           </a>
 
           <!-- Tool 4 -->
           <a href="word-counter.html" class="tool-card" data-tags="word counter character count text">
             <div class="tool-icon orange" aria-hidden="true">📝</div>
-            <h3>Word Counter</h3>
-            <p>Count words, characters, sentences, and paragraphs in your text.</p>
+            <h3 data-i18n="tool_word">Word Counter</h3>
+            <p data-i18n="tool_word_desc">Count words, characters, sentences, and paragraphs in your text.</p>
             <span class="tool-arrow" aria-hidden="true">→</span>
           </a>
 
           <!-- Tool 5 -->
           <a href="percentage-calculator.html" class="tool-card" data-tags="percentage calculator discount tip">
             <div class="tool-icon rose" aria-hidden="true">%</div>
-            <h3>Percentage Calculator</h3>
-            <p>Find percentages, discounts, tips, and proportions with ease.</p>
+            <h3 data-i18n="tool_percent">Percentage Calculator</h3>
+            <p data-i18n="tool_percent_desc">Find percentages, discounts, tips, and proportions with ease.</p>
             <span class="tool-arrow" aria-hidden="true">→</span>
           </a>
 
           <!-- Tool 6 -->
           <a href="password-generator.html" class="tool-card" data-tags="password generator secure random">
             <div class="tool-icon teal" aria-hidden="true">🔐</div>
-            <h3>Password Generator</h3>
-            <p>Create strong, random passwords with customizable settings.</p>
+            <h3 data-i18n="tool_password">Password Generator</h3>
+            <p data-i18n="tool_password_desc">Create strong, random passwords with customizable settings.</p>
             <span class="tool-arrow" aria-hidden="true">→</span>
           </a>
 
           <!-- Tool 7 -->
           <a href="word-unscrambler.html" class="tool-card" data-tags="word unscrambler anagram solver scrabble crossword">
             <div class="tool-icon blue" aria-hidden="true">🔀</div>
-            <h3>Word Unscrambler</h3>
-            <p>Unscramble letters to find all valid words for Scrabble, crosswords, and word games.</p>
+            <h3 data-i18n="tool_word_unscrambler">Word Unscrambler</h3>
+            <p data-i18n="tool_word_unscrambler_desc">Unscramble letters to find all valid words for Scrabble, crosswords, and word games.</p>
             <span class="tool-arrow" aria-hidden="true">→</span>
           </a>
 
           <!-- Tool 8 -->
           <a href="image-converter.html" class="tool-card" data-tags="image converter format png jpg webp resize">
             <div class="tool-icon green" aria-hidden="true">🖼️</div>
-            <h3>Image Converter</h3>
-            <p>Convert images between formats — PNG, JPG, WebP — right in your browser.</p>
+            <h3 data-i18n="tool_image">Image Converter</h3>
+            <p data-i18n="tool_image_desc">Convert images between formats — PNG, JPG, WebP — right in your browser.</p>
             <span class="tool-arrow" aria-hidden="true">→</span>
           </a>
         </div>
@@ -582,8 +582,8 @@
           <div class="category-header">
             <div class="category-icon finance" aria-hidden="true">💰</div>
             <div class="category-text">
-              <h3 id="finance-heading">Finance & Money</h3>
-              <p>Calculators for budgeting, investing, loans, and personal finance planning.</p>
+              <h3 id="finance-heading" data-i18n="finance_title">Finance & Money</h3>
+              <p data-i18n="finance_desc">Calculators for budgeting, investing, loans, and personal finance planning.</p>
             </div>
           </div>
 
@@ -591,136 +591,136 @@
             <!-- Tool 1 -->
             <a href="mortgage-calculator.html" class="tool-card" data-tags="mortgage calculator home loan payment">
               <div class="tool-icon blue" aria-hidden="true">🏠</div>
-              <h3>Mortgage Calculator</h3>
-              <p>Calculate monthly mortgage payments, total interest, and amortization.</p>
+              <h3 data-i18n="tool_mortgage">Mortgage Calculator</h3>
+              <p data-i18n="tool_mortgage_desc">Calculate monthly mortgage payments, total interest, and amortization.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
             <!-- Tool 2 -->
             <a href="tip-calculator.html" class="tool-card" data-tags="tip calculator bill split restaurant">
               <div class="tool-icon green" aria-hidden="true">🍽️</div>
-              <h3>Tip Calculator</h3>
-              <p>Calculate tips and split bills at restaurants. Never struggle with math.</p>
+              <h3 data-i18n="tool_tip">Tip Calculator</h3>
+              <p data-i18n="tool_tip_desc">Calculate tips and split bills at restaurants. Never struggle with math.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
             <!-- Tool 3 -->
             <a href="discount-calculator.html" class="tool-card" data-tags="discount calculator sale price savings">
               <div class="tool-icon orange" aria-hidden="true">🏷️</div>
-              <h3>Discount Calculator</h3>
-              <p>Calculate sale price and savings after any discount percentage.</p>
+              <h3 data-i18n="tool_discount">Discount Calculator</h3>
+              <p data-i18n="tool_discount_desc">Calculate sale price and savings after any discount percentage.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
             <!-- Tool 4 -->
             <a href="currency-converter.html" class="tool-card" data-tags="currency converter exchange rate usd eur gbp">
               <div class="tool-icon purple" aria-hidden="true">💱</div>
-              <h3>Currency Converter</h3>
-              <p>Convert between 150+ world currencies instantly.</p>
+              <h3 data-i18n="tool_currency">Currency Converter</h3>
+              <p data-i18n="tool_currency_desc">Convert between 150+ world currencies instantly.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
             <!-- Tool 5 -->
             <a href="sales-tax-calculator.html" class="tool-card" data-tags="sales tax calculator purchase checkout">
               <div class="tool-icon rose" aria-hidden="true">🧾</div>
-              <h3>Sales Tax Calculator</h3>
-              <p>Calculate sales tax on any purchase. Know the total cost before checkout.</p>
+              <h3 data-i18n="tool_sales_tax">Sales Tax Calculator</h3>
+              <p data-i18n="tool_sales_tax_desc">Calculate sales tax on any purchase. Know the total cost before checkout.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
             <!-- Tool 6 -->
             <a href="roi-calculator.html" class="tool-card" data-tags="roi calculator return investment profit">
               <div class="tool-icon teal" aria-hidden="true">📈</div>
-              <h3>ROI Calculator</h3>
-              <p>Calculate return on investment for any project or financial decision.</p>
+              <h3 data-i18n="tool_roi">ROI Calculator</h3>
+              <p data-i18n="tool_roi_desc">Calculate return on investment for any project or financial decision.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
             <!-- Tool 7 -->
             <a href="credit-card-calculator.html" class="tool-card" data-tags="credit card calculator payoff debt interest">
               <div class="tool-icon orange" aria-hidden="true">💳</div>
-              <h3>Credit Card Payoff Calculator</h3>
-              <p>Find out how long to pay off credit card debt and total interest.</p>
+              <h3 data-i18n="tool_credit">Credit Card Payoff Calculator</h3>
+              <p data-i18n="tool_credit_desc">Find out how long to pay off credit card debt and total interest.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
             <!-- Tool 8 -->
             <a href="sip-calculator.html" class="tool-card" data-tags="sip calculator mutual fund investment returns">
               <div class="tool-icon green" aria-hidden="true">💹</div>
-              <h3>SIP Returns Calculator</h3>
-              <p>Calculate returns on monthly mutual fund SIP investments.</p>
+              <h3 data-i18n="tool_sip">SIP Returns Calculator</h3>
+              <p data-i18n="tool_sip_desc">Calculate returns on monthly mutual fund SIP investments.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
             <!-- Tool 9 -->
             <a href="investment-calculator.html" class="tool-card" data-tags="investment growth calculator compound interest">
               <div class="tool-icon blue" aria-hidden="true">📊</div>
-              <h3>Investment Growth Calculator</h3>
-              <p>See how your investments grow over time with compound interest.</p>
+              <h3 data-i18n="tool_investment">Investment Growth Calculator</h3>
+              <p data-i18n="tool_investment_desc">See how your investments grow over time with compound interest.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
             <!-- Tool 10 -->
             <a href="retirement-calculator.html" class="tool-card" data-tags="retirement calculator savings plan corpus">
               <div class="tool-icon purple" aria-hidden="true">🏖️</div>
-              <h3>Retirement Calculator</h3>
-              <p>Plan your retirement corpus based on current age and expenses.</p>
+              <h3 data-i18n="tool_retirement">Retirement Calculator</h3>
+              <p data-i18n="tool_retirement_desc">Plan your retirement corpus based on current age and expenses.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
             <!-- Tool 11 -->
             <a href="budget-calculator.html" class="tool-card" data-tags="budget calculator income expenses monthly plan">
               <div class="tool-icon rose" aria-hidden="true">📋</div>
-              <h3>Budget Calculator</h3>
-              <p>Plan your monthly budget. Track income against expenses.</p>
+              <h3 data-i18n="tool_budget">Budget Calculator</h3>
+              <p data-i18n="tool_budget_desc">Plan your monthly budget. Track income against expenses.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
             <!-- Tool 12 -->
             <a href="net-worth-calculator.html" class="tool-card" data-tags="net worth calculator assets liabilities wealth">
               <div class="tool-icon teal" aria-hidden="true">🏦</div>
-              <h3>Net Worth Calculator</h3>
-              <p>Calculate your total net worth by subtracting liabilities from assets.</p>
+              <h3 data-i18n="tool_net_worth">Net Worth Calculator</h3>
+              <p data-i18n="tool_net_worth_desc">Calculate your total net worth by subtracting liabilities from assets.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
             <!-- Tool 13 -->
             <a href="savings-calculator.html" class="tool-card" data-tags="savings goal calculator plan target monthly">
               <div class="tool-icon blue" aria-hidden="true">🎯</div>
-              <h3>Savings Goal Calculator</h3>
-              <p>Find out how much to save monthly to reach your financial goal.</p>
+              <h3 data-i18n="tool_savings">Savings Goal Calculator</h3>
+              <p data-i18n="tool_savings_desc">Find out how much to save monthly to reach your financial goal.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
             <!-- Tool 14 -->
             <a href="inflation-calculator.html" class="tool-card" data-tags="inflation calculator purchasing power erode">
               <div class="tool-icon orange" aria-hidden="true">📉</div>
-              <h3>Inflation Calculator</h3>
-              <p>See how inflation affects the purchasing power of your money.</p>
+              <h3 data-i18n="tool_inflation">Inflation Calculator</h3>
+              <p data-i18n="tool_inflation_desc">See how inflation affects the purchasing power of your money.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
             <!-- Tool 15 -->
             <a href="markup-calculator.html" class="tool-card" data-tags="markup calculator selling price business">
               <div class="tool-icon green" aria-hidden="true">💲</div>
-              <h3>Markup Calculator</h3>
-              <p>Calculate markup percentage and set the right selling price.</p>
+              <h3 data-i18n="tool_markup">Markup Calculator</h3>
+              <p data-i18n="tool_markup_desc">Calculate markup percentage and set the right selling price.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
             <!-- Tool 16 -->
             <a href="profit-margin-calculator.html" class="tool-card" data-tags="profit margin calculator gross revenue cost">
               <div class="tool-icon purple" aria-hidden="true">📊</div>
-              <h3>Profit Margin Calculator</h3>
-              <p>Calculate profit margin and gross profit for your business.</p>
+              <h3 data-i18n="tool_profit_margin">Profit Margin Calculator</h3>
+              <p data-i18n="tool_profit_margin_desc">Calculate profit margin and gross profit for your business.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
             <!-- Tool 17 -->
             <a href="break-even-calculator.html" class="tool-card" data-tags="break even calculator units fixed variable costs">
               <div class="tool-icon rose" aria-hidden="true">⚖️</div>
-              <h3>Break-Even Calculator</h3>
-              <p>Find how many units you need to sell to cover all costs.</p>
+              <h3 data-i18n="tool_break_even">Break-Even Calculator</h3>
+              <p data-i18n="tool_break_even_desc">Find how many units you need to sell to cover all costs.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
           </div>
@@ -760,9 +760,9 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <h3>MultiWeb</h3>
-          <p>Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p>
+          <p data-i18n="footer_brand">Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p>
         </div>
-        <div class="footer-col">              <h4>Quick Links</h4>
+        <div class="footer-col">              <h4 data-i18n="footer_quick_links">Quick Links</h4>
               <nav aria-label="Quick links">
                 <a href="bmi-calculator.html">BMI Calculator</a>
                 <a href="unit-converter.html">Unit Converter</a>
@@ -770,7 +770,7 @@
                 <a href="percentage-calculator.html">Percentage Calculator</a>
               </nav>
         </div>
-        <div class="footer-col">              <h4>Company</h4>
+        <div class="footer-col">              <h4 data-i18n="footer_company">Company</h4>
               <nav aria-label="Company links">
                 <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
@@ -779,13 +779,14 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 MultiWeb. All rights reserved.</span>
-        <span>Free online tools for everyone.</span>
+        <span data-i18n="footer_copyright">&copy; 2026 MultiWeb. All rights reserved.</span>
+        <span data-i18n="footer_tagline">Free online tools for everyone.</span>
       </div>
     </div>
   </footer>
 
   <script src="common.js"></script>
+  <script src="i18n.js"></script>
   <script>
     (function () {
       'use strict';

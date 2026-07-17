@@ -65,6 +65,7 @@
   </script>
 
   <link rel="stylesheet" href="common-styles.css">
+  <link rel="stylesheet" href="i18n.css">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -195,7 +196,7 @@
   <link rel="canonical"
 <body>
 
-  <a href="#tool" class="skip-link">Skip to tool</a>
+  <a href="#tool" class="skip-link" data-i18n="skip_to_tool">Skip to tool</a>
 
   <header class="navbar" role="banner">
     <div class="container">
@@ -205,10 +206,10 @@
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
       <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
-        <a href="index.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> Tools</a>
-        <a href="about.html" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> About</a>
-        <a href="contact.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> Contact</a>
-        <a href="privacy.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> Privacy</a>
+        <a href="index.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> <span data-i18n="nav_tools">Tools</span></a>
+        <a href="about.html" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> <span data-i18n="nav_about">About</span></a>
+        <a href="contact.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> <span data-i18n="nav_contact">Contact</span></a>
+        <a href="privacy.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> <span data-i18n="nav_privacy">Privacy</span></a>
       </nav>
     </div>
   </header>
@@ -218,8 +219,8 @@
       <nav class="breadcrumbs" aria-label="Breadcrumb">
         <a href="index.html">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Unit Converter</span>
       </nav>
-      <h1>Unit Converter</h1>
-      <p>Instantly convert between hundreds of units — length, weight, temperature, volume, and speed.</p>
+      <h1 data-i18n="tool_unit">Unit Converter</h1>
+      <p data-i18n="tool_unit_desc">Instantly convert between hundreds of units — length, weight, temperature, volume, and speed.</p>
     </div>
   </section>
 
@@ -298,7 +299,7 @@
             <br>
             <p>Conversions update <strong>instantly</strong> as you type — no button pressing needed. Simply select your category, enter a value, choose the source and target units, and the converted result appears immediately. A <strong>swap button</strong> lets you reverse the conversion direction, and your recent conversions are saved to a handy <strong>history</strong> list so you can revisit them later.</p>
             <br>
-            <p>Behind the scenes, every conversion uses precise formulas and conversion factors. Temperature conversions handle the different scaling (Celsius, Fahrenheit, Kelvin), while length, weight, volume, and speed all use consistent multiplicative factors with high precision.</p>
+            <p >Behind the scenes, every conversion uses precise formulas and conversion factors. Temperature conversions handle the different scaling (Celsius, Fahrenheit, Kelvin), while length, weight, volume, and speed all use consistent multiplicative factors with high precision.</p>
           </div>
 
           <!-- Steps -->
@@ -393,11 +394,12 @@
             <a href="qr-generator.html">QR Generator</a></nav></div>
         <div class="footer-col"><h4>Company</h4><nav aria-label="Company links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></nav></div>
       </div>
-      <div class="footer-bottom"><span>&copy; 2026 MultiWeb. All rights reserved.</span><span>Free online tools for everyone.</span></div>
+      <div class="footer-bottom"><span data-i18n="footer_copyright">&copy; 2026 MultiWeb. All rights reserved.</span><span data-i18n="footer_tagline">Free online tools for everyone.</span></div>
     </div>
   </footer>
 
   <script src="common.js"></script>
+  <script src="i18n.js"></script>
   <script>
     (function () {
       'use strict';

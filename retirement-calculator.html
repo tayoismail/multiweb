@@ -55,6 +55,7 @@
   </script>
 
   <link rel="stylesheet" href="common-styles.css">
+  <link rel="stylesheet" href="i18n.css">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,7 +98,7 @@
 
   <link rel="canonical"
 <body>
-  <a href="#tool" class="skip-link">Skip to tool</a>
+  <a href="#tool" class="skip-link" data-i18n="skip_to_tool">Skip to tool</a>
   <header class="navbar" role="banner">
     <div class="container">
       <a href="index.html" class="navbar-brand" aria-label="MultiWeb home"><span class="logo-icon" aria-hidden="true">M</span> MultiWeb</a>
@@ -106,10 +107,10 @@
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
       <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
-        <a href="index.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> Tools</a>
-        <a href="about.html" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> About</a>
-        <a href="contact.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> Contact</a>
-        <a href="privacy.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> Privacy</a>
+        <a href="index.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> <span data-i18n="nav_tools">Tools</span></a>
+        <a href="about.html" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> <span data-i18n="nav_about">About</span></a>
+        <a href="contact.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> <span data-i18n="nav_contact">Contact</span></a>
+        <a href="privacy.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> <span data-i18n="nav_privacy">Privacy</span></a>
       </nav>
     </div>
   </header>
@@ -252,11 +253,12 @@
         <div class="footer-col"><h4>Quick Links</h4><nav aria-label="Quick links"><a href="bmi-calculator.html">BMI Calculator</a><a href="unit-converter.html">Unit Converter</a><a href="word-counter.html">Word Counter</a><a href="qr-generator.html">QR Generator</a></nav></div>
         <div class="footer-col"><h4>Company</h4><nav aria-label="Company links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></nav></div>
       </div>
-      <div class="footer-bottom"><span>&copy; 2026 MultiWeb. All rights reserved.</span><span>Free online tools for everyone.</span></div>
+      <div class="footer-bottom"><span data-i18n="footer_copyright">&copy; 2026 MultiWeb. All rights reserved.</span><span data-i18n="footer_tagline">Free online tools for everyone.</span></div>
     </div>
   </footer>
 
   <script src="common.js"></script>
+  <script src="i18n.js"></script>
   <script>
     (function(){
       'use strict';

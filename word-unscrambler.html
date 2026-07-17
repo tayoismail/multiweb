@@ -65,6 +65,7 @@
   </script>
 
   <link rel="stylesheet" href="common-styles.css">
+  <link rel="stylesheet" href="i18n.css">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -255,10 +256,10 @@
         </button>
       </div>
       <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
-        <a href="index.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> Tools</a>
-        <a href="about.html" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> About</a>
-        <a href="contact.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> Contact</a>
-        <a href="privacy.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> Privacy</a>
+        <a href="index.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> <span data-i18n="nav_tools">Tools</span></a>
+        <a href="about.html" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> <span data-i18n="nav_about">About</span></a>
+        <a href="contact.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> <span data-i18n="nav_contact">Contact</span></a>
+        <a href="privacy.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> <span data-i18n="nav_privacy">Privacy</span></a>
       </nav>
     </div>
   </header>
@@ -269,8 +270,8 @@
       <nav class="breadcrumbs" aria-label="Breadcrumb">
         <a href="index.html">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Word Unscrambler</span>
       </nav>
-      <h1>Word Unscrambler</h1>
-      <p>Enter scrambled letters to find all valid English words — perfect for Scrabble, Words With Friends, and crosswords.</p>
+      <h1 data-i18n="tool_word_unscrambler">Word Unscrambler</h1>
+      <p data-i18n="nav_tools_desc">Enter scrambled letters to find all valid English words — perfect for Scrabble, Words With Friends, and crosswords.</p>
     </div>
   </section>
 
@@ -358,7 +359,7 @@
             <br>
             <p>Our word unscrambler uses a built-in dictionary of nearly <strong>10,000 common English words</strong> — no internet connection needed, so your privacy is protected. Just type in your scrambled letters, apply optional filters like minimum word length or prefix/suffix matching, and instantly see all possible words sorted from longest to shortest. Each result is grouped by word length so you can easily spot the highest-scoring plays.</p>
             <br>
-            <p>This tool is completely free with no limits on usage. Use it to improve your word game skills, expand your vocabulary, or simply settle a friendly argument about whether a word is valid.</p>
+            <p data-i18n="nav_tools_desc">This tool is completely free with no limits on usage. Use it to improve your word game skills, expand your vocabulary, or simply settle a friendly argument about whether a word is valid.</p>
           </div>
 
           <!-- Steps -->
@@ -504,13 +505,14 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 MultiWeb. All rights reserved.</span>
-        <span>Free online tools for everyone.</span>
+        <span data-i18n="footer_copyright">&copy; 2026 MultiWeb. All rights reserved.</span>
+        <span data-i18n="footer_tagline">Free online tools for everyone.</span>
       </div>
     </div>
   </footer>
 
   <script src="common.js"></script>
+  <script src="i18n.js"></script>
   <script>
     (function () {
       'use strict';

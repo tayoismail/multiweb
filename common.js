@@ -161,11 +161,11 @@
       '<div class="cookie-banner-inner container">',
       '  <div class="cookie-banner-text">',
       '    <span class="cookie-banner-icon" aria-hidden="true">🍪</span>',
-      '    <p id="cookie-consent-desc">We use cookies for analytics to improve your experience. By accepting, you help us understand how our tools are used. No personal data is collected. <a href="privacy.html">Learn more</a></p>',
+      '    <p id="cookie-consent-desc"><span data-i18n="cookie_desc">We use cookies for analytics to improve your experience. By accepting, you help us understand how our tools are used. No personal data is collected.</span> <a href="privacy.html" data-i18n="cookie_learn_more">Learn more</a></p>',
       '  </div>',
       '  <div class="cookie-banner-actions">',
-      '    <button class="btn btn-sm btn-outline cookie-decline" type="button">Decline</button>',
-      '    <button class="btn btn-sm btn-outline-primary cookie-accept" type="button">Accept</button>',
+      '    <button class="btn btn-sm btn-outline cookie-decline" type="button" data-i18n="cookie_decline">Decline</button>',
+      '    <button class="btn btn-sm btn-outline-primary cookie-accept" type="button" data-i18n="cookie_accept">Accept</button>',
       '  </div>',
       '</div>'
     ].join('\n');
@@ -226,7 +226,7 @@
     donateBtn.target = '_blank';
     donateBtn.rel = 'noopener noreferrer';
     donateBtn.className = 'donate-btn';
-    donateBtn.innerHTML = '<span aria-hidden="true">❤️</span> Support Us';
+    donateBtn.innerHTML = '<span aria-hidden="true">❤️</span> <span data-i18n="donate_btn">Support Us</span>';
     footerBottom.appendChild(donateBtn);
 
     // Track donation button clicks with GA4 (only if consent granted)
