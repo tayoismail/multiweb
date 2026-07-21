@@ -241,6 +241,35 @@
     });
   }
 
+  // ===== Back-to-Top Button =====
+  function addBackToTop() {
+    var btn = document.createElement('button');
+    btn.className = 'back-to-top';
+    btn.setAttribute('aria-label', 'Back to top');
+    btn.setAttribute('aria-hidden', 'true');
+    btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 16V4M10 4L5 9M10 4L15 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    btn.style.cssText = 'position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--color-primary);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(37,99,235,0.3);opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s,transform 0.2s;z-index:90;';
+    document.body.appendChild(btn);
+
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        btn.style.opacity = '1';
+        btn.style.visibility = 'visible';
+        btn.removeAttribute('aria-hidden');
+      } else {
+        btn.style.opacity = '0';
+        btn.style.visibility = 'hidden';
+        btn.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  addBackToTop();
+
   // Initialize consent on page load
   showCookieBanner(false);
   addFooterCookieLink();

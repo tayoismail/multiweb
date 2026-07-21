@@ -93,12 +93,17 @@
   }
 
   function applyTranslations(translations) {
+    var missingKeys = {};
+
     // Text content
     var els = document.querySelectorAll('[data-i18n]');
     els.forEach(function (el) {
       var key = el.getAttribute('data-i18n');
       if (translations[key]) {
         el.textContent = translations[key];
+      } else if (currentLang !== 'en') {
+        if (!missingKeys[key]) missingKeys[key] = 0;
+        missingKeys[key]++;
       }
     });
 
@@ -108,6 +113,9 @@
       var key = el.getAttribute('data-i18n-html');
       if (translations[key]) {
         el.innerHTML = translations[key];
+      } else if (currentLang !== 'en') {
+        if (!missingKeys[key]) missingKeys[key] = 0;
+        missingKeys[key]++;
       }
     });
 
@@ -117,6 +125,9 @@
       var key = el.getAttribute('data-i18n-placeholder');
       if (translations[key]) {
         el.setAttribute('placeholder', translations[key]);
+      } else if (currentLang !== 'en') {
+        if (!missingKeys[key]) missingKeys[key] = 0;
+        missingKeys[key]++;
       }
     });
 
@@ -126,6 +137,9 @@
       var key = el.getAttribute('data-i18n-title');
       if (translations[key]) {
         el.setAttribute('title', translations[key]);
+      } else if (currentLang !== 'en') {
+        if (!missingKeys[key]) missingKeys[key] = 0;
+        missingKeys[key]++;
       }
     });
 
@@ -135,8 +149,37 @@
       var key = el.getAttribute('data-i18n-aria');
       if (translations[key]) {
         el.setAttribute('aria-label', translations[key]);
+      } else if (currentLang !== 'en') {
+        if (!missingKeys[key]) missingKeys[key] = 0;
+        missingKeys[key]++;
       }
     });
+
+    // Button text (only text nodes, preserving child elements like icons)
+    var btnTextEls = document.querySelectorAll('[data-i18n-text]');
+    btnTextEls.forEach(function (el) {
+      var key = el.getAttribute('data-i18n-text');
+      if (translations[key]) {
+        for (var i = 0; i < el.childNodes.length; i++) {
+          if (el.childNodes[i].nodeType === Node.TEXT_NODE && el.childNodes[i].textContent.trim()) {
+            el.childNodes[i].textContent = translations[key];
+            break;
+          }
+        }
+      } else if (currentLang !== 'en') {
+        if (!missingKeys[key]) missingKeys[key] = 0;
+        missingKeys[key]++;
+      }
+    });
+
+    // Log missing keys in development
+    if (currentLang !== 'en' && Object.keys(missingKeys).length > 0) {
+      console.groupCollapsed('i18n: Missing keys for ' + currentLang + ' (' + Object.keys(missingKeys).length + ' keys)');
+      Object.keys(missingKeys).forEach(function (key) {
+        console.warn('Missing key: ' + key + ' (referenced ' + missingKeys[key] + ' time(s))');
+      });
+      console.groupEnd();
+    }
 
     // Update page title if translation exists
     if (translations['_page_title']) {

@@ -441,8 +441,7 @@
   </style>
   <meta name="keywords" content="free online tools, calculators, converters, text utilities, QR generator, word counter, password generator, BMI calculator, unit converter, percentage calculator, multiweb">
 
-  <link rel="canonical"
-<body>
+  <body>
 
   <!-- Skip Link -->
   <a href="#main" class="skip-link">Skip to main content</a>
@@ -466,16 +465,16 @@
       </div>
 
       <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
-        <a href="#featured-heading" class="nav-link" data-i18n="nav_tools">
+        <a href="#featured-heading" class="nav-link">
           <span class="nav-icon" aria-hidden="true">🧮</span> <span data-i18n="nav_tools">Tools</span>
         </a>
-        <a href="about.html" class="nav-link" data-i18n="nav_about">
+        <a href="about.html" class="nav-link">
           <span class="nav-icon" aria-hidden="true">ℹ️</span> <span data-i18n="nav_about">About</span>
         </a>
-        <a href="contact.html" class="nav-link" data-i18n="nav_contact">
+        <a href="contact.html" class="nav-link">
           <span class="nav-icon" aria-hidden="true">✉️</span> <span data-i18n="nav_contact">Contact</span>
         </a>
-        <a href="privacy.html" class="nav-link" data-i18n="nav_privacy">
+        <a href="privacy.html" class="nav-link">
           <span class="nav-icon" aria-hidden="true">🔒</span> <span data-i18n="nav_privacy">Privacy</span>
         </a>
       </nav>
@@ -729,7 +728,7 @@
     </section>
 
     <!-- No Results Message (outside all sections) -->
-    <div class="no-results" id="noResults">No tools match your search. Try a different term!</div>
+    <div class="no-results" id="noResults" data-i18n="no_results">No tools match your search. Try a different term!</div>
 
     <!-- Ad Placeholders (hidden until real ads are integrated) -->
     <!--
@@ -838,6 +837,17 @@
           this.value = '';
           filterTools('');
           this.blur();
+        }
+      });
+
+      // Keyboard shortcut: / to focus search
+      document.addEventListener('keydown', function (e) {
+        if (e.key === '/' && !e.ctrlKey && !e.metaKey && !e.altKey && !e.shiftKey) {
+          var tag = document.activeElement.tagName;
+          if (tag !== 'INPUT' && tag !== 'TEXTAREA' && tag !== 'SELECT') {
+            e.preventDefault();
+            searchInput.focus();
+          }
         }
       });
     })();

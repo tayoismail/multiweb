@@ -19,7 +19,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="msvalidate.01" content="B345B805F8CA79A48F3971C6FBC934DF" />
-  <title>Word Unscrambler — Find Words from Scrambled Letters | MultiWeb</title>
+  <title><span data-i18n="wu_seo_title">Word Unscrambler — Find Words from Scrambled Letters</span> | MultiWeb</title>
   <meta name="description" content="Unscramble letters to find all valid words for Scrabble, Words With Friends, and crossword puzzles. Fast and free.">
   <link rel="canonical" href="https://tayoismail.github.io/multiweb/word-unscrambler.html">
   <meta name="robots" content="index, follow">
@@ -235,8 +235,7 @@
   </script>
   <meta name="keywords" content="word unscrambler, anagram solver, scrabble helper, word finder, letter unscrambler, crossword solver">
 
-  <link rel="canonical"
-<body>
+  <body>
 
   <a href="#tool" class="skip-link">Skip to tool</a>
 
@@ -270,8 +269,8 @@
       <nav class="breadcrumbs" aria-label="Breadcrumb">
         <a href="index.html">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Word Unscrambler</span>
       </nav>
-      <h1 data-i18n="tool_word_unscrambler">Word Unscrambler</h1>
-      <p data-i18n="tool_word_unscrambler_header_desc">Enter scrambled letters to find all valid English words — perfect for Scrabble, Words With Friends, and crosswords.</p>
+      <h1 data-i18n="wu_title">Word Unscrambler</h1>
+      <p data-i18n="wu_description">Enter scrambled letters to find all valid English words — perfect for Scrabble, Words With Friends, and crosswords.</p>
     </div>
   </section>
 
@@ -292,7 +291,7 @@
 
             <div class="input-group-row">
               <input type="text" class="tool-input" id="lettersInput"
-                     placeholder="Enter scrambled letters — e.g. TRAE" aria-label="Enter scrambled letters"
+                     placeholder="Enter scrambled letters — e.g. TRAE" data-i18n-placeholder="wu_input_placeholder" aria-label="Enter scrambled letters"
                      autocomplete="off" spellcheck="false" maxlength="15"
                      style="text-transform:uppercase;letter-spacing:0.15em;font-weight:700;">
               <button class="tool-btn" id="unscrambleBtn" aria-label="Unscramble letters">
@@ -316,15 +315,15 @@
               </div>
               <div class="filter-group">
                 <label for="startsWith">Starts With</label>
-                <input type="text" id="startsWith" class="filter-input" placeholder="e.g. re" maxlength="5" autocomplete="off">
+                <input type="text" id="startsWith" class="filter-input" placeholder="e.g. re" data-i18n-placeholder="wu_starts_with_placeholder" maxlength="5" autocomplete="off">
               </div>
               <div class="filter-group">
                 <label for="endsWith">Ends With</label>
-                <input type="text" id="endsWith" class="filter-input" placeholder="e.g. ing" maxlength="5" autocomplete="off">
+                <input type="text" id="endsWith" class="filter-input" placeholder="e.g. ing" data-i18n-placeholder="wu_ends_with_placeholder" maxlength="5" autocomplete="off">
               </div>
               <div class="filter-group">
                 <label for="contains">Contains</label>
-                <input type="text" id="contains" class="filter-input" placeholder="e.g. ea" maxlength="5" autocomplete="off">
+                <input type="text" id="contains" class="filter-input" placeholder="e.g. ea" data-i18n-placeholder="wu_contains_placeholder" maxlength="5" autocomplete="off">
               </div>
             </div>
 
@@ -336,7 +335,7 @@
             <!-- Results Stats -->
             <div class="results-stats" id="resultsStats">
               <span class="stat">Found <strong id="wordCount">0</strong> words &middot; Longest: <strong id="longestWord">—</strong></span>
-              <button class="copy-btn" id="copyBtn" aria-label="Copy results to clipboard">
+              <button class="copy-btn" id="copyBtn" aria-label="Copy results to clipboard" data-i18n-text="copy_btn">
                 <span aria-hidden="true">📋</span> Copy All
               </button>
             </div>
@@ -363,86 +362,86 @@
           </div>
 
           <!-- Steps -->
-          <h2 style="margin-bottom:16px;">How to Use the Word Unscrambler</h2>
+          <h2 style="margin-bottom:16px;"><span data-i18n="wu_how_title">How to Use the Word Unscrambler</span></h2>
           <ol class="steps-list">
             <li>
               <div>
-                <strong>Enter your scrambled letters</strong>
-                <span>Type or paste the letters into the input field. For example, enter <strong>TRAE</strong> to find all words that can be formed from those letters. Letters are automatically capitalized for clarity.</span>
+                <strong><span data-i18n="wu_step_1_title">Enter your scrambled letters</span></strong>
+                <span><span data-i18n-html="wu_step_1_desc">Type or paste the letters into the input field. For example, enter <strong>TRAE</strong> to find all words that can be formed from those letters. Letters are automatically capitalized for clarity.</span>
               </div>
             </li>
             <li>
               <div>
-                <strong>Adjust filter options</strong>
-                <span>Set a minimum word length to exclude very short words. Use the <em>Starts With</em>, <em>Ends With</em>, and <em>Contains</em> fields to narrow your search — perfect for crossword clues.</span>
+                <strong><span data-i18n="wu_step_2_title">Adjust filter options</span></strong>
+                <span><span data-i18n-html="wu_step_2_desc">Set a minimum word length to exclude very short words. Use the <em>Starts With</em>, <em>Ends With</em>, and <em>Contains</em> fields to narrow your search — perfect for crossword clues.</span>
               </div>
             </li>
             <li>
               <div>
-                <strong>Click "Unscramble"</strong>
-                <span>Press the button or hit <strong>Enter</strong> on your keyboard. The tool will search its built-in dictionary and display all matching words.</span>
+                <strong><span data-i18n="wu_step_3_title">Click "Unscramble"</span></strong>
+                <span><span data-i18n-html="wu_step_3_desc">Press the button or hit <strong>Enter</strong> on your keyboard. The tool will search its built-in dictionary and display all matching words.</span>
               </div>
             </li>
             <li>
               <div>
-                <strong>Browse the results</strong>
-                <span>Words are grouped by length, with the longest words shown first. The <strong>word count</strong> and <strong>longest word</strong> are displayed at the top of the results.</span>
+                <strong><span data-i18n="wu_step_4_title">Browse the results</span></strong>
+                <span><span data-i18n-html="wu_step_4_desc">Words are grouped by length, with the longest words shown first. The <strong>word count</strong> and <strong>longest word</strong> are displayed at the top of the results.</span>
               </div>
             </li>
             <li>
               <div>
-                <strong>Copy or study the words</strong>
-                <span>Click <strong>"Copy All"</strong> to copy every found word to your clipboard as a comma-separated list. Hover over any word to highlight it — great for learning new vocabulary.</span>
+                <strong><span data-i18n="wu_step_5_title">Copy or study the words</span></strong>
+                <span><span data-i18n-html="wu_step_5_desc">Click <strong>"Copy All"</strong> to copy every found word to your clipboard as a comma-separated list. Hover over any word to highlight it — great for learning new vocabulary.</span>
               </div>
             </li>
           </ol>
 
           <!-- FAQ -->
-          <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+          <h2 style="margin-bottom:16px;"><span data-i18n="wu_faq_title">Frequently Asked Questions</span></h2>
           <div class="faq-list" id="faqList">
             <div class="faq-item open">
               <button class="faq-question" aria-expanded="true">
-                Is this word unscrambler free to use?
+                <span data-i18n="wu_faq_q1">Is this word unscrambler free to use?</span>
                 <span class="faq-icon" aria-hidden="true">▼</span>
               </button>
               <div class="faq-answer">
-                <p>Yes, completely free! There are no usage limits, no sign-up requirements, and no hidden charges. Use it as many times as you need for Scrabble, Words With Friends, crosswords, or any word game.</p>
+                <p><span data-i18n-html="wu_faq_a1">Yes, completely free! There are no usage limits, no sign-up requirements, and no hidden charges. Use it as many times as you need for Scrabble, Words With Friends, crosswords, or any word game.</p>
               </div>
             </div>
             <div class="faq-item">
               <button class="faq-question" aria-expanded="false">
-                Does this tool work offline?
+                <span data-i18n="wu_faq_q2">Does this tool work offline?</span>
                 <span class="faq-icon" aria-hidden="true">▼</span>
               </button>
               <div class="faq-answer">
-                <p>Yes! The dictionary of nearly 10,000 words is built directly into the page. Once the page has loaded, no internet connection is required — all processing happens in your browser. Your letters are never sent to a server.</p>
+                <p><span data-i18n-html="wu_faq_a2">Yes! The dictionary of nearly 10,000 words is built directly into the page. Once the page has loaded, no internet connection is required — all processing happens in your browser. Your letters are never sent to a server.</p>
               </div>
             </div>
             <div class="faq-item">
               <button class="faq-question" aria-expanded="false">
-                What dictionary does the unscrambler use?
+                <span data-i18n="wu_faq_q3">What dictionary does the unscrambler use?</span>
                 <span class="faq-icon" aria-hidden="true">▼</span>
               </button>
               <div class="faq-answer">
-                <p>We use a curated list of approximately 10,000 common English words, sourced from public-domain word frequency lists. It includes standard vocabulary suitable for word games like Scrabble and Words With Friends, but may not include very obscure or technical terms.</p>
+                <p><span data-i18n-html="wu_faq_a3">We use a curated list of approximately 10,000 common English words, sourced from public-domain word frequency lists. It includes standard vocabulary suitable for word games like Scrabble and Words With Friends, but may not include very obscure or technical terms.</p>
               </div>
             </div>
             <div class="faq-item">
               <button class="faq-question" aria-expanded="false">
-                Can I find words with specific letters in certain positions?
+                <span data-i18n="wu_faq_q4">Can I find words with specific letters in certain positions?</span>
                 <span class="faq-icon" aria-hidden="true">▼</span>
               </button>
               <div class="faq-answer">
-                <p>Absolutely! Use the filter fields below the input: <strong>Starts With</strong> finds words beginning with certain letters, <strong>Ends With</strong> finds words ending with certain letters, and <strong>Contains</strong> finds words containing a specific letter sequence anywhere inside them. Combine these with the minimum length filter for precise results.</p>
+                <p><span data-i18n-html="wu_faq_a4">Absolutely! Use the filter fields below the input: <strong>Starts With</strong> finds words beginning with certain letters, <strong>Ends With</strong> finds words ending with certain letters, and <strong>Contains</strong> finds words containing a specific letter sequence anywhere inside them. Combine these with the minimum length filter for precise results.</p>
               </div>
             </div>
             <div class="faq-item">
               <button class="faq-question" aria-expanded="false">
-                What's the best strategy for winning at Scrabble?
+                <span data-i18n="wu_faq_q5">What's the best strategy for winning at Scrabble?</span>
                 <span class="faq-icon" aria-hidden="true">▼</span>
               </button>
               <div class="faq-answer">
-                <p>Focus on finding the <strong>longest</strong> word possible, as longer words generally score higher. Pay attention to high-value letters (J, Q, X, Z) and look for prefixes and suffixes you can add to existing words on the board. Our unscrambler sorts results by length so you can spot the best plays instantly.</p>
+                <p><span data-i18n-html="wu_faq_a5">Focus on finding the <strong>longest</strong> word possible, as longer words generally score higher. Pay attention to high-value letters (J, Q, X, Z) and look for prefixes and suffixes you can add to existing words on the board. Our unscrambler sorts results by length so you can spot the best plays instantly.</p>
               </div>
             </div>
           </div>
@@ -460,8 +459,8 @@
         <div class="related-grid">
           <a href="word-counter.html" class="related-card">
             <span class="related-icon" aria-hidden="true">📝</span>
-            <h4>Word Counter</h4>
-            <p>Count words, characters, sentences, and paragraphs in your text.</p>
+            <h4 data-i18n="wu_related_1_title">Word Counter</h4>
+            <p data-i18n="wu_related_1_desc">Count words, characters, sentences, and paragraphs in your text.</p>
           </a>
           <a href="password-generator.html" class="related-card">
             <span class="related-icon" aria-hidden="true">🔐</span>
@@ -484,7 +483,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <h3>MultiWeb</h3>
-          <p>Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p>
+          <p data-i18n="footer_brand">Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
@@ -496,7 +495,7 @@
           </nav>
         </div>
         <div class="footer-col">
-          <h4>Company</h4>
+          <h4 data-i18n="footer_company">Company</h4>
           <nav aria-label="Company links">
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>

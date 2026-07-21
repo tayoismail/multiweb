@@ -242,8 +242,7 @@
   </script>
   <meta name="keywords" content="image converter, PNG to JPG, JPG to WebP, image format converter, photo converter, online image converter">
 
-  <link rel="canonical"
-<body>
+  <body>
 
   <a href="#tool" class="skip-link">Skip to tool</a>
 
@@ -325,11 +324,11 @@
               </div>
               <div class="ctl-group">
                 <label for="outWidth">Width (px)</label>
-                <input type="number" id="outWidth" class="ctl-input" placeholder="Auto" min="1" max="10000">
+                <input type="number" id="outWidth" class="ctl-input" placeholder="Auto" data-i18n-placeholder="img_width_placeholder" min="1" max="10000">
               </div>
               <div class="ctl-group">
                 <label for="outHeight">Height (px)</label>
-                <input type="number" id="outHeight" class="ctl-input" placeholder="Auto" min="1" max="10000">
+                <input type="number" id="outHeight" class="ctl-input" placeholder="Auto" data-i18n-placeholder="img_height_placeholder" min="1" max="10000">
               </div>
               <div class="ctl-group">
                 <div class="ctl-inline" style="margin-top:16px;">
@@ -351,10 +350,10 @@
 
             <!-- Convert button -->
             <div class="convert-row">
-              <button class="convert-btn" id="convertBtn" disabled aria-label="Convert image">
+              <button class="convert-btn" id="convertBtn" disabled aria-label="Convert image" data-i18n-text="convert_btn">
                 <span aria-hidden="true">🔄</span> Convert
               </button>
-              <button class="download-btn" id="downloadBtn" aria-label="Download converted image">
+              <button class="download-btn" id="downloadBtn" aria-label="Download converted image" data-i18n-text="download_btn">
                 <span aria-hidden="true">⬇️</span> Download
               </button>
             </div>
@@ -398,7 +397,7 @@
     <section class="section section-alt" aria-label="About image converter">
       <div class="container">
         <div class="content-section">
-          <h2 style="margin-bottom:16px;">Image Converter — Convert PNG, JPG, WebP and More</h2>
+          <h2 style="margin-bottom:16px;"><span data-i18n="img_seo_title">Image Converter — Convert PNG, JPG, WebP and More</span></h2>
           <div class="intro-text">
             <p data-i18n-html="tool_image_intro_1">An <strong>image converter</strong> lets you change images from one file format to another without losing quality or installing software. Whether you need to convert a <strong>PNG to JPG</strong> for a smaller file size, transform a <strong>JPG to WebP</strong> for faster website loading, or save a high-resolution image as a PNG with transparency, our browser-based converter handles it all.</p>
             <br>
@@ -407,59 +406,59 @@
             <p>You can also <strong>resize</strong> images during conversion by setting custom width and height values while maintaining the original aspect ratio. A quality slider gives you fine-grained control over JPG and WebP output compression, balancing file size with visual fidelity.</p>
           </div>
 
-          <h2 style="margin-bottom:16px;">How to Convert an Image</h2>
+          <h2 style="margin-bottom:16px;"><span data-i18n="img_how_title">How to Convert an Image</span></h2>
           <ol class="steps-list">
             <li>
               <div>
-                <strong>Upload your image</strong>
-                <span>Drag and drop an image file onto the upload area, or click to browse your computer. We support PNG, JPG, WebP, SVG, BMP, and GIF formats.</span>
+                <strong><span data-i18n="img_step_1_title">Upload your image</span></strong>
+                <span><span data-i18n-html="img_step_1_desc">Drag and drop an image file onto the upload area, or click to browse your computer. We support PNG, JPG, WebP, SVG, BMP, and GIF formats.</span>
               </div>
             </li>
             <li>
               <div>
-                <strong>Choose the output format</strong>
-                <span>Select your desired format from the dropdown: <strong>PNG</strong> (lossless, supports transparency), <strong>JPG</strong> (smaller file size, good for photos), or <strong>WebP</strong> (modern format with superior compression).</span>
+                <strong><span data-i18n="img_step_2_title">Choose the output format</span></strong>
+                <span><span data-i18n-html="img_step_2_desc">Select your desired format from the dropdown: <strong>PNG</strong> (lossless, supports transparency), <strong>JPG</strong> (smaller file size, good for photos), or <strong>WebP</strong> (modern format with superior compression).</span>
               </div>
             </li>
             <li>
               <div>
-                <strong>Adjust settings</strong>
-                <span>Use the <strong>quality slider</strong> to control compression for JPG and WebP outputs. Optionally enter custom <strong>width</strong> and <strong>height</strong> values to resize the image. The aspect ratio lock keeps proportions intact.</span>
+                <strong><span data-i18n="img_step_3_title">Adjust settings</span></strong>
+                <span><span data-i18n-html="img_step_3_desc">Use the <strong>quality slider</strong> to control compression for JPG and WebP outputs. Optionally enter custom <strong>width</strong> and <strong>height</strong> values to resize the image. The aspect ratio lock keeps proportions intact.</span>
               </div>
             </li>
             <li>
               <div>
-                <strong>Convert the image</strong>
-                <span>Click the <strong>"Convert"</strong> button to process your image. The conversion happens instantly in your browser using the Canvas API. A side-by-side preview shows the original and converted versions.</span>
+                <strong><span data-i18n="img_step_4_title">Convert the image</span></strong>
+                <span><span data-i18n-html="img_step_4_desc">Click the <strong>"Convert"</strong> button to process your image. The conversion happens instantly in your browser using the Canvas API. A side-by-side preview shows the original and converted versions.</span>
               </div>
             </li>
             <li>
               <div>
-                <strong>Download the result</strong>
-                <span>Review the converted preview and compare file sizes. When you're satisfied, click the <strong>"Download"</strong> button to save the converted image to your computer.</span>
+                <strong><span data-i18n="img_step_5_title">Download the result</span></strong>
+                <span><span data-i18n-html="img_step_5_desc">Review the converted preview and compare file sizes. When you're satisfied, click the <strong>"Download"</strong> button to save the converted image to your computer.</span>
               </div>
             </li>
           </ol>
 
           <!-- FAQ -->
-          <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+          <h2 style="margin-bottom:16px;"><span data-i18n="img_faq_title">Frequently Asked Questions</span></h2>
           <div class="faq-list" id="faqList">
             <div class="faq-item open">
               <button class="faq-question" aria-expanded="true">
-                Does this tool upload my images to a server?
+                <span data-i18n="img_faq_q1">Does this tool upload my images to a server?</span>
                 <span class="faq-icon" aria-hidden="true">▼</span>
               </button>
               <div class="faq-answer">
-                <p>No, never. All image processing happens entirely in your browser using the HTML5 Canvas API. Your images are never uploaded, stored, or transmitted anywhere. This makes the converter completely private and secure — ideal for sensitive or personal images.</p>
+                <p><span data-i18n-html="img_faq_a1">No, never. All image processing happens entirely in your browser using the HTML5 Canvas API. Your images are never uploaded, stored, or transmitted anywhere. This makes the converter completely private and secure — ideal for sensitive or personal images.</p>
               </div>
             </div>
             <div class="faq-item">
               <button class="faq-question" aria-expanded="false">
-                Are there any file size limits?
+                <span data-i18n="img_faq_q2">Are there any file size limits?</span>
                 <span class="faq-icon" aria-hidden="true">▼</span>
               </button>
               <div class="faq-answer">
-                <p>There are no artificial limits imposed by the tool. However, very large images (e.g., 20,000+ pixel dimensions) may cause performance issues in your browser's Canvas API since all processing is done in memory. For typical photos and web graphics, the converter handles them with ease.</p>
+                <p><span data-i18n-html="img_faq_a2">There are no artificial limits imposed by the tool. However, very large images (e.g., 20,000+ pixel dimensions) may cause performance issues in your browser's Canvas API since all processing is done in memory. For typical photos and web graphics, the converter handles them with ease.</p>
               </div>
             </div>
             <div class="faq-item">
@@ -468,25 +467,25 @@
                 <span class="faq-icon" aria-hidden="true">▼</span>
               </button>
               <div class="faq-answer">
-                <p><strong>PNG</strong> is a lossless format that supports transparency, making it ideal for logos, icons, and graphics with sharp edges. <strong>JPG</strong> is a lossy format that produces smaller file sizes, best for photographs and complex images. <strong>WebP</strong> is a modern format developed by Google that offers both lossless and lossy compression — typically 25-35% smaller file sizes than JPG at equivalent quality, with support for transparency.</p>
+                <p><span data-i18n-html="img_faq_a3"><strong>PNG</strong> is a lossless format that supports transparency, making it ideal for logos, icons, and graphics with sharp edges. <strong>JPG</strong> is a lossy format that produces smaller file sizes, best for photographs and complex images. <strong>WebP</strong> is a modern format developed by Google that offers both lossless and lossy compression — typically 25-35% smaller file sizes than JPG at equivalent quality, with support for transparency.</p>
               </div>
             </div>
             <div class="faq-item">
               <button class="faq-question" aria-expanded="false">
-                Does converting reduce image quality?
+                <span data-i18n="img_faq_q4">Does converting reduce image quality?</span>
                 <span class="faq-icon" aria-hidden="true">▼</span>
               </button>
               <div class="faq-answer">
-                <p>Converting between lossless formats (PNG to PNG, BMP to PNG) preserves full quality. Converting to a lossy format like JPG or WebP may reduce quality depending on the compression level you choose — the quality slider lets you control this trade-off. We recommend setting quality to 90% for a good balance of file size and visual fidelity.</p>
+                <p><span data-i18n-html="img_faq_a4">Converting between lossless formats (PNG to PNG, BMP to PNG) preserves full quality. Converting to a lossy format like JPG or WebP may reduce quality depending on the compression level you choose — the quality slider lets you control this trade-off. We recommend setting quality to 90% for a good balance of file size and visual fidelity.</p>
               </div>
             </div>
             <div class="faq-item">
               <button class="faq-question" aria-expanded="false">
-                Can I convert SVG files?
+                <span data-i18n="img_faq_q5">Can I convert SVG files?</span>
                 <span class="faq-icon" aria-hidden="true">▼</span>
               </button>
               <div class="faq-answer">
-                <p>Yes! You can upload SVG (vector) files and convert them to PNG, JPG, or WebP raster formats. The SVG is rendered onto a canvas and then exported in your chosen format. Note that the output will be a raster image at the specified resolution, not a vector file.</p>
+                <p><span data-i18n-html="img_faq_a5">Yes! You can upload SVG (vector) files and convert them to PNG, JPG, or WebP raster formats. The SVG is rendered onto a canvas and then exported in your chosen format. Note that the output will be a raster image at the specified resolution, not a vector file.</p>
               </div>
             </div>
           </div>
@@ -504,17 +503,17 @@
         <div class="related-grid">
           <a href="qr-generator.html" class="related-card">
             <span class="related-icon" aria-hidden="true">📱</span>
-            <h4>QR Code Generator</h4>
+            <h4 data-i18n="img_related_1_title">QR Code Generator</h4>
             <p>Generate custom QR codes for URLs, text, Wi-Fi, and contact info.</p>
           </a>
           <a href="word-counter.html" class="related-card">
             <span class="related-icon" aria-hidden="true">📝</span>
-            <h4>Word Counter</h4>
+            <h4 data-i18n="img_related_2_title">Word Counter</h4>
             <p>Count words, characters, sentences, and paragraphs in your text.</p>
           </a>
           <a href="password-generator.html" class="related-card">
             <span class="related-icon" aria-hidden="true">🔐</span>
-            <h4>Password Generator</h4>
+            <h4 data-i18n="img_related_3_title">Password Generator</h4>
             <p>Create strong, random passwords with customizable settings.</p>
           </a>
         </div>
@@ -527,7 +526,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <h3>MultiWeb</h3>
-          <p>Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p>
+          <p data-i18n="footer_brand">Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
@@ -539,7 +538,7 @@
           </nav>
         </div>
         <div class="footer-col">
-          <h4>Company</h4>
+          <h4 data-i18n="footer_company">Company</h4>
           <nav aria-label="Company links">
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
