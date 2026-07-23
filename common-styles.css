@@ -976,8 +976,9 @@ code {
 .donate-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  padding: 8px 20px;
+  padding: 8px 18px;
   background: linear-gradient(135deg, #ff6b6b, #ee5a24);
   color: #fff;
   border-radius: var(--radius-full);
@@ -987,9 +988,13 @@ code {
   transition: transform var(--transition), box-shadow var(--transition),
               background var(--transition);
   box-shadow: 0 2px 8px rgba(238, 90, 36, 0.3);
+  white-space: nowrap;
+  line-height: 1;
+  height: 40px;
+  flex-shrink: 0;
 }
 .donate-btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   box-shadow: 0 4px 16px rgba(238, 90, 36, 0.4);
   background: linear-gradient(135deg, #ee5a24, #d63031);
   color: #fff;
@@ -998,10 +1003,15 @@ code {
 .donate-btn:active {
   transform: scale(0.97);
 }
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .donate-btn {
-    padding: 6px 16px;
+    padding: 6px 10px;
     font-size: 0.75rem;
+    height: 32px;
+    gap: 0;
+  }
+  .donate-btn span[data-i18n] {
+    display: none;
   }
 }
 

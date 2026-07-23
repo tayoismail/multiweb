@@ -218,8 +218,8 @@
   var FLUTTERWAVE_LINK = 'https://flutterwave.com/donate/ko16jzqgtovw';
 
   function addDonationButton() {
-    var footerBottom = document.querySelector('.footer-bottom');
-    if (!footerBottom || document.querySelector('.donate-btn')) return;
+    var navbarActions = document.querySelector('.navbar-actions');
+    if (!navbarActions || document.querySelector('.donate-btn')) return;
 
     var donateBtn = document.createElement('a');
     donateBtn.href = FLUTTERWAVE_LINK;
@@ -227,14 +227,14 @@
     donateBtn.rel = 'noopener noreferrer';
     donateBtn.className = 'donate-btn';
     donateBtn.innerHTML = '<span aria-hidden="true">❤️</span> <span data-i18n="donate_btn">Support Us</span>';
-    footerBottom.appendChild(donateBtn);
+    navbarActions.insertBefore(donateBtn, navbarActions.firstChild);
 
     // Track donation button clicks with GA4 (only if consent granted)
     donateBtn.addEventListener('click', function () {
       if (typeof window.gtag === 'function' && getCookieConsent() === 'accepted') {
         window.gtag('event', 'donation_button_click', {
           event_category: 'engagement',
-          event_label: 'footer_support_us',
+          event_label: 'header_support_us',
           value: 1
         });
       }
