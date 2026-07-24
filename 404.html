@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
+<script>
+(function() {
+  var path = window.location.pathname;
+  var base = '/multiweb/';
+  if (path === base || path === base.slice(0, -1)) return;
+  if (path.match(/\.[a-zA-Z0-9]+(\?|$)/)) return;
+  var html = path.replace(/\/$/, '') + '.html';
+  fetch(html, { method: 'HEAD' }).then(function(r) {
+    if (r.ok) location.replace(html);
+  }).catch(function() {});
+})();
+</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YT1VDKT773"></script>
 <script>
@@ -139,10 +151,11 @@
 
   <header class="navbar" role="banner">
     <div class="container">
-      <a href="index.html" class="navbar-brand" aria-label="MultiWeb home">
+      <a href="." class="navbar-brand" aria-label="MultiWeb home">
         <span class="logo-icon" aria-hidden="true">M</span> MultiWeb
       </a>
       <div class="navbar-actions">
+        <a href="https://flutterwave.com/donate/ko16jzqgtovw" target="_blank" rel="noopener noreferrer" class="donate-btn"><span aria-hidden="true">??</span> <span data-i18n="donate_btn">Support Us</span></a>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
           <span class="icon-sun" aria-hidden="true">☀️</span>
           <span class="icon-moon" aria-hidden="true">🌙</span>
@@ -152,10 +165,10 @@
         </button>
       </div>
       <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
-        <a href="index.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> Tools</a>
-        <a href="about.html" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> About</a>
-        <a href="contact.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> Contact</a>
-        <a href="privacy.html" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> Privacy</a>
+        <a href="." class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> Tools</a>
+        <a href="about" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> About</a>
+        <a href="contact" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> Contact</a>
+        <a href="privacy" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> Privacy</a>
       </nav>
     </div>
   </header>
@@ -168,7 +181,7 @@
           <h1 class="error-title">Page Not Found</h1>
           <p class="error-message">The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
           <div class="error-actions">
-            <a href="index.html" class="btn btn-primary btn-lg">← Back to Home</a>
+            <a href="." class="btn btn-primary btn-lg">← Back to Home</a>
             <button class="btn btn-outline btn-lg" onclick="history.back()">Go Back</button>
           </div>
         </div>
@@ -226,9 +239,9 @@
         <div class="footer-col">
           <h4 data-i18n="footer_company">Company</h4>
           <nav aria-label="Company links">
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="privacy.html">Privacy Policy</a>
+            <a href="about">About</a>
+            <a href="contact">Contact</a>
+            <a href="privacy">Privacy Policy</a>
           </nav>
         </div>
       </div>

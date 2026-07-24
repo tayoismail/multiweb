@@ -219,17 +219,19 @@
 
   function addDonationButton() {
     var navbarActions = document.querySelector('.navbar-actions');
-    if (!navbarActions || document.querySelector('.donate-btn')) return;
+    if (!navbarActions) return;
 
-    var donateBtn = document.createElement('a');
-    donateBtn.href = FLUTTERWAVE_LINK;
-    donateBtn.target = '_blank';
-    donateBtn.rel = 'noopener noreferrer';
-    donateBtn.className = 'donate-btn';
-    donateBtn.innerHTML = '<span aria-hidden="true">❤️</span> <span data-i18n="donate_btn">Support Us</span>';
-    navbarActions.insertBefore(donateBtn, navbarActions.firstChild);
+    var donateBtn = document.querySelector('.donate-btn');
+    if (!donateBtn) {
+      donateBtn = document.createElement('a');
+      donateBtn.href = FLUTTERWAVE_LINK;
+      donateBtn.target = '_blank';
+      donateBtn.rel = 'noopener noreferrer';
+      donateBtn.className = 'donate-btn';
+      donateBtn.innerHTML = '<span aria-hidden="true">❤️</span> <span data-i18n="donate_btn">Support Us</span>';
+      navbarActions.insertBefore(donateBtn, navbarActions.firstChild);
+    }
 
-    // Track donation button clicks with GA4 (only if consent granted)
     donateBtn.addEventListener('click', function () {
       if (typeof window.gtag === 'function' && getCookieConsent() === 'accepted') {
         window.gtag('event', 'donation_button_click', {
@@ -261,7 +263,7 @@
         btn.style.visibility = 'hidden';
         btn.setAttribute('aria-hidden', 'true');
       }
-    });
+    }, { passive: true });
 
     btn.addEventListener('click', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -269,6 +271,42 @@
   }
 
   addBackToTop();
+
+  // ===== Floating Donate Button (appears on scroll) =====
+  function addFloatingDonate() {
+    var existing = document.querySelector('.floating-donate');
+    if (existing) return;
+
+    var btn = document.createElement('a');
+    btn.href = FLUTTERWAVE_LINK;
+    btn.target = '_blank';
+    btn.rel = 'noopener noreferrer';
+    btn.className = 'floating-donate';
+    btn.setAttribute('aria-label', 'Support Us');
+    btn.innerHTML = '<span aria-hidden="true">❤️</span> <span data-i18n="donate_btn">Support Us</span>';
+    document.body.appendChild(btn);
+
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 164) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
+
+    // Track floating donate button clicks with GA4
+    btn.addEventListener('click', function () {
+      if (typeof window.gtag === 'function' && getCookieConsent() === 'accepted') {
+        window.gtag('event', 'donation_button_click', {
+          event_category: 'engagement',
+          event_label: 'floating_support_us',
+          value: 1
+        });
+      }
+    });
+  }
+
+  addFloatingDonate();
 
   // Initialize consent on page load
   showCookieBanner(false);
