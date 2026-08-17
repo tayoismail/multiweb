@@ -87,6 +87,48 @@
   }
   </script>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "MultiWeb Tools",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "BMI Calculator", "url": "https://tayoismail.github.io/multiweb/bmi-calculator" },
+      { "@type": "ListItem", "position": 2, "name": "Unit Converter", "url": "https://tayoismail.github.io/multiweb/unit-converter" },
+      { "@type": "ListItem", "position": 3, "name": "QR Code Generator", "url": "https://tayoismail.github.io/multiweb/qr-generator" },
+      { "@type": "ListItem", "position": 4, "name": "Word Counter", "url": "https://tayoismail.github.io/multiweb/word-counter" },
+      { "@type": "ListItem", "position": 5, "name": "Percentage Calculator", "url": "https://tayoismail.github.io/multiweb/percentage-calculator" },
+      { "@type": "ListItem", "position": 6, "name": "Password Generator", "url": "https://tayoismail.github.io/multiweb/password-generator" },
+      { "@type": "ListItem", "position": 7, "name": "Word Unscrambler", "url": "https://tayoismail.github.io/multiweb/word-unscrambler" },
+      { "@type": "ListItem", "position": 8, "name": "Image Converter", "url": "https://tayoismail.github.io/multiweb/image-converter" },
+      { "@type": "ListItem", "position": 9, "name": "Word to PDF Converter", "url": "https://tayoismail.github.io/multiweb/word-to-pdf" },
+      { "@type": "ListItem", "position": 10, "name": "PDF to Word Converter", "url": "https://tayoismail.github.io/multiweb/pdf-to-word" },
+      { "@type": "ListItem", "position": 11, "name": "Word to Excel Converter", "url": "https://tayoismail.github.io/multiweb/word-to-excel" },
+      { "@type": "ListItem", "position": 12, "name": "Excel to Word Converter", "url": "https://tayoismail.github.io/multiweb/excel-to-word" },
+      { "@type": "ListItem", "position": 13, "name": "PDF to Excel Converter", "url": "https://tayoismail.github.io/multiweb/pdf-to-excel" },
+      { "@type": "ListItem", "position": 14, "name": "Excel to PDF Converter", "url": "https://tayoismail.github.io/multiweb/excel-to-pdf" },
+      { "@type": "ListItem", "position": 15, "name": "Mortgage Calculator", "url": "https://tayoismail.github.io/multiweb/mortgage-calculator" },
+      { "@type": "ListItem", "position": 16, "name": "Tip Calculator", "url": "https://tayoismail.github.io/multiweb/tip-calculator" },
+      { "@type": "ListItem", "position": 17, "name": "Discount Calculator", "url": "https://tayoismail.github.io/multiweb/discount-calculator" },
+      { "@type": "ListItem", "position": 18, "name": "Currency Converter", "url": "https://tayoismail.github.io/multiweb/currency-converter" },
+      { "@type": "ListItem", "position": 19, "name": "Sales Tax Calculator", "url": "https://tayoismail.github.io/multiweb/sales-tax-calculator" },
+      { "@type": "ListItem", "position": 20, "name": "ROI Calculator", "url": "https://tayoismail.github.io/multiweb/roi-calculator" },
+      { "@type": "ListItem", "position": 21, "name": "Credit Card Payoff Calculator", "url": "https://tayoismail.github.io/multiweb/credit-card-calculator" },
+      { "@type": "ListItem", "position": 22, "name": "SIP Returns Calculator", "url": "https://tayoismail.github.io/multiweb/sip-calculator" },
+      { "@type": "ListItem", "position": 23, "name": "Investment Growth Calculator", "url": "https://tayoismail.github.io/multiweb/investment-calculator" },
+      { "@type": "ListItem", "position": 24, "name": "Retirement Calculator", "url": "https://tayoismail.github.io/multiweb/retirement-calculator" },
+      { "@type": "ListItem", "position": 25, "name": "Budget Calculator", "url": "https://tayoismail.github.io/multiweb/budget-calculator" },
+      { "@type": "ListItem", "position": 26, "name": "Net Worth Calculator", "url": "https://tayoismail.github.io/multiweb/net-worth-calculator" },
+      { "@type": "ListItem", "position": 27, "name": "Savings Goal Calculator", "url": "https://tayoismail.github.io/multiweb/savings-calculator" },
+      { "@type": "ListItem", "position": 28, "name": "Inflation Calculator", "url": "https://tayoismail.github.io/multiweb/inflation-calculator" },
+      { "@type": "ListItem", "position": 29, "name": "Markup Calculator", "url": "https://tayoismail.github.io/multiweb/markup-calculator" },
+      { "@type": "ListItem", "position": 30, "name": "Profit Margin Calculator", "url": "https://tayoismail.github.io/multiweb/profit-margin-calculator" },
+      { "@type": "ListItem", "position": 31, "name": "Break-Even Calculator", "url": "https://tayoismail.github.io/multiweb/break-even-calculator" },
+      { "@type": "ListItem", "position": 32, "name": "OG Image Generator", "url": "https://tayoismail.github.io/multiweb/og-generator" }
+    ]
+  }
+  </script>
+
   <style>
     /* ============================================================
        HOMEPAGE SPECIFIC STYLES
@@ -96,22 +138,71 @@
     /* ----- Hero ----- */
     .hero {
       background: var(--bg-hero);
-      padding: 120px 0 80px;
+      padding: 120px 0 90px;
       margin-top: var(--navbar-height);
       text-align: center;
       position: relative;
       overflow: hidden;
+      isolation: isolate;
     }
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
+      z-index: -2;
       background:
-        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.10) 0%, transparent 60%),
-        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.06) 0%, transparent 50%);
+        radial-gradient(circle at 15% 40%, rgba(255,255,255,0.12) 0%, transparent 55%),
+        radial-gradient(circle at 85% 25%, rgba(255,255,255,0.08) 0%, transparent 45%);
       pointer-events: none;
     }
-    .hero .container { position: relative; }
+    /* Floating animated blobs */
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0.35;
+      z-index: -1;
+      pointer-events: none;
+      will-change: transform;
+    }
+    .hero-blob-1 {
+      width: 420px;
+      height: 420px;
+      background: rgba(251, 191, 36, 0.55);
+      top: -120px;
+      left: -100px;
+      animation: blobFloat1 16s ease-in-out infinite;
+    }
+    .hero-blob-2 {
+      width: 360px;
+      height: 360px;
+      background: rgba(139, 92, 246, 0.5);
+      bottom: -140px;
+      right: -80px;
+      animation: blobFloat2 20s ease-in-out infinite;
+    }
+    .hero-blob-3 {
+      width: 220px;
+      height: 220px;
+      background: rgba(52, 211, 153, 0.45);
+      top: 40%;
+      left: 55%;
+      animation: blobFloat3 24s ease-in-out infinite;
+    }
+    @keyframes blobFloat1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(60px, 40px) scale(1.1); }
+      66% { transform: translate(-30px, 70px) scale(0.95); }
+    }
+    @keyframes blobFloat2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-70px, -50px) scale(1.15); }
+    }
+    @keyframes blobFloat3 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(40px, -60px) scale(1.2); }
+    }
+    .hero .container { position: relative; z-index: 1; }
 
     .hero-badge {
       display: inline-flex;
@@ -127,13 +218,14 @@
       font-weight: 600;
       margin-bottom: 20px;
       letter-spacing: 0.3px;
+      border: 1px solid rgba(255,255,255,0.2);
     }
 
     .hero h1 {
-      font-size: clamp(32px, 6vw, 2.5rem);
+      font-size: clamp(32px, 6vw, 3rem);
       font-weight: 800;
       color: var(--text-on-hero);
-      line-height: 1.15;
+      line-height: 1.12;
       letter-spacing: -0.02em;
       margin-bottom: var(--space-4);
     }
@@ -145,10 +237,10 @@
     }
 
     .hero p {
-      font-size: clamp(16px, 2.5vw, 20px);
-      color: rgba(255,255,255,0.85);
-      max-width: 560px;
-      margin: 0 auto var(--space-8);
+      font-size: clamp(16px, 2.5vw, 19px);
+      color: rgba(255,255,255,0.88);
+      max-width: 600px;
+      margin: 0 auto var(--space-6);
       line-height: 1.6;
     }
 
@@ -165,14 +257,14 @@
       border-radius: var(--radius-lg);
       font-size: 16px;
       font-family: var(--font);
-      background: rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.96);
       color: var(--black);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
       outline: none;
       transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
     }
     .hero-search input:focus {
-      box-shadow: 0 6px 32px rgba(0,0,0,0.18);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.24);
       transform: scale(1.01);
       border-color: rgba(255,255,255,0.5);
     }
@@ -189,6 +281,81 @@
       pointer-events: none;
     }
 
+    /* ----- Hero Stats ----- */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      max-width: 720px;
+      margin: 32px auto 0;
+    }
+    @media (min-width: 768px) {
+      .hero-stats { grid-template-columns: repeat(4, 1fr); }
+    }
+    .hero-stat {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.16);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: var(--radius-md);
+      padding: 14px 12px;
+      color: #fff;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .hero-stat:hover {
+      background: rgba(255,255,255,0.18);
+      transform: translateY(-2px);
+    }
+    .hero-stat .stat-value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .hero-stat .stat-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.78);
+      margin-top: 2px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ----- Category Filter Pills ----- */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      max-width: 720px;
+      margin: 24px auto 0;
+    }
+    .filter-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-family: var(--font);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--transition), border-color var(--transition),
+                  transform var(--transition-fast), box-shadow var(--transition);
+    }
+    .filter-pill:hover {
+      background: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.4);
+      transform: translateY(-1px);
+    }
+    .filter-pill.active {
+      background: #fff;
+      color: var(--color-primary);
+      border-color: #fff;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+
     /* ============================================================
        CATEGORY SECTIONS
        ============================================================ */
@@ -202,17 +369,20 @@
       margin-bottom: var(--space-6);
     }
     .category-icon {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: var(--radius-sm);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
+      font-size: 22px;
       flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
     }
     .category-icon.finance { background: var(--color-success-bg); color: var(--color-success); }
     .category-icon.tools { background: var(--color-primary-bg); color: var(--color-primary); }
+    .category-icon.calc { background: var(--color-secondary-bg); color: var(--color-secondary); }
+    .category-icon.gens { background: var(--color-warning-bg); color: var(--color-warning-dark); }
 
     .category-text h3 {
       font-size: 1.25rem;
@@ -279,7 +449,7 @@
       border-radius: var(--radius-md);
       opacity: 0;
       transition: opacity var(--transition);
-      background: linear-gradient(135deg, rgba(37,99,235,0.03), rgba(124,58,237,0.03));
+      background: linear-gradient(135deg, rgba(37,99,235,0.04), rgba(124,58,237,0.04));
       pointer-events: none;
     }
     .tool-card:hover {
@@ -300,7 +470,7 @@
       margin-bottom: var(--space-4);
       transition: transform var(--transition);
     }
-    .tool-card:hover .tool-icon { transform: scale(1.1); }
+    .tool-card:hover .tool-icon { transform: scale(1.1) rotate(-3deg); }
 
     .tool-card .tool-icon.blue  { background: var(--color-primary-bg);  color: var(--color-primary); }
     .tool-card .tool-icon.green { background: var(--color-success-bg);  color: var(--color-success); }
@@ -332,29 +502,131 @@
       color: var(--color-primary);
     }
 
-    /* ----- Card Component (generic, reusable) ----- */
-    .card {
+    /* ============================================================
+       WHY MULTIWEB
+       ============================================================ */
+    .why-section {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+    @media (min-width: 600px) {
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 900px) {
+      .why-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .why-card {
       background: var(--bg-card);
       border: 1px solid var(--border-light);
       border-radius: var(--radius-md);
       padding: var(--space-6);
+      text-align: center;
       transition: transform var(--transition), box-shadow var(--transition),
                   border-color var(--transition);
     }
-    .card:hover {
+    .why-card:hover {
+      transform: translateY(-4px);
       box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
+      border-color: var(--color-primary-light);
     }
-    .card-header {
-      margin-bottom: var(--space-4);
-      padding-bottom: var(--space-4);
-      border-bottom: 1px solid var(--border-light);
+    .why-card .why-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto var(--space-4);
+      border-radius: var(--radius-full);
+      background: var(--color-primary-bg);
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
     }
-    .card-header:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-    .card-footer {
-      margin-top: var(--space-4);
-      padding-top: var(--space-4);
-      border-top: 1px solid var(--border-light);
+    .why-card.green .why-icon { background: var(--color-success-bg); color: var(--color-success); }
+    .why-card.purple .why-icon { background: var(--color-secondary-bg); color: var(--color-secondary); }
+    .why-card.orange .why-icon { background: var(--color-warning-bg); color: var(--color-warning-dark); }
+    .why-card h3 {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .why-card p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ============================================================
+       CTA
+       ============================================================ */
+    .cta-box {
+      background: var(--bg-hero);
+      border-radius: var(--radius-xl);
+      padding: 48px 24px;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.10) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .cta-box > * { position: relative; }
+    .cta-box h2 {
+      font-size: clamp(22px, 4vw, 28px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .cta-box p {
+      color: rgba(255,255,255,0.85);
+      max-width: 520px;
+      margin: 0 auto 28px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+    .cta-actions .btn {
+      font-size: 0.9375rem;
+      padding: 12px 26px;
+      border-radius: var(--radius-full);
+    }
+    .btn-cta-primary {
+      background: #fff;
+      color: var(--color-primary);
+      border: 2px solid #fff;
+    }
+    .btn-cta-primary:hover {
+      background: rgba(255,255,255,0.9);
+      color: var(--color-primary-dark);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .btn-cta-ghost {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.5);
+    }
+    .btn-cta-ghost:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: #fff;
+      color: #fff;
     }
 
     /* ============================================================
@@ -438,9 +710,24 @@
       background: var(--border-light);
       margin: var(--space-6) 0;
     }
-    .stagger > * { opacity: 1; }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-blob { animation: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .hero-search input:focus { transform: none; }
+    }
   </style>
-  <meta name="keywords" content="free online tools, calculators, converters, text utilities, QR generator, word counter, password generator, BMI calculator, unit converter, percentage calculator, multiweb">
+  <meta name="keywords" content="free online tools, calculators, converters, text utilities, QR generator, word counter, password generator, BMI calculator, unit converter, percentage calculator, word to pdf, pdf to word, multiweb">
 
   </head>
   <body>
@@ -468,7 +755,7 @@
       </div>
 
       <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
-        <a href="#featured-heading" class="nav-link">
+        <a href="#documents-heading" class="nav-link">
           <span class="nav-icon" aria-hidden="true">🧮</span> <span data-i18n="nav_tools">Tools</span>
         </a>
         <a href="about" class="nav-link">
@@ -486,6 +773,9 @@
 
   <!-- ===== Hero ===== -->
   <section class="hero" aria-label="Site hero">
+    <div class="hero-blob hero-blob-1" aria-hidden="true"></div>
+    <div class="hero-blob hero-blob-2" aria-hidden="true"></div>
+    <div class="hero-blob hero-blob-3" aria-hidden="true"></div>
     <div class="container">
       <div class="hero-badge">
         <span aria-hidden="true">✨</span> <span data-i18n="hero_badge">100% Free — No Sign-Up Required</span>
@@ -496,102 +786,56 @@
         <span class="search-icon" aria-hidden="true">🔍</span>
         <input type="search" id="toolSearch" data-i18n-placeholder="hero_search" placeholder="Search tools… e.g. BMI calculator, PDF converter" aria-label="Search tools">
       </div>
+
+      <!-- Quick stats -->
+      <div class="hero-stats" aria-label="Site statistics">
+        <div class="hero-stat">
+          <div class="stat-value">32+</div>
+          <div class="stat-label" data-i18n="home_stat_tools">Free Tools</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-value">11</div>
+          <div class="stat-label" data-i18n="home_stat_langs">Languages</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-value">100%</div>
+          <div class="stat-label" data-i18n="home_stat_browser">In-Browser</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-value">0</div>
+          <div class="stat-label" data-i18n="home_stat_signups">Sign-Ups</div>
+        </div>
+      </div>
+
+      <!-- Category filters -->
+      <div class="filter-bar" role="group" aria-label="Filter tools by category">
+        <button class="filter-pill active" data-filter="all"><span aria-hidden="true">🌟</span> <span data-i18n="filter_all">All</span></button>
+        <button class="filter-pill" data-filter="documents"><span aria-hidden="true">📄</span> <span data-i18n="filter_docs">Documents</span></button>
+        <button class="filter-pill" data-filter="calculators"><span aria-hidden="true">🧮</span> <span data-i18n="filter_calc">Calculators</span></button>
+        <button class="filter-pill" data-filter="finance"><span aria-hidden="true">💰</span> <span data-i18n="filter_finance">Finance</span></button>
+        <button class="filter-pill" data-filter="generators"><span aria-hidden="true">🔧</span> <span data-i18n="filter_gens">Generators</span></button>
+      </div>
     </div>
   </section>
 
   <!-- ===== Main ===== -->
   <main id="main">
-    <!-- Featured Tools -->
-    <section class="section" aria-labelledby="featured-heading">
-      <div class="container">
-        <div class="section-header">
-          <h2 id="featured-heading" data-i18n="featured_title">Featured Tools</h2>
-          <p data-i18n="featured_desc">Our most popular tools — ready when you are.</p>
-        </div>
-
-        <div class="tools-grid stagger" id="featuredGrid">
-          <!-- Tool 1 -->
-          <a href="bmi-calculator" class="tool-card" data-tags="bmi calculator health weight">
-            <div class="tool-icon blue" aria-hidden="true">⚖️</div>
-            <h3 data-i18n="tool_bmi">BMI Calculator</h3>
-            <p data-i18n="tool_bmi_desc">Calculate your Body Mass Index instantly based on height and weight.</p>
-            <span class="tool-arrow" aria-hidden="true">→</span>
-          </a>
-
-          <!-- Tool 2 -->
-          <a href="unit-converter" class="tool-card" data-tags="unit converter length weight temperature">
-            <div class="tool-icon green" aria-hidden="true">📏</div>
-            <h3 data-i18n="tool_unit">Unit Converter</h3>
-            <p data-i18n="tool_unit_desc">Convert length, weight, temperature, volume, and more in a tap.</p>
-            <span class="tool-arrow" aria-hidden="true">→</span>
-          </a>
-
-          <!-- Tool 3 -->
-          <a href="qr-generator" class="tool-card" data-tags="qr code generator scan">
-            <div class="tool-icon purple" aria-hidden="true">📱</div>
-            <h3 data-i18n="tool_qr">QR Code Generator</h3>
-            <p data-i18n="tool_qr_desc">Generate custom QR codes for URLs, text, Wi-Fi, and contact info.</p>
-            <span class="tool-arrow" aria-hidden="true">→</span>
-          </a>
-
-          <!-- Tool 4 -->
-          <a href="word-counter" class="tool-card" data-tags="word counter character count text">
-            <div class="tool-icon orange" aria-hidden="true">📝</div>
-            <h3 data-i18n="tool_word">Word Counter</h3>
-            <p data-i18n="tool_word_desc">Count words, characters, sentences, and paragraphs in your text.</p>
-            <span class="tool-arrow" aria-hidden="true">→</span>
-          </a>
-
-          <!-- Tool 5 -->
-          <a href="percentage-calculator" class="tool-card" data-tags="percentage calculator discount tip">
-            <div class="tool-icon rose" aria-hidden="true">%</div>
-            <h3 data-i18n="tool_percent">Percentage Calculator</h3>
-            <p data-i18n="tool_percent_desc">Find percentages, discounts, tips, and proportions with ease.</p>
-            <span class="tool-arrow" aria-hidden="true">→</span>
-          </a>
-
-          <!-- Tool 6 -->
-          <a href="password-generator" class="tool-card" data-tags="password generator secure random">
-            <div class="tool-icon teal" aria-hidden="true">🔐</div>
-            <h3 data-i18n="tool_password">Password Generator</h3>
-            <p data-i18n="tool_password_desc">Create strong, random passwords with customizable settings.</p>
-            <span class="tool-arrow" aria-hidden="true">→</span>
-          </a>
-
-          <!-- Tool 7 -->
-          <a href="word-unscrambler" class="tool-card" data-tags="word unscrambler anagram solver scrabble crossword">
-            <div class="tool-icon blue" aria-hidden="true">🔀</div>
-            <h3 data-i18n="tool_word_unscrambler">Word Unscrambler</h3>
-            <p data-i18n="tool_word_unscrambler_desc">Unscramble letters to find all valid words for Scrabble, crosswords, and word games.</p>
-            <span class="tool-arrow" aria-hidden="true">→</span>
-          </a>
-
-          <!-- Tool 8 -->
-          <a href="image-converter" class="tool-card" data-tags="image converter format png jpg webp resize">
-            <div class="tool-icon green" aria-hidden="true">🖼️</div>
-            <h3 data-i18n="tool_image">Image Converter</h3>
-            <p data-i18n="tool_image_desc">Convert images between formats — PNG, JPG, WebP — right in your browser.</p>
-            <span class="tool-arrow" aria-hidden="true">→</span>
-          </a>
-        </div>
-      </div>
-    </section>
 
     <!-- Document Tools -->
     <section class="section" aria-labelledby="documents-heading">
       <div class="container">
-        <div class="category-section">
-          <div class="category-header">
+        <div class="category-section" data-category="documents">
+          <div class="category-header reveal">
             <div class="category-icon tools" aria-hidden="true">📄</div>
             <div class="category-text">
               <h3 id="documents-heading" data-i18n="doc_tools_title">Document Tools</h3>
-              <p data-i18n="doc_tools_desc">Convert Word and PDF documents in your browser — private, free, and unlimited.</p>
+              <p data-i18n="doc_tools_desc">Convert Word, PDF, and Excel documents in your browser — private, free, and unlimited.</p>
             </div>
           </div>
 
           <div class="tools-grid stagger" id="documentsGrid">
             <!-- Tool 1 -->
-            <a href="word-to-pdf" class="tool-card" data-tags="word to pdf docx convert document">
+            <a href="word-to-pdf" class="tool-card reveal" data-tags="word to pdf docx convert document">
               <div class="tool-icon blue" aria-hidden="true">📄</div>
               <h3 data-i18n="tool_word_to_pdf">Word to PDF Converter</h3>
               <p data-i18n="tool_word_to_pdf_desc">Convert Word documents to PDF in your browser — no uploads.</p>
@@ -599,7 +843,7 @@
             </a>
 
             <!-- Tool 2 -->
-            <a href="pdf-to-word" class="tool-card" data-tags="pdf to word convert document docx">
+            <a href="pdf-to-word" class="tool-card reveal" data-tags="pdf to word convert document docx">
               <div class="tool-icon green" aria-hidden="true">📝</div>
               <h3 data-i18n="tool_pdf_to_word">PDF to Word Converter</h3>
               <p data-i18n="tool_pdf_to_word_desc">Convert PDF files to editable Word documents, right in your browser.</p>
@@ -607,7 +851,7 @@
             </a>
 
             <!-- Tool 3 -->
-            <a href="word-to-excel" class="tool-card" data-tags="word to excel docx xlsx convert table">
+            <a href="word-to-excel" class="tool-card reveal" data-tags="word to excel docx xlsx convert table">
               <div class="tool-icon purple" aria-hidden="true">📊</div>
               <h3 data-i18n="tool_word_to_excel">Word to Excel Converter</h3>
               <p data-i18n="tool_word_to_excel_desc">Turn Word tables into an Excel workbook, cell by cell.</p>
@@ -615,7 +859,7 @@
             </a>
 
             <!-- Tool 4 -->
-            <a href="excel-to-word" class="tool-card" data-tags="excel to word xlsx docx convert table">
+            <a href="excel-to-word" class="tool-card reveal" data-tags="excel to word xlsx docx convert table">
               <div class="tool-icon orange" aria-hidden="true">📝</div>
               <h3 data-i18n="tool_excel_to_word">Excel to Word Converter</h3>
               <p data-i18n="tool_excel_to_word_desc">Turn a spreadsheet into a Word document with a proper table.</p>
@@ -623,7 +867,7 @@
             </a>
 
             <!-- Tool 5 -->
-            <a href="pdf-to-excel" class="tool-card" data-tags="pdf to excel convert table extract">
+            <a href="pdf-to-excel" class="tool-card reveal" data-tags="pdf to excel convert table extract">
               <div class="tool-icon rose" aria-hidden="true">🧮</div>
               <h3 data-i18n="tool_pdf_to_excel">PDF to Excel Converter</h3>
               <p data-i18n="tool_pdf_to_excel_desc">Extract text and tables from PDFs into Excel spreadsheets.</p>
@@ -631,7 +875,7 @@
             </a>
 
             <!-- Tool 6 -->
-            <a href="excel-to-pdf" class="tool-card" data-tags="excel to pdf xlsx convert spreadsheet">
+            <a href="excel-to-pdf" class="tool-card reveal" data-tags="excel to pdf xlsx convert spreadsheet">
               <div class="tool-icon teal" aria-hidden="true">📄</div>
               <h3 data-i18n="tool_excel_to_pdf">Excel to PDF Converter</h3>
               <p data-i18n="tool_excel_to_pdf_desc">Turn spreadsheets into clean, print-ready PDF tables.</p>
@@ -642,11 +886,76 @@
       </div>
     </section>
 
+    <!-- Calculators -->
+    <section class="section section-alt" aria-labelledby="calculators-heading">
+      <div class="container">
+        <div class="category-section" data-category="calculators">
+          <div class="category-header reveal">
+            <div class="category-icon calc" aria-hidden="true">🧮</div>
+            <div class="category-text">
+              <h3 id="calculators-heading" data-i18n="calc_tools_title">Calculators</h3>
+              <p data-i18n="calc_tools_desc">Everyday math made simple — percentages, tips, discounts, and more.</p>
+            </div>
+          </div>
+
+          <div class="tools-grid stagger" id="calculatorsGrid">
+            <!-- Tool 1 -->
+            <a href="bmi-calculator" class="tool-card reveal" data-tags="bmi calculator health weight">
+              <div class="tool-icon blue" aria-hidden="true">⚖️</div>
+              <h3 data-i18n="tool_bmi">BMI Calculator</h3>
+              <p data-i18n="tool_bmi_desc">Calculate your Body Mass Index instantly based on height and weight.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 2 -->
+            <a href="percentage-calculator" class="tool-card reveal" data-tags="percentage calculator discount tip">
+              <div class="tool-icon rose" aria-hidden="true">%</div>
+              <h3 data-i18n="tool_percent">Percentage Calculator</h3>
+              <p data-i18n="tool_percent_desc">Find percentages, discounts, tips, and proportions with ease.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 3 -->
+            <a href="tip-calculator" class="tool-card reveal" data-tags="tip calculator bill split restaurant">
+              <div class="tool-icon green" aria-hidden="true">🍽️</div>
+              <h3 data-i18n="tool_tip">Tip Calculator</h3>
+              <p data-i18n="tool_tip_desc">Calculate tips and split bills at restaurants. Never struggle with math.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 4 -->
+            <a href="discount-calculator" class="tool-card reveal" data-tags="discount calculator sale price savings">
+              <div class="tool-icon orange" aria-hidden="true">🏷️</div>
+              <h3 data-i18n="tool_discount">Discount Calculator</h3>
+              <p data-i18n="tool_discount_desc">Calculate sale price and savings after any discount percentage.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 5 -->
+            <a href="sales-tax-calculator" class="tool-card reveal" data-tags="sales tax calculator purchase checkout">
+              <div class="tool-icon rose" aria-hidden="true">🧾</div>
+              <h3 data-i18n="tool_sales_tax">Sales Tax Calculator</h3>
+              <p data-i18n="tool_sales_tax_desc">Calculate sales tax on any purchase. Know the total cost before checkout.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 6 -->
+            <a href="unit-converter" class="tool-card reveal" data-tags="unit converter length weight temperature">
+              <div class="tool-icon green" aria-hidden="true">📏</div>
+              <h3 data-i18n="tool_unit">Unit Converter</h3>
+              <p data-i18n="tool_unit_desc">Convert length, weight, temperature, volume, and more in a tap.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Finance & Money Tools -->
     <section class="section" aria-labelledby="finance-heading">
       <div class="container">
-        <div class="category-section">
-          <div class="category-header">
+        <div class="category-section" data-category="finance">
+          <div class="category-header reveal">
             <div class="category-icon finance" aria-hidden="true">💰</div>
             <div class="category-text">
               <h3 id="finance-heading" data-i18n="finance_title">Finance & Money</h3>
@@ -656,7 +965,7 @@
 
           <div class="tools-grid finance-grid stagger" id="financeGrid">
             <!-- Tool 1 -->
-            <a href="mortgage-calculator" class="tool-card" data-tags="mortgage calculator home loan payment">
+            <a href="mortgage-calculator" class="tool-card reveal" data-tags="mortgage calculator home loan payment">
               <div class="tool-icon blue" aria-hidden="true">🏠</div>
               <h3 data-i18n="tool_mortgage">Mortgage Calculator</h3>
               <p data-i18n="tool_mortgage_desc">Calculate monthly mortgage payments, total interest, and amortization.</p>
@@ -664,127 +973,103 @@
             </a>
 
             <!-- Tool 2 -->
-            <a href="tip-calculator" class="tool-card" data-tags="tip calculator bill split restaurant">
-              <div class="tool-icon green" aria-hidden="true">🍽️</div>
-              <h3 data-i18n="tool_tip">Tip Calculator</h3>
-              <p data-i18n="tool_tip_desc">Calculate tips and split bills at restaurants. Never struggle with math.</p>
-              <span class="tool-arrow" aria-hidden="true">→</span>
-            </a>
-
-            <!-- Tool 3 -->
-            <a href="discount-calculator" class="tool-card" data-tags="discount calculator sale price savings">
-              <div class="tool-icon orange" aria-hidden="true">🏷️</div>
-              <h3 data-i18n="tool_discount">Discount Calculator</h3>
-              <p data-i18n="tool_discount_desc">Calculate sale price and savings after any discount percentage.</p>
-              <span class="tool-arrow" aria-hidden="true">→</span>
-            </a>
-
-            <!-- Tool 4 -->
-            <a href="currency-converter" class="tool-card" data-tags="currency converter exchange rate usd eur gbp">
+            <a href="currency-converter" class="tool-card reveal" data-tags="currency converter exchange rate usd eur gbp">
               <div class="tool-icon purple" aria-hidden="true">💱</div>
               <h3 data-i18n="tool_currency">Currency Converter</h3>
               <p data-i18n="tool_currency_desc">Convert between 150+ world currencies instantly.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
-            <!-- Tool 5 -->
-            <a href="sales-tax-calculator" class="tool-card" data-tags="sales tax calculator purchase checkout">
-              <div class="tool-icon rose" aria-hidden="true">🧾</div>
-              <h3 data-i18n="tool_sales_tax">Sales Tax Calculator</h3>
-              <p data-i18n="tool_sales_tax_desc">Calculate sales tax on any purchase. Know the total cost before checkout.</p>
-              <span class="tool-arrow" aria-hidden="true">→</span>
-            </a>
-
-            <!-- Tool 6 -->
-            <a href="roi-calculator" class="tool-card" data-tags="roi calculator return investment profit">
+            <!-- Tool 3 -->
+            <a href="roi-calculator" class="tool-card reveal" data-tags="roi calculator return investment profit">
               <div class="tool-icon teal" aria-hidden="true">📈</div>
               <h3 data-i18n="tool_roi">ROI Calculator</h3>
               <p data-i18n="tool_roi_desc">Calculate return on investment for any project or financial decision.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
-            <!-- Tool 7 -->
-            <a href="credit-card-calculator" class="tool-card" data-tags="credit card calculator payoff debt interest">
+            <!-- Tool 4 -->
+            <a href="credit-card-calculator" class="tool-card reveal" data-tags="credit card calculator payoff debt interest">
               <div class="tool-icon orange" aria-hidden="true">💳</div>
               <h3 data-i18n="tool_credit">Credit Card Payoff Calculator</h3>
               <p data-i18n="tool_credit_desc">Find out how long to pay off credit card debt and total interest.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
-            <!-- Tool 8 -->
-            <a href="sip-calculator" class="tool-card" data-tags="sip calculator mutual fund investment returns">
+            <!-- Tool 5 -->
+            <a href="sip-calculator" class="tool-card reveal" data-tags="sip calculator mutual fund investment returns">
               <div class="tool-icon green" aria-hidden="true">💹</div>
               <h3 data-i18n="tool_sip">SIP Returns Calculator</h3>
               <p data-i18n="tool_sip_desc">Calculate returns on monthly mutual fund SIP investments.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
-            <!-- Tool 9 -->
-            <a href="investment-calculator" class="tool-card" data-tags="investment growth calculator compound interest">
+            <!-- Tool 6 -->
+            <a href="investment-calculator" class="tool-card reveal" data-tags="investment growth calculator compound interest">
               <div class="tool-icon blue" aria-hidden="true">📊</div>
               <h3 data-i18n="tool_investment">Investment Growth Calculator</h3>
               <p data-i18n="tool_investment_desc">See how your investments grow over time with compound interest.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
-            <!-- Tool 10 -->
-            <a href="retirement-calculator" class="tool-card" data-tags="retirement calculator savings plan corpus">
+            <!-- Tool 7 -->
+            <a href="retirement-calculator" class="tool-card reveal" data-tags="retirement calculator savings plan corpus">
               <div class="tool-icon purple" aria-hidden="true">🏖️</div>
               <h3 data-i18n="tool_retirement">Retirement Calculator</h3>
               <p data-i18n="tool_retirement_desc">Plan your retirement corpus based on current age and expenses.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
-            <!-- Tool 11 -->
-            <a href="budget-calculator" class="tool-card" data-tags="budget calculator income expenses monthly plan">
+            <!-- Tool 8 -->
+            <a href="budget-calculator" class="tool-card reveal" data-tags="budget calculator income expenses monthly plan">
               <div class="tool-icon rose" aria-hidden="true">📋</div>
               <h3 data-i18n="tool_budget">Budget Calculator</h3>
               <p data-i18n="tool_budget_desc">Plan your monthly budget. Track income against expenses.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
-            <!-- Tool 12 -->
-            <a href="net-worth-calculator" class="tool-card" data-tags="net worth calculator assets liabilities wealth">
+            <!-- Tool 9 -->
+            <a href="net-worth-calculator" class="tool-card reveal" data-tags="net worth calculator assets liabilities wealth">
               <div class="tool-icon teal" aria-hidden="true">🏦</div>
               <h3 data-i18n="tool_net_worth">Net Worth Calculator</h3>
               <p data-i18n="tool_net_worth_desc">Calculate your total net worth by subtracting liabilities from assets.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
-            <!-- Tool 13 -->
-            <a href="savings-calculator" class="tool-card" data-tags="savings goal calculator plan target monthly">
+            <!-- Tool 10 -->
+            <a href="savings-calculator" class="tool-card reveal" data-tags="savings goal calculator plan target monthly">
               <div class="tool-icon blue" aria-hidden="true">🎯</div>
               <h3 data-i18n="tool_savings">Savings Goal Calculator</h3>
               <p data-i18n="tool_savings_desc">Find out how much to save monthly to reach your financial goal.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
-            <!-- Tool 14 -->
-            <a href="inflation-calculator" class="tool-card" data-tags="inflation calculator purchasing power erode">
+            <!-- Tool 11 -->
+            <a href="inflation-calculator" class="tool-card reveal" data-tags="inflation calculator purchasing power erode">
               <div class="tool-icon orange" aria-hidden="true">📉</div>
               <h3 data-i18n="tool_inflation">Inflation Calculator</h3>
               <p data-i18n="tool_inflation_desc">See how inflation affects the purchasing power of your money.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
-            <!-- Tool 15 -->
-            <a href="markup-calculator" class="tool-card" data-tags="markup calculator selling price business">
+            <!-- Tool 12 -->
+            <a href="markup-calculator" class="tool-card reveal" data-tags="markup calculator selling price business">
               <div class="tool-icon green" aria-hidden="true">💲</div>
               <h3 data-i18n="tool_markup">Markup Calculator</h3>
               <p data-i18n="tool_markup_desc">Calculate markup percentage and set the right selling price.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
-            <!-- Tool 16 -->
-            <a href="profit-margin-calculator" class="tool-card" data-tags="profit margin calculator gross revenue cost">
+            <!-- Tool 13 -->
+            <a href="profit-margin-calculator" class="tool-card reveal" data-tags="profit margin calculator gross revenue cost">
               <div class="tool-icon purple" aria-hidden="true">📊</div>
               <h3 data-i18n="tool_profit_margin">Profit Margin Calculator</h3>
               <p data-i18n="tool_profit_margin_desc">Calculate profit margin and gross profit for your business.</p>
               <span class="tool-arrow" aria-hidden="true">→</span>
             </a>
 
-            <!-- Tool 17 -->
-            <a href="break-even-calculator" class="tool-card" data-tags="break even calculator units fixed variable costs">
+            <!-- Tool 14 -->
+            <a href="break-even-calculator" class="tool-card reveal" data-tags="break even calculator units fixed variable costs">
               <div class="tool-icon rose" aria-hidden="true">⚖️</div>
               <h3 data-i18n="tool_break_even">Break-Even Calculator</h3>
               <p data-i18n="tool_break_even_desc">Find how many units you need to sell to cover all costs.</p>
@@ -795,8 +1080,119 @@
       </div>
     </section>
 
+    <!-- Generators & Utilities -->
+    <section class="section section-alt" aria-labelledby="generators-heading">
+      <div class="container">
+        <div class="category-section" data-category="generators">
+          <div class="category-header reveal">
+            <div class="category-icon gens" aria-hidden="true">🔧</div>
+            <div class="category-text">
+              <h3 id="generators-heading" data-i18n="gen_tools_title">Generators & Utilities</h3>
+              <p data-i18n="gen_tools_desc">Create QR codes, strong passwords, and other handy tools — all in your browser.</p>
+            </div>
+          </div>
+
+          <div class="tools-grid stagger" id="generatorsGrid">
+            <!-- Tool 1 -->
+            <a href="qr-generator" class="tool-card reveal" data-tags="qr code generator scan">
+              <div class="tool-icon purple" aria-hidden="true">📱</div>
+              <h3 data-i18n="tool_qr">QR Code Generator</h3>
+              <p data-i18n="tool_qr_desc">Generate custom QR codes for URLs, text, Wi-Fi, and contact info.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 2 -->
+            <a href="password-generator" class="tool-card reveal" data-tags="password generator secure random">
+              <div class="tool-icon teal" aria-hidden="true">🔐</div>
+              <h3 data-i18n="tool_password">Password Generator</h3>
+              <p data-i18n="tool_password_desc">Create strong, random passwords with customizable settings.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 3 -->
+            <a href="word-counter" class="tool-card reveal" data-tags="word counter character count text">
+              <div class="tool-icon orange" aria-hidden="true">📝</div>
+              <h3 data-i18n="tool_word">Word Counter</h3>
+              <p data-i18n="tool_word_desc">Count words, characters, sentences, and paragraphs in your text.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 4 -->
+            <a href="word-unscrambler" class="tool-card reveal" data-tags="word unscrambler anagram solver scrabble crossword">
+              <div class="tool-icon blue" aria-hidden="true">🔀</div>
+              <h3 data-i18n="tool_word_unscrambler">Word Unscrambler</h3>
+              <p data-i18n="tool_word_unscrambler_desc">Unscramble letters to find all valid words for Scrabble, crosswords, and word games.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 5 -->
+            <a href="image-converter" class="tool-card reveal" data-tags="image converter format png jpg webp resize">
+              <div class="tool-icon green" aria-hidden="true">🖼️</div>
+              <h3 data-i18n="tool_image">Image Converter</h3>
+              <p data-i18n="tool_image_desc">Convert images between formats — PNG, JPG, WebP — right in your browser.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 6 -->
+            <a href="og-generator" class="tool-card reveal" data-tags="og image generator open graph social share meta">
+              <div class="tool-icon purple" aria-hidden="true">🖌️</div>
+              <h3 data-i18n="tool_og">OG Image Generator</h3>
+              <p data-i18n="tool_og_desc">Create custom Open Graph images for social media sharing.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- No Results Message (outside all sections) -->
     <div class="no-results" id="noResults" data-i18n="no_results">No tools match your search. Try a different term!</div>
+
+    <!-- ===== Why MultiWeb ===== -->
+    <section class="section why-section" aria-labelledby="why-heading">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 id="why-heading" data-i18n="why_title">Why People Love MultiWeb</h2>
+          <p data-i18n="why_desc">Free tools are nice — tools that respect your privacy are better.</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-card reveal">
+            <div class="why-icon" aria-hidden="true">🔒</div>
+            <h3 data-i18n="why_private_title">Your Data Stays Yours</h3>
+            <p data-i18n="why_private_desc">Everything runs in your browser. Files and inputs never leave your device.</p>
+          </div>
+          <div class="why-card green reveal">
+            <div class="why-icon" aria-hidden="true">⚡</div>
+            <h3 data-i18n="why_fast_title">Fast & Lightweight</h3>
+            <p data-i18n="why_fast_desc">No downloads, no wait. Every tool works instantly and works offline too.</p>
+          </div>
+          <div class="why-card purple reveal">
+            <div class="why-icon" aria-hidden="true">💸</div>
+            <h3 data-i18n="why_free_title">100% Free Forever</h3>
+            <p data-i18n="why_free_desc">No sign-ups, no paywalls, no hidden limits. Every tool is completely free.</p>
+          </div>
+          <div class="why-card orange reveal">
+            <div class="why-icon" aria-hidden="true">🌍</div>
+            <h3 data-i18n="why_lang_title">Available in 11 Languages</h3>
+            <p data-i18n="why_lang_desc">Switch languages with one click. Built for users around the world.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="section" aria-label="Support MultiWeb">
+      <div class="container">
+        <div class="cta-box reveal">
+          <h2 data-i18n="cta_title">Enjoying MultiWeb?</h2>
+          <p data-i18n="cta_desc">Every tool here is free because of people like you. If MultiWeb helps you, consider supporting the project or getting in touch.</p>
+          <div class="cta-actions">
+            <a href="https://flutterwave.com/donate/ko16jzqgtovw" target="_blank" rel="noopener noreferrer" class="btn btn-cta-primary"><span aria-hidden="true">❤️</span> <span data-i18n="donate_btn">Support Us</span></a>
+            <a href="contact" class="btn btn-cta-ghost"><span aria-hidden="true">✉️</span> <span data-i18n="cta_contact">Get in Touch</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Ad Placeholders (hidden until real ads are integrated) -->
     <!--
@@ -858,45 +1254,67 @@
     (function () {
       'use strict';
 
-      // ===== Search / Filter Tools =====
+      // ===== Search + Category Filter =====
       const searchInput = document.getElementById('toolSearch');
       const toolCards = document.querySelectorAll('.tool-card');
       const noResults = document.getElementById('noResults');
+      const filterPills = document.querySelectorAll('.filter-pill');
+      let activeCategory = 'all';
 
-      function filterTools(query) {
-        const trimmed = query.trim().toLowerCase();
+      function filterTools() {
+        const query = searchInput.value.trim().toLowerCase();
         let visibleCount = 0;
 
         toolCards.forEach(function (card) {
           const title = card.querySelector('h3').textContent.toLowerCase();
           const description = card.querySelector('p').textContent.toLowerCase();
           const tags = (card.getAttribute('data-tags') || '').toLowerCase();
-          const match = trimmed === '' || title.includes(trimmed) || description.includes(trimmed) || tags.includes(trimmed);
+          const matchesQuery = query === '' || title.includes(query) || description.includes(query) || tags.includes(query);
+
+          let inCategory = true;
+          if (activeCategory !== 'all') {
+            const section = card.closest('.category-section');
+            inCategory = section && section.getAttribute('data-category') === activeCategory;
+          }
+
+          const match = matchesQuery && inCategory;
           card.style.display = match ? '' : 'none';
           if (match) visibleCount++;
         });
 
-        // Hide any category section whose cards don't match (only when searching)
+        // Hide any category section whose cards don't match (only when filtering)
         document.querySelectorAll('.category-section').forEach(function (section) {
           let visible = 0;
           section.querySelectorAll('.tool-card').forEach(function (card) {
             if (card.style.display !== 'none') visible++;
           });
-          section.style.display = (trimmed !== '' && visible === 0) ? 'none' : '';
+          const filtering = query !== '' || activeCategory !== 'all';
+          section.style.display = (filtering && visible === 0) ? 'none' : '';
         });
 
         noResults.style.display = visibleCount === 0 ? 'block' : 'none';
       }
 
+      // Category pills
+      filterPills.forEach(function (pill) {
+        pill.addEventListener('click', function () {
+          filterPills.forEach(function (p) { p.classList.remove('active'); });
+          pill.classList.add('active');
+          activeCategory = pill.getAttribute('data-filter');
+          filterTools();
+        });
+      });
+
+      // Search input
       searchInput.addEventListener('input', function () {
-        filterTools(this.value);
+        filterTools();
       });
 
       // Clear search on Escape
       searchInput.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
           this.value = '';
-          filterTools('');
+          filterTools();
           this.blur();
         }
       });
@@ -911,6 +1329,29 @@
           }
         }
       });
+
+      // ===== Scroll Reveal =====
+      const revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach(function (el) { observer.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add('revealed'); });
+      }
+
+      // Re-run filter after translations apply so section visibility is correct
+      document.addEventListener('DOMContentLoaded', function () {
+        // slight delay so i18n.js (loaded before this script) has applied
+        setTimeout(filterTools, 50);
+      });
+      if (document.readyState !== 'loading') setTimeout(filterTools, 50);
     })();
   </script>
 </body>
