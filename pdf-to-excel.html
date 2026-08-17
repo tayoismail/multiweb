@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<script>(function(){var p=window.location.pathname.replace(/\.html$/,"");if(p!==window.location.pathname){history.replaceState(null,"",p+window.location.search+window.location.hash)}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YT1VDKT773"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-YT1VDKT773', {
+    cookie_flags: 'SameSite=None;Secure'
+  });
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="msvalidate.01" content="B345B805F8CA79A48F3971C6FBC934DF" />
+  <title>PDF to Excel Converter — Extract Tables Free | MultiWeb</title>
+  <meta name="description" content="Convert PDF files to Excel (.xlsx) free online. Text and tables are extracted in your browser — your files never leave your device.">
+  <link rel="canonical" href="https://tayoismail.github.io/multiweb/pdf-to-excel">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="PDF to Excel Converter — Extract Tables Free">
+  <meta property="og:description" content="Convert PDF files to Excel (.xlsx) free online. Text and tables are extracted in your browser — your files never leave your device.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tayoismail.github.io/multiweb/pdf-to-excel">
+  <meta property="og:image" content="https://tayoismail.github.io/multiweb/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="MultiWeb">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PDF to Excel Converter — Extract Tables Free">
+  <meta name="twitter:description" content="Convert PDF files to Excel (.xlsx) free online. Text and tables are extracted in your browser — your files never leave your device.">
+  <meta name="twitter:image" content="https://tayoismail.github.io/multiweb/og-default.png">
+  <meta name="theme-color" content="#2563eb">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PDF to Excel Converter — MultiWeb",
+    "url": "https://tayoismail.github.io/multiweb/pdf-to-excel",
+    "description": "Convert PDF files to Excel (.xlsx) free online. Text and tables are extracted in your browser — your files never leave your device.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "en-US",
+    "author": {
+      "@type": "Organization",
+      "name": "MultiWeb",
+      "url": "https://tayoismail.github.io/multiweb/"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "priceValidUntil": "2030-12-31",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="common-styles.css">
+  <link rel="stylesheet" href="i18n.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+  <style>
+    .privacy-note {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--color-success-bg); color: var(--color-success-dark);
+      border-radius: var(--radius-sm); padding: 10px 14px;
+      font-size: 0.8125rem; font-weight: 600; margin-bottom: 20px;
+    }
+    .drop-zone {
+      border: 2px dashed var(--border-medium); border-radius: var(--radius-md);
+      padding: 48px 24px; text-align: center; cursor: pointer;
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+      background: var(--bg-surface);
+      position: relative;
+    }
+    .drop-zone:hover, .drop-zone:focus-visible { border-color: var(--color-primary); background: var(--color-primary-bg); outline: none; }
+    .drop-zone.dragover { border-color: var(--color-primary); background: var(--color-primary-bg); transform: scale(1.01); }
+    .drop-zone .dz-icon { font-size: 48px; margin-bottom: 12px; opacity: 0.5; }
+    .drop-zone .dz-title { font-size: 1.125rem; font-weight: 600; margin-bottom: 6px; }
+    .drop-zone .dz-sub { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 16px; }
+    .drop-zone .dz-formats { font-size: 0.75rem; color: var(--text-muted); }
+    .file-info {
+      display: none; align-items: center; gap: 16px;
+      padding: 12px 16px; background: var(--color-primary-bg);
+      border-radius: var(--radius-sm); margin-top: 12px;
+    }
+    .file-info.visible { display: flex; flex-wrap: wrap; }
+    .file-info .fi-icon { font-size: 28px; flex-shrink: 0; }
+    .file-info .fi-details { flex: 1; min-width: 0; }
+    .file-info .fi-name { font-weight: 600; font-size: 0.875rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .file-info .fi-meta { font-size: 0.75rem; color: var(--text-secondary); }
+    .file-info .fi-remove { background: none; border: none; cursor: pointer; font-size: 18px; color: var(--text-muted); padding: 4px; border-radius: 50%; transition: background var(--transition), color var(--transition); }
+    .file-info .fi-remove:hover { background: var(--color-danger-bg); color: var(--color-danger); }
+    .convert-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 14px 28px; margin-top: 20px;
+      font-family: var(--font); font-weight: 600; font-size: 1.0625rem; line-height: 1;
+      background: var(--color-primary); color: var(--text-on-primary);
+      border: 2px solid var(--color-primary); border-radius: var(--radius-sm);
+      cursor: pointer; transition: background var(--transition), box-shadow var(--transition), transform var(--transition-fast);
+    }
+    .convert-btn:hover:not(:disabled) { background: var(--color-primary-dark); border-color: var(--color-primary-dark); box-shadow: 0 4px 14px rgba(37,99,235,0.35); }
+    .convert-btn:active:not(:disabled) { transform: scale(0.97); }
+    .convert-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .status { margin-top: 12px; font-size: 0.875rem; color: var(--text-secondary); min-height: 20px; }
+    .status.error { color: var(--color-danger); font-weight: 600; }
+    .status.warn { color: var(--color-warning); font-weight: 600; }
+    .result-area {
+      display: none; align-items: center; gap: 16px; margin-top: 20px;
+      padding: 16px; border: 1px solid var(--border-light);
+      border-radius: var(--radius-md); background: var(--bg-surface);
+    }
+    .result-area .ra-icon { font-size: 28px; flex-shrink: 0; }
+    .result-area .ra-text { flex: 1; min-width: 0; font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; }
+    .result-area .ra-text strong { color: var(--text-primary); }
+    .result-area .btn { text-decoration: none; flex-shrink: 0; }
+  </style>
+  <meta name="keywords" content="pdf to excel, pdf to xlsx, convert pdf table to excel, extract table from pdf, pdf to excel converter">
+
+</head>
+<body>
+
+  <a href="#tool" class="skip-link">Skip to tool</a>
+
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="." class="navbar-brand" aria-label="MultiWeb home">
+        <span class="logo-icon" aria-hidden="true">M</span> MultiWeb
+      </a>
+      <div class="navbar-actions">
+        <a href="https://flutterwave.com/donate/ko16jzqgtovw" target="_blank" rel="noopener noreferrer" class="donate-btn"><span aria-hidden="true">❤️</span> <span data-i18n="donate_btn">Support Us</span></a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="icon-sun" aria-hidden="true">☀️</span>
+          <span class="icon-moon" aria-hidden="true">🌙</span>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+        <a href="." class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> <span data-i18n="nav_tools">Tools</span></a>
+        <a href="about" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> <span data-i18n="nav_about">About</span></a>
+        <a href="contact" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> <span data-i18n="nav_contact">Contact</span></a>
+        <a href="privacy" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> <span data-i18n="nav_privacy">Privacy</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header" aria-label="Tool header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href=".">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">PDF to Excel Converter</span>
+      </nav>
+      <h1 data-i18n="p2e_title">PDF to Excel Converter</h1>
+      <p data-i18n="p2e_description">Extract text and tables from PDFs into Excel. 100% free, unlimited, and your file never leaves your browser.</p>
+    </div>
+  </section>
+
+  <main id="tool">
+    <section class="section" style="padding-top:0;padding-bottom:32px;" aria-label="PDF to Excel converter tool">
+      <div class="container">
+        <div class="tool-workspace fade-in">
+          <div class="tool-card">
+
+            <noscript>
+              <div style="padding:24px;background:var(--color-danger-bg);border-radius:var(--radius-md);text-align:center;margin-bottom:24px;">
+                <p style="font-weight:600;color:var(--color-danger-dark);margin-bottom:8px;">⚠️ JavaScript Required</p>
+                <p style="color:var(--text-secondary);font-size:0.9375rem;">This converter requires JavaScript to work. Please enable JavaScript in your browser settings and refresh the page.</p>
+              </div>
+            </noscript>
+
+            <div class="privacy-note">
+              <span aria-hidden="true">🔒</span> <span data-i18n="p2e_privacy_note">100% private — your document is converted in your browser and never uploaded.</span>
+            </div>
+
+            <div class="drop-zone" id="dropZone" role="button" aria-label="Upload a PDF file">
+              <div class="dz-icon" aria-hidden="true">📊</div>
+              <div class="dz-title" data-i18n="p2e_dz_title">Drop your PDF here</div>
+              <div class="dz-sub" data-i18n="p2e_dz_sub">or click to browse your files</div>
+              <div class="dz-formats" data-i18n="p2e_dz_formats">Supported: .pdf · Max 20 MB</div>
+            </div>
+
+            <div class="file-info" id="fileInfo">
+              <span class="fi-icon" aria-hidden="true">📊</span>
+              <div class="fi-details">
+                <div class="fi-name" id="fiName"></div>
+                <div class="fi-meta" id="fiMeta"></div>
+              </div>
+              <button class="fi-remove" id="fileRemove" aria-label="Remove file">✕</button>
+            </div>
+
+            <button class="convert-btn" id="convertBtn" data-i18n-text="p2e_convert_btn" disabled>
+              <span aria-hidden="true">🔄</span> Convert to Excel
+            </button>
+
+            <div class="status" id="status" role="status" aria-live="polite"></div>
+
+            <div class="result-area" id="resultArea">
+              <span class="ra-icon" aria-hidden="true">✅</span>
+              <div class="ra-text">
+                <strong data-i18n="p2e_result_title">Conversion complete!</strong><br>
+                <span id="resultName"></span>
+              </div>
+              <a class="btn btn-primary" id="downloadBtn" download>⬇️ <span data-i18n="p2e_download_btn">Download Excel</span></a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Content -->
+    <section class="section section-alt" aria-label="About PDF to Excel conversion">
+      <div class="container">
+        <div class="content-section">
+          <h2 style="margin-bottom:16px;" data-i18n="p2e_section_title">PDF to Excel Converter — Extract Data from PDFs</h2>
+
+          <div class="intro-text">
+            <p data-i18n-html="p2e_intro_1"><strong>PDFs lock your data in.</strong> When you need to work with figures from a report, invoice, or statement in a spreadsheet, our free PDF to Excel converter extracts the text and table-like data from your PDF and rebuilds it as an <strong>.xlsx</strong> workbook — row by row, cell by cell.</p>
+            <br>
+            <p data-i18n-html="p2e_intro_2">Like every tool on MultiWeb, the conversion runs <strong>entirely in your browser</strong>. Your PDF is never uploaded to a server, making this converter safe for bank statements, contracts, and other private documents.</p>
+            <br>
+            <p data-i18n-html="p2e_intro_3"><strong>Please note:</strong> PDF files store text without table structure, so column boundaries are detected automatically and may need minor cleanup for very complex layouts. For documents without selectable text (for example, scanned pages), nothing can be extracted — we'll let you know if that's the case. Going the other way? Try our <a href="excel-to-pdf">Excel to PDF converter</a>.</p>
+          </div>
+
+          <h2 style="margin-bottom:16px;" data-i18n="p2e_how_title">How to Convert PDF to Excel</h2>
+          <ol class="steps-list">
+            <li>
+              <div>
+                <strong data-i18n="p2e_step_1_title">Upload your PDF</strong>
+                <span data-i18n="p2e_step_1_desc">Drag and drop your PDF file onto the converter, or click the drop zone to browse your device.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong data-i18n="p2e_step_2_title">Click "Convert to Excel"</strong>
+                <span data-i18n="p2e_step_2_desc">The converter reads every page, groups the text into rows, and detects column breaks — all within your browser.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong data-i18n="p2e_step_3_title">Download and refine</strong>
+                <span data-i18n="p2e_step_3_desc">Your .xlsx file downloads automatically. Open it in Excel or Google Sheets and tidy up any rows as needed.</span>
+              </div>
+            </li>
+          </ol>
+
+          <h2 style="margin-bottom:16px;" data-i18n="p2e_faq_title">Frequently Asked Questions</h2>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item open">
+              <button class="faq-question" aria-expanded="true">
+                <span data-i18n="p2e_faq_q1">Is PDF to Excel conversion really free?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="p2e_faq_a1">Yes — completely free, with no limits, no sign-up, and no watermarks.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span data-i18n="p2e_faq_q2">Are my PDFs uploaded to a server?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="p2e_faq_a2">No. The conversion happens entirely in your browser. Your file's contents never leave your device.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span data-i18n="p2e_faq_q3">How accurate is the table detection?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="p2e_faq_a3">PDFs don't store table structure, so the converter detects columns by the gaps between text positions. This works well for most generated PDFs, but very complex or multi-column layouts may need some cleanup in Excel.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span data-i18n="p2e_faq_q4">What about scanned PDFs?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="p2e_faq_a4">Scanned PDFs are images, so their text isn't selectable and can't be extracted without OCR, which isn't available in a purely in-browser tool. The converter will warn you if no text is found.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span data-i18n="p2e_faq_q5">Is there a file size limit?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n-html="p2e_faq_a5">The practical limit is <strong>20 MB</strong> per file.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span data-i18n="p2e_faq_q6">Can I convert an Excel file back to PDF?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n-html="p2e_faq_a6">Yes! Use our <a href="excel-to-pdf">Excel to PDF converter</a> to turn a spreadsheet into a clean, print-ready PDF — also 100% in your browser.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools -->
+    <section class="section" aria-label="Related tools">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:32px;">
+          <h2 style="font-size:1.75rem;">Related Tools</h2>
+          <p style="color:var(--text-secondary);">More free document tools from our collection.</p>
+        </div>
+        <div class="related-grid">
+          <a href="excel-to-pdf" class="related-card">
+            <span class="related-icon" aria-hidden="true">📄</span>
+            <h4>Excel to PDF Converter</h4>
+            <p>Turn spreadsheets into clean, print-ready PDF tables.</p>
+          </a>
+          <a href="pdf-to-word" class="related-card">
+            <span class="related-icon" aria-hidden="true">📝</span>
+            <h4>PDF to Word Converter</h4>
+            <p>Convert PDF files to editable Word documents, right in your browser.</p>
+          </a>
+          <a href="word-to-excel" class="related-card">
+            <span class="related-icon" aria-hidden="true">📊</span>
+            <h4>Word to Excel Converter</h4>
+            <p>Turn Word tables into an Excel workbook, cell by cell.</p>
+          </a>
+          <a href="word-to-pdf" class="related-card">
+            <span class="related-icon" aria-hidden="true">📄</span>
+            <h4>Word to PDF Converter</h4>
+            <p>Convert Word documents to PDF in your browser — no uploads.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>MultiWeb</h3>
+          <p data-i18n="footer_brand">Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_quick_links">Quick Links</h4>
+          <nav aria-label="Quick links">
+            <a href="bmi-calculator">BMI Calculator</a>
+            <a href="unit-converter">Unit Converter</a>
+            <a href="word-counter">Word Counter</a>
+            <a href="qr-generator">QR Generator</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_company">Company</h4>
+          <nav aria-label="Company links">
+            <a href="about">About</a>
+            <a href="contact">Contact</a>
+            <a href="privacy">Privacy Policy</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer_copyright">&copy; 2026 MultiWeb. All rights reserved.</span>
+        <span data-i18n="footer_tagline">Free online tools for everyone.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script src="i18n.js"></script>
+  <script src="converter.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      var C = window.MultiWebConverter;
+
+      var PDFJS_URL = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+      var PDFJS_WORKER = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      var XLSX_URL = 'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';
+
+      var MAX_SIZE = 20 * 1024 * 1024; // 20 MB
+      var MIN_TEXT_CHARS = 20;
+
+      var zone = document.getElementById('dropZone');
+      var fileInfo = document.getElementById('fileInfo');
+      var fiName = document.getElementById('fiName');
+      var fiMeta = document.getElementById('fiMeta');
+      var fileRemove = document.getElementById('fileRemove');
+      var convertBtn = document.getElementById('convertBtn');
+      var statusEl = document.getElementById('status');
+      var resultArea = document.getElementById('resultArea');
+      var resultName = document.getElementById('resultName');
+      var downloadBtn = document.getElementById('downloadBtn');
+
+      var currentFile = null;
+      var lastBlobUrl = null;
+
+      function setStatus(msg, kind) {
+        statusEl.textContent = msg || '';
+        statusEl.classList.remove('error', 'warn');
+        if (kind === 'error') statusEl.classList.add('error');
+        if (kind === 'warn') statusEl.classList.add('warn');
+      }
+
+      function resetResult() {
+        resultArea.style.display = 'none';
+        if (lastBlobUrl) { URL.revokeObjectURL(lastBlobUrl); lastBlobUrl = null; }
+      }
+
+      function onFile(file) {
+        if (file.size > MAX_SIZE) {
+          setStatus('This file is larger than 20 MB. Please choose a smaller document.', 'error');
+          return;
+        }
+        currentFile = file;
+        fiName.textContent = file.name;
+        fiMeta.textContent = C.formatBytes(file.size) + ' · PDF';
+        fileInfo.classList.add('visible');
+        resetResult();
+        setStatus('');
+        convertBtn.disabled = false;
+      }
+
+      C.bindDropZone(zone, { accept: '.pdf', onFile: onFile });
+
+      fileRemove.addEventListener('click', function () {
+        currentFile = null;
+        fileInfo.classList.remove('visible');
+        convertBtn.disabled = true;
+        resetResult();
+        setStatus('');
+      });
+
+      function setupPdfWorker() {
+        return fetch(PDFJS_WORKER)
+          .then(function (res) { return res.text(); })
+          .then(function (text) {
+            var blob = new Blob([text], { type: 'application/javascript' });
+            pdfjsLib.GlobalWorkerOptions.workerSrc = URL.createObjectURL(blob);
+          })
+          .catch(function () {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJS_WORKER;
+          });
+      }
+
+      convertBtn.addEventListener('click', async function () {
+        if (!currentFile) return;
+        convertBtn.disabled = true;
+        resetResult();
+        setStatus('Loading conversion libraries…');
+
+        try {
+          await C.loadScripts([PDFJS_URL, XLSX_URL]);
+          setStatus('Extracting text from PDF…');
+          await setupPdfWorker();
+
+          var buffer = await C.readArrayBuffer(currentFile);
+          var rows = await extractRows(buffer);
+          var totalChars = rows.reduce(function (sum, r) { return sum + r.join(' ').length; }, 0);
+
+          if (totalChars < MIN_TEXT_CHARS) {
+            setStatus('No selectable text was found in this PDF. It may be a scanned or image-only document — text extraction isn\u2019t possible for image-based PDFs without OCR.', 'warn');
+            convertBtn.disabled = false;
+            return;
+          }
+
+          setStatus('Building Excel workbook…');
+          var outName = C.baseName(currentFile.name) + '.xlsx';
+          var blob = buildWorkbook(rows);
+
+          lastBlobUrl = URL.createObjectURL(blob);
+          downloadBtn.href = lastBlobUrl;
+          downloadBtn.download = outName;
+          resultName.textContent = outName + ' (' + C.formatBytes(blob.size) + ')';
+          resultArea.style.display = 'flex';
+
+          currentFile = null;
+          fileInfo.classList.remove('visible');
+          setStatus('');
+          convertBtn.disabled = false;
+          C.downloadBlob(blob, outName);
+        } catch (err) {
+          console.error('PDF to Excel conversion failed:', err);
+          setStatus('Conversion failed — ' + (err && err.message ? err.message : 'unknown error') + '. Please try again with another file.', 'error');
+          convertBtn.disabled = false;
+        }
+      });
+
+      // Extract text items from every page, group into lines, then split each
+      // line into cells by the horizontal gaps between text items.
+      async function extractRows(buffer) {
+        var pdf = await pdfjsLib.getDocument({ data: buffer }).promise;
+        var rows = [];
+
+        for (var p = 1; p <= pdf.numPages; p++) {
+          var page = await pdf.getPage(p);
+          var content = await page.getTextContent();
+
+          // Group items into lines by vertical position
+          var lineMap = {};
+          var yOrder = [];
+
+          content.items.forEach(function (item) {
+            if (!item.str) return;
+            var y = Math.round(item.transform[5] / 3) * 3; // tolerance of ~3 units
+            if (!lineMap[y]) { lineMap[y] = []; yOrder.push(y); }
+            lineMap[y].push(item);
+          });
+
+          // PDF y-coordinates grow upward, so sort descending for top-first order
+          yOrder.sort(function (a, b) { return b - a; });
+
+          yOrder.forEach(function (y) {
+            var items = lineMap[y].slice().sort(function (a, b) {
+              return a.transform[4] - b.transform[4];
+            });
+            rows.push(splitIntoCells(items));
+          });
+        }
+
+        return rows;
+      }
+
+      function splitIntoCells(items) {
+        var GAP_THRESHOLD = 10; // PDF units — treat a gap this wide as a column break
+        var cells = [];
+        var current = '';
+        var prevEnd = null;
+
+        items.forEach(function (item) {
+          var isSpace = /^\s*$/.test(item.str);
+          var x = item.transform[4];
+          var w = item.width || 0;
+
+          // A gap between text items indicates a column break
+          if (prevEnd !== null && (x - prevEnd) > GAP_THRESHOLD && current.trim()) {
+            cells.push(current.trim());
+            current = '';
+          }
+
+          if (isSpace) {
+            // pdf.js sometimes emits space-only items whose width spans the
+            // whole gap — a wide one IS the column break, so split here
+            if (w > GAP_THRESHOLD && current.trim()) {
+              cells.push(current.trim());
+              current = '';
+            }
+            prevEnd = x + w;
+            return;
+          }
+
+          current += (current ? ' ' : '') + item.str;
+          prevEnd = x + w;
+        });
+
+        if (current.trim()) cells.push(current.trim());
+        return cells.length ? cells : [''];
+      }
+
+      function buildWorkbook(rows) {
+        var wb = XLSX.utils.book_new();
+        var ws = XLSX.utils.aoa_to_sheet(rows);
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+        var out = XLSX.write(wb, { type: 'array', bookType: 'xlsx' });
+        return new Blob([out], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      }
+    })();
+  </script>
+</body>
+</html>

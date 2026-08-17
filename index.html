@@ -19,7 +19,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MultiWeb — Free Online Tools | Calculators, Converters & Text Utilities</title>
+  <title>MultiWeb — Free Online Tools, Calculators & Utilities</title>
   <meta name="description" content="Free online tools for everyday use. Calculators, converters, text utilities, QR generator, and more. Fast, mobile-friendly, and always free.">
   <link rel="canonical" href="https://tayoismail.github.io/multiweb/">
   <meta name="robots" content="index, follow">
@@ -442,6 +442,7 @@
   </style>
   <meta name="keywords" content="free online tools, calculators, converters, text utilities, QR generator, word counter, password generator, BMI calculator, unit converter, percentage calculator, multiweb">
 
+  </head>
   <body>
 
   <!-- Skip Link -->
@@ -456,7 +457,7 @@
       </a>
 
       <div class="navbar-actions">
-        <a href="https://flutterwave.com/donate/ko16jzqgtovw" target="_blank" rel="noopener noreferrer" class="donate-btn"><span aria-hidden="true">??</span> <span data-i18n="donate_btn">Support Us</span></a>
+        <a href="https://flutterwave.com/donate/ko16jzqgtovw" target="_blank" rel="noopener noreferrer" class="donate-btn"><span aria-hidden="true">❤️</span> <span data-i18n="donate_btn">Support Us</span></a>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
           <span class="icon-sun" aria-hidden="true">☀️</span>
           <span class="icon-moon" aria-hidden="true">🌙</span>
@@ -489,7 +490,7 @@
       <div class="hero-badge">
         <span aria-hidden="true">✨</span> <span data-i18n="hero_badge">100% Free — No Sign-Up Required</span>
       </div>
-      <h1 data-i18n-html="hero_title">Your All-in-One <span>Toolkit</span></h1>
+      <h1 data-i18n-html="hero_title">Free Online Tools, Calculators &amp; <span>Utilities</span></h1>
       <p data-i18n="hero_desc">Calculators, converters, text utilities, and generators — all free, fast, and right in your browser.</p>
       <div class="hero-search" role="search">
         <span class="search-icon" aria-hidden="true">🔍</span>
@@ -572,6 +573,71 @@
             <p data-i18n="tool_image_desc">Convert images between formats — PNG, JPG, WebP — right in your browser.</p>
             <span class="tool-arrow" aria-hidden="true">→</span>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Document Tools -->
+    <section class="section" aria-labelledby="documents-heading">
+      <div class="container">
+        <div class="category-section">
+          <div class="category-header">
+            <div class="category-icon tools" aria-hidden="true">📄</div>
+            <div class="category-text">
+              <h3 id="documents-heading" data-i18n="doc_tools_title">Document Tools</h3>
+              <p data-i18n="doc_tools_desc">Convert Word and PDF documents in your browser — private, free, and unlimited.</p>
+            </div>
+          </div>
+
+          <div class="tools-grid stagger" id="documentsGrid">
+            <!-- Tool 1 -->
+            <a href="word-to-pdf" class="tool-card" data-tags="word to pdf docx convert document">
+              <div class="tool-icon blue" aria-hidden="true">📄</div>
+              <h3 data-i18n="tool_word_to_pdf">Word to PDF Converter</h3>
+              <p data-i18n="tool_word_to_pdf_desc">Convert Word documents to PDF in your browser — no uploads.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 2 -->
+            <a href="pdf-to-word" class="tool-card" data-tags="pdf to word convert document docx">
+              <div class="tool-icon green" aria-hidden="true">📝</div>
+              <h3 data-i18n="tool_pdf_to_word">PDF to Word Converter</h3>
+              <p data-i18n="tool_pdf_to_word_desc">Convert PDF files to editable Word documents, right in your browser.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 3 -->
+            <a href="word-to-excel" class="tool-card" data-tags="word to excel docx xlsx convert table">
+              <div class="tool-icon purple" aria-hidden="true">📊</div>
+              <h3 data-i18n="tool_word_to_excel">Word to Excel Converter</h3>
+              <p data-i18n="tool_word_to_excel_desc">Turn Word tables into an Excel workbook, cell by cell.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 4 -->
+            <a href="excel-to-word" class="tool-card" data-tags="excel to word xlsx docx convert table">
+              <div class="tool-icon orange" aria-hidden="true">📝</div>
+              <h3 data-i18n="tool_excel_to_word">Excel to Word Converter</h3>
+              <p data-i18n="tool_excel_to_word_desc">Turn a spreadsheet into a Word document with a proper table.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 5 -->
+            <a href="pdf-to-excel" class="tool-card" data-tags="pdf to excel convert table extract">
+              <div class="tool-icon rose" aria-hidden="true">🧮</div>
+              <h3 data-i18n="tool_pdf_to_excel">PDF to Excel Converter</h3>
+              <p data-i18n="tool_pdf_to_excel_desc">Extract text and tables from PDFs into Excel spreadsheets.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+
+            <!-- Tool 6 -->
+            <a href="excel-to-pdf" class="tool-card" data-tags="excel to pdf xlsx convert spreadsheet">
+              <div class="tool-icon teal" aria-hidden="true">📄</div>
+              <h3 data-i18n="tool_excel_to_pdf">Excel to PDF Converter</h3>
+              <p data-i18n="tool_excel_to_pdf_desc">Turn spreadsheets into clean, print-ready PDF tables.</p>
+              <span class="tool-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -796,12 +862,10 @@
       const searchInput = document.getElementById('toolSearch');
       const toolCards = document.querySelectorAll('.tool-card');
       const noResults = document.getElementById('noResults');
-      const financeSection = document.querySelector('[aria-labelledby="finance-heading"]');
 
       function filterTools(query) {
         const trimmed = query.trim().toLowerCase();
         let visibleCount = 0;
-        let financeVisibleCount = 0;
 
         toolCards.forEach(function (card) {
           const title = card.querySelector('h3').textContent.toLowerCase();
@@ -810,21 +874,16 @@
           const match = trimmed === '' || title.includes(trimmed) || description.includes(trimmed) || tags.includes(trimmed);
           card.style.display = match ? '' : 'none';
           if (match) visibleCount++;
-          // Check if this card is in the finance section
-          if (card.closest('[aria-labelledby="finance-heading"]') && match) {
-            financeVisibleCount++;
-          }
         });
 
-        // Hide finance section if no finance cards match (only when searching)
-        if (financeSection) {
-          if (trimmed === '') {
-            // When search is cleared, always show the finance section
-            financeSection.style.display = '';
-          } else {
-            financeSection.style.display = financeVisibleCount === 0 ? 'none' : '';
-          }
-        }
+        // Hide any category section whose cards don't match (only when searching)
+        document.querySelectorAll('.category-section').forEach(function (section) {
+          let visible = 0;
+          section.querySelectorAll('.tool-card').forEach(function (card) {
+            if (card.style.display !== 'none') visible++;
+          });
+          section.style.display = (trimmed !== '' && visible === 0) ? 'none' : '';
+        });
 
         noResults.style.display = visibleCount === 0 ? 'block' : 'none';
       }

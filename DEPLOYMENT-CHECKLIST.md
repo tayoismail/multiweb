@@ -13,8 +13,8 @@
 
 1. **Push to GitHub** — `git push` your project to a public repo
 2. **Enable GitHub Pages** — Settings → Pages → Deploy from branch `main`
-3. **Fix sitemap URLs** — Update `.xml` to use `.html` extensions (see Step 6)
-4. **Fix canonical URLs** — Update meta tags in all HTML files (see Step 7)
+3. ~~Fix sitemap URLs~~ — **Resolved:** sitemap already uses clean URLs (see Step 6)
+4. ~~Fix canonical URLs~~ — **Resolved:** canonicals already point to clean URLs (see Step 7)
 5. **Set up custom domain** (optional) — Add DNS records, configure in GitHub
 6. **Enable HTTPS** — Check "Enforce HTTPS" after SSL provisions
 7. **Submit to Google Search Console** — Verify ownership, submit sitemap
@@ -68,7 +68,7 @@
   - [ ] `og-default.png` present
   - [ ] `sitemap.xml` present
   - [ ] `robots.txt` present
-  - [ ] `wordlist.txt` present
+
 
 ---
 
@@ -447,7 +447,7 @@ Consider privacy-first alternatives (since MultiWeb emphasizes privacy):
 - [ ] **Fathom** — Simple, privacy-focused
 - [ ] **Simple Analytics** — Privacy-first alternative
 
-> **Note:** Privacy policy has been updated to disclose GA4 usage. Cookie consent banner is implemented. GA4 only loads after user accepts cookies.
+> **Note:** Privacy policy discloses GA4 + advertising cookies. Cookie consent banner is implemented. GA4 runs in **Consent Mode** — cookies are only stored after the user clicks Accept (which also grants `ad_storage` for future ad serving).
 
 ---
 
@@ -551,11 +551,12 @@ git push
 
 ---
 
-## ⚠️ Critical Issues to Fix Before Launch
+## ✅ Critical Issues — Resolved
 
-1. **Sitemap URL Mismatch** — Clean URLs in sitemap don't match `.html` files
-2. **Canonical URL Mismatch** — Meta tags use clean URLs, actual files use `.html`
-3. **Service Worker Path** — Currently hardcoded to `/sw.js`; verify it works with custom domain
+1. **Sitemap & canonical URLs** — Now use clean URLs (`/tool-name`). GitHub Pages serves both the clean and `.html` forms, canonicals point to the clean URL, and `404.html` provides a JS fallback for pretty URLs.
+2. **Service Worker Path** — `sw.js` is registered with a relative path (`'sw.js'`) so it works on both the custom domain and the `github.io` subdirectory.
+
+> **Note:** Clean-URL approach is the documented "Option B" (404.html fallback + `history.replaceState`) from Step 5.
 
 ---
 

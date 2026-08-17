@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<script>(function(){var p=window.location.pathname.replace(/\.html$/,"");if(p!==window.location.pathname){history.replaceState(null,"",p+window.location.search+window.location.hash)}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YT1VDKT773"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-YT1VDKT773', {
+    cookie_flags: 'SameSite=None;Secure'
+  });
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="msvalidate.01" content="B345B805F8CA79A48F3971C6FBC934DF" />
+  <title>Word to Excel Converter — DOCX to XLSX Free | MultiWeb</title>
+  <meta name="description" content="Convert Word documents (.docx) to Excel (.xlsx) free online. Tables become spreadsheets — no uploads, everything runs in your browser.">
+  <link rel="canonical" href="https://tayoismail.github.io/multiweb/word-to-excel">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Word to Excel Converter — DOCX to XLSX Free">
+  <meta property="og:description" content="Convert Word documents (.docx) to Excel (.xlsx) free online. Tables become spreadsheets — no uploads.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tayoismail.github.io/multiweb/word-to-excel">
+  <meta property="og:image" content="https://tayoismail.github.io/multiweb/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="MultiWeb">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Word to Excel Converter — DOCX to XLSX Free">
+  <meta name="twitter:description" content="Convert Word documents (.docx) to Excel (.xlsx) free online. Tables become spreadsheets — no uploads.">
+  <meta name="twitter:image" content="https://tayoismail.github.io/multiweb/og-default.png">
+  <meta name="theme-color" content="#2563eb">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Word to Excel Converter — MultiWeb",
+    "url": "https://tayoismail.github.io/multiweb/word-to-excel",
+    "description": "Convert Word documents (.docx) to Excel (.xlsx) free online. Tables become spreadsheets — no uploads.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "en-US",
+    "author": {
+      "@type": "Organization",
+      "name": "MultiWeb",
+      "url": "https://tayoismail.github.io/multiweb/"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "priceValidUntil": "2030-12-31",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="common-styles.css">
+  <link rel="stylesheet" href="i18n.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+  <style>
+    .privacy-note {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--color-success-bg); color: var(--color-success-dark);
+      border-radius: var(--radius-sm); padding: 10px 14px;
+      font-size: 0.8125rem; font-weight: 600; margin-bottom: 20px;
+    }
+    .drop-zone {
+      border: 2px dashed var(--border-medium); border-radius: var(--radius-md);
+      padding: 48px 24px; text-align: center; cursor: pointer;
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+      background: var(--bg-surface);
+      position: relative;
+    }
+    .drop-zone:hover, .drop-zone:focus-visible { border-color: var(--color-primary); background: var(--color-primary-bg); outline: none; }
+    .drop-zone.dragover { border-color: var(--color-primary); background: var(--color-primary-bg); transform: scale(1.01); }
+    .drop-zone .dz-icon { font-size: 48px; margin-bottom: 12px; opacity: 0.5; }
+    .drop-zone .dz-title { font-size: 1.125rem; font-weight: 600; margin-bottom: 6px; }
+    .drop-zone .dz-sub { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 16px; }
+    .drop-zone .dz-formats { font-size: 0.75rem; color: var(--text-muted); }
+    .file-info {
+      display: none; align-items: center; gap: 16px;
+      padding: 12px 16px; background: var(--color-primary-bg);
+      border-radius: var(--radius-sm); margin-top: 12px;
+    }
+    .file-info.visible { display: flex; flex-wrap: wrap; }
+    .file-info .fi-icon { font-size: 28px; flex-shrink: 0; }
+    .file-info .fi-details { flex: 1; min-width: 0; }
+    .file-info .fi-name { font-weight: 600; font-size: 0.875rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .file-info .fi-meta { font-size: 0.75rem; color: var(--text-secondary); }
+    .file-info .fi-remove { background: none; border: none; cursor: pointer; font-size: 18px; color: var(--text-muted); padding: 4px; border-radius: 50%; transition: background var(--transition), color var(--transition); }
+    .file-info .fi-remove:hover { background: var(--color-danger-bg); color: var(--color-danger); }
+    .convert-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 14px 28px; margin-top: 20px;
+      font-family: var(--font); font-weight: 600; font-size: 1.0625rem; line-height: 1;
+      background: var(--color-primary); color: var(--text-on-primary);
+      border: 2px solid var(--color-primary); border-radius: var(--radius-sm);
+      cursor: pointer; transition: background var(--transition), box-shadow var(--transition), transform var(--transition-fast);
+    }
+    .convert-btn:hover:not(:disabled) { background: var(--color-primary-dark); border-color: var(--color-primary-dark); box-shadow: 0 4px 14px rgba(37,99,235,0.35); }
+    .convert-btn:active:not(:disabled) { transform: scale(0.97); }
+    .convert-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .status { margin-top: 12px; font-size: 0.875rem; color: var(--text-secondary); min-height: 20px; }
+    .status.error { color: var(--color-danger); font-weight: 600; }
+    .result-area {
+      display: none; align-items: center; gap: 16px; margin-top: 20px;
+      padding: 16px; border: 1px solid var(--border-light);
+      border-radius: var(--radius-md); background: var(--bg-surface);
+    }
+    .result-area .ra-icon { font-size: 28px; flex-shrink: 0; }
+    .result-area .ra-text { flex: 1; min-width: 0; font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; }
+    .result-area .ra-text strong { color: var(--text-primary); }
+    .result-area .btn { text-decoration: none; flex-shrink: 0; }
+  </style>
+  <meta name="keywords" content="word to excel, docx to xlsx, word table to excel, convert word document to excel, word to excel converter">
+
+</head>
+<body>
+
+  <a href="#tool" class="skip-link">Skip to tool</a>
+
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="." class="navbar-brand" aria-label="MultiWeb home">
+        <span class="logo-icon" aria-hidden="true">M</span> MultiWeb
+      </a>
+      <div class="navbar-actions">
+        <a href="https://flutterwave.com/donate/ko16jzqgtovw" target="_blank" rel="noopener noreferrer" class="donate-btn"><span aria-hidden="true">❤️</span> <span data-i18n="donate_btn">Support Us</span></a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="icon-sun" aria-hidden="true">☀️</span>
+          <span class="icon-moon" aria-hidden="true">🌙</span>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+        <a href="." class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> <span data-i18n="nav_tools">Tools</span></a>
+        <a href="about" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> <span data-i18n="nav_about">About</span></a>
+        <a href="contact" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> <span data-i18n="nav_contact">Contact</span></a>
+        <a href="privacy" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> <span data-i18n="nav_privacy">Privacy</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header" aria-label="Tool header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href=".">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Word to Excel Converter</span>
+      </nav>
+      <h1 data-i18n="w2e_title">Word to Excel Converter</h1>
+      <p data-i18n="w2e_description">Turn Word tables into Excel spreadsheets in seconds. 100% free, unlimited, and your file never leaves your browser.</p>
+    </div>
+  </section>
+
+  <main id="tool">
+    <section class="section" style="padding-top:0;padding-bottom:32px;" aria-label="Word to Excel converter tool">
+      <div class="container">
+        <div class="tool-workspace fade-in">
+          <div class="tool-card">
+
+            <noscript>
+              <div style="padding:24px;background:var(--color-danger-bg);border-radius:var(--radius-md);text-align:center;margin-bottom:24px;">
+                <p style="font-weight:600;color:var(--color-danger-dark);margin-bottom:8px;">⚠️ JavaScript Required</p>
+                <p style="color:var(--text-secondary);font-size:0.9375rem;">This converter requires JavaScript to work. Please enable JavaScript in your browser settings and refresh the page.</p>
+              </div>
+            </noscript>
+
+            <div class="privacy-note">
+              <span aria-hidden="true">🔒</span> <span data-i18n="w2e_privacy_note">100% private — your document is converted in your browser and never uploaded.</span>
+            </div>
+
+            <div class="drop-zone" id="dropZone" role="button" aria-label="Upload a Word document">
+              <div class="dz-icon" aria-hidden="true">📊</div>
+              <div class="dz-title" data-i18n="w2e_dz_title">Drop your Word document here</div>
+              <div class="dz-sub" data-i18n="w2e_dz_sub">or click to browse your files</div>
+              <div class="dz-formats" data-i18n="w2e_dz_formats">Supported: .docx · Max 20 MB</div>
+            </div>
+
+            <div class="file-info" id="fileInfo">
+              <span class="fi-icon" aria-hidden="true">📊</span>
+              <div class="fi-details">
+                <div class="fi-name" id="fiName"></div>
+                <div class="fi-meta" id="fiMeta"></div>
+              </div>
+              <button class="fi-remove" id="fileRemove" aria-label="Remove file">✕</button>
+            </div>
+
+            <button class="convert-btn" id="convertBtn" data-i18n-text="w2e_convert_btn" disabled>
+              <span aria-hidden="true">🔄</span> Convert to Excel
+            </button>
+
+            <div class="status" id="status" role="status" aria-live="polite"></div>
+
+            <div class="result-area" id="resultArea">
+              <span class="ra-icon" aria-hidden="true">✅</span>
+              <div class="ra-text">
+                <strong data-i18n="w2e_result_title">Conversion complete!</strong><br>
+                <span id="resultName"></span>
+              </div>
+              <a class="btn btn-primary" id="downloadBtn" download>⬇️ <span data-i18n="w2e_download_btn">Download Excel</span></a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Content -->
+    <section class="section section-alt" aria-label="About Word to Excel conversion">
+      <div class="container">
+        <div class="content-section">
+          <h2 style="margin-bottom:16px;" data-i18n="w2e_section_title">Word to Excel Converter — Turn Word Tables into Spreadsheets</h2>
+
+          <div class="intro-text">
+            <p data-i18n-html="w2e_intro_1"><strong>Need the data from a Word document in Excel?</strong> Budgets, invoices, price lists, and reports are often written in Word with tables — but analyzing, sorting, and recalculating that data is much easier in a spreadsheet. Our free Word to Excel converter extracts the tables from your <strong>.docx</strong> file and rebuilds them as a real Excel workbook, cell by cell.</p>
+            <br>
+            <p data-i18n-html="w2e_intro_2">Like every tool on MultiWeb, the conversion runs <strong>entirely in your browser</strong>. Your document is never uploaded to a server, which keeps sensitive data — quotes, client lists, financial figures — completely private.</p>
+            <br>
+            <p data-i18n-html="w2e_intro_3">Each table in your Word document becomes its own sheet in the Excel workbook (Table 1, Table 2, …), and any surrounding text is saved to a "Text" sheet so nothing is lost. If the document has no tables, the text is placed as rows. Going the other way? Try our <a href="excel-to-word">Excel to Word converter</a>.</p>
+          </div>
+
+          <h2 style="margin-bottom:16px;" data-i18n="w2e_how_title">How to Convert Word to Excel</h2>
+          <ol class="steps-list">
+            <li>
+              <div>
+                <strong data-i18n="w2e_step_1_title">Upload your Word document</strong>
+                <span data-i18n="w2e_step_1_desc">Drag and drop your .docx file onto the converter, or click the drop zone to browse your device.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong data-i18n="w2e_step_2_title">Click "Convert to Excel"</strong>
+                <span data-i18n="w2e_step_2_desc">The converter finds every table in your document and builds an Excel workbook — all within your browser.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong data-i18n="w2e_step_3_title">Download and analyze</strong>
+                <span data-i18n="w2e_step_3_desc">Your .xlsx file downloads automatically. Open it in Excel, Google Sheets, or LibreOffice and work with the data freely.</span>
+              </div>
+            </li>
+          </ol>
+
+          <h2 style="margin-bottom:16px;" data-i18n="w2e_faq_title">Frequently Asked Questions</h2>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item open">
+              <button class="faq-question" aria-expanded="true">
+                <span data-i18n="w2e_faq_q1">Is Word to Excel conversion really free?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="w2e_faq_a1">Yes — completely free, with no limits, no sign-up, and no watermarks.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span data-i18n="w2e_faq_q2">Are my documents uploaded to a server?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="w2e_faq_a2">No. The conversion happens entirely in your browser. Your document's contents never leave your device.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span data-i18n="w2e_faq_q3">How are tables handled?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="w2e_faq_a3">Every table in your Word document becomes its own sheet in the Excel workbook, with rows and columns mapped cell by cell. Non-table text is placed on a separate "Text" sheet so nothing is lost.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span data-i18n="w2e_faq_q4">What if my document has no tables?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="w2e_faq_a4">If no tables are found, the document's text is placed into a single sheet, one paragraph per row. For best results, convert documents that contain real tables.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span data-i18n="w2e_faq_q5">Is there a file size limit?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n-html="w2e_faq_a5">The practical limit is <strong>20 MB</strong> per document.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span data-i18n="w2e_faq_q6">Can I convert an Excel file back to Word?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n-html="w2e_faq_a6">Yes! Use our <a href="excel-to-word">Excel to Word converter</a> to turn a spreadsheet into a Word document with a proper table — also 100% in your browser.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools -->
+    <section class="section" aria-label="Related tools">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:32px;">
+          <h2 style="font-size:1.75rem;">Related Tools</h2>
+          <p style="color:var(--text-secondary);">More free document tools from our collection.</p>
+        </div>
+        <div class="related-grid">
+          <a href="excel-to-word" class="related-card">
+            <span class="related-icon" aria-hidden="true">📝</span>
+            <h4>Excel to Word Converter</h4>
+            <p>Turn a spreadsheet into a Word document with a proper table.</p>
+          </a>
+          <a href="excel-to-pdf" class="related-card">
+            <span class="related-icon" aria-hidden="true">📄</span>
+            <h4>Excel to PDF Converter</h4>
+            <p>Turn spreadsheets into clean, print-ready PDF tables.</p>
+          </a>
+          <a href="word-to-pdf" class="related-card">
+            <span class="related-icon" aria-hidden="true">📄</span>
+            <h4>Word to PDF Converter</h4>
+            <p>Convert Word documents to PDF in your browser — no uploads.</p>
+          </a>
+          <a href="pdf-to-word" class="related-card">
+            <span class="related-icon" aria-hidden="true">📝</span>
+            <h4>PDF to Word Converter</h4>
+            <p>Convert PDF files to editable Word documents, right in your browser.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>MultiWeb</h3>
+          <p data-i18n="footer_brand">Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_quick_links">Quick Links</h4>
+          <nav aria-label="Quick links">
+            <a href="bmi-calculator">BMI Calculator</a>
+            <a href="unit-converter">Unit Converter</a>
+            <a href="word-counter">Word Counter</a>
+            <a href="qr-generator">QR Generator</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_company">Company</h4>
+          <nav aria-label="Company links">
+            <a href="about">About</a>
+            <a href="contact">Contact</a>
+            <a href="privacy">Privacy Policy</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer_copyright">&copy; 2026 MultiWeb. All rights reserved.</span>
+        <span data-i18n="footer_tagline">Free online tools for everyone.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script src="i18n.js"></script>
+  <script src="converter.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      var C = window.MultiWebConverter;
+
+      var LIB = {
+        mammoth: 'https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.12.1/mammoth.browser.min.js',
+        xlsx: 'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js'
+      };
+
+      var MAX_SIZE = 20 * 1024 * 1024; // 20 MB
+
+      var zone = document.getElementById('dropZone');
+      var fileInfo = document.getElementById('fileInfo');
+      var fiName = document.getElementById('fiName');
+      var fiMeta = document.getElementById('fiMeta');
+      var fileRemove = document.getElementById('fileRemove');
+      var convertBtn = document.getElementById('convertBtn');
+      var statusEl = document.getElementById('status');
+      var resultArea = document.getElementById('resultArea');
+      var resultName = document.getElementById('resultName');
+      var downloadBtn = document.getElementById('downloadBtn');
+
+      var currentFile = null;
+      var lastBlobUrl = null;
+
+      function setStatus(msg, isError) {
+        statusEl.textContent = msg || '';
+        statusEl.classList.toggle('error', !!isError);
+      }
+
+      function resetResult() {
+        resultArea.style.display = 'none';
+        if (lastBlobUrl) { URL.revokeObjectURL(lastBlobUrl); lastBlobUrl = null; }
+      }
+
+      function onFile(file) {
+        if (file.size > MAX_SIZE) {
+          setStatus('This file is larger than 20 MB. Please choose a smaller document.', true);
+          return;
+        }
+        currentFile = file;
+        fiName.textContent = file.name;
+        fiMeta.textContent = C.formatBytes(file.size) + ' · DOCX';
+        fileInfo.classList.add('visible');
+        resetResult();
+        setStatus('');
+        convertBtn.disabled = false;
+      }
+
+      C.bindDropZone(zone, { accept: '.docx', onFile: onFile });
+
+      fileRemove.addEventListener('click', function () {
+        currentFile = null;
+        fileInfo.classList.remove('visible');
+        convertBtn.disabled = true;
+        resetResult();
+        setStatus('');
+      });
+
+      convertBtn.addEventListener('click', async function () {
+        if (!currentFile) return;
+        convertBtn.disabled = true;
+        resetResult();
+        setStatus('Loading conversion libraries…');
+
+        try {
+          await C.loadScripts([LIB.mammoth, LIB.xlsx]);
+          setStatus('Reading Word document…');
+
+          var buffer = await C.readArrayBuffer(currentFile);
+          var result = await mammoth.convertToHtml({ arrayBuffer: buffer });
+
+          var outName = C.baseName(currentFile.name) + '.xlsx';
+          setStatus('Building Excel workbook…');
+          var blob = buildWorkbook(result.value);
+
+          if (blob.size === 0) {
+            setStatus('No content could be extracted from this document.', true);
+            convertBtn.disabled = false;
+            return;
+          }
+
+          lastBlobUrl = URL.createObjectURL(blob);
+          downloadBtn.href = lastBlobUrl;
+          downloadBtn.download = outName;
+          resultName.textContent = outName + ' (' + C.formatBytes(blob.size) + ')';
+          resultArea.style.display = 'flex';
+
+          currentFile = null;
+          fileInfo.classList.remove('visible');
+          setStatus('');
+          convertBtn.disabled = false;
+          C.downloadBlob(blob, outName);
+        } catch (err) {
+          console.error('Word to Excel conversion failed:', err);
+          setStatus('Conversion failed — ' + (err && err.message ? err.message : 'unknown error') + '. Please try again with another file.', true);
+          convertBtn.disabled = false;
+        }
+      });
+
+      function buildWorkbook(html) {
+        var doc = new DOMParser().parseFromString(html, 'text/html');
+        var wb = XLSX.utils.book_new();
+
+        var tables = doc.querySelectorAll('table');
+        var textLines = [];
+
+        // Collect non-table content as lines
+        Array.prototype.forEach.call(doc.body.children, function (el) {
+          var tag = el.tagName;
+          if (tag === 'TABLE') return;
+          if (tag === 'UL' || tag === 'OL') {
+            Array.prototype.forEach.call(el.querySelectorAll('li'), function (li) {
+              var t = li.textContent.replace(/\s+/g, ' ').trim();
+              if (t) textLines.push(t);
+            });
+          } else {
+            var t = el.textContent.replace(/\s+/g, ' ').trim();
+            if (t) textLines.push(t);
+          }
+        });
+
+        if (tables.length) {
+          Array.prototype.forEach.call(tables, function (table, i) {
+            var rows = [];
+            Array.prototype.forEach.call(table.querySelectorAll('tr'), function (tr) {
+              var cells = [];
+              Array.prototype.forEach.call(tr.querySelectorAll('th, td'), function (c) {
+                cells.push(c.textContent.replace(/\s+/g, ' ').trim());
+              });
+              if (cells.length) rows.push(cells);
+            });
+            if (rows.length) {
+              var ws = XLSX.utils.aoa_to_sheet(rows);
+              XLSX.utils.book_append_sheet(wb, ws, 'Table ' + (i + 1));
+            }
+          });
+          if (textLines.length) {
+            var wsText = XLSX.utils.aoa_to_sheet(textLines.map(function (l) { return [l]; }));
+            XLSX.utils.book_append_sheet(wb, wsText, 'Text');
+          }
+        } else {
+          var ws1 = XLSX.utils.aoa_to_sheet(textLines.map(function (l) { return [l]; }));
+          XLSX.utils.book_append_sheet(wb, ws1, 'Sheet1');
+        }
+
+        if (wb.SheetNames.length === 0) {
+          XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([['']]), 'Sheet1');
+        }
+
+        var out = XLSX.write(wb, { type: 'array', bookType: 'xlsx' });
+        return new Blob([out], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      }
+    })();
+  </script>
+</body>
+</html>

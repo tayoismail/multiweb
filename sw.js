@@ -2,7 +2,7 @@
  * sw.js — Service Worker for MultiWeb
  * Enables offline caching of all pages and assets
  */
-var CACHE_NAME = 'multiweb-v3';
+var CACHE_NAME = 'multiweb-v7';
 var urlsToCache = [
   './',
   './index.html',
@@ -39,7 +39,14 @@ var urlsToCache = [
   './inflation-calculator.html',
   './markup-calculator.html',
   './profit-margin-calculator.html',
-  './break-even-calculator.html'
+  './break-even-calculator.html',
+  './word-to-pdf.html',
+  './pdf-to-word.html',
+  './word-to-excel.html',
+  './excel-to-word.html',
+  './pdf-to-excel.html',
+  './excel-to-pdf.html',
+  './converter.js'
 ];
 
 // Install: cache all critical assets

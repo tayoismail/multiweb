@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<script>(function(){var p=window.location.pathname.replace(/\.html$/,"");if(p!==window.location.pathname){history.replaceState(null,"",p+window.location.search+window.location.hash)}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YT1VDKT773"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-YT1VDKT773', {
+    cookie_flags: 'SameSite=None;Secure'
+  });
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="msvalidate.01" content="B345B805F8CA79A48F3971C6FBC934DF" />
+  <title>Word to PDF Converter — DOCX to PDF Free | MultiWeb</title>
+  <meta name="description" content="Convert Word documents (.docx) to PDF free online. No uploads — your file is converted in your browser. Fast, private, and unlimited.">
+  <link rel="canonical" href="https://tayoismail.github.io/multiweb/word-to-pdf">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Word to PDF Converter — DOCX to PDF Free">
+  <meta property="og:description" content="Convert Word documents (.docx) to PDF free online. No uploads — your file is converted in your browser.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tayoismail.github.io/multiweb/word-to-pdf">
+  <meta property="og:image" content="https://tayoismail.github.io/multiweb/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="MultiWeb">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Word to PDF Converter — DOCX to PDF Free">
+  <meta name="twitter:description" content="Convert Word documents (.docx) to PDF free online. No uploads — your file is converted in your browser.">
+  <meta name="twitter:image" content="https://tayoismail.github.io/multiweb/og-default.png">
+  <meta name="theme-color" content="#2563eb">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Word to PDF Converter — MultiWeb",
+    "url": "https://tayoismail.github.io/multiweb/word-to-pdf",
+    "description": "Convert Word documents (.docx) to PDF free online. No uploads — your file is converted in your browser.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "en-US",
+    "author": {
+      "@type": "Organization",
+      "name": "MultiWeb",
+      "url": "https://tayoismail.github.io/multiweb/"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "priceValidUntil": "2030-12-31",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="common-styles.css">
+  <link rel="stylesheet" href="i18n.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+  <style>
+    /* Word to PDF — tool-specific styles */
+    .privacy-note {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--color-success-bg); color: var(--color-success-dark);
+      border-radius: var(--radius-sm); padding: 10px 14px;
+      font-size: 0.8125rem; font-weight: 600; margin-bottom: 20px;
+    }
+
+    .drop-zone {
+      border: 2px dashed var(--border-medium); border-radius: var(--radius-md);
+      padding: 48px 24px; text-align: center; cursor: pointer;
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+      background: var(--bg-surface);
+      position: relative;
+    }
+    .drop-zone:hover, .drop-zone:focus-visible { border-color: var(--color-primary); background: var(--color-primary-bg); outline: none; }
+    .drop-zone.dragover { border-color: var(--color-primary); background: var(--color-primary-bg); transform: scale(1.01); }
+    .drop-zone .dz-icon { font-size: 48px; margin-bottom: 12px; opacity: 0.5; }
+    .drop-zone .dz-title { font-size: 1.125rem; font-weight: 600; margin-bottom: 6px; }
+    .drop-zone .dz-sub { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 16px; }
+    .drop-zone .dz-formats { font-size: 0.75rem; color: var(--text-muted); }
+    .drop-zone .dz-formats strong { color: var(--text-secondary); }
+
+    .file-info {
+      display: none; align-items: center; gap: 16px;
+      padding: 12px 16px; background: var(--color-primary-bg);
+      border-radius: var(--radius-sm); margin-top: 12px;
+    }
+    .file-info.visible { display: flex; flex-wrap: wrap; }
+    .file-info .fi-icon { font-size: 28px; flex-shrink: 0; }
+    .file-info .fi-details { flex: 1; min-width: 0; }
+    .file-info .fi-name { font-weight: 600; font-size: 0.875rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .file-info .fi-meta { font-size: 0.75rem; color: var(--text-secondary); }
+    .file-info .fi-remove { background: none; border: none; cursor: pointer; font-size: 18px; color: var(--text-muted); padding: 4px; border-radius: 50%; transition: background var(--transition), color var(--transition); }
+    .file-info .fi-remove:hover { background: var(--color-danger-bg); color: var(--color-danger); }
+
+    .convert-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 14px 28px; margin-top: 20px;
+      font-family: var(--font); font-weight: 600; font-size: 1.0625rem; line-height: 1;
+      background: var(--color-primary); color: var(--text-on-primary);
+      border: 2px solid var(--color-primary); border-radius: var(--radius-sm);
+      cursor: pointer; transition: background var(--transition), box-shadow var(--transition), transform var(--transition-fast);
+    }
+    .convert-btn:hover:not(:disabled) { background: var(--color-primary-dark); border-color: var(--color-primary-dark); box-shadow: 0 4px 14px rgba(37,99,235,0.35); }
+    .convert-btn:active:not(:disabled) { transform: scale(0.97); }
+    .convert-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .status { margin-top: 12px; font-size: 0.875rem; color: var(--text-secondary); min-height: 20px; }
+    .status.error { color: var(--color-danger); font-weight: 600; }
+
+    .result-area {
+      display: none; align-items: center; gap: 16px; margin-top: 20px;
+      padding: 16px; border: 1px solid var(--border-light);
+      border-radius: var(--radius-md); background: var(--bg-surface);
+    }
+    .result-area .ra-icon { font-size: 28px; flex-shrink: 0; }
+    .result-area .ra-text { flex: 1; min-width: 0; font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; }
+    .result-area .ra-text strong { color: var(--text-primary); }
+    .result-area .btn { text-decoration: none; flex-shrink: 0; }
+
+    /* Rendered Word content (hidden off-screen, used by html2canvas) */
+    #renderHost { position: absolute; left: -9999px; top: 0; width: 794px; }
+    #renderHost .doc-page {
+      background: #ffffff; color: #000000;
+      font-family: Calibri, 'Segoe UI', Arial, sans-serif;
+      font-size: 14px; line-height: 1.5; width: 100%;
+    }
+    #renderHost .doc-page table { border-collapse: collapse; width: 100%; margin: 8px 0; }
+    #renderHost .doc-page td, #renderHost .doc-page th { border: 1px solid #999; padding: 4px 8px; }
+    #renderHost .doc-page img { max-width: 100%; height: auto; }
+    #renderHost .doc-page h1 { font-size: 24px; }
+    #renderHost .doc-page h2 { font-size: 20px; }
+    #renderHost .doc-page h3 { font-size: 17px; }
+  </style>
+  <meta name="keywords" content="word to pdf, docx to pdf, convert word document to pdf, word to pdf converter, free word to pdf">
+
+</head>
+<body>
+
+  <a href="#tool" class="skip-link">Skip to tool</a>
+
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="." class="navbar-brand" aria-label="MultiWeb home">
+        <span class="logo-icon" aria-hidden="true">M</span> MultiWeb
+      </a>
+      <div class="navbar-actions">
+        <a href="https://flutterwave.com/donate/ko16jzqgtovw" target="_blank" rel="noopener noreferrer" class="donate-btn"><span aria-hidden="true">❤️</span> <span data-i18n="donate_btn">Support Us</span></a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="icon-sun" aria-hidden="true">☀️</span>
+          <span class="icon-moon" aria-hidden="true">🌙</span>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+        <a href="." class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> <span data-i18n="nav_tools">Tools</span></a>
+        <a href="about" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> <span data-i18n="nav_about">About</span></a>
+        <a href="contact" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> <span data-i18n="nav_contact">Contact</span></a>
+        <a href="privacy" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> <span data-i18n="nav_privacy">Privacy</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header" aria-label="Tool header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href=".">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Word to PDF Converter</span>
+      </nav>
+      <h1 data-i18n="w2p_title">Word to PDF Converter</h1>
+      <p data-i18n="w2p_description">Convert Word documents (.docx) to PDF instantly. 100% free, unlimited, and your file never leaves your browser.</p>
+    </div>
+  </section>
+
+  <main id="tool">
+    <section class="section" style="padding-top:0;padding-bottom:32px;" aria-label="Word to PDF converter tool">
+      <div class="container">
+        <div class="tool-workspace fade-in">
+          <div class="tool-card">
+
+            <noscript>
+              <div style="padding:24px;background:var(--color-danger-bg);border-radius:var(--radius-md);text-align:center;margin-bottom:24px;">
+                <p style="font-weight:600;color:var(--color-danger-dark);margin-bottom:8px;">⚠️ JavaScript Required</p>
+                <p style="color:var(--text-secondary);font-size:0.9375rem;">This converter requires JavaScript to work. Please enable JavaScript in your browser settings and refresh the page.</p>
+              </div>
+            </noscript>
+
+            <div class="privacy-note">
+              <span aria-hidden="true">🔒</span> <span data-i18n="w2p_privacy_note">100% private — your document is converted in your browser and never uploaded.</span>
+            </div>
+
+            <!-- Drop zone -->
+            <div class="drop-zone" id="dropZone" role="button" aria-label="Upload a Word document">
+              <div class="dz-icon" aria-hidden="true">📄</div>
+              <div class="dz-title" data-i18n="w2p_dz_title">Drop your Word document here</div>
+              <div class="dz-sub" data-i18n="w2p_dz_sub">or click to browse your files</div>
+              <div class="dz-formats" data-i18n="w2p_dz_formats">Supported: .docx · Max 20 MB</div>
+            </div>
+
+            <!-- File info -->
+            <div class="file-info" id="fileInfo">
+              <span class="fi-icon" aria-hidden="true">📄</span>
+              <div class="fi-details">
+                <div class="fi-name" id="fiName"></div>
+                <div class="fi-meta" id="fiMeta"></div>
+              </div>
+              <button class="fi-remove" id="fileRemove" aria-label="Remove file">✕</button>
+            </div>
+
+            <!-- Convert -->
+            <button class="convert-btn" id="convertBtn" data-i18n-text="w2p_convert_btn" disabled>
+              <span aria-hidden="true">🔄</span> Convert to PDF
+            </button>
+
+            <!-- Status -->
+            <div class="status" id="status" role="status" aria-live="polite"></div>
+
+            <!-- Result -->
+            <div class="result-area" id="resultArea">
+              <span class="ra-icon" aria-hidden="true">✅</span>
+              <div class="ra-text">
+                <strong data-i18n="w2p_result_title">Conversion complete!</strong><br>
+                <span id="resultName"></span>
+              </div>
+              <a class="btn btn-primary" id="downloadBtn" download>⬇️ <span data-i18n="w2p_download_btn">Download PDF</span></a>
+            </div>
+
+            <!-- Hidden render host for html2canvas -->
+            <div id="renderHost" aria-hidden="true"></div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Content -->
+    <section class="section section-alt" aria-label="About Word to PDF conversion">
+      <div class="container">
+        <div class="content-section">
+          <h2 style="margin-bottom:16px;" data-i18n="w2p_section_title">Word to PDF Converter — Convert DOCX to PDF Free</h2>
+
+          <div class="intro-text">
+            <p data-i18n-html="w2p_intro_1"><strong>Converting a Word document to PDF</strong> is one of the most common document tasks there is — whether you're sending a résumé, submitting a report, or sharing a contract. PDFs preserve your layout, fonts, and formatting on any device, which makes them the standard for professional and official documents. Our free Word to PDF converter turns your <strong>.docx</strong> files into clean, print-ready PDFs in seconds.</p>
+            <br>
+            <p data-i18n-html="w2p_intro_2">Unlike most online converters, MultiWeb processes your document <strong>entirely in your browser</strong>. Your file is never uploaded to a server, never stored, and never seen by anyone else. This makes it ideal for sensitive documents like contracts, invoices, and personal records. There are no file limits, no sign-ups, and no watermarks — just fast, private conversion.</p>
+            <br>
+            <p data-i18n-html="w2p_intro_3">The converter supports Word documents created by Microsoft Word, Google Docs, and LibreOffice (.docx format). Text, headings, lists, tables, and images are preserved in the output PDF. If you need to go the other direction, try our <a href="pdf-to-word">PDF to Word converter</a>.</p>
+          </div>
+
+          <!-- How it works -->
+          <h2 style="margin-bottom:16px;" data-i18n="w2p_how_title">How to Convert Word to PDF</h2>
+          <ol class="steps-list">
+            <li>
+              <div>
+                <strong data-i18n="w2p_step_1_title">Upload your Word document</strong>
+                <span data-i18n="w2p_step_1_desc">Drag and drop your .docx file onto the converter, or click the drop zone to browse your device.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong data-i18n="w2p_step_2_title">Click "Convert to PDF"</strong>
+                <span data-i18n="w2p_step_2_desc">The converter reads your document and rebuilds it as a PDF — all within your browser, so nothing is uploaded.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong data-i18n="w2p_step_3_title">Download your PDF</strong>
+                <span data-i18n="w2p_step_3_desc">Your PDF downloads automatically. You can also click "Download PDF" again to save it to a different location.</span>
+              </div>
+            </li>
+          </ol>
+
+          <!-- FAQ -->
+          <h2 style="margin-bottom:16px;" data-i18n="w2p_faq_title">Frequently Asked Questions</h2>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item open">
+              <button class="faq-question" aria-expanded="true">
+                <span data-i18n="w2p_faq_q1">Is Word to PDF conversion really free?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="w2p_faq_a1">Yes — completely free, with no limits on the number of documents you can convert, no sign-up, and no watermarks. MultiWeb is supported by donations and, optionally, ads — never by charging for the tools themselves.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span data-i18n="w2p_faq_q2">Are my documents uploaded to a server?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="w2p_faq_a2">No. The entire conversion happens in your browser using JavaScript. Your document's contents never leave your device, which makes this converter safe for confidential files.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span data-i18n="w2p_faq_q3">Which Word formats are supported?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n-html="w2p_faq_a3">We support <strong>.docx</strong> — the standard Word format used by Microsoft Word 2007 and later, Google Docs, and LibreOffice. The older legacy <strong>.doc</strong> binary format is not supported; you can open a .doc file in Word or Google Docs and save it as .docx first.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span data-i18n="w2p_faq_q4">Will my formatting be preserved?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n="w2p_faq_a4">Text, headings, lists, tables, and embedded images are preserved in the PDF. Very complex layouts — such as multi-column sections or unusual page backgrounds — may be simplified. For everyday documents the output looks virtually identical to the original.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span data-i18n="w2p_faq_q5">Is there a file size limit?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n-html="w2p_faq_a5">The practical limit is <strong>20 MB</strong> per document. Since conversion happens on your device, very large documents may take a few seconds longer depending on your computer's speed.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span data-i18n="w2p_faq_q6">Can I convert a PDF back to Word?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p data-i18n-html="w2p_faq_a6">Yes! We have a dedicated <a href="pdf-to-word">PDF to Word converter</a> that extracts the text from your PDF and creates an editable Word document — also 100% in your browser.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools -->
+    <section class="section" aria-label="Related tools">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:32px;">
+          <h2 style="font-size:1.75rem;">Related Tools</h2>
+          <p style="color:var(--text-secondary);">More free document and productivity tools from our collection.</p>
+        </div>
+        <div class="related-grid">
+          <a href="pdf-to-word" class="related-card">
+            <span class="related-icon" aria-hidden="true">📝</span>
+            <h4>PDF to Word Converter</h4>
+            <p>Convert PDF files to editable Word documents, right in your browser.</p>
+          </a>
+          <a href="image-converter" class="related-card">
+            <span class="related-icon" aria-hidden="true">🖼️</span>
+            <h4>Image Converter</h4>
+            <p>Convert images between PNG, JPG, and WebP — all in your browser.</p>
+          </a>
+          <a href="word-counter" class="related-card">
+            <span class="related-icon" aria-hidden="true">📝</span>
+            <h4>Word Counter</h4>
+            <p>Count words, characters, sentences, and paragraphs in your text.</p>
+          </a>
+          <a href="qr-generator" class="related-card">
+            <span class="related-icon" aria-hidden="true">📱</span>
+            <h4>QR Code Generator</h4>
+            <p>Generate custom QR codes for URLs, text, Wi-Fi, and contact info.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>MultiWeb</h3>
+          <p data-i18n="footer_brand">Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_quick_links">Quick Links</h4>
+          <nav aria-label="Quick links">
+            <a href="bmi-calculator">BMI Calculator</a>
+            <a href="unit-converter">Unit Converter</a>
+            <a href="word-counter">Word Counter</a>
+            <a href="qr-generator">QR Generator</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_company">Company</h4>
+          <nav aria-label="Company links">
+            <a href="about">About</a>
+            <a href="contact">Contact</a>
+            <a href="privacy">Privacy Policy</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer_copyright">&copy; 2026 MultiWeb. All rights reserved.</span>
+        <span data-i18n="footer_tagline">Free online tools for everyone.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script src="i18n.js"></script>
+  <script src="converter.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      var C = window.MultiWebConverter;
+
+      var LIB = {
+        mammoth: 'https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.12.1/mammoth.browser.min.js',
+        html2canvas: 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js',
+        jspdf: 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js'
+      };
+
+      var MAX_SIZE = 20 * 1024 * 1024; // 20 MB
+
+      var zone = document.getElementById('dropZone');
+      var fileInfo = document.getElementById('fileInfo');
+      var fiName = document.getElementById('fiName');
+      var fiMeta = document.getElementById('fiMeta');
+      var fileRemove = document.getElementById('fileRemove');
+      var convertBtn = document.getElementById('convertBtn');
+      var statusEl = document.getElementById('status');
+      var resultArea = document.getElementById('resultArea');
+      var resultName = document.getElementById('resultName');
+      var downloadBtn = document.getElementById('downloadBtn');
+      var renderHost = document.getElementById('renderHost');
+
+      var currentFile = null;
+      var lastBlobUrl = null;
+
+      function setStatus(msg, isError) {
+        statusEl.textContent = msg || '';
+        statusEl.classList.toggle('error', !!isError);
+      }
+
+      function resetResult() {
+        resultArea.style.display = 'none';
+        if (lastBlobUrl) { URL.revokeObjectURL(lastBlobUrl); lastBlobUrl = null; }
+      }
+
+      function onFile(file) {
+        if (file.size > MAX_SIZE) {
+          setStatus('This file is larger than 20 MB. Please choose a smaller document.', true);
+          return;
+        }
+        currentFile = file;
+        fiName.textContent = file.name;
+        fiMeta.textContent = C.formatBytes(file.size) + ' · DOCX';
+        fileInfo.classList.add('visible');
+        resetResult();
+        setStatus('');
+        convertBtn.disabled = false;
+      }
+
+      C.bindDropZone(zone, { accept: '.docx', onFile: onFile });
+
+      fileRemove.addEventListener('click', function () {
+        currentFile = null;
+        fileInfo.classList.remove('visible');
+        convertBtn.disabled = true;
+        resetResult();
+        setStatus('');
+      });
+
+      convertBtn.addEventListener('click', async function () {
+        if (!currentFile) return;
+        convertBtn.disabled = true;
+        resetResult();
+        setStatus('Loading conversion libraries…');
+
+        try {
+          await C.loadScripts([LIB.mammoth, LIB.html2canvas, LIB.jspdf]);
+          setStatus('Converting Word to PDF…');
+
+          var buffer = await C.readArrayBuffer(currentFile);
+          var result = await mammoth.convertToHtml({ arrayBuffer: buffer });
+
+          await renderToPdf(result.value, C.baseName(currentFile.name) + '.pdf');
+          currentFile = null;
+          fileInfo.classList.remove('visible');
+          setStatus('');
+          convertBtn.disabled = false;
+        } catch (err) {
+          console.error('Word to PDF conversion failed:', err);
+          setStatus('Conversion failed — ' + (err && err.message ? err.message : 'unknown error') + '. Please try again with another file.', true);
+          convertBtn.disabled = false;
+        }
+      });
+
+      async function renderToPdf(html, filename) {
+        // Render the Word HTML into a hidden A4-width container
+        renderHost.innerHTML = '<div class="doc-page">' + html + '</div>';
+        var el = renderHost.querySelector('.doc-page');
+
+        var canvas = await html2canvas(el, { scale: 2, useCORS: true, backgroundColor: '#ffffff' });
+        var pdf = new jspdf.jsPDF({ unit: 'pt', format: 'a4', orientation: 'portrait' });
+
+        var pageW = pdf.internal.pageSize.getWidth();
+        var pageH = pdf.internal.pageSize.getHeight();
+        var imgW = pageW;
+        var imgH = canvas.height * imgW / canvas.width;
+        var imgData = canvas.toDataURL('image/jpeg', 0.92);
+
+        var heightLeft = imgH;
+        var position = 0;
+
+        pdf.addImage(imgData, 'JPEG', 0, position, imgW, imgH);
+        heightLeft -= pageH;
+
+        while (heightLeft > 0) {
+          position -= pageH;
+          pdf.addPage();
+          pdf.addImage(imgData, 'JPEG', 0, position, imgW, imgH);
+          heightLeft -= pageH;
+        }
+
+        renderHost.innerHTML = '';
+
+        var blob = pdf.output('blob');
+        lastBlobUrl = URL.createObjectURL(blob);
+        downloadBtn.href = lastBlobUrl;
+        downloadBtn.download = filename;
+        resultName.textContent = filename + ' (' + C.formatBytes(blob.size) + ')';
+        resultArea.style.display = 'flex';
+        C.downloadBlob(blob, filename);
+      }
+    })();
+  </script>
+</body>
+</html>

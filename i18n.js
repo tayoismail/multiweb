@@ -181,8 +181,14 @@
       console.groupEnd();
     }
 
-    // Update page title if translation exists
-    if (translations['_page_title']) {
+    // Update page title: prefer the page-specific key (set via
+    // <meta name="page-title-key" content="..."> in the page head),
+    // otherwise fall back to the generic site title.
+    var titleKeyMeta = document.querySelector('meta[name="page-title-key"]');
+    var pageTitleKey = titleKeyMeta ? titleKeyMeta.getAttribute('content') : null;
+    if (pageTitleKey && translations[pageTitleKey]) {
+      document.title = translations[pageTitleKey] + ' | MultiWeb';
+    } else if (translations['_page_title']) {
       document.title = translations['_page_title'];
     }
 
@@ -261,6 +267,12 @@
   // Initialize
   currentLang = getPreferredLang();
   document.documentElement.setAttribute('lang', currentLang);
+  // Set text direction on initial load too (setLanguage also does this)
+  if (currentLang === 'ar') {
+    document.documentElement.setAttribute('dir', 'rtl');
+  } else {
+    document.documentElement.setAttribute('dir', 'ltr');
+  }
 
   // Wait for DOM
   if (document.readyState === 'loading') {
