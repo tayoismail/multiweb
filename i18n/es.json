@@ -1,6 +1,6 @@
 {
     "_meta_description": "Herramientas web gratuitas: calculadoras, convertidores y generadores.",
-    "_page_title": "Freebuff — Herramientas Gratuitas en Línea",
+    "_page_title": "MultiWeb — Herramientas Gratuitas en Línea",
     "be_faq_title": "Preguntas frecuentes",
     "be_how_title": "Cómo usar la calculadora de punto de equilibrio",
     "be_related_title": "Herramientas relacionadas",
@@ -215,7 +215,7 @@
     "finance_title": "Finanzas",
     "footer_brand": "Herramientas web gratuitas.",
     "footer_company": "Empresa",
-    "footer_copyright": "© 2025 Freebuff. Todos los derechos reservados.",
+    "footer_copyright": "© 2026 MultiWeb. Todos los derechos reservados.",
     "footer_quick_links": "Enlaces Rápidos",
     "footer_tagline": "Herramientas web gratuitas.",
     "generate_btn": "Generar",
@@ -875,5 +875,6 @@
     "why_lang_desc": "Cambia de idioma con un clic. Hecho para usuarios de todo el mundo.",
     "cta_title": "¿Te gusta MultiWeb?",
     "cta_desc": "Cada herramienta aquí es gratis gracias a personas como tú. Si MultiWeb te ayuda, considera apoyar el proyecto o ponerte en contacto.",
-    "cta_contact": "Ponte en Contacto"
+    "cta_contact": "Ponte en Contacto",
+    "nav_terms": "Términos"
 }

@@ -22,6 +22,7 @@ var urlsToCache = [
   './about.html',
   './contact.html',
   './privacy.html',
+  './terms.html',
   './404.html',
   './mortgage-calculator.html',
   './tip-calculator.html',
@@ -46,6 +47,7 @@ var urlsToCache = [
   './excel-to-word.html',
   './pdf-to-excel.html',
   './excel-to-pdf.html',
+  './og-generator.html',
   './converter.js'
 ];
 

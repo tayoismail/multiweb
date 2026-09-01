@@ -973,10 +973,6 @@ code {
 }
 
 /* ===== 21. DONATION BUTTON ===== */
-@keyframes donate-pulse {
-  0%, 100% { box-shadow: 0 2px 8px rgba(238, 90, 36, 0.3), 0 0 0 0 rgba(238, 90, 36, 0.4); }
-  50% { box-shadow: 0 2px 8px rgba(238, 90, 36, 0.3), 0 0 0 6px rgba(238, 90, 36, 0); }
-}
 .donate-btn {
   display: inline-flex;
   align-items: center;
@@ -996,7 +992,6 @@ code {
   line-height: 1;
   height: 40px;
   flex-shrink: 0;
-  animation: donate-pulse 2.5s ease-in-out infinite;
   position: relative;
   z-index: 2;
 }
@@ -1006,7 +1001,6 @@ code {
   background: linear-gradient(135deg, #ee5a24, #d63031);
   color: #fff;
   text-decoration: none;
-  animation: none;
 }
 .donate-btn:active {
   transform: scale(0.97);
@@ -1026,62 +1020,19 @@ code {
   }
 }
 
-/* ===== 22. FLOATING DONATE BUTTON ===== */
-.floating-donate {
-  position: fixed;
-  bottom: 80px;
-  left: 24px;
-  z-index: 90;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-  color: #fff;
-  border-radius: var(--radius-full);
-  font-weight: 700;
-  font-size: 0.875rem;
-  text-decoration: none;
-  box-shadow: 0 4px 16px rgba(238, 90, 36, 0.4);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(20px);
-  transition: opacity 0.35s ease, visibility 0.35s ease, transform 0.35s ease, box-shadow 0.2s ease;
-  white-space: nowrap;
-  line-height: 1;
-  height: 44px;
+/* ===== 22. DONATION: Hidden by default, shown only when no ads ===== */
+.donate-btn,
+.cta-box {
+  display: none !important;
 }
-.floating-donate.visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+html.no-ads .donate-btn {
+  display: inline-flex !important;
 }
-.floating-donate:hover {
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 6px 24px rgba(238, 90, 36, 0.5);
-  color: #fff;
-  text-decoration: none;
-}
-.floating-donate:active {
-  transform: scale(0.97);
-}
-.floating-donate span[data-i18n] {
-  display: inline;
-}
-@media (max-width: 767px) {
-  .floating-donate {
-    bottom: 72px;
-    left: 16px;
-    padding: 8px 14px;
-    font-size: 0.8125rem;
-    height: 40px;
-  }
-  .floating-donate span[data-i18n] {
-    display: none;
-  }
+html.no-ads .cta-box {
+  display: block !important;
 }
 
-/* ===== 23. PRINT ===== */
+/* ===== 24. PRINT ===== */
 @media print {
   * { background: transparent !important; color: #000 !important; box-shadow: none !important; }
   .navbar, .theme-toggle, .nav-toggle, .skip-link { display: none !important; }

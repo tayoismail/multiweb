@@ -5,9 +5,28 @@
 (function () {
   'use strict';
 
+  // ===== Ad Detection =====
+  function isAdActive() {
+    // Check if AdSense script is loaded
+    if (document.querySelector('script[src*="adsbygoogle"]')) return true;
+    // Check if any ad slot elements exist
+    if (document.querySelector('ins.adsbygoogle')) return true;
+    // Check if AdSense auto ads have injected ad elements
+    if (document.querySelector('.adsbygoogle')) return true;
+    return false;
+  }
+
   // ===== Theme Toggle =====
   var html = document.documentElement;
   var themeToggle = document.getElementById('themeToggle');
+
+  // Ensure apple-touch-icon is available
+  if (!document.querySelector('link[rel="apple-touch-icon"]')) {
+    var appleIcon = document.createElement('link');
+    appleIcon.rel = 'apple-touch-icon';
+    appleIcon.href = 'logo.svg';
+    document.head.appendChild(appleIcon);
+  }
 
   function getPreferredTheme() {
     var stored = localStorage.getItem('theme');
@@ -218,6 +237,19 @@
   // ===== Donation Button (Flutterwave) =====
   var FLUTTERWAVE_LINK = 'https://flutterwave.com/donate/ko16jzqgtovw';
 
+  // Hide donation elements by default; show only when ads are NOT active
+  function applyAdState() {
+    if (!isAdActive()) {
+      html.classList.add('no-ads');
+    } else {
+      html.classList.remove('no-ads');
+    }
+  }
+  applyAdState();
+  // Re-check after delay for dynamically loaded ad scripts
+  setTimeout(applyAdState, 1500);
+  setTimeout(applyAdState, 3000);
+
   function addDonationButton() {
     var navbarActions = document.querySelector('.navbar-actions');
     if (!navbarActions) return;
@@ -272,42 +304,6 @@
   }
 
   addBackToTop();
-
-  // ===== Floating Donate Button (appears on scroll) =====
-  function addFloatingDonate() {
-    var existing = document.querySelector('.floating-donate');
-    if (existing) return;
-
-    var btn = document.createElement('a');
-    btn.href = FLUTTERWAVE_LINK;
-    btn.target = '_blank';
-    btn.rel = 'noopener noreferrer';
-    btn.className = 'floating-donate';
-    btn.setAttribute('aria-label', 'Support Us');
-    btn.innerHTML = '<span aria-hidden="true">❤️</span> <span data-i18n="donate_btn">Support Us</span>';
-    document.body.appendChild(btn);
-
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 164) {
-        btn.classList.add('visible');
-      } else {
-        btn.classList.remove('visible');
-      }
-    }, { passive: true });
-
-    // Track floating donate button clicks with GA4
-    btn.addEventListener('click', function () {
-      if (typeof window.gtag === 'function' && getCookieConsent() === 'accepted') {
-        window.gtag('event', 'donation_button_click', {
-          event_category: 'engagement',
-          event_label: 'floating_support_us',
-          value: 1
-        });
-      }
-    });
-  }
-
-  addFloatingDonate();
 
   // Initialize consent on page load
   showCookieBanner(false);

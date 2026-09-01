@@ -46,7 +46,7 @@
     "bmi_health_normal": "<strong>Normal (18,5 – 24,9):</strong> Ein BMI in diesem Bereich ist mit dem niedrigsten Risiko für gewichtsbedingte Gesundheitsprobleme verbunden. Es ist jedoch wichtig, eine ausgewogene Ernährung und regelmäßige körperliche Aktivität beizubehalten.",
     "bmi_health_obese": "<strong>Adipositas (30+):</strong> Adipositas ist ein schwerwiegender Gesundheitszustand, der das Risiko für Herz-Kreislauf-Erkrankungen, Schlaganfall, Diabetes Typ 2, Schlafapnoe, Gelenkprobleme und verschiedene Krebsarten erheblich erhöht.",
     "bmi_health_overweight": "<strong>Übergewicht (25 – 29,9):</strong> Übergewicht erhöht das Risiko, chronische Erkrankungen wie Herzkrankheiten, Diabetes Typ 2, Bluthochdruck und bestimmte Krebsarten zu entwickeln.",
-    "bmi_health_title": "Gesundheitsimplicationen der BMI-Kategorien",
+    "bmi_health_title": "Gesundheitsfolgen der BMI-Kategorien",
     "bmi_health_underweight": "<strong>Untergewicht (&lt; 18,5):</strong> Untergewicht kann auf Mangelernährung, Verdauungsstörungen oder andere zugrunde liegende Gesundheitsprobleme hinweisen. Es kann zu geschwächter Immunfunktion, Osteoporose und Fruchtbarkeitsproblemen führen.",
     "bmi_healthy_range": "Gesunder BMI-Bereich: 18,5 – 24,9",
     "bmi_height_label": "Größe",
@@ -84,7 +84,7 @@
     "bmi_step_3_title": "Geben Sie Ihr Gewicht ein",
     "bmi_step_4_desc": "Drücken Sie die Schaltfläche <strong>\\\"BMI berechnen\\\"</strong> oder tippen Sie <strong>Enter</strong> auf Ihrer Tastatur. Ihr BMI-Wert, Ihre Kategorie und Ihr gesunder Gewichtsbereich erscheinen sofort.",
     "bmi_step_4_title": "Klicken Sie zum Berechnen",
-    "bmi_step_5_desc": "Überprüfen Sie Ihren BMI auf der farbcodierten Skala und lesen Sie die Gesundheitsimplicationen für Ihre Kategorie. Verwenden Sie die Schaltfläche <strong>\\\"Ergebnisse teilen\\\"</strong>, um Ihren BMI mit Ihrem Arzt zu speichern oder zu teilen.",
+    "bmi_step_5_desc": "Überprüfen Sie Ihren BMI auf der farbcodierten Skala und lesen Sie die Gesundheitsfolgen für Ihre Kategorie. Verwenden Sie die Schaltfläche <strong>\\\"Ergebnisse teilen\\\"</strong>, um Ihren BMI mit Ihrem Arzt zu speichern oder zu teilen.",
     "bmi_step_5_title": "Interpretieren Sie Ihre Ergebnisse",
     "bmi_title": "BMI-Rechner",
     "bmi_unit_imperial": "Imperial (ft / lbs)",
@@ -875,5 +875,6 @@
     "why_lang_desc": "Sprache mit einem Klick wechseln. Für Nutzer weltweit gebaut.",
     "cta_title": "Gefällt dir MultiWeb?",
     "cta_desc": "Jedes Tool hier ist dank Menschen wie dir kostenlos. Wenn MultiWeb dir hilft, unterstütze das Projekt oder nimm Kontakt auf.",
-    "cta_contact": "Kontakt Aufnehmen"
+    "cta_contact": "Kontakt Aufnehmen",
+    "nav_terms": "Nutzungsbedingungen"
 }
