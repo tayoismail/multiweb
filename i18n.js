@@ -387,7 +387,7 @@
 
   // Support ?hl=xx query parameter for language selection
   var hlParam = new URLSearchParams(window.location.search).get('hl');
-  if (hlParam && SUPPORTED_LANGS.indexOf(hlParam) !== -1) {
+  if (hlParam && SUPPORTED_LANGS.indexOf(hlParam) !== -1 && hlParam !== 'en') {
     currentLang = hlParam;
     localStorage.setItem('multilang', hlParam);
   }
