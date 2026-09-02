@@ -92,6 +92,114 @@
       });
   }
 
+  /**
+   * Inject <link rel="alternate" hreflang="xx"> tags into <head>
+   * so search engines know this page exists in multiple languages.
+   */
+  function injectHreflangTags() {
+    // Remove any previously injected hreflang tags
+    var existing = document.querySelectorAll('link[data-hreflang]');
+    existing.forEach(function (el) { el.parentNode.removeChild(el); });
+
+    var canonical = document.querySelector('link[rel="canonical"]');
+    var baseUrl = canonical ? canonical.getAttribute('href') : window.location.href.split('?')[0].split('#')[0];
+
+    // x-default points to the canonical (English default)
+    var xDefault = document.createElement('link');
+    xDefault.setAttribute('rel', 'alternate');
+    xDefault.setAttribute('hreflang', 'x-default');
+    xDefault.setAttribute('href', baseUrl);
+    xDefault.setAttribute('data-hreflang', '1');
+    document.head.appendChild(xDefault);
+
+    // Add hreflang for each non-English supported language
+    SUPPORTED_LANGS.forEach(function (lang) {
+      if (lang === 'en') return;
+      var link = document.createElement('link');
+      link.setAttribute('rel', 'alternate');
+      link.setAttribute('hreflang', lang);
+      link.setAttribute('href', baseUrl + '?hl=' + lang);
+      link.setAttribute('data-hreflang', '1');
+      document.head.appendChild(link);
+    });
+
+    // Self-referencing English hreflang
+    var enLink = document.createElement('link');
+    enLink.setAttribute('rel', 'alternate');
+    enLink.setAttribute('hreflang', 'en');
+    enLink.setAttribute('href', baseUrl);
+    enLink.setAttribute('data-hreflang', '1');
+    document.head.appendChild(enLink);
+  }
+
+  /**
+   * Update Open Graph, Twitter Card, and keyword meta tags
+   * with translated values when available.
+   */
+  function applyMetaTranslations(translations) {
+    if (!translations || Object.keys(translations).length === 0) return;
+
+    // OG title
+    if (translations['_og_title']) {
+      var ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.setAttribute('content', translations['_og_title']);
+      var twTitle = document.querySelector('meta[name="twitter:title"]');
+      if (twTitle) twTitle.setAttribute('content', translations['_og_title']);
+    }
+
+    // OG description
+    if (translations['_og_description']) {
+      var ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) ogDesc.setAttribute('content', translations['_og_description']);
+      var twDesc = document.querySelector('meta[name="twitter:description"]');
+      if (twDesc) twDesc.setAttribute('content', translations['_og_description']);
+    }
+
+    // Meta keywords
+    if (translations['_meta_keywords']) {
+      var kw = document.querySelector('meta[name="keywords"]');
+      if (kw) kw.setAttribute('content', translations['_meta_keywords']);
+    }
+
+    // Update og:locale
+    var ogLocale = document.querySelector('meta[property="og:locale"]');
+    if (ogLocale) {
+      var localeMap = {
+        'en': 'en_US', 'fr': 'fr_FR', 'es': 'es_ES', 'de': 'de_DE',
+        'pt': 'pt_PT', 'ja': 'ja_JP', 'ar': 'ar_SA', 'hi': 'hi_IN',
+        'zh-CN': 'zh_CN', 'ko': 'ko_KR', 'it': 'it_IT'
+      };
+      ogLocale.setAttribute('content', localeMap[currentLang] || 'en_US');
+    }
+  }
+
+  /**
+   * Update the JSON-LD structured data with inLanguage.
+   */
+  function applyStructuredDataLang() {
+    var scripts = document.querySelectorAll('script[type="application/ld+json"]');
+    scripts.forEach(function (script) {
+      try {
+        var data = JSON.parse(script.textContent);
+        var langMap = {
+          'en': 'en-US', 'fr': 'fr-FR', 'es': 'es-ES', 'de': 'de-DE',
+          'pt': 'pt-PT', 'ja': 'ja-JP', 'ar': 'ar-SA', 'hi': 'hi-IN',
+          'zh-CN': 'zh-CN', 'ko': 'ko-KR', 'it': 'it-IT'
+        };
+        data.inLanguage = langMap[currentLang] || 'en-US';
+        if (data['@type'] === 'WebApplication' || data['@type'] === 'WebSite') {
+          // Add availableLanguage if not already there
+          if (!data.availableLanguage) {
+            data.availableLanguage = SUPPORTED_LANGS.map(function (l) {
+              return langMap[l] || l;
+            });
+          }
+        }
+        script.textContent = JSON.stringify(data, null, 2);
+      } catch (e) {}
+    });
+  }
+
   function applyTranslations(translations) {
     var missingKeys = {};
 
@@ -197,6 +305,15 @@
       var metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) metaDesc.setAttribute('content', translations['_meta_description']);
     }
+
+    // Update Open Graph, Twitter Card, and keyword meta tags
+    applyMetaTranslations(translations);
+
+    // Inject hreflang tags for search engines
+    injectHreflangTags();
+
+    // Update structured data language
+    applyStructuredDataLang();
   }
 
   function updateLanguageSwitcher() {
@@ -266,6 +383,14 @@
 
   // Initialize
   currentLang = getPreferredLang();
+  document.documentElement.setAttribute('lang', currentLang);
+
+  // Support ?hl=xx query parameter for language selection
+  var hlParam = new URLSearchParams(window.location.search).get('hl');
+  if (hlParam && SUPPORTED_LANGS.indexOf(hlParam) !== -1) {
+    currentLang = hlParam;
+    localStorage.setItem('multilang', hlParam);
+  }
   document.documentElement.setAttribute('lang', currentLang);
   // Set text direction on initial load too (setLanguage also does this)
   if (currentLang === 'ar') {

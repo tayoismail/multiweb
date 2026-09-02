@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://multiwebs.app/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/about</loc>
@@ -35,185 +48,557 @@
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/bmi-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/bmi-calculator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/bmi-calculator?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/bmi-calculator?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/bmi-calculator?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/bmi-calculator?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/bmi-calculator?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/bmi-calculator?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/bmi-calculator?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/bmi-calculator?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/bmi-calculator?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/bmi-calculator?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/budget-calculator</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/budget-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/budget-calculator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/budget-calculator?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/budget-calculator?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/budget-calculator?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/budget-calculator?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/budget-calculator?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/budget-calculator?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/budget-calculator?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/budget-calculator?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/budget-calculator?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/budget-calculator?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/break-even-calculator</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/break-even-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/break-even-calculator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/break-even-calculator?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/break-even-calculator?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/break-even-calculator?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/break-even-calculator?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/break-even-calculator?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/break-even-calculator?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/break-even-calculator?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/break-even-calculator?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/break-even-calculator?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/break-even-calculator?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/credit-card-calculator</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/credit-card-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/credit-card-calculator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/credit-card-calculator?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/credit-card-calculator?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/credit-card-calculator?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/credit-card-calculator?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/credit-card-calculator?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/credit-card-calculator?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/credit-card-calculator?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/credit-card-calculator?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/credit-card-calculator?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/credit-card-calculator?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/currency-converter</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/currency-converter" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/currency-converter" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/currency-converter?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/currency-converter?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/currency-converter?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/currency-converter?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/currency-converter?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/currency-converter?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/currency-converter?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/currency-converter?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/currency-converter?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/currency-converter?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/discount-calculator</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/discount-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/discount-calculator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/discount-calculator?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/discount-calculator?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/discount-calculator?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/discount-calculator?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/discount-calculator?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/discount-calculator?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/discount-calculator?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/discount-calculator?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/discount-calculator?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/discount-calculator?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/inflation-calculator</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/inflation-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/inflation-calculator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/inflation-calculator?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/inflation-calculator?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/inflation-calculator?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/inflation-calculator?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/inflation-calculator?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/inflation-calculator?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/inflation-calculator?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/inflation-calculator?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/inflation-calculator?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/inflation-calculator?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/investment-calculator</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/investment-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/investment-calculator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/investment-calculator?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/investment-calculator?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/investment-calculator?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/investment-calculator?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/investment-calculator?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/investment-calculator?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/investment-calculator?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/investment-calculator?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/investment-calculator?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/investment-calculator?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/markup-calculator</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/markup-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/markup-calculator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/markup-calculator?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/markup-calculator?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/markup-calculator?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/markup-calculator?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/markup-calculator?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/markup-calculator?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/markup-calculator?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/markup-calculator?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/markup-calculator?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/markup-calculator?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/mortgage-calculator</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/mortgage-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/mortgage-calculator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/mortgage-calculator?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/mortgage-calculator?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/mortgage-calculator?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/mortgage-calculator?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/mortgage-calculator?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/mortgage-calculator?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/mortgage-calculator?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/mortgage-calculator?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/mortgage-calculator?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/mortgage-calculator?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/net-worth-calculator</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/net-worth-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/net-worth-calculator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/net-worth-calculator?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/net-worth-calculator?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/net-worth-calculator?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/net-worth-calculator?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/net-worth-calculator?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/net-worth-calculator?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/net-worth-calculator?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/net-worth-calculator?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/net-worth-calculator?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/net-worth-calculator?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/percentage-calculator</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/percentage-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/percentage-calculator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/percentage-calculator?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/percentage-calculator?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/percentage-calculator?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/percentage-calculator?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/percentage-calculator?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/percentage-calculator?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/percentage-calculator?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/percentage-calculator?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/percentage-calculator?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/percentage-calculator?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/profit-margin-calculator</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/profit-margin-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/profit-margin-calculator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/profit-margin-calculator?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/profit-margin-calculator?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/profit-margin-calculator?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/profit-margin-calculator?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/profit-margin-calculator?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/profit-margin-calculator?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/profit-margin-calculator?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/profit-margin-calculator?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/profit-margin-calculator?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/profit-margin-calculator?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/retirement-calculator</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/retirement-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/retirement-calculator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/retirement-calculator?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/retirement-calculator?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/retirement-calculator?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/retirement-calculator?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/retirement-calculator?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/retirement-calculator?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/retirement-calculator?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/retirement-calculator?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/retirement-calculator?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/retirement-calculator?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/roi-calculator</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/roi-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/roi-calculator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/roi-calculator?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/roi-calculator?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/roi-calculator?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/roi-calculator?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/roi-calculator?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/roi-calculator?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/roi-calculator?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/roi-calculator?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/roi-calculator?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/roi-calculator?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/sales-tax-calculator</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/sales-tax-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/sales-tax-calculator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/sales-tax-calculator?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/sales-tax-calculator?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/sales-tax-calculator?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/sales-tax-calculator?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/sales-tax-calculator?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/sales-tax-calculator?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/sales-tax-calculator?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/sales-tax-calculator?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/sales-tax-calculator?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/sales-tax-calculator?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/savings-calculator</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/savings-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/savings-calculator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/savings-calculator?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/savings-calculator?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/savings-calculator?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/savings-calculator?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/savings-calculator?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/savings-calculator?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/savings-calculator?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/savings-calculator?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/savings-calculator?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/savings-calculator?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/sip-calculator</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/sip-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/sip-calculator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/sip-calculator?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/sip-calculator?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/sip-calculator?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/sip-calculator?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/sip-calculator?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/sip-calculator?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/sip-calculator?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/sip-calculator?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/sip-calculator?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/sip-calculator?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/tip-calculator</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/tip-calculator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/tip-calculator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/tip-calculator?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/tip-calculator?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/tip-calculator?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/tip-calculator?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/tip-calculator?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/tip-calculator?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/tip-calculator?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/tip-calculator?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/tip-calculator?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/tip-calculator?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/unit-converter</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/unit-converter" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/unit-converter" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/unit-converter?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/unit-converter?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/unit-converter?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/unit-converter?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/unit-converter?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/unit-converter?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/unit-converter?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/unit-converter?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/unit-converter?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/unit-converter?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/word-counter</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/word-counter" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/word-counter" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/word-counter?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/word-counter?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/word-counter?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/word-counter?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/word-counter?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/word-counter?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/word-counter?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/word-counter?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/word-counter?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/word-counter?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/word-unscrambler</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/word-unscrambler" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/word-unscrambler" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/word-unscrambler?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/word-unscrambler?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/word-unscrambler?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/word-unscrambler?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/word-unscrambler?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/word-unscrambler?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/word-unscrambler?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/word-unscrambler?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/word-unscrambler?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/word-unscrambler?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/qr-generator</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/qr-generator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/qr-generator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/qr-generator?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/qr-generator?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/qr-generator?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/qr-generator?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/qr-generator?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/qr-generator?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/qr-generator?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/qr-generator?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/qr-generator?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/qr-generator?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/password-generator</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/password-generator" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/password-generator" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/password-generator?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/password-generator?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/password-generator?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/password-generator?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/password-generator?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/password-generator?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/password-generator?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/password-generator?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/password-generator?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/password-generator?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/image-converter</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/image-converter" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/image-converter" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/image-converter?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/image-converter?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/image-converter?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/image-converter?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/image-converter?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/image-converter?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/image-converter?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/image-converter?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/image-converter?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/image-converter?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/pdf-to-word</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/pdf-to-word" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/pdf-to-word" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/pdf-to-word?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/pdf-to-word?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/pdf-to-word?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/pdf-to-word?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/pdf-to-word?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/pdf-to-word?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/pdf-to-word?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/pdf-to-word?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/pdf-to-word?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/pdf-to-word?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/pdf-to-excel</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/pdf-to-excel" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/pdf-to-excel" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/pdf-to-excel?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/pdf-to-excel?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/pdf-to-excel?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/pdf-to-excel?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/pdf-to-excel?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/pdf-to-excel?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/pdf-to-excel?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/pdf-to-excel?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/pdf-to-excel?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/pdf-to-excel?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/word-to-pdf</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/word-to-pdf" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/word-to-pdf" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/word-to-pdf?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/word-to-pdf?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/word-to-pdf?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/word-to-pdf?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/word-to-pdf?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/word-to-pdf?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/word-to-pdf?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/word-to-pdf?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/word-to-pdf?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/word-to-pdf?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/word-to-excel</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/word-to-excel" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/word-to-excel" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/word-to-excel?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/word-to-excel?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/word-to-excel?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/word-to-excel?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/word-to-excel?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/word-to-excel?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/word-to-excel?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/word-to-excel?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/word-to-excel?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/word-to-excel?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/excel-to-word</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/excel-to-word" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/excel-to-word" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/excel-to-word?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/excel-to-word?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/excel-to-word?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/excel-to-word?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/excel-to-word?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/excel-to-word?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/excel-to-word?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/excel-to-word?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/excel-to-word?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/excel-to-word?hl=it" />
   </url>
   <url>
     <loc>https://multiwebs.app/excel-to-pdf</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/excel-to-pdf" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/excel-to-pdf" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/excel-to-pdf?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/excel-to-pdf?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/excel-to-pdf?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/excel-to-pdf?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/excel-to-pdf?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/excel-to-pdf?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/excel-to-pdf?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/excel-to-pdf?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/excel-to-pdf?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/excel-to-pdf?hl=it" />
   </url>
 </urlset>
