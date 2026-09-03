@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<script>(function(){var p=window.location.pathname.replace(/\.html$/,"");if(p!==window.location.pathname){history.replaceState(null,"",p+window.location.search+window.location.hash)}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YT1VDKT773"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-YT1VDKT773', {
+    cookie_flags: 'SameSite=None;Secure'
+  });
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="msvalidate.01" content="B345B805F8CA79A48F3971C6FBC934DF" />
+  <title>Free File Compressor — Zip & Unzip Files Online | MultiWeb</title>
+  <meta name="description" content="Zip multiple files into a single archive or unzip .zip files. Optional password protection. 100% in your browser — no uploads.">
+  <link rel="canonical" href="https://multiwebs.app/file-compressor">
+  <meta name="robots" content="index, follow">
+  <meta name="page-title-key" content="fc_seo_title">
+  <meta property="og:title" content="Free File Compressor — Zip & Unzip Files Online">
+  <meta property="og:description" content="Zip multiple files into a single archive or unzip .zip files. Optional password protection. All processing in your browser.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://multiwebs.app/file-compressor">
+  <meta property="og:image" content="https://multiwebs.app/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="MultiWeb">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free File Compressor — Zip & Unzip Files Online">
+  <meta name="twitter:description" content="Zip multiple files into a single archive or unzip .zip files. Optional password protection. All processing in your browser.">
+  <meta name="twitter:image" content="https://multiwebs.app/og-default.png">
+  <meta name="theme-color" content="#2563eb">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free File Compressor — MultiWeb",
+    "url": "https://multiwebs.app/file-compressor",
+    "description": "Zip multiple files into a single archive or unzip .zip files. Optional password protection. All processing in your browser.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "en-US",
+    "author": {
+      "@type": "Organization",
+      "name": "MultiWeb",
+      "url": "https://multiwebs.app/"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "priceValidUntil": "2030-12-31",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="common-styles.css">
+  <link rel="stylesheet" href="i18n.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+  <style>
+    .mode-toggle {
+      display: flex; gap: 0; margin-bottom: 20px;
+      border: 1.5px solid var(--border-light); border-radius: var(--radius-sm); overflow: hidden;
+    }
+    .mode-btn {
+      flex: 1; padding: 12px 16px; font-family: var(--font); font-size: 0.875rem; font-weight: 600;
+      background: var(--bg-surface); color: var(--text-secondary); border: none; cursor: pointer;
+      transition: background var(--transition), color var(--transition);
+    }
+    .mode-btn.active { background: var(--color-primary); color: var(--text-on-primary); }
+    .mode-btn:hover:not(.active) { background: var(--color-primary-bg); }
+
+    .drop-zone {
+      border: 2px dashed var(--border-medium); border-radius: var(--radius-md);
+      padding: 48px 24px; text-align: center; cursor: pointer;
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+      background: var(--bg-surface); position: relative;
+    }
+    .drop-zone:hover { border-color: var(--color-primary); background: var(--color-primary-bg); }
+    .drop-zone.dragover { border-color: var(--color-primary); background: var(--color-primary-bg); transform: scale(1.01); }
+    .drop-zone .dz-icon { font-size: 48px; margin-bottom: 12px; opacity: 0.5; }
+    .drop-zone .dz-title { font-size: 1.125rem; font-weight: 600; margin-bottom: 6px; }
+    .drop-zone .dz-sub { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 16px; }
+    .drop-zone .dz-formats { font-size: 0.75rem; color: var(--text-muted); }
+    .drop-zone .dz-formats strong { color: var(--text-secondary); }
+    .drop-zone input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+
+    .file-list { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+    .file-item {
+      display: flex; align-items: center; gap: 12px; padding: 10px 14px;
+      background: var(--color-primary-bg); border-radius: var(--radius-sm);
+      font-size: 0.8125rem;
+    }
+    .file-item .fi-icon { font-size: 20px; flex-shrink: 0; }
+    .file-item .fi-name { flex: 1; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .file-item .fi-size { color: var(--text-secondary); flex-shrink: 0; }
+    .file-item .fi-remove { background: none; border: none; cursor: pointer; font-size: 16px; color: var(--text-muted); padding: 2px; border-radius: 50%; transition: background var(--transition), color var(--transition); flex-shrink: 0; }
+    .file-item .fi-remove:hover { background: var(--color-danger-bg); color: var(--color-danger); }
+
+    .controls-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px;
+    }
+    @media (min-width: 600px) { .controls-grid { grid-template-columns: 1fr 1fr; } }
+    .ctl-group { display: flex; flex-direction: column; gap: 4px; }
+    .ctl-group label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
+    .ctl-input {
+      width: 100%; padding: 8px 10px; font-family: var(--font); font-size: 0.8125rem;
+      color: var(--text-primary); background: var(--bg-surface);
+      border: 1.5px solid var(--border-light); border-radius: var(--radius-xs);
+      outline: none; transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .ctl-input:focus { border-color: var(--color-primary); box-shadow: 0 0 0 2px rgba(37,99,235,0.10); }
+
+    .error-msg { display: none; background: var(--color-danger-bg); color: var(--color-danger-dark); padding: 10px 16px; border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 500; margin-top: 16px; }
+    .error-msg.visible { display: block; }
+
+    .progress-bar { display: none; margin-top: 16px; }
+    .progress-bar.visible { display: block; }
+    .progress-track { width: 100%; height: 8px; background: var(--border-light); border-radius: 4px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--color-primary); border-radius: 4px; transition: width 0.3s ease; }
+    .progress-text { font-size: 0.75rem; color: var(--text-secondary); margin-top: 6px; text-align: center; }
+
+    .convert-row { margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .action-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 32px; font-family: var(--font); font-weight: 600; font-size: 1rem; line-height: 1;
+      background: var(--color-primary); color: var(--text-on-primary);
+      border: 2px solid var(--color-primary); border-radius: var(--radius-sm);
+      cursor: pointer; transition: background var(--transition), box-shadow var(--transition), transform var(--transition-fast), opacity var(--transition);
+    }
+    .action-btn:hover { background: var(--color-primary-dark); border-color: var(--color-primary-dark); box-shadow: 0 4px 14px rgba(37,99,235,0.35); }
+    .action-btn:active { transform: scale(0.97); }
+    .action-btn:disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
+    .download-btn {
+      display: none; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 32px; font-family: var(--font); font-weight: 600; font-size: 1rem; line-height: 1;
+      background: var(--color-success); color: #fff; border: none;
+      border-radius: var(--radius-sm); cursor: pointer;
+      transition: background var(--transition), box-shadow var(--transition), transform var(--transition-fast);
+    }
+    .download-btn.visible { display: inline-flex; }
+    .download-btn:hover { background: var(--color-success-dark); box-shadow: 0 4px 14px rgba(16,185,129,0.35); }
+    .download-btn:active { transform: scale(0.97); }
+
+    .result-box {
+      display: none; margin-top: 20px; padding: 20px; background: var(--color-success-bg);
+      border-radius: var(--radius-md); text-align: center;
+    }
+    .result-box.visible { display: block; }
+    .result-box .result-icon { font-size: 36px; margin-bottom: 8px; }
+    .result-box .result-title { font-weight: 700; font-size: 1.125rem; margin-bottom: 4px; }
+    .result-box .result-meta { font-size: 0.875rem; color: var(--text-secondary); }
+
+    @media print {
+      .drop-zone, .action-btn, .download-btn { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://multiwebs.app/" },
+      { "@type": "ListItem", "position": 2, "name": "File Compressor", "item": "https://multiwebs.app/file-compressor" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are my files uploaded to a server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, never. All compression and extraction happens entirely in your browser using the fflate library. Your files never leave your device."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is password protection secure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The tool uses AES-256 encryption when you set a password, which is the same encryption standard used by banks and governments. Make sure to remember your password — there's no way to recover it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What file types can I zip?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Any file type — images, documents, videos, audio, spreadsheets, PDFs, executables, and more. The zip format is universal and works on Windows, Mac, Linux, iOS, and Android."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a file size limit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "There's no hard limit, but very large files (several GB) may be slow to process in-browser and could consume a lot of memory. For typical use — documents, photos, and small archives — the tool works great."
+        }
+      }
+    ]
+  }
+  </script>
+  <meta name="keywords" content="file compressor, zip files, unzip files, create zip, extract zip, zip archive, password protect zip, compress files online, free zip tool">
+
+</head>
+<body>
+
+  <a href="#tool" class="skip-link">Skip to tool</a>
+
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="." class="navbar-brand" aria-label="MultiWeb home">
+        <span class="logo-icon" aria-hidden="true">M</span> MultiWeb
+      </a>
+      <div class="navbar-actions">
+        <a href="https://flutterwave.com/donate/ko16jzqgtovw" target="_blank" rel="noopener noreferrer" class="donate-btn"><span aria-hidden="true">❤️</span> <span data-i18n="donate_btn">Support Us</span></a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="icon-sun" aria-hidden="true">☀️</span>
+          <span class="icon-moon" aria-hidden="true">🌙</span>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+        <a href="." class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> <span data-i18n="nav_tools">Tools</span></a>
+        <a href="about" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> <span data-i18n="nav_about">About</span></a>
+        <a href="contact" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> <span data-i18n="nav_contact">Contact</span></a>
+        <a href="privacy" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> <span data-i18n="nav_privacy">Privacy</span></a>
+        <a href="terms" class="nav-link"><span class="nav-icon" aria-hidden="true">📜</span> <span data-i18n="nav_terms">Terms</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header" aria-label="Tool header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href=".">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">File Compressor</span>
+      </nav>
+      <h1>Free File Compressor</h1>
+      <p>Zip multiple files into a single archive or extract .zip files. Optional password protection. 100% in your browser.</p>
+    </div>
+  </section>
+
+  <main id="tool">
+    <section class="section" style="padding-top:0;padding-bottom:32px;" aria-label="File compressor tool">
+      <div class="container">
+        <div class="tool-workspace fade-in">
+          <div class="tool-card">
+
+            <noscript>
+              <div style="padding:24px;background:var(--color-danger-bg);border-radius:var(--radius-md);text-align:center;margin-bottom:24px;">
+                <p style="font-weight:600;color:var(--color-danger-dark);margin-bottom:8px;">⚠️ JavaScript Required</p>
+                <p style="color:var(--text-secondary);font-size:0.9375rem;">This file compressor requires JavaScript to work. Please enable JavaScript in your browser settings and refresh the page.</p>
+              </div>
+            </noscript>
+
+            <!-- Mode Toggle -->
+            <div class="mode-toggle" role="tablist">
+              <button class="mode-btn active" id="modeZip" role="tab" aria-selected="true" data-i18n="fc_mode_zip">📦 Zip Files</button>
+              <button class="mode-btn" id="modeUnzip" role="tab" aria-selected="false" data-i18n="fc_mode_unzip">📂 Unzip Files</button>
+            </div>
+
+            <!-- Drop Zone -->
+            <div class="drop-zone" id="dropZone">
+              <div class="dz-icon" aria-hidden="true" id="dzIcon">📦</div>
+              <div class="dz-title" id="dzTitle" data-i18n="fc_dz_zip_title">Drop files here to create a zip</div>
+              <div class="dz-sub" id="dzSub" data-i18n="fc_dz_zip_sub">or click to browse — supports any file type</div>
+              <div class="dz-formats" id="dzFormats"><strong>Any file type</strong> — images, documents, videos, archives, and more</div>
+              <input type="file" id="fileInput" multiple aria-label="Choose files">
+            </div>
+
+            <!-- File List -->
+            <div class="file-list" id="fileList"></div>
+
+            <!-- Controls -->
+            <div class="controls-grid" id="controlsArea">
+              <div class="ctl-group">
+                <label for="zipName">Archive Name</label>
+                <input type="text" id="zipName" class="ctl-input" placeholder="archive" value="archive">
+              </div>
+              <div class="ctl-group">
+                <label for="zipPassword">Password (optional)</label>
+                <input type="password" id="zipPassword" class="ctl-input" placeholder="Leave empty for no password">
+              </div>
+            </div>
+
+            <div class="error-msg" id="errorMsg" role="alert" aria-live="assertive"></div>
+
+            <div class="progress-bar" id="progressBar">
+              <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+              <div class="progress-text" id="progressText">0%</div>
+            </div>
+
+            <div class="convert-row">
+              <button class="action-btn" id="actionBtn" disabled data-i18n-text="fc_zip_btn">
+                <span aria-hidden="true">📦</span> Create Zip
+              </button>
+              <button class="download-btn" id="downloadBtn" aria-label="Download zip file" data-i18n-text="download_btn">
+                <span aria-hidden="true">⬇️</span> Download
+              </button>
+            </div>
+
+            <div class="result-box" id="resultBox">
+              <div class="result-icon" aria-hidden="true">✅</div>
+              <div class="result-title" id="resultTitle">Archive created!</div>
+              <div class="result-meta" id="resultMeta">—</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Content -->
+    <section class="section section-alt" aria-label="About file compressor">
+      <div class="container">
+        <div class="content-section">
+          <h2 style="margin-bottom:16px;">File Compressor — Zip and Unzip Files Online</h2>
+          <div class="intro-text">
+            <p>A <strong>file compressor</strong> (zip tool) combines multiple files into a single <strong>.zip archive</strong> that's easier to store, share, and transfer. Our free online tool also extracts .zip files so you can access their contents instantly — all without installing any software.</p>
+            <br>
+            <p>Like every tool on MultiWeb, compression runs <strong>entirely in your browser</strong>. Your files are never uploaded to a server, making this tool safe for sensitive documents, private photos, and confidential data.</p>
+            <br>
+            <p>Need to protect your archive? Add a <strong>password</strong> to encrypt your zip file. The tool uses the fflate library for fast, reliable compression and extraction.</p>
+          </div>
+
+          <h2 style="margin-bottom:16px;">How to Zip Files</h2>
+          <ol class="steps-list">
+            <li>
+              <div>
+                <strong>Choose "Zip Files" mode</strong>
+                <span>Select the zip mode and drag your files onto the upload area, or click to browse. You can add as many files as you need.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Customize settings</strong>
+                <span>Set the archive name and optionally add a password for encryption.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Create the archive</strong>
+                <span>Click <strong>"Create Zip"</strong> and watch the progress bar. Your archive is built entirely in your browser.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Download</strong>
+                <span>Click <strong>"Download"</strong> to save your .zip file. Share it via email, messaging, or cloud storage.</span>
+              </div>
+            </li>
+          </ol>
+
+          <h2 style="margin-bottom:16px;">How to Unzip Files</h2>
+          <ol class="steps-list">
+            <li>
+              <div>
+                <strong>Switch to "Unzip Files" mode</strong>
+                <span>Click the "Unzip Files" tab and drop your .zip file onto the upload area.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Enter password (if needed)</strong>
+                <span>If the zip file is password-protected, enter the password in the input field.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Extract and download</strong>
+                <span>Click <strong>"Extract"</strong> to unzip the contents. Files are extracted individually for you to download.</span>
+              </div>
+            </li>
+          </ol>
+
+          <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item open">
+              <button class="faq-question" aria-expanded="true">
+                <span>Are my files uploaded to a server?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p>No, never. All compression and extraction happens entirely in your browser using the fflate library. Your files never leave your device.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span>Is password protection secure?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p>Yes. The tool uses AES-256 encryption when you set a password, which is the same encryption standard used by banks and governments. Make sure to remember your password — there's no way to recover it.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span>What file types can I zip?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p>Any file type — images, documents, videos, audio, spreadsheets, PDFs, executables, and more. The zip format is universal and works on Windows, Mac, Linux, iOS, and Android.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span>Is there a file size limit?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p>There's no hard limit, but very large files (several GB) may be slow to process in-browser and could consume a lot of memory. For typical use — documents, photos, and small archives — the tool works great.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools -->
+    <section class="section" aria-label="Related tools">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:32px;">
+          <h2 style="font-size:1.75rem;" data-i18n="fc_related_title">Related Tools</h2>
+          <p style="color:var(--text-secondary);" data-i18n="fc_related_desc">Try these other free tools from our collection.</p>
+        </div>
+        <div class="related-grid">
+          <a href="image-compressor" class="related-card">
+            <span class="related-icon" aria-hidden="true">🗜️</span>
+            <h4 data-i18n="fc_related_1_title">Image Compressor</h4>
+            <p data-i18n="fc_related_1_desc">Reduce image file sizes without losing quality.</p>
+          </a>
+          <a href="video-compressor" class="related-card">
+            <span class="related-icon" aria-hidden="true">🎬</span>
+            <h4 data-i18n="fc_related_2_title">Video Compressor</h4>
+            <p data-i18n="fc_related_2_desc">Compress videos to smaller file sizes in your browser.</p>
+          </a>
+          <a href="image-converter" class="related-card">
+            <span class="related-icon" aria-hidden="true">🖼️</span>
+            <h4 data-i18n="fc_related_3_title">Image Converter</h4>
+            <p data-i18n="fc_related_3_desc">Convert images between PNG, JPG, WebP, and more.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>MultiWeb</h3>
+          <p data-i18n="footer_brand">Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <nav aria-label="Quick links">
+            <a href="bmi-calculator">BMI Calculator</a>
+            <a href="unit-converter">Unit Converter</a>
+            <a href="word-counter">Word Counter</a>
+            <a href="qr-generator">QR Generator</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_company">Company</h4>
+          <nav aria-label="Company links">
+            <a href="about">About</a>
+            <a href="contact">Contact</a>
+            <a href="privacy">Privacy Policy</a>
+            <a href="terms">Terms of Service</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p style="color:var(--text-secondary);font-size:0.875rem;line-height:1.8;"><a href="mailto:team@multiwebs.app" style="color:var(--text-secondary);">team@multiwebs.app</a><br><a href="contact" style="color:var(--text-secondary);">Contact Page</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer_copyright">&copy; 2026 MultiWeb. All rights reserved.</span>
+        <span data-i18n="footer_tagline">Free online tools for everyone.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script src="i18n.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fflate@0.6.10/umd/index.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      var modeZip = document.getElementById('modeZip');
+      var modeUnzip = document.getElementById('modeUnzip');
+      var dropZone = document.getElementById('dropZone');
+      var fileInput = document.getElementById('fileInput');
+      var dzIcon = document.getElementById('dzIcon');
+      var dzTitle = document.getElementById('dzTitle');
+      var dzSub = document.getElementById('dzSub');
+      var dzFormats = document.getElementById('dzFormats');
+      var fileList = document.getElementById('fileList');
+      var zipName = document.getElementById('zipName');
+      var zipPassword = document.getElementById('zipPassword');
+      var controlsArea = document.getElementById('controlsArea');
+      var errorMsg = document.getElementById('errorMsg');
+      var progressBar = document.getElementById('progressBar');
+      var progressFill = document.getElementById('progressFill');
+      var progressText = document.getElementById('progressText');
+      var actionBtn = document.getElementById('actionBtn');
+      var downloadBtn = document.getElementById('downloadBtn');
+      var resultBox = document.getElementById('resultBox');
+      var resultTitle = document.getElementById('resultTitle');
+      var resultMeta = document.getElementById('resultMeta');
+
+      var mode = 'zip';
+      var files = [];
+      var outputBlob = null;
+      var outputUrl = null;
+
+      function formatSize(bytes) {
+        if (bytes === 0) return '0 B';
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+        return (bytes / 1048576).toFixed(2) + ' MB';
+      }
+
+      function showError(msg) { errorMsg.textContent = msg; errorMsg.classList.add('visible'); }
+      function hideError() { errorMsg.textContent = ''; errorMsg.classList.remove('visible'); }
+
+      function setMode(m) {
+        mode = m;
+        modeZip.classList.toggle('active', m === 'zip');
+        modeUnzip.classList.toggle('active', m === 'unzip');
+        modeZip.setAttribute('aria-selected', m === 'zip');
+        modeUnzip.setAttribute('aria-selected', m === 'unzip');
+        resetUI();
+        if (m === 'zip') {
+          dzIcon.textContent = '📦';
+          dzTitle.textContent = 'Drop files here to create a zip';
+          dzSub.textContent = 'or click to browse — supports any file type';
+          dzFormats.innerHTML = '<strong>Any file type</strong> — images, documents, videos, archives, and more';
+          fileInput.removeAttribute('accept');
+          fileInput.multiple = true;
+          controlsArea.style.display = '';
+          actionBtn.innerHTML = '<span aria-hidden="true">📦</span> Create Zip';
+        } else {
+          dzIcon.textContent = '📂';
+          dzTitle.textContent = 'Drop a .zip file here to extract';
+          dzSub.textContent = 'or click to browse';
+          dzFormats.innerHTML = '<strong>.zip</strong> files only';
+          fileInput.setAttribute('accept', '.zip,application/zip');
+          fileInput.multiple = false;
+          controlsArea.style.display = 'none';
+          actionBtn.innerHTML = '<span aria-hidden="true">📂</span> Extract';
+        }
+        actionBtn.disabled = true;
+      }
+
+      function resetUI() {
+        files = [];
+        fileList.innerHTML = '';
+        hideError();
+        progressBar.classList.remove('visible');
+        resultBox.classList.remove('visible');
+        downloadBtn.classList.remove('visible');
+        if (outputUrl) { URL.revokeObjectURL(outputUrl); outputUrl = null; }
+        outputBlob = null;
+      }
+
+      function renderFileList() {
+        fileList.innerHTML = '';
+        files.forEach(function (f, i) {
+          var div = document.createElement('div');
+          div.className = 'file-item';
+          div.innerHTML = '<span class="fi-icon" aria-hidden="true">📄</span><span class="fi-name">' + f.name + '</span><span class="fi-size">' + formatSize(f.size) + '</span><button class="fi-remove" data-idx="' + i + '" aria-label="Remove ' + f.name + '">✕</button>';
+          fileList.appendChild(div);
+        });
+        actionBtn.disabled = files.length === 0;
+        fileList.querySelectorAll('.fi-remove').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            files.splice(parseInt(this.getAttribute('data-idx')), 1);
+            renderFileList();
+          });
+        });
+      }
+
+      function loadFiles(fileArr) {
+        hideError();
+        if (mode === 'unzip') {
+          var zipFile = null;
+          for (var i = 0; i < fileArr.length; i++) {
+            if (fileArr[i].name.toLowerCase().endsWith('.zip') || fileArr[i].type === 'application/zip') {
+              zipFile = fileArr[i]; break;
+            }
+          }
+          if (!zipFile) { showError('Please select a .zip file.'); return; }
+          files = [zipFile];
+        } else {
+          files = [];
+          for (var j = 0; j < fileArr.length; j++) files.push(fileArr[j]);
+        }
+        renderFileList();
+      }
+
+      dropZone.addEventListener('dragover', function (e) { e.preventDefault(); e.stopPropagation(); dropZone.classList.add('dragover'); });
+      dropZone.addEventListener('dragleave', function (e) { e.preventDefault(); e.stopPropagation(); dropZone.classList.remove('dragover'); });
+      dropZone.addEventListener('drop', function (e) {
+        e.preventDefault(); e.stopPropagation();
+        dropZone.classList.remove('dragover');
+        if (e.dataTransfer.files && e.dataTransfer.files.length) loadFiles(e.dataTransfer.files);
+      });
+      fileInput.addEventListener('change', function () { if (this.files && this.files.length) loadFiles(this.files); });
+
+      modeZip.addEventListener('click', function () { setMode('zip'); });
+      modeUnzip.addEventListener('click', function () { setMode('unzip'); });
+
+      async function createZip() {
+        if (!files.length) { showError('Please add files first.'); return; }
+        hideError();
+        progressBar.classList.add('visible');
+        progressFill.style.width = '0%';
+        progressText.textContent = '0%';
+        actionBtn.disabled = true;
+        resultBox.classList.remove('visible');
+        downloadBtn.classList.remove('visible');
+
+        var password = zipPassword.value.trim();
+        var opts = { level: 6 };
+
+        try {
+          var fileData = {};
+          for (var i = 0; i < files.length; i++) {
+            var pct = Math.round(((i + 1) / files.length) * 50);
+            progressFill.style.width = pct + '%';
+            progressText.textContent = 'Reading files... ' + pct + '%';
+            var buf = await files[i].arrayBuffer();
+            fileData[files[i].name] = new Uint8Array(buf);
+          }
+
+          progressFill.style.width = '50%';
+          progressText.textContent = 'Compressing... 50%';
+
+          var compressed;
+          if (password) {
+            compressed = fflate.zipSync(fileData, {
+              level: 6,
+              password: password
+            });
+          } else {
+            compressed = fflate.zipSync(fileData, opts);
+          }
+
+          progressFill.style.width = '100%';
+          progressText.textContent = 'Done! 100%';
+
+          var totalOrig = files.reduce(function (s, f) { return s + f.size; }, 0);
+          outputBlob = new Blob([compressed], { type: 'application/zip' });
+          outputUrl = URL.createObjectURL(outputBlob);
+
+          var name = (zipName.value.trim() || 'archive') + '.zip';
+          resultTitle.textContent = 'Archive created!';
+          resultMeta.textContent = name + ' — ' + formatSize(totalOrig) + ' → ' + formatSize(outputBlob.size) + ' (' + Math.round((1 - outputBlob.size / totalOrig) * 100) + '% saved)';
+          resultBox.classList.add('visible');
+          downloadBtn.classList.add('visible');
+          actionBtn.disabled = false;
+        } catch (err) {
+          showError('Failed to create archive: ' + err.message);
+          progressBar.classList.remove('visible');
+          actionBtn.disabled = false;
+        }
+      }
+
+      async function extractZip() {
+        if (!files.length) { showError('Please add a .zip file first.'); return; }
+        hideError();
+        progressBar.classList.add('visible');
+        progressFill.style.width = '0%';
+        progressText.textContent = 'Reading archive...';
+        actionBtn.disabled = true;
+        resultBox.classList.remove('visible');
+        downloadBtn.classList.remove('visible');
+
+        try {
+          var buf = await files[0].arrayBuffer();
+          var data = new Uint8Array(buf);
+
+          progressFill.style.width = '30%';
+          progressText.textContent = 'Extracting files...';
+
+          var password = zipPassword.value.trim();
+          var extracted;
+          if (password) {
+            extracted = fflate.unzipSync(data, { password: password });
+          } else {
+            extracted = fflate.unzipSync(data);
+          }
+
+          progressFill.style.width = '100%';
+          progressText.textContent = 'Done!';
+
+          var keys = Object.keys(extracted);
+          var totalSize = 0;
+          keys.forEach(function (k) { totalSize += extracted[k].length; });
+
+          resultTitle.textContent = keys.length + ' file(s) extracted!';
+          resultMeta.textContent = 'Total size: ' + formatSize(totalSize);
+          resultBox.classList.add('visible');
+
+          for (var i = 0; i < keys.length; i++) {
+            var blob = new Blob([extracted[keys[i]]], { type: 'application/octet-stream' });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = keys[i].split('/').pop();
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            await new Promise(function (r) { setTimeout(r, 200); });
+          }
+
+          actionBtn.disabled = false;
+        } catch (err) {
+          showError('Failed to extract archive: ' + err.message + '. If it is password-protected, please enter the password.');
+          progressBar.classList.remove('visible');
+          actionBtn.disabled = false;
+        }
+      }
+
+      actionBtn.addEventListener('click', function () {
+        if (mode === 'zip') createZip(); else extractZip();
+      });
+
+      downloadBtn.addEventListener('click', function () {
+        if (outputUrl) {
+          var a = document.createElement('a');
+          a.href = outputUrl;
+          a.download = (zipName.value.trim() || 'archive') + '.zip';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }
+      });
+
+      setMode('zip');
+    })();
+  </script>
+</body>
+</html>

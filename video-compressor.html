@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<script>(function(){var p=window.location.pathname.replace(/\.html$/,"");if(p!==window.location.pathname){history.replaceState(null,"",p+window.location.search+window.location.hash)}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YT1VDKT773"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-YT1VDKT773', {
+    cookie_flags: 'SameSite=None;Secure'
+  });
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="msvalidate.01" content="B345B805F8CA79A48F3971C6FBC934DF" />
+  <title>Free Video Compressor — Compress Videos Online | MultiWeb</title>
+  <meta name="description" content="Compress videos to smaller file sizes without losing quality. Supports MP4, WebM, AVI, MOV. 100% in your browser — no uploads.">
+  <link rel="canonical" href="https://multiwebs.app/video-compressor">
+  <meta name="robots" content="index, follow">
+  <meta name="page-title-key" content="vc_seo_title">
+  <meta property="og:title" content="Free Video Compressor — Compress Videos Online">
+  <meta property="og:description" content="Compress videos to smaller file sizes without losing quality. Supports MP4, WebM, AVI, MOV. All processing in your browser.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://multiwebs.app/video-compressor">
+  <meta property="og:image" content="https://multiwebs.app/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="MultiWeb">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Video Compressor — Compress Videos Online">
+  <meta name="twitter:description" content="Compress videos to smaller file sizes without losing quality. Supports MP4, WebM, AVI, MOV. All processing in your browser.">
+  <meta name="twitter:image" content="https://multiwebs.app/og-default.png">
+  <meta name="theme-color" content="#2563eb">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Video Compressor — MultiWeb",
+    "url": "https://multiwebs.app/video-compressor",
+    "description": "Compress videos to smaller file sizes without losing quality. Supports MP4, WebM, AVI, MOV. All processing in your browser.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "en-US",
+    "author": {
+      "@type": "Organization",
+      "name": "MultiWeb",
+      "url": "https://multiwebs.app/"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "priceValidUntil": "2030-12-31",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="common-styles.css">
+  <link rel="stylesheet" href="i18n.css">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+  <style>
+    .drop-zone {
+      border: 2px dashed var(--border-medium); border-radius: var(--radius-md);
+      padding: 48px 24px; text-align: center; cursor: pointer;
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+      background: var(--bg-surface); position: relative;
+    }
+    .drop-zone:hover { border-color: var(--color-primary); background: var(--color-primary-bg); }
+    .drop-zone.dragover { border-color: var(--color-primary); background: var(--color-primary-bg); transform: scale(1.01); }
+    .drop-zone .dz-icon { font-size: 48px; margin-bottom: 12px; opacity: 0.5; }
+    .drop-zone .dz-title { font-size: 1.125rem; font-weight: 600; margin-bottom: 6px; }
+    .drop-zone .dz-sub { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 16px; }
+    .drop-zone .dz-formats { font-size: 0.75rem; color: var(--text-muted); }
+    .drop-zone .dz-formats strong { color: var(--text-secondary); }
+    .drop-zone input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+
+    .file-info {
+      display: none; align-items: center; gap: 16px;
+      padding: 12px 16px; background: var(--color-primary-bg);
+      border-radius: var(--radius-sm); margin-top: 12px;
+    }
+    .file-info.visible { display: flex; flex-wrap: wrap; }
+    .file-info .fi-icon { font-size: 28px; flex-shrink: 0; }
+    .file-info .fi-details { flex: 1; min-width: 0; }
+    .file-info .fi-name { font-weight: 600; font-size: 0.875rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .file-info .fi-meta { font-size: 0.75rem; color: var(--text-secondary); }
+    .file-info .fi-remove { background: none; border: none; cursor: pointer; font-size: 18px; color: var(--text-muted); padding: 4px; border-radius: 50%; transition: background var(--transition), color var(--transition); }
+    .file-info .fi-remove:hover { background: var(--color-danger-bg); color: var(--color-danger); }
+
+    .controls-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px;
+    }
+    @media (min-width: 600px) { .controls-grid { grid-template-columns: 1fr 1fr; } }
+    .ctl-group { display: flex; flex-direction: column; gap: 4px; }
+    .ctl-group label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
+    .ctl-select {
+      width: 100%; padding: 8px 10px; font-family: var(--font); font-size: 0.8125rem;
+      color: var(--text-primary); background: var(--bg-surface);
+      border: 1.5px solid var(--border-light); border-radius: var(--radius-xs);
+      outline: none; transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .ctl-select:focus { border-color: var(--color-primary); box-shadow: 0 0 0 2px rgba(37,99,235,0.10); }
+    .ctl-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%238a90a2' d='M1 1l4 4 4-4'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 8px center; padding-right: 24px; }
+
+    .error-msg { display: none; background: var(--color-danger-bg); color: var(--color-danger-dark); padding: 10px 16px; border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 500; margin-top: 16px; }
+    .error-msg.visible { display: block; }
+
+    .progress-area { display: none; margin-top: 20px; }
+    .progress-area.visible { display: block; }
+    .progress-track { width: 100%; height: 10px; background: var(--border-light); border-radius: 5px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); border-radius: 5px; transition: width 0.3s ease; width: 0%; }
+    .progress-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .progress-label { font-size: 0.8125rem; font-weight: 600; color: var(--text-primary); }
+    .progress-pct { font-size: 0.8125rem; font-weight: 700; color: var(--color-primary); }
+    .progress-detail { font-size: 0.75rem; color: var(--text-secondary); margin-top: 6px; text-align: center; }
+
+    .ffmpeg-loading {
+      display: none; margin-top: 16px; padding: 16px; background: var(--color-primary-bg);
+      border-radius: var(--radius-md); text-align: center;
+    }
+    .ffmpeg-loading.visible { display: block; }
+    .ffmpeg-loading .fl-icon { font-size: 32px; margin-bottom: 8px; }
+    .ffmpeg-loading .fl-text { font-size: 0.875rem; font-weight: 600; color: var(--text-primary); }
+    .ffmpeg-loading .fl-sub { font-size: 0.75rem; color: var(--text-secondary); margin-top: 4px; }
+
+    .preview-area { display: none; margin-top: 20px; gap: 20px; }
+    .preview-area.visible { display: grid; }
+    @media (min-width: 700px) { .preview-area { grid-template-columns: 1fr 1fr; } }
+    .preview-box {
+      border: 1px solid var(--border-light); border-radius: var(--radius-md);
+      overflow: hidden; background: var(--bg-surface);
+    }
+    .preview-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 16px; border-bottom: 1px solid var(--border-light);
+      font-size: 0.8125rem; font-weight: 600;
+    }
+    .preview-header .ph-badge {
+      font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.05em; padding: 2px 8px; border-radius: var(--radius-full);
+    }
+    .ph-before { background: var(--bg-tag); color: var(--text-secondary); }
+    .ph-after { background: var(--color-success-bg); color: var(--color-success-dark); }
+    .preview-body {
+      padding: 16px; display: flex; align-items: center; justify-content: center;
+      min-height: 180px; background: #000; position: relative;
+    }
+    .preview-body video, .preview-body .ph-empty {
+      max-width: 100%; max-height: 250px; border-radius: var(--radius-xs);
+    }
+    .preview-body .ph-empty { color: var(--text-muted); font-size: 0.875rem; text-align: center; }
+    .preview-footer {
+      padding: 10px 16px; border-top: 1px solid var(--border-light);
+      font-size: 0.75rem; color: var(--text-secondary);
+      display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    }
+    .preview-footer .pf-size { font-weight: 600; }
+    .size-saved { color: var(--color-success); font-weight: 600; }
+
+    .convert-row { margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .compress-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 32px; font-family: var(--font); font-weight: 600; font-size: 1rem; line-height: 1;
+      background: var(--color-primary); color: var(--text-on-primary);
+      border: 2px solid var(--color-primary); border-radius: var(--radius-sm);
+      cursor: pointer; transition: background var(--transition), box-shadow var(--transition), transform var(--transition-fast), opacity var(--transition);
+    }
+    .compress-btn:hover { background: var(--color-primary-dark); border-color: var(--color-primary-dark); box-shadow: 0 4px 14px rgba(37,99,235,0.35); }
+    .compress-btn:active { transform: scale(0.97); }
+    .compress-btn:disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
+    .download-btn {
+      display: none; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 32px; font-family: var(--font); font-weight: 600; font-size: 1rem; line-height: 1;
+      background: var(--color-success); color: #fff; border: none;
+      border-radius: var(--radius-sm); cursor: pointer;
+      transition: background var(--transition), box-shadow var(--transition), transform var(--transition-fast);
+    }
+    .download-btn.visible { display: inline-flex; }
+    .download-btn:hover { background: var(--color-success-dark); box-shadow: 0 4px 14px rgba(16,185,129,0.35); }
+    .download-btn:active { transform: scale(0.97); }
+
+    @media print {
+      .drop-zone, .compress-btn, .download-btn { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://multiwebs.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Video Compressor", "item": "https://multiwebs.app/video-compressor" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does this tool upload my videos to a server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, never. All video compression happens entirely in your browser using FFmpeg compiled to WebAssembly. Your videos are never uploaded, stored, or transmitted anywhere — making this tool completely private and secure."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is the first compression slow?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The first time you use the tool, it downloads the FFmpeg WebAssembly engine (~30MB). This is cached by your browser, so subsequent uses are much faster. Video compression is also CPU-intensive — larger videos take longer to process."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between CRF and quality presets?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Quality presets (Low, Medium, High) are easy-to-use settings that balance file size and quality automatically. CRF (Constant Rate Factor) is an advanced setting where lower values mean better quality but larger files. CRF 18 is visually lossless, 23 is default, and 28+ produces much smaller files."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which output format should I choose?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MP4 (H.264) is the most widely compatible format — it works on virtually all devices and platforms. WebM (VP8) is a modern open format that produces smaller files but may not play on older devices. When in doubt, choose MP4."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are there file size limits?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "There's no hard limit, but very large videos (several GB) may consume a lot of memory and take a long time to compress. For best results, keep videos under 2GB. Mobile devices may struggle with very large files."
+        }
+      }
+    ]
+  }
+  </script>
+  <meta name="keywords" content="video compressor, compress video, reduce video size, shrink video, video optimizer, MP4 compressor, WebM compressor, online video compressor, compress video online free">
+
+</head>
+<body>
+
+  <a href="#tool" class="skip-link">Skip to tool</a>
+
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="." class="navbar-brand" aria-label="MultiWeb home">
+        <span class="logo-icon" aria-hidden="true">M</span> MultiWeb
+      </a>
+      <div class="navbar-actions">
+        <a href="https://flutterwave.com/donate/ko16jzqgtovw" target="_blank" rel="noopener noreferrer" class="donate-btn"><span aria-hidden="true">❤️</span> <span data-i18n="donate_btn">Support Us</span></a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="icon-sun" aria-hidden="true">☀️</span>
+          <span class="icon-moon" aria-hidden="true">🌙</span>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+        <a href="." class="nav-link"><span class="nav-icon" aria-hidden="true">🧮</span> <span data-i18n="nav_tools">Tools</span></a>
+        <a href="about" class="nav-link"><span class="nav-icon" aria-hidden="true">ℹ️</span> <span data-i18n="nav_about">About</span></a>
+        <a href="contact" class="nav-link"><span class="nav-icon" aria-hidden="true">✉️</span> <span data-i18n="nav_contact">Contact</span></a>
+        <a href="privacy" class="nav-link"><span class="nav-icon" aria-hidden="true">🔒</span> <span data-i18n="nav_privacy">Privacy</span></a>
+        <a href="terms" class="nav-link"><span class="nav-icon" aria-hidden="true">📜</span> <span data-i18n="nav_terms">Terms</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header" aria-label="Tool header">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href=".">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Video Compressor</span>
+      </nav>
+      <h1>Free Video Compressor</h1>
+      <p>Compress videos to smaller file sizes without losing quality. Supports MP4, WebM, AVI, MOV. 100% in your browser.</p>
+    </div>
+  </section>
+
+  <main id="tool">
+    <section class="section" style="padding-top:0;padding-bottom:32px;" aria-label="Video compressor tool">
+      <div class="container">
+        <div class="tool-workspace fade-in">
+          <div class="tool-card">
+
+            <noscript>
+              <div style="padding:24px;background:var(--color-danger-bg);border-radius:var(--radius-md);text-align:center;margin-bottom:24px;">
+                <p style="font-weight:600;color:var(--color-danger-dark);margin-bottom:8px;">⚠️ JavaScript Required</p>
+                <p style="color:var(--text-secondary);font-size:0.9375rem;">This video compressor requires JavaScript to work. Please enable JavaScript in your browser settings and refresh the page.</p>
+              </div>
+            </noscript>
+
+            <div class="drop-zone" id="dropZone">
+              <div class="dz-icon" aria-hidden="true">🎬</div>
+              <div class="dz-title" data-i18n="vc_dz_title">Drop a video here</div>
+              <div class="dz-sub" data-i18n="vc_dz_sub">or click to browse</div>
+              <div class="dz-formats">Supports <strong>MP4</strong>, <strong>WebM</strong>, <strong>AVI</strong>, <strong>MOV</strong>, <strong>MKV</strong>, <strong>FLV</strong></div>
+              <input type="file" id="fileInput" accept="video/mp4,video/webm,video/avi,video/quicktime,video/x-matroska,video/x-flv,video/*" aria-label="Choose a video file">
+            </div>
+
+            <div class="file-info" id="fileInfo">
+              <span class="fi-icon" aria-hidden="true">🎬</span>
+              <div class="fi-details">
+                <div class="fi-name" id="fiName">—</div>
+                <div class="fi-meta" id="fiMeta">—</div>
+              </div>
+              <button class="fi-remove" id="removeBtn" aria-label="Remove video">✕</button>
+            </div>
+
+            <div class="controls-grid" id="controlsArea">
+              <div class="ctl-group">
+                <label for="outFormat">Output Format</label>
+                <select id="outFormat" class="ctl-select">
+                  <option value="mp4">MP4 (H.264)</option>
+                  <option value="webm">WebM (VP8)</option>
+                </select>
+              </div>
+              <div class="ctl-group">
+                <label for="qualityPreset">Quality Preset</label>
+                <select id="qualityPreset" class="ctl-select">
+                  <option value="low">Low (smaller file)</option>
+                  <option value="medium" selected>Medium (balanced)</option>
+                  <option value="high">High (better quality)</option>
+                </select>
+              </div>
+              <div class="ctl-group">
+                <label for="resolution">Resolution</label>
+                <select id="resolution" class="ctl-select">
+                  <option value="original">Original</option>
+                  <option value="1080">1080p</option>
+                  <option value="720">720p</option>
+                  <option value="480">480p</option>
+                  <option value="360">360p</option>
+                </select>
+              </div>
+              <div class="ctl-group">
+                <label for="crf">CRF (Advanced)</label>
+                <select id="crf" class="ctl-select">
+                  <option value="">Auto (by preset)</option>
+                  <option value="18">18 — Visually lossless</option>
+                  <option value="23">23 — Default</option>
+                  <option value="28">28 — Smaller file</option>
+                  <option value="35">35 — Very small</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="error-msg" id="errorMsg" role="alert" aria-live="assertive"></div>
+
+            <div class="ffmpeg-loading" id="ffmpegLoading">
+              <div class="fl-icon" aria-hidden="true">⏳</div>
+              <div class="fl-text" id="flText">Loading video engine...</div>
+              <div class="fl-sub" id="flSub">First time may take 30-60 seconds. The engine is cached after loading.</div>
+            </div>
+
+            <div class="progress-area" id="progressArea">
+              <div class="progress-header">
+                <span class="progress-label" id="progressLabel">Compressing...</span>
+                <span class="progress-pct" id="progressPct">0%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+              <div class="progress-detail" id="progressDetail">Initializing...</div>
+            </div>
+
+            <div class="convert-row">
+              <button class="compress-btn" id="compressBtn" disabled aria-label="Compress video" data-i18n-text="vc_compress_btn">
+                <span aria-hidden="true">🗜️</span> Compress Video
+              </button>
+              <button class="download-btn" id="downloadBtn" aria-label="Download compressed video" data-i18n-text="download_btn">
+                <span aria-hidden="true">⬇️</span> Download
+              </button>
+            </div>
+
+            <div class="preview-area" id="previewArea">
+              <div class="preview-box">
+                <div class="preview-header">
+                  <span>Original</span>
+                  <span class="ph-badge ph-before" id="originalBadge">—</span>
+                </div>
+                <div class="preview-body" id="originalPreview">
+                  <div class="ph-empty">No video loaded</div>
+                </div>
+                <div class="preview-footer">
+                  <span>Size: <strong class="pf-size" id="originalSize">—</strong></span>
+                  <span id="originalDuration">—</span>
+                </div>
+              </div>
+              <div class="preview-box">
+                <div class="preview-header">
+                  <span>Compressed</span>
+                  <span class="ph-badge ph-after" id="compressedBadge" style="display:none;">—</span>
+                </div>
+                <div class="preview-body" id="compressedPreview">
+                  <div class="ph-empty">Compress a video to see the result</div>
+                </div>
+                <div class="preview-footer">
+                  <span>Size: <strong class="pf-size" id="compressedSize">—</strong></span>
+                  <span class="size-saved" id="savedText"></span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Content -->
+    <section class="section section-alt" aria-label="About video compressor">
+      <div class="container">
+        <div class="content-section">
+          <h2 style="margin-bottom:16px;">Video Compressor — Reduce Video File Size Online</h2>
+          <div class="intro-text">
+            <p>A <strong>video compressor</strong> reduces the file size of your videos so they're easier to share via email, messaging apps, or social media, and take less storage space. Our free online compressor uses <strong>FFmpeg</strong> (compiled to WebAssembly) to compress videos entirely in your browser.</p>
+            <br>
+            <p>Unlike tools that upload your videos to remote servers, this compressor runs <strong>100% in your browser</strong>. Your videos are never uploaded, stored, or transmitted anywhere. This makes it completely private and secure.</p>
+            <br>
+            <p>Choose from quality presets (Low, Medium, High), set a target resolution, or use the advanced CRF control for precise compression. The tool supports MP4, WebM, AVI, MOV, MKV, and FLV input formats.</p>
+          </div>
+
+          <h2 style="margin-bottom:16px;">How to Compress a Video</h2>
+          <ol class="steps-list">
+            <li>
+              <div>
+                <strong>Upload your video</strong>
+                <span>Drag and drop a video file onto the upload area, or click to browse. We support MP4, WebM, AVI, MOV, MKV, and FLV.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Choose settings</strong>
+                <span>Select an output format (MP4 or WebM), pick a quality preset, set a target resolution, or use advanced CRF settings.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Compress</strong>
+                <span>Click <strong>"Compress Video"</strong> and watch the progress bar. The video engine loads automatically on first use (cached for future visits).</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Download</strong>
+                <span>Review the before/after comparison and click <strong>"Download"</strong> to save your compressed video.</span>
+              </div>
+            </li>
+          </ol>
+
+          <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item open">
+              <button class="faq-question" aria-expanded="true">
+                <span>Does this tool upload my videos to a server?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p>No, never. All video compression happens entirely in your browser using FFmpeg compiled to WebAssembly. Your videos are never uploaded, stored, or transmitted anywhere — making this tool completely private and secure.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span>Why is the first compression slow?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p>The first time you use the tool, it downloads the FFmpeg WebAssembly engine (~30MB). This is cached by your browser, so subsequent uses are much faster. Video compression is also CPU-intensive — larger videos take longer to process.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span>What's the difference between CRF and quality presets?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p><strong>Quality presets</strong> (Low, Medium, High) are easy-to-use settings that balance file size and quality automatically. <strong>CRF</strong> (Constant Rate Factor) is an advanced setting where lower values mean better quality but larger files. CRF 18 is visually lossless, 23 is default, and 28+ produces much smaller files.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span>Which output format should I choose?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p><strong>MP4</strong> (H.264) is the most widely compatible format — it works on virtually all devices and platforms. <strong>WebM</strong> (VP8) is a modern open format that produces smaller files but may not play on older devices. When in doubt, choose MP4.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span>Are there file size limits?</span>
+                <span class="faq-icon" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p>There's no hard limit, but very large videos (several GB) may consume a lot of memory and take a long time to compress. For best results, keep videos under 2GB. Mobile devices may struggle with very large files.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools -->
+    <section class="section" aria-label="Related tools">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:32px;">
+          <h2 style="font-size:1.75rem;" data-i18n="vc_related_title">Related Tools</h2>
+          <p style="color:var(--text-secondary);" data-i18n="vc_related_desc">Try these other free tools from our collection.</p>
+        </div>
+        <div class="related-grid">
+          <a href="image-compressor" class="related-card">
+            <span class="related-icon" aria-hidden="true">🖼️</span>
+            <h4 data-i18n="vc_related_1_title">Image Compressor</h4>
+            <p data-i18n="vc_related_1_desc">Reduce image file sizes without losing quality.</p>
+          </a>
+          <a href="file-compressor" class="related-card">
+            <span class="related-icon" aria-hidden="true">📦</span>
+            <h4 data-i18n="vc_related_2_title">File Compressor</h4>
+            <p data-i18n="vc_related_2_desc">Zip and unzip files with optional password protection.</p>
+          </a>
+          <a href="image-converter" class="related-card">
+            <span class="related-icon" aria-hidden="true">🖼️</span>
+            <h4 data-i18n="vc_related_3_title">Image Converter</h4>
+            <p data-i18n="vc_related_3_desc">Convert images between PNG, JPG, WebP, and more.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>MultiWeb</h3>
+          <p data-i18n="footer_brand">Free online tools for everyday tasks. Built with ❤️ to make your life easier — no sign-ups, no clutter.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <nav aria-label="Quick links">
+            <a href="bmi-calculator">BMI Calculator</a>
+            <a href="unit-converter">Unit Converter</a>
+            <a href="word-counter">Word Counter</a>
+            <a href="qr-generator">QR Generator</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_company">Company</h4>
+          <nav aria-label="Company links">
+            <a href="about">About</a>
+            <a href="contact">Contact</a>
+            <a href="privacy">Privacy Policy</a>
+            <a href="terms">Terms of Service</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p style="color:var(--text-secondary);font-size:0.875rem;line-height:1.8;"><a href="mailto:team@multiwebs.app" style="color:var(--text-secondary);">team@multiwebs.app</a><br><a href="contact" style="color:var(--text-secondary);">Contact Page</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer_copyright">&copy; 2026 MultiWeb. All rights reserved.</span>
+        <span data-i18n="footer_tagline">Free online tools for everyone.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script src="i18n.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      var dropZone = document.getElementById('dropZone');
+      var fileInput = document.getElementById('fileInput');
+      var fileInfo = document.getElementById('fileInfo');
+      var fiName = document.getElementById('fiName');
+      var fiMeta = document.getElementById('fiMeta');
+      var removeBtn = document.getElementById('removeBtn');
+
+      var outFormat = document.getElementById('outFormat');
+      var qualityPreset = document.getElementById('qualityPreset');
+      var resolution = document.getElementById('resolution');
+      var crf = document.getElementById('crf');
+
+      var errorMsg = document.getElementById('errorMsg');
+      var ffmpegLoading = document.getElementById('ffmpegLoading');
+      var flText = document.getElementById('flText');
+      var flSub = document.getElementById('flSub');
+      var progressArea = document.getElementById('progressArea');
+      var progressLabel = document.getElementById('progressLabel');
+      var progressPct = document.getElementById('progressPct');
+      var progressFill = document.getElementById('progressFill');
+      var progressDetail = document.getElementById('progressDetail');
+      var compressBtn = document.getElementById('compressBtn');
+      var downloadBtn = document.getElementById('downloadBtn');
+
+      var previewArea = document.getElementById('previewArea');
+      var originalPreview = document.getElementById('originalPreview');
+      var originalSize = document.getElementById('originalSize');
+      var originalDuration = document.getElementById('originalDuration');
+      var originalBadge = document.getElementById('originalBadge');
+      var compressedPreview = document.getElementById('compressedPreview');
+      var compressedSize = document.getElementById('compressedSize');
+      var compressedBadge = document.getElementById('compressedBadge');
+      var savedText = document.getElementById('savedText');
+
+      var sourceFile = null;
+      var outputBlob = null;
+      var outputUrl = null;
+      var ffmpegInstance = null;
+      var ffmpegLoaded = false;
+      var ffmpegLoading2 = false;
+
+      function formatSize(bytes) {
+        if (bytes === 0) return '0 B';
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+        return (bytes / 1048576).toFixed(2) + ' MB';
+      }
+
+      function showError(msg) { errorMsg.textContent = msg; errorMsg.classList.add('visible'); }
+      function hideError() { errorMsg.textContent = ''; errorMsg.classList.remove('visible'); }
+
+      function resetUI() {
+        fileInfo.classList.remove('visible');
+        previewArea.classList.remove('visible');
+        progressArea.classList.remove('visible');
+        ffmpegLoading.classList.remove('visible');
+        downloadBtn.classList.remove('visible');
+        compressBtn.disabled = true;
+        hideError();
+        sourceFile = null;
+        if (outputUrl) { URL.revokeObjectURL(outputUrl); outputUrl = null; }
+        outputBlob = null;
+        originalPreview.innerHTML = '<div class="ph-empty">No video loaded</div>';
+        compressedPreview.innerHTML = '<div class="ph-empty">Compress a video to see the result</div>';
+        originalSize.textContent = '—';
+        originalDuration.textContent = '—';
+        compressedSize.textContent = '—';
+        originalBadge.textContent = '—';
+        compressedBadge.textContent = '—';
+        compressedBadge.style.display = 'none';
+        savedText.textContent = '';
+      }
+
+      function loadFile(file) {
+        hideError();
+        if (!file || !file.type.startsWith('video/')) {
+          showError('Unsupported file format. Please upload a video file (MP4, WebM, AVI, MOV, MKV, FLV).');
+          return;
+        }
+        sourceFile = file;
+        fiName.textContent = file.name;
+        fiMeta.textContent = formatSize(file.size) + ' — ' + file.type.split('/')[1].toUpperCase();
+        fileInfo.classList.add('visible');
+
+        var url = URL.createObjectURL(file);
+        originalPreview.innerHTML = '';
+        var vid = document.createElement('video');
+        vid.src = url;
+        vid.controls = true;
+        vid.onloadedmetadata = function () {
+          originalSize.textContent = formatSize(file.size);
+          originalBadge.textContent = file.type.split('/')[1].toUpperCase();
+          var dur = vid.duration;
+          var min = Math.floor(dur / 60);
+          var sec = Math.floor(dur % 60);
+          originalDuration.textContent = min + ':' + (sec < 10 ? '0' : '') + sec;
+          previewArea.classList.add('visible');
+          compressBtn.disabled = false;
+        };
+        originalPreview.appendChild(vid);
+      }
+
+      dropZone.addEventListener('dragover', function (e) { e.preventDefault(); e.stopPropagation(); dropZone.classList.add('dragover'); });
+      dropZone.addEventListener('dragleave', function (e) { e.preventDefault(); e.stopPropagation(); dropZone.classList.remove('dragover'); });
+      dropZone.addEventListener('drop', function (e) {
+        e.preventDefault(); e.stopPropagation();
+        dropZone.classList.remove('dragover');
+        if (e.dataTransfer.files && e.dataTransfer.files.length) loadFile(e.dataTransfer.files[0]);
+      });
+      fileInput.addEventListener('change', function () { if (this.files && this.files.length) loadFile(this.files[0]); });
+      removeBtn.addEventListener('click', function () { resetUI(); fileInput.value = ''; });
+
+      function getVideoBitrate(preset) {
+        var map = { low: '500k', medium: '1000k', high: '2500k' };
+        return map[preset] || '1000k';
+      }
+
+      function getAudioBitrate(preset) {
+        var map = { low: '64k', medium: '128k', high: '192k' };
+        return map[preset] || '128k';
+      }
+
+      async function loadFFmpeg() {
+        if (ffmpegLoaded) return;
+        if (ffmpegLoading2) return;
+        ffmpegLoading2 = true;
+
+        ffmpegLoading.classList.add('visible');
+        flText.textContent = 'Loading video engine...';
+        flSub.textContent = 'First time may take 30-60 seconds. The engine is cached after loading.';
+
+        try {
+          if (typeof FFmpeg === 'undefined') {
+            await new Promise(function (resolve, reject) {
+              var s = document.createElement('script');
+              s.src = 'https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.10/dist/umd/ffmpeg.js';
+              s.async = true;
+              s.onload = resolve;
+              s.onerror = function () { reject(new Error('Failed to load FFmpeg script')); };
+              document.head.appendChild(s);
+            });
+          }
+
+          var FFmpegModule = window.FFmpeg;
+          if (!FFmpegModule || !FFmpegModule.FFmpeg) {
+            throw new Error('FFmpeg module not available');
+          }
+
+          ffmpegInstance = new FFmpegModule.FFmpeg();
+
+          ffmpegInstance.on('log', function (e) {
+            if (e.type === 'fferr' && e.message) {
+              progressDetail.textContent = e.message.substring(0, 120);
+            }
+          });
+
+          ffmpegInstance.on('progress', function (e) {
+            if (e.progress !== undefined && e.progress >= 0) {
+              var pct = Math.round(e.progress * 100);
+              progressPct.textContent = pct + '%';
+              progressFill.style.width = pct + '%';
+              progressDetail.textContent = 'Processing: ' + pct + '% complete';
+            }
+          });
+
+          await ffmpegInstance.load({
+            coreURL: 'https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.6/dist/umd/ffmpeg-core.js',
+            wasmURL: 'https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.6/dist/umd/ffmpeg-core.wasm',
+          });
+
+          ffmpegLoaded = true;
+          ffmpegLoading.classList.remove('visible');
+        } catch (err) {
+          ffmpegLoading.classList.remove('visible');
+          showError('Failed to load video engine: ' + err.message + '. Please try a different browser or check your connection.');
+        }
+        ffmpegLoading2 = false;
+      }
+
+      async function compressVideo() {
+        if (!sourceFile) { showError('Please upload a video first.'); return; }
+        hideError();
+
+        await loadFFmpeg();
+        if (!ffmpegLoaded) return;
+
+        compressBtn.disabled = true;
+        compressBtn.innerHTML = '<span aria-hidden="true">⏳</span> Compressing...';
+        progressArea.classList.add('visible');
+        progressLabel.textContent = 'Compressing...';
+        progressPct.textContent = '0%';
+        progressFill.style.width = '0%';
+        progressDetail.textContent = 'Preparing video...';
+        downloadBtn.classList.remove('visible');
+
+        try {
+          var format = outFormat.value;
+          var preset = qualityPreset.value;
+          var res = resolution.value;
+          var crfVal = crf.value;
+
+          var inputName = 'input.' + (sourceFile.name.split('.').pop() || 'mp4');
+          var outputName = 'output.' + format;
+
+          var fileData = await sourceFile.arrayBuffer();
+          await ffmpegInstance.writeFile(inputName, new Uint8Array(fileData));
+
+          var args = ['-i', inputName];
+
+          if (res !== 'original') {
+            var targetW = res === '1080' ? 1920 : res === '720' ? 1280 : res === '480' ? 854 : 640;
+            args.push('-vf', 'scale=' + targetW + ':-2');
+          }
+
+          if (crfVal) {
+            args.push('-crf', crfVal);
+          } else {
+            args.push('-b:v', getVideoBitrate(preset));
+          }
+
+          args.push('-b:a', getAudioBitrate(preset));
+
+          if (format === 'mp4') {
+            args.push('-c:v', 'libx264', '-preset', 'fast', '-c:a', 'aac');
+          } else {
+            args.push('-c:v', 'libvpx', '-b:v', getVideoBitrate(preset), '-c:a', 'libvorbis');
+          }
+
+          args.push('-y', outputName);
+
+          await ffmpegInstance.exec(args);
+
+          var outputData = await ffmpegInstance.readFile(outputName);
+          outputBlob = new Blob([outputData.buffer], { type: format === 'mp4' ? 'video/mp4' : 'video/webm' });
+          outputUrl = URL.createObjectURL(outputBlob);
+
+          await ffmpegInstance.deleteFile(inputName);
+          await ffmpegInstance.deleteFile(outputName);
+
+          compressedPreview.innerHTML = '';
+          var compVid = document.createElement('video');
+          compVid.src = outputUrl;
+          compVid.controls = true;
+          compressedSize.textContent = formatSize(outputBlob.size);
+          compressedBadge.textContent = format.toUpperCase();
+          compressedBadge.style.display = '';
+
+          var diff = sourceFile.size - outputBlob.size;
+          if (diff > 0) savedText.textContent = Math.round((1 - outputBlob.size / sourceFile.size) * 100) + '% smaller';
+          else if (diff < 0) savedText.textContent = Math.round((outputBlob.size / sourceFile.size - 1) * 100) + '% larger';
+          else savedText.textContent = 'same size';
+
+          compressedPreview.appendChild(compVid);
+          previewArea.classList.add('visible');
+          downloadBtn.classList.add('visible');
+
+          progressLabel.textContent = 'Complete!';
+          progressPct.textContent = '100%';
+          progressFill.style.width = '100%';
+          progressDetail.textContent = 'Compression finished successfully.';
+
+        } catch (err) {
+          showError('Compression failed: ' + err.message);
+          progressArea.classList.remove('visible');
+        }
+
+        compressBtn.disabled = false;
+        compressBtn.innerHTML = '<span aria-hidden="true">🗜️</span> Compress Video';
+      }
+
+      downloadBtn.addEventListener('click', function () {
+        if (!outputUrl) return;
+        var ext = outFormat.value;
+        var name = MultiWebConverter.baseName(sourceFile.name) + '-compressed.' + ext;
+        var a = document.createElement('a');
+        a.href = outputUrl;
+        a.download = name;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      });
+
+      compressBtn.addEventListener('click', compressVideo);
+    })();
+  </script>
+</body>
+</html>

@@ -601,4 +601,58 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/excel-to-pdf?hl=ko" />
     <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/excel-to-pdf?hl=it" />
   </url>
+  <url>
+    <loc>https://multiwebs.app/image-compressor</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/image-compressor" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/image-compressor" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/image-compressor?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/image-compressor?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/image-compressor?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/image-compressor?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/image-compressor?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/image-compressor?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/image-compressor?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/image-compressor?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/image-compressor?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/image-compressor?hl=it" />
+  </url>
+  <url>
+    <loc>https://multiwebs.app/file-compressor</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/file-compressor" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/file-compressor" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/file-compressor?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/file-compressor?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/file-compressor?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/file-compressor?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/file-compressor?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/file-compressor?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/file-compressor?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/file-compressor?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/file-compressor?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/file-compressor?hl=it" />
+  </url>
+  <url>
+    <loc>https://multiwebs.app/video-compressor</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://multiwebs.app/video-compressor" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://multiwebs.app/video-compressor" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://multiwebs.app/video-compressor?hl=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://multiwebs.app/video-compressor?hl=fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://multiwebs.app/video-compressor?hl=de" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://multiwebs.app/video-compressor?hl=pt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://multiwebs.app/video-compressor?hl=ja" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://multiwebs.app/video-compressor?hl=ar" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://multiwebs.app/video-compressor?hl=hi" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://multiwebs.app/video-compressor?hl=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://multiwebs.app/video-compressor?hl=ko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://multiwebs.app/video-compressor?hl=it" />
+  </url>
 </urlset>
