@@ -723,20 +723,24 @@
         flSub.textContent = 'First time may take 30-60 seconds. The engine is cached after loading.';
 
         try {
+          if (typeof SharedArrayBuffer === 'undefined') {
+            throw new Error('Your browser does not support SharedArrayBuffer. Please use a modern browser (Chrome, Edge, Firefox) and ensure the site is served with cross-origin isolation headers.');
+          }
+
           if (typeof FFmpeg === 'undefined') {
             await new Promise(function (resolve, reject) {
               var s = document.createElement('script');
-              s.src = 'https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.10/dist/umd/ffmpeg.js';
+              s.src = 'https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.10/dist/umd/ffmpeg.js?t=' + Date.now();
               s.async = true;
               s.onload = resolve;
-              s.onerror = function () { reject(new Error('Failed to load FFmpeg script')); };
+              s.onerror = function () { reject(new Error('Failed to load FFmpeg script from CDN')); };
               document.head.appendChild(s);
             });
           }
 
           var FFmpegModule = window.FFmpeg;
           if (!FFmpegModule || !FFmpegModule.FFmpeg) {
-            throw new Error('FFmpeg module not available');
+            throw new Error('FFmpeg module not available. Try clearing your browser cache and reloading.');
           }
 
           ffmpegInstance = new FFmpegModule.FFmpeg();

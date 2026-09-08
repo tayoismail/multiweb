@@ -2,7 +2,7 @@
  * sw.js — Service Worker for MultiWeb
  * Enables offline caching of all pages and assets
  */
-var CACHE_NAME = 'multiweb-v8';
+var CACHE_NAME = 'multiweb-v9';
 var urlsToCache = [
   './',
   './index.html',
@@ -84,6 +84,9 @@ self.addEventListener('fetch', function (event) {
   // Only handle GET requests
   if (event.request.method !== 'GET') return;
 
+  // Skip cross-origin requests entirely — never cache CDN scripts (FFmpeg, fonts, etc.)
+  if (event.request.url.indexOf(self.location.origin) !== 0) return;
+
   event.respondWith(
     caches.match(event.request)
       .then(function (response) {
@@ -92,8 +95,8 @@ self.addEventListener('fetch', function (event) {
 
         // Otherwise fetch from network
         return fetch(event.request).then(function (networkResponse) {
-          // Don't cache non-successful responses or non-GET
-          if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
+          // Don't cache non-successful responses
+          if (!networkResponse || networkResponse.status !== 200) {
             return networkResponse;
           }
 
