@@ -227,7 +227,7 @@
         "name": "Why is the first compression slow?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The first time you use the tool, it downloads the FFmpeg WebAssembly engine (~30MB). This is cached by your browser, so subsequent uses are much faster. Video compression is also CPU-intensive — larger videos take longer to process."
+          "text": "The first time you use the tool, it downloads the FFmpeg WebAssembly engine (~30MB). This is cached by your browser, so subsequent uses are much faster. After that, compression runs on all of your CPU cores (multi-threaded), so it is significantly faster than single-threaded browser encoders."
         }
       },
       {
@@ -362,7 +362,7 @@
                   <option value="18">18 — Visually lossless</option>
                   <option value="23">23 — Default</option>
                   <option value="28">28 — Smaller file</option>
-                  <option value="35">35 — Very small</option>
+                  <option value="32">32 — Very small</option>
                 </select>
               </div>
             </div>
@@ -373,6 +373,7 @@
               <div class="fl-icon" aria-hidden="true">⏳</div>
               <div class="fl-text" id="flText">Loading video engine...</div>
               <div class="fl-sub" id="flSub">First time may take 30-60 seconds. The engine is cached after loading.</div>
+              <div class="fl-sub" id="flCoreSub" style="display:none;"></div>
             </div>
 
             <div class="progress-area" id="progressArea">
@@ -485,7 +486,7 @@
                 <span class="faq-icon" aria-hidden="true">▼</span>
               </button>
               <div class="faq-answer">
-                <p>The first time you use the tool, it downloads the FFmpeg WebAssembly engine (~30MB). This is cached by your browser, so subsequent uses are much faster. Video compression is also CPU-intensive — larger videos take longer to process.</p>
+                <p>The first time you use the tool, it downloads the FFmpeg WebAssembly engine (~30MB). This is cached by your browser, so subsequent uses are much faster. After that, compression runs on all of your CPU cores (multi-threaded), so it is significantly faster than single-threaded browser encoders.</p>
               </div>
             </div>
             <div class="faq-item">
@@ -586,6 +587,7 @@
   </footer>
 
   <script src="common.js"></script>
+  <script src="converter.js"></script>
   <script src="i18n.js"></script>
   <script>
     (function () {
@@ -628,9 +630,11 @@
       var sourceFile = null;
       var outputBlob = null;
       var outputUrl = null;
+      var outputFormat = null;
       var ffmpegInstance = null;
       var ffmpegLoaded = false;
-      var ffmpegLoading2 = false;
+      var ffmpegLoadPromise = null;
+      var usingMultiThread = false;
 
       function formatSize(bytes) {
         if (bytes === 0) return '0 B';
@@ -675,6 +679,9 @@
         fiMeta.textContent = formatSize(file.size) + ' — ' + file.type.split('/')[1].toUpperCase();
         fileInfo.classList.add('visible');
 
+        // Warm up the video engine in the background while the user reviews settings.
+        loadFFmpeg(false);
+
         var url = URL.createObjectURL(file);
         originalPreview.innerHTML = '';
         var vid = document.createElement('video');
@@ -703,82 +710,155 @@
       fileInput.addEventListener('change', function () { if (this.files && this.files.length) loadFile(this.files[0]); });
       removeBtn.addEventListener('click', function () { resetUI(); fileInput.value = ''; });
 
-      function getVideoBitrate(preset) {
-        var map = { low: '500k', medium: '1000k', high: '2500k' };
-        return map[preset] || '1000k';
-      }
-
-      function getAudioBitrate(preset) {
-        var map = { low: '64k', medium: '128k', high: '192k' };
-        return map[preset] || '128k';
-      }
-
-      async function loadFFmpeg() {
-        if (ffmpegLoaded) return;
-        if (ffmpegLoading2) return;
-        ffmpegLoading2 = true;
-
+      function showFFmpegLoading() {
         ffmpegLoading.classList.add('visible');
         flText.textContent = 'Loading video engine...';
         flSub.textContent = 'First time may take 30-60 seconds. The engine is cached after loading.';
+        var coreSub = document.getElementById('flCoreSub');
+        if (coreSub) { coreSub.style.display = 'none'; coreSub.textContent = ''; }
+      }
 
-        try {
-          if (typeof SharedArrayBuffer === 'undefined') {
-            throw new Error('Your browser does not support SharedArrayBuffer. Please use a modern browser (Chrome, Edge, Firefox) and ensure the site is served with cross-origin isolation headers.');
+      var FFMPEG_CORE_VERSION = '0.12.6';
+
+      // Downloads the FFmpeg engine (JS glue + WASM) with real progress feedback.
+      // Files are fetched from the CDN and turned into blob URLs, which also works
+      // around cross-origin restrictions on workers importing CDN scripts.
+      // The multi-threaded core is tried first (uses all CPU cores); if the browser
+      // lacks SharedArrayBuffer, only the single-threaded core is used.
+      function downloadCore(onProgress) {
+        var variants = typeof SharedArrayBuffer !== 'undefined' ? ['core-mt', 'core'] : ['core'];
+
+        function tryVariant(i) {
+          if (i >= variants.length) {
+            return Promise.reject(new Error('Could not download the video engine. Check your connection and try again.'));
           }
+          var variant = variants[i];
+          var baseURL = 'https://cdn.jsdelivr.net/npm/@ffmpeg/' + variant + '@' + FFMPEG_CORE_VERSION + '/dist/umd';
+          var files = [
+            { url: baseURL + '/ffmpeg-core.js', mime: 'text/javascript', size: 114000 },
+            { url: baseURL + '/ffmpeg-core.wasm', mime: 'application/wasm', size: 31300000 }
+          ];
+          if (variant === 'core-mt') files.push({ url: baseURL + '/ffmpeg-core.worker.js', mime: 'text/javascript', size: 3000 });
 
-          if (typeof FFmpegWASM === 'undefined') {
-            await new Promise(function (resolve, reject) {
-              var s = document.createElement('script');
-              s.src = './ffmpeg/ffmpeg.js';
-              s.async = true;
-              s.onload = resolve;
-              s.onerror = function () { reject(new Error('Failed to load FFmpeg script')); };
-              document.head.appendChild(s);
+          var expected = files.reduce(function (s, f) { return s + f.size; }, 0);
+          var loaded = 0;
+
+          function fetchBlob(file) {
+            return fetch(file.url).then(function (resp) {
+              if (!resp.ok) throw new Error('HTTP ' + resp.status);
+              if (!resp.body) return resp.blob().then(function (b) { return new Blob([b], { type: file.mime }); });
+              var reader = resp.body.getReader();
+              var chunks = [];
+              function pump() {
+                return reader.read().then(function (result) {
+                  if (result.done) return new Blob(chunks, { type: file.mime });
+                  chunks.push(result.value);
+                  loaded += result.value.length;
+                  onProgress(Math.min(1, loaded / expected));
+                  return pump();
+                });
+              }
+              return pump();
             });
           }
 
-          var FFmpegModule = window.FFmpegWASM;
-          if (!FFmpegModule || !FFmpegModule.FFmpeg) {
-            throw new Error('FFmpeg module not available. Try clearing your browser cache and reloading.');
-          }
-
-          ffmpegInstance = new FFmpegModule.FFmpeg();
-
-          ffmpegInstance.on('log', function (e) {
-            if (e.type === 'fferr' && e.message) {
-              progressDetail.textContent = e.message.substring(0, 120);
-            }
-          });
-
-          ffmpegInstance.on('progress', function (e) {
-            if (e.progress !== undefined && e.progress >= 0) {
-              var pct = Math.round(e.progress * 100);
-              progressPct.textContent = pct + '%';
-              progressFill.style.width = pct + '%';
-              progressDetail.textContent = 'Processing: ' + pct + '% complete';
-            }
-          });
-
-          await ffmpegInstance.load({
-            coreURL: 'https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.6/dist/umd/ffmpeg-core.js',
-            wasmURL: 'https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.6/dist/umd/ffmpeg-core.wasm',
-          });
-
-          ffmpegLoaded = true;
-          ffmpegLoading.classList.remove('visible');
-        } catch (err) {
-          ffmpegLoading.classList.remove('visible');
-          showError('Failed to load video engine: ' + err.message + '. Please try a different browser or check your connection.');
+          return Promise.all(files.map(fetchBlob)).then(function (blobs) {
+            return {
+              multiThread: variant === 'core-mt',
+              coreURL: URL.createObjectURL(blobs[0]),
+              wasmURL: URL.createObjectURL(blobs[1]),
+              workerURL: variant === 'core-mt' ? URL.createObjectURL(blobs[2]) : null
+            };
+          }).catch(function () { return tryVariant(i + 1); });
         }
-        ffmpegLoading2 = false;
+
+        return tryVariant(0);
+      }
+
+      function loadFFmpeg(showUI) {
+        // Share a single in-flight load so preloading and click-time loading never race.
+        if (ffmpegLoadPromise) {
+          if (showUI) showFFmpegLoading();
+          return ffmpegLoadPromise;
+        }
+        if (showUI) showFFmpegLoading();
+
+        ffmpegLoadPromise = (async function () {
+          try {
+            if (typeof FFmpegWASM === 'undefined') {
+              await new Promise(function (resolve, reject) {
+                var s = document.createElement('script');
+                s.src = './ffmpeg/ffmpeg.js';
+                s.async = true;
+                s.onload = resolve;
+                s.onerror = function () { reject(new Error('Failed to load FFmpeg script')); };
+                document.head.appendChild(s);
+              });
+            }
+
+            var FFmpegModule = window.FFmpegWASM;
+            if (!FFmpegModule || !FFmpegModule.FFmpeg) {
+              throw new Error('FFmpeg module not available. Try clearing your browser cache and reloading.');
+            }
+
+            ffmpegInstance = new FFmpegModule.FFmpeg();
+
+            ffmpegInstance.on('log', function (e) {
+              if (e.type === 'fferr' && e.message) {
+                progressDetail.textContent = e.message.substring(0, 120);
+              }
+            });
+
+            ffmpegInstance.on('progress', function (e) {
+              if (e.progress !== undefined && e.progress >= 0) {
+                var pct = Math.round(e.progress * 100);
+                progressPct.textContent = pct + '%';
+                progressFill.style.width = pct + '%';
+                progressDetail.textContent = 'Processing: ' + pct + '% complete';
+              }
+            });
+
+            // Download the engine with real progress feedback, then hand FFmpeg
+            // the blob URLs. core-mt runs x264 on all CPU cores (~3-6x faster);
+            // browsers without SharedArrayBuffer fall back to the single-thread core.
+            var config = await downloadCore(function (frac) {
+              var cs = document.getElementById('flCoreSub');
+              if (cs) {
+                cs.style.display = '';
+                cs.textContent = 'Downloading video engine… ' + Math.round(frac * 100) + '%';
+              }
+            });
+            usingMultiThread = config.multiThread;
+
+            await ffmpegInstance.load({
+              coreURL: config.coreURL,
+              wasmURL: config.wasmURL,
+              workerURL: config.workerURL
+            });
+
+            ffmpegLoaded = true;
+          } catch (err) {
+            throw new Error('Failed to load video engine: ' + (err && err.message ? err.message : err) + '. Please try a different browser or check your connection.');
+          } finally {
+            ffmpegLoading.classList.remove('visible');
+          }
+        })();
+
+        // Allow a retry if the background preload failed.
+        ffmpegLoadPromise.catch(function () { ffmpegLoadPromise = null; });
+        return ffmpegLoadPromise;
       }
 
       async function compressVideo() {
         if (!sourceFile) { showError('Please upload a video first.'); return; }
         hideError();
 
-        await loadFFmpeg();
+        try {
+          await loadFFmpeg(true);
+        } catch (err) {
+          showError(err.message);
+          return;
+        }
         if (!ffmpegLoaded) return;
 
         compressBtn.disabled = true;
@@ -802,6 +882,12 @@
           var fileData = await sourceFile.arrayBuffer();
           await ffmpegInstance.writeFile(inputName, new Uint8Array(fileData));
 
+          // CRF (constant quality) instead of fixed bitrates: quality stays
+          // consistent, and simple clips never come out LARGER than the input.
+          var crfByPreset = { low: '28', medium: '23', high: '20' };
+          var audioByPreset = { low: '64k', medium: '128k', high: '160k' };
+          var crfValue = crfVal || crfByPreset[preset] || '23';
+
           var args = ['-i', inputName];
 
           if (res !== 'original') {
@@ -809,18 +895,14 @@
             args.push('-vf', 'scale=' + targetW + ':-2');
           }
 
-          if (crfVal) {
-            args.push('-crf', crfVal);
-          } else {
-            args.push('-b:v', getVideoBitrate(preset));
-          }
-
-          args.push('-b:a', getAudioBitrate(preset));
+          args.push('-c:v', format === 'mp4' ? 'libx264' : 'libvpx', '-crf', crfValue);
 
           if (format === 'mp4') {
-            args.push('-c:v', 'libx264', '-preset', 'fast', '-c:a', 'aac');
+            args.push('-preset', 'veryfast', '-c:a', 'aac', '-b:a', audioByPreset[preset] || '128k', '-movflags', '+faststart');
           } else {
-            args.push('-c:v', 'libvpx', '-b:v', getVideoBitrate(preset), '-c:a', 'libvorbis');
+            // VP8 CRF mode needs a bitrate ceiling (constrained quality).
+            args.push('-b:v', { low: '500k', medium: '1M', high: '2.5M' }[preset] || '1M',
+              '-deadline', 'realtime', '-cpu-used', '5', '-c:a', 'libvorbis', '-b:a', audioByPreset[preset] || '128k');
           }
 
           args.push('-y', outputName);
@@ -829,6 +911,8 @@
 
           var outputData = await ffmpegInstance.readFile(outputName);
           outputBlob = new Blob([outputData.buffer], { type: format === 'mp4' ? 'video/mp4' : 'video/webm' });
+          outputFormat = format;
+          if (outputUrl) URL.revokeObjectURL(outputUrl);
           outputUrl = URL.createObjectURL(outputBlob);
 
           await ffmpegInstance.deleteFile(inputName);
@@ -854,10 +938,10 @@
           progressLabel.textContent = 'Complete!';
           progressPct.textContent = '100%';
           progressFill.style.width = '100%';
-          progressDetail.textContent = 'Compression finished successfully.';
+          progressDetail.textContent = 'Compression finished successfully.' + (usingMultiThread ? ' (multi-threaded)' : ' (single-threaded — your browser does not support multi-threading)');
 
         } catch (err) {
-          showError('Compression failed: ' + err.message);
+          showError('Compression failed: ' + (err && err.message ? err.message : 'unknown error'));
           progressArea.classList.remove('visible');
         }
 
@@ -866,18 +950,22 @@
       }
 
       downloadBtn.addEventListener('click', function () {
-        if (!outputUrl) return;
-        var ext = outFormat.value;
-        var name = MultiWebConverter.baseName(sourceFile.name) + '-compressed.' + ext;
+        if (!outputBlob) { showError('Nothing to download yet — compress a video first.'); return; }
+        var base = (typeof MultiWebConverter !== 'undefined' && MultiWebConverter.baseName)
+          ? MultiWebConverter.baseName(sourceFile.name)
+          : sourceFile.name.replace(/\.[^.]+$/, '');
         var a = document.createElement('a');
         a.href = outputUrl;
-        a.download = name;
+        a.download = (base || 'video') + '-compressed.' + outputFormat;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
       });
 
       compressBtn.addEventListener('click', compressVideo);
+
+      // Note: the engine is preloaded when a file is selected (see loadFile),
+      // not on page load, so visitors never download ~30MB they don't use.
     })();
   </script>
 </body>

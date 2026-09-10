@@ -127,7 +127,8 @@
   }
 
   // ===== Register Service Worker =====
-  if ('serviceWorker' in navigator) {
+  // Skip on localhost so local dev always sees fresh files (the SW serves cache-first).
+  if ('serviceWorker' in navigator && !/^localhost$|^127\.0\.0\.1$/.test(location.hostname)) {
     window.addEventListener('load', function () {
       // Use relative path to support both root domains and subdirectories (GitHub Pages)
       navigator.serviceWorker.register('sw.js').catch(function (err) {

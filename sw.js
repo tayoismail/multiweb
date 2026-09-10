@@ -2,7 +2,7 @@
  * sw.js — Service Worker for MultiWeb
  * Enables offline caching of all pages and assets
  */
-var CACHE_NAME = 'multiweb-v9';
+var CACHE_NAME = 'multiweb-v10';
 var urlsToCache = [
   './',
   './index.html',
@@ -51,7 +51,9 @@ var urlsToCache = [
   './image-compressor.html',
   './file-compressor.html',
   './video-compressor.html',
-  './converter.js'
+  './converter.js',
+  './ffmpeg/ffmpeg.js',
+  './ffmpeg/814.ffmpeg.js'
 ];
 
 // Install: cache all critical assets
