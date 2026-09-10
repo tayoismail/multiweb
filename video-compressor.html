@@ -227,7 +227,7 @@
         "name": "Why is the first compression slow?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The first time you use the tool, it downloads the FFmpeg WebAssembly engine (~30MB). This is cached by your browser, so subsequent uses are much faster. After that, compression runs on all of your CPU cores (multi-threaded), so it is significantly faster than single-threaded browser encoders."
+          "text": "The first time you use the tool, it downloads the FFmpeg WebAssembly engine (~30MB). This is cached by your browser, so subsequent uses are much faster. Video compression is also CPU-intensive — larger videos take longer to process."
         }
       },
       {
@@ -486,7 +486,7 @@
                 <span class="faq-icon" aria-hidden="true">▼</span>
               </button>
               <div class="faq-answer">
-                <p>The first time you use the tool, it downloads the FFmpeg WebAssembly engine (~30MB). This is cached by your browser, so subsequent uses are much faster. After that, compression runs on all of your CPU cores (multi-threaded), so it is significantly faster than single-threaded browser encoders.</p>
+                <p>The first time you use the tool, it downloads the FFmpeg WebAssembly engine (~30MB). This is cached by your browser, so subsequent uses are much faster. Video compression is also CPU-intensive — larger videos take longer to process.</p>
               </div>
             </div>
             <div class="faq-item">
@@ -634,7 +634,6 @@
       var ffmpegInstance = null;
       var ffmpegLoaded = false;
       var ffmpegLoadPromise = null;
-      var usingMultiThread = false;
 
       function formatSize(bytes) {
         if (bytes === 0) return '0 B';
@@ -723,56 +722,45 @@
       // Downloads the FFmpeg engine (JS glue + WASM) with real progress feedback.
       // Files are fetched from the CDN and turned into blob URLs, which also works
       // around cross-origin restrictions on workers importing CDN scripts.
-      // The multi-threaded core is tried first (uses all CPU cores); if the browser
-      // lacks SharedArrayBuffer, only the single-threaded core is used.
+      // NOTE: deliberately the single-threaded core. The multi-threaded core
+      // (core-mt 0.12.x) crashes mid-encode in Chrome — its printErr() glue calls
+      // message.startsWith() on undefined ffmpeg log events, rejecting exec() with
+      // an opaque error. Verified by headless testing on 2026-09-10.
       function downloadCore(onProgress) {
-        var variants = typeof SharedArrayBuffer !== 'undefined' ? ['core-mt', 'core'] : ['core'];
+        var baseURL = 'https://cdn.jsdelivr.net/npm/@ffmpeg/core@' + FFMPEG_CORE_VERSION + '/dist/umd';
+        var files = [
+          { url: baseURL + '/ffmpeg-core.js', mime: 'text/javascript', size: 114000 },
+          { url: baseURL + '/ffmpeg-core.wasm', mime: 'application/wasm', size: 31300000 }
+        ];
 
-        function tryVariant(i) {
-          if (i >= variants.length) {
-            return Promise.reject(new Error('Could not download the video engine. Check your connection and try again.'));
-          }
-          var variant = variants[i];
-          var baseURL = 'https://cdn.jsdelivr.net/npm/@ffmpeg/' + variant + '@' + FFMPEG_CORE_VERSION + '/dist/umd';
-          var files = [
-            { url: baseURL + '/ffmpeg-core.js', mime: 'text/javascript', size: 114000 },
-            { url: baseURL + '/ffmpeg-core.wasm', mime: 'application/wasm', size: 31300000 }
-          ];
-          if (variant === 'core-mt') files.push({ url: baseURL + '/ffmpeg-core.worker.js', mime: 'text/javascript', size: 3000 });
+        var expected = files.reduce(function (s, f) { return s + f.size; }, 0);
+        var loaded = 0;
 
-          var expected = files.reduce(function (s, f) { return s + f.size; }, 0);
-          var loaded = 0;
-
-          function fetchBlob(file) {
-            return fetch(file.url).then(function (resp) {
-              if (!resp.ok) throw new Error('HTTP ' + resp.status);
-              if (!resp.body) return resp.blob().then(function (b) { return new Blob([b], { type: file.mime }); });
-              var reader = resp.body.getReader();
-              var chunks = [];
-              function pump() {
-                return reader.read().then(function (result) {
-                  if (result.done) return new Blob(chunks, { type: file.mime });
-                  chunks.push(result.value);
-                  loaded += result.value.length;
-                  onProgress(Math.min(1, loaded / expected));
-                  return pump();
-                });
-              }
-              return pump();
-            });
-          }
-
-          return Promise.all(files.map(fetchBlob)).then(function (blobs) {
-            return {
-              multiThread: variant === 'core-mt',
-              coreURL: URL.createObjectURL(blobs[0]),
-              wasmURL: URL.createObjectURL(blobs[1]),
-              workerURL: variant === 'core-mt' ? URL.createObjectURL(blobs[2]) : null
-            };
-          }).catch(function () { return tryVariant(i + 1); });
+        function fetchBlob(file) {
+          return fetch(file.url).then(function (resp) {
+            if (!resp.ok) throw new Error('HTTP ' + resp.status);
+            if (!resp.body) return resp.blob().then(function (b) { return new Blob([b], { type: file.mime }); });
+            var reader = resp.body.getReader();
+            var chunks = [];
+            function pump() {
+              return reader.read().then(function (result) {
+                if (result.done) return new Blob(chunks, { type: file.mime });
+                chunks.push(result.value);
+                loaded += result.value.length;
+                onProgress(Math.min(1, loaded / expected));
+                return pump();
+              });
+            }
+            return pump();
+          });
         }
 
-        return tryVariant(0);
+        return Promise.all(files.map(fetchBlob)).then(function (blobs) {
+          return {
+            coreURL: URL.createObjectURL(blobs[0]),
+            wasmURL: URL.createObjectURL(blobs[1])
+          };
+        });
       }
 
       function loadFFmpeg(showUI) {
@@ -819,8 +807,7 @@
             });
 
             // Download the engine with real progress feedback, then hand FFmpeg
-            // the blob URLs. core-mt runs x264 on all CPU cores (~3-6x faster);
-            // browsers without SharedArrayBuffer fall back to the single-thread core.
+            // the blob URLs (single-threaded core — see note in downloadCore).
             var config = await downloadCore(function (frac) {
               var cs = document.getElementById('flCoreSub');
               if (cs) {
@@ -828,12 +815,9 @@
                 cs.textContent = 'Downloading video engine… ' + Math.round(frac * 100) + '%';
               }
             });
-            usingMultiThread = config.multiThread;
-
             await ffmpegInstance.load({
               coreURL: config.coreURL,
-              wasmURL: config.wasmURL,
-              workerURL: config.workerURL
+              wasmURL: config.wasmURL
             });
 
             ffmpegLoaded = true;
@@ -938,7 +922,7 @@
           progressLabel.textContent = 'Complete!';
           progressPct.textContent = '100%';
           progressFill.style.width = '100%';
-          progressDetail.textContent = 'Compression finished successfully.' + (usingMultiThread ? ' (multi-threaded)' : ' (single-threaded — your browser does not support multi-threading)');
+          progressDetail.textContent = 'Compression finished successfully.';
 
         } catch (err) {
           showError('Compression failed: ' + (err && err.message ? err.message : 'unknown error'));
