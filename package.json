@@ -5,7 +5,8 @@
   "description": "MultiWeb — free online tools (static site, no build step)",
   "scripts": {
     "dev": "node server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "deploy": "wrangler pages deploy . --project-name=multiweb --branch=main"
   },
   "engines": {
     "node": ">=18"
